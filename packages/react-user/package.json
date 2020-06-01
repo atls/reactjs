@@ -1,0 +1,32 @@
+{
+  "name": "@atlantis-lab/react-user",
+  "version": "0.0.0",
+  "license": "MIT",
+  "main": "dist/index.js",
+  "source": "src/index.ts",
+  "typings": "dist/types/index.d.ts",
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "clean": "rm -r -f dist",
+    "prepublishOnly": "yarn run build",
+    "prebuild": "yarn clean",
+    "build": "tsc -p tsconfig.json",
+    "prepack": "pubflow store",
+    "postpack": "pubflow restore"
+  },
+  "peerDependencies": {
+    "react": "^16.13.1"
+  },
+  "devDependencies": {
+    "@monstrs/publish-flow": "0.1.3",
+    "@types/react": "^16.9.35",
+    "react": "^16.13.1",
+    "rimraf": "3.0.2",
+    "typescript": "3.9.4"
+  },
+  "publishConfig": {
+    "access": "public"
+  }
+}
