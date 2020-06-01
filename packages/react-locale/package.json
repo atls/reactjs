@@ -1,0 +1,29 @@
+{
+  "name": "@torinasakura/react-locale",
+  "version": "0.1.15",
+  "license": "MIT",
+  "main": "dist/index.js",
+  "source": "src/index.ts",
+  "typings": "dist/types/index.d.ts",
+  "files": [
+    "dist"
+  ],
+  "publishConfig": {
+    "access": "public"
+  },
+  "scripts": {
+    "clean": "rimraf dist",
+    "prepublishOnly": "yarn run build",
+    "prebuild": "rimraf dist",
+    "build": "tsc -p tsconfig.json"
+  },
+  "peerDependencies": {
+    "react": "^16.13.1"
+  },
+  "devDependencies": {
+    "@types/react": "^16.9.35",
+    "react": "^16.13.1",
+    "rimraf": "3.0.2",
+    "typescript": "3.9.4"
+  }
+}
