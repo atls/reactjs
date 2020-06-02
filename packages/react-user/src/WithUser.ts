@@ -1,9 +1,9 @@
-import React       from 'react'
+import { useContext } from 'react'
 
-import { Context } from './Context'
+import { Context }    from './Context'
 
 export const WithUser = ({ children }: any) => {
-  const user = React.useContext(Context)
+  const user = useContext(Context)
 
   if (!user) {
     return null
