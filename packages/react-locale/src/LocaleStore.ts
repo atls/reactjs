@@ -13,8 +13,8 @@ export class LocaleStore {
     this.supported = supported
   }
 
-  private _emitChange() {
-    for (let i = 0; i < this.changeListeners.length; ++i) {
+  private emitChange() {
+    for (let i = 0; i < this.changeListeners.length; i += 1) {
       this.changeListeners[i](this.current)
     }
   }
@@ -30,7 +30,7 @@ export class LocaleStore {
   public set(locale: string) {
     if (this.supported.includes(locale)) {
       this.current = locale
-      this._emitChange()
+      this.emitChange()
     }
   }
 
