@@ -9,7 +9,7 @@ export const useLocale = () => {
     throw new Error('Missing <LocaleProvider>')
   }
 
-  const [current, setState] = React.useState(store.getCurrent())
+  const [, setState] = React.useState(store.getCurrent())
 
   React.useEffect(() => {
     const onChange = (locale: SetStateAction<string>) => setState(locale)
