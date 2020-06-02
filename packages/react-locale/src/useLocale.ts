@@ -1,17 +1,17 @@
-import React, { SetStateAction } from 'react'
+import { SetStateAction, useContext, useEffect, useMemo, useState } from 'react'
 
-import { Context }               from './Context'
+import { Context }                                                  from './Context'
 
 export const useLocale = () => {
-  const store = React.useContext(Context)
+  const store = useContext(Context)
 
   if (!store) {
     throw new Error('Missing <LocaleProvider>')
   }
 
-  const [current, setState] = React.useState(store.getCurrent())
+  const [, setState] = useState(store.getCurrent())
 
-  React.useEffect(() => {
+  useEffect(() => {
     const onChange = (locale: SetStateAction<string>) => setState(locale)
 
     store.addChangeListener(onChange)
@@ -21,7 +21,7 @@ export const useLocale = () => {
     }
   }, [store])
 
-  const setLocale = React.useMemo(() => store.set.bind(store), [store])
+  const setLocale = useMemo(() => store.set.bind(store), [store])
 
   return [store.getCurrent(), store.getSupported(), setLocale]
 }
