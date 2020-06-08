@@ -7,29 +7,16 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 **Note:** Version bump only for package @atlantis-lab/react-auth
 
-
-
-
-
 ## [0.1.2](https://github.com/Atlantis-Lab/reactjs/compare/@atlantis-lab/react-auth@0.1.1...@atlantis-lab/react-auth@0.1.2) (2020-06-02)
 
 **Note:** Version bump only for package @atlantis-lab/react-auth
-
-
-
-
 
 ## [0.1.1](https://github.com/Atlantis-Lab/reactjs/compare/@atlantis-lab/react-auth@0.1.0...@atlantis-lab/react-auth@0.1.1) (2020-06-01)
 
 **Note:** Version bump only for package @atlantis-lab/react-auth
 
-
-
-
-
 # 0.1.0 (2020-06-01)
-
 
 ### Features
 
-* **react-auth:** init ([be80178](https://github.com/Atlantis-Lab/reactjs/commit/be80178fe2255074f73e637cc5513edcd60edf09))
+- **react-auth:** init ([be80178](https://github.com/Atlantis-Lab/reactjs/commit/be80178fe2255074f73e637cc5513edcd60edf09))
