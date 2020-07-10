@@ -3,6 +3,14 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.1.11](https://github.com/Atlantis-Lab/reactjs/compare/@atlantis-lab/react-auth@0.1.10...@atlantis-lab/react-auth@0.1.11) (2020-07-10)
+
+**Note:** Version bump only for package @atlantis-lab/react-auth
+
+
+
+
+
 ## [0.1.10](https://github.com/Atlantis-Lab/reactjs/compare/@atlantis-lab/react-auth@0.1.9...@atlantis-lab/react-auth@0.1.10) (2020-07-01)
 
 **Note:** Version bump only for package @atlantis-lab/react-auth
