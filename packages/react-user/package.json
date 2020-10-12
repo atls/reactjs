@@ -24,7 +24,7 @@
     "@monstrs/publish-flow": "0.1.3",
     "@types/react": "16.9.49",
     "react": "16.13.1",
-    "typescript": "4.0.2"
+    "typescript": "4.0.3"
   },
   "publishConfig": {
     "access": "public"
