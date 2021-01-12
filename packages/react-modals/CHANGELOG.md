@@ -3,6 +3,14 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## 0.1.19 (2021-01-12)
+
+**Note:** Version bump only for package @atlantis-lab/react-modals
+
+
+
+
+
 ## [0.1.18](https://github.com/Atlantis-Lab/reactjs/compare/@atlantis-lab/react-modals@0.1.17...@atlantis-lab/react-modals@0.1.18) (2020-10-12)
 
 **Note:** Version bump only for package @atlantis-lab/react-modals
