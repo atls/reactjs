@@ -6,8 +6,8 @@ import { AuthConsumer, AuthContext, AuthProvider, useAuth } from '../src/index'
 
 configure({ adapter: new Adapter() })
 
-describe('Test suit for react-auth package', function() {
-  test('should return h1 with provided token using AuthProvider and AuthConsumer', function() {
+describe('Test suit for react-auth package', function describer() {
+  test('should return h1 with provided token using AuthProvider and AuthConsumer', function tester() {
     const tokenStub: string = 'k4Xergan4Sf7ejaD'
 
     expect(
@@ -21,7 +21,7 @@ describe('Test suit for react-auth package', function() {
     ).toBe(tokenStub)
   })
 
-  test('should return h1 with provided token using AuthContext', function() {
+  test('should return h1 with provided token using AuthContext', function tester() {
     const tokenStub: string = 'k4Xergan4Sf7ejaD'
 
     expect(
@@ -35,7 +35,7 @@ describe('Test suit for react-auth package', function() {
     ).toBe(tokenStub)
   })
 
-  test('should return h1 with provided token using useAuth hook', function() {
+  test('should return h1 with provided token using useAuth hook', function tester() {
     const tokenStub: string = 'k4Xergan4Sf7ejaD'
 
     const App = () => <ProviderComponent />
