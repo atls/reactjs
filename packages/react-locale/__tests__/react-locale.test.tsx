@@ -18,7 +18,7 @@ describe('Test suit for react-locale', function describer() {
                     </LocaleConsumer>
                 </div>
             </LocaleProvider>
-        ))
+        ).text()).toBe(`${ctxStore.getCurrent()} ${ctxStore.getSupported()}`)
 
     })
 
