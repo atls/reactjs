@@ -20,7 +20,7 @@
   },
   "dependencies": {
     "react": "^16.13.1",
-    "react-dom": "^17.0.1"
+    "react-dom": "^16.13.1"
   },
   "devDependencies": {
     "@atlantis-lab/jest-config": "^0.1.2",
