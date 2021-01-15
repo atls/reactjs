@@ -1,14 +1,15 @@
-import Adapter                      from 'enzyme-adapter-react-16'
 import React                        from 'react'
-import { configure, render }        from 'enzyme'
+import TestRenderer                 from 'react-test-renderer'
 
 import { ModalsProvider, useModal } from '../src/index'
 
-configure({ adapter: new Adapter() })
-
 describe('Test suit for react-modals', function describer() {
   test('should return property of modal in provided store', function tester() {
-    const App = () => <Wrapper />
+    const App = () => (
+      <ModalsProvider>
+        <Wrapper />
+      </ModalsProvider>
+    )
 
     const Wrapper = () => (
       <div>
@@ -19,17 +20,11 @@ describe('Test suit for react-modals', function describer() {
     const ConsumerElement = () => {
       const { visible } = useModal('testModal')
 
-      return <h1 className='ctx'>{`${visible}`}</h1>
+      return <h1>{`${visible}`}</h1>
     }
 
-    expect(
-      render(
-        <ModalsProvider>
-          <App />
-        </ModalsProvider>
-      )
-        .find('.ctx')
-        .text()
-    ).toBe('false')
+    const testRenderer = TestRenderer.create(<App />)
+
+    expect(testRenderer.root.findByType('h1').props.children).toBe('false')
   })
 })
