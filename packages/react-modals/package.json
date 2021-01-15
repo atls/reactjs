@@ -1,7 +1,7 @@
 {
   "name": "@atlantis-lab/react-modals",
   "repository": "git@github.com:Atlantis-Lab/reactjs.git",
-  "version": "0.1.25",
+  "version": "0.1.26",
   "license": "BSD 3-Clause",
   "main": "dist/index.js",
   "source": "src/index.ts",
@@ -23,9 +23,9 @@
     "@types/jest": "^26.0.20",
     "@types/node": "14.14.20",
     "@types/react": "17.0.0",
-    "typescript": "4.1.3",
     "enzyme": "^3.11.0",
-    "enzyme-adapter-react-16": "^1.15.5"
+    "enzyme-adapter-react-16": "^1.15.5",
+    "typescript": "4.1.3"
   },
   "dependencies": {
     "react": "^16.13.1",
