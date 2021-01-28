@@ -3,6 +3,14 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## 0.1.25 (2021-01-28)
+
+**Note:** Version bump only for package @atlantis-lab/react-auth
+
+
+
+
+
 ## 0.1.24 (2021-01-15)
 
 **Note:** Version bump only for package @atlantis-lab/react-auth
