@@ -32,6 +32,6 @@
     "access": "public"
   },
   "dependencies": {
-    "react": "^17.0.0"
+    "react": "16.14.0"
   }
 }
