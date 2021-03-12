@@ -19,7 +19,7 @@
     "test": "jest"
   },
   "dependencies": {
-    "react": "^17.0.0"
+    "react": "16.14.0"
   },
   "devDependencies": {
     "@atlantis-lab/jest-config": "^0.1.2",
