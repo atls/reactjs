@@ -3,15 +3,17 @@ import TestRenderer                                               from 'react-te
 
 import { LocaleConsumer, LocaleProvider, LocaleStore, useLocale } from '../src/index'
 
-describe('Test suit for react-locale', function describer() {
-  test('should return h1 with provided context', function tester() {
+describe('Test suit for react-locale', () => {
+  test('should return h1 with provided context', () => {
     const ctxStore = new LocaleStore('en', ['en', 'ru'])
 
     const App = () => (
       <LocaleProvider value={ctxStore}>
         <div>
           <LocaleConsumer>
-            {localeStore => <h1>{`${localeStore.getCurrent()} ${localeStore.getSupported()}`}</h1>}
+            {(localeStore) => (
+              <h1>{`${localeStore.getCurrent()} ${localeStore.getSupported()}`}</h1>
+            )}
           </LocaleConsumer>
         </div>
       </LocaleProvider>
@@ -24,22 +26,8 @@ describe('Test suit for react-locale', function describer() {
     )
   })
 
-  test('should track LocaleStore changes + useLocale', function tester() {
+  test('should track LocaleStore changes + useLocale', () => {
     const ctxStore = new LocaleStore('en', ['en', 'ru'])
-
-    const App = () => <ProviderComponent />
-
-    const ProviderComponent = () => (
-      <LocaleProvider value={ctxStore}>
-        <Wrapper />
-      </LocaleProvider>
-    )
-
-    const Wrapper = () => (
-      <div>
-        <ConsumerComponent />
-      </div>
-    )
 
     const ConsumerComponent = () => {
       ctxStore.set('ru')
@@ -48,6 +36,20 @@ describe('Test suit for react-locale', function describer() {
 
       return <h1>{`${getCurrent} ${getSupported}`}</h1>
     }
+
+    const Wrapper = () => (
+      <div>
+        <ConsumerComponent />
+      </div>
+    )
+
+    const ProviderComponent = () => (
+      <LocaleProvider value={ctxStore}>
+        <Wrapper />
+      </LocaleProvider>
+    )
+
+    const App = () => <ProviderComponent />
 
     const testRenderer = TestRenderer.create(<App />)
 

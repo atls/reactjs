@@ -17,9 +17,9 @@ export const useModal = (id: any) => {
     return () => {
       store.removeListener(id, setContext)
     }
-  }, [store])
+  }, [id, store])
 
-  const open = useMemo(() => store.open.bind(store, id), [store])
-  const close = useMemo(() => store.close.bind(store, id), [store])
+  const open = useMemo(() => store.open.bind(store, id), [id, store])
+  const close = useMemo(() => store.close.bind(store, id), [id, store])
   return { visible: Boolean(context), context, open, close }
 }

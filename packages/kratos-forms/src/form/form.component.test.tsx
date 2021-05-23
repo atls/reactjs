@@ -30,9 +30,7 @@ describe('form.component', () => {
   })
 
   it('with action', async () => {
-    const { getByTestId } = render(
-      <Form data-testid='form' action='https://identity.atls.tech' />
-    )
+    const { getByTestId } = render(<Form data-testid='form' action='https://identity.atls.tech' />)
 
     expect(getByTestId('form')).toHaveAttribute('action', 'https://identity.atls.tech')
   })
