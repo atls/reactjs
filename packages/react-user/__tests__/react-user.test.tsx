@@ -3,8 +3,8 @@ import TestRenderer                            from 'react-test-renderer'
 
 import { UserProvider, WithUser, WithoutUser } from '../src/index'
 
-describe('Test suit for react-user', function describer() {
-  test('should return that user is authorized', function tester() {
+describe('Test suit for react-user', () => {
+  test('should return that user is authorized', () => {
     const authorizedMsg: string = 'User is authorized'
     const notAuthorizedMsg: string = 'User is not authorized'
 
@@ -27,7 +27,7 @@ describe('Test suit for react-user', function describer() {
     expect(testRenderer.root.findByType('h1').props.children).toBe(authorizedMsg)
   })
 
-  test('should return that user is not authorized', function tester() {
+  test('should return that user is not authorized', () => {
     const authorizedMsg: string = 'User is authorized'
     const notAuthorizedMsg: string = 'User is not authorized'
 
