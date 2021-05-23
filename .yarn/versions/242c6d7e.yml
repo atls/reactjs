@@ -3,4 +3,4 @@ releases:
   "@atls/react-kratos-forms": patch
   "@atls/react-locale": patch
   "@atls/react-modals": patch
-  "@ats/react-user": patch
+  "@atls/react-user": patch
