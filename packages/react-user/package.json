@@ -1,5 +1,5 @@
 {
-  "name": "@ats/react-user",
+  "name": "@atls/react-user",
   "version": "0.1.36",
   "license": "BSD 3-Clause",
   "main": "dist/index.js",
