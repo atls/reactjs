@@ -39,7 +39,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
         "reference": "workspace:packages/react-modals"
       },
       {
-        "name": "@ats/react-user",
+        "name": "@atls/react-user",
         "reference": "workspace:packages/react-user"
       }
     ],
@@ -50,7 +50,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
       ["@atls/react-kratos-forms", ["workspace:packages/kratos-forms"]],
       ["@atls/react-locale", ["workspace:packages/react-locale"]],
       ["@atls/react-modals", ["workspace:packages/react-modals"]],
-      ["@ats/react-user", ["workspace:packages/react-user"]],
+      ["@atls/react-user", ["workspace:packages/react-user"]],
       ["reactjs", ["workspace:."]]
     ],
     "fallbackPool": [
@@ -547,6 +547,22 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "linkType": "SOFT",
         }]
       ]],
+      ["@atls/react-user", [
+        ["workspace:packages/react-user", {
+          "packageLocation": "./packages/react-user/",
+          "packageDependencies": [
+            ["@atls/react-user", "workspace:packages/react-user"],
+            ["@atlantis-lab/jest-config", "npm:0.1.2"],
+            ["@types/jest", "npm:26.0.20"],
+            ["@types/react", "npm:17.0.6"],
+            ["react", "npm:16.14.0"],
+            ["react-test-renderer", "virtual:9f216164fd6bae235717145322d3807eb7ff7702b48f7fda09c85c60eaf25dcb2e43da9ddee293dd2e646a14604242a5827424bf0cde9778a00fa1efd824c2b2#npm:17.0.1"],
+            ["ts-jest", "virtual:9f216164fd6bae235717145322d3807eb7ff7702b48f7fda09c85c60eaf25dcb2e43da9ddee293dd2e646a14604242a5827424bf0cde9778a00fa1efd824c2b2#npm:26.4.4"],
+            ["typescript", "patch:typescript@npm%3A4.2.3#builtin<compat/typescript>::version=4.2.3&hash=a45b0e"]
+          ],
+          "linkType": "SOFT",
+        }]
+      ]],
       ["@atls/stack-trace", [
         ["npm:0.0.1", {
           "packageLocation": "./.yarn/cache/@atls-stack-trace-npm-0.0.1-ab010589d6-a26bd018a9.zip/node_modules/@atls/stack-trace/",
@@ -609,22 +625,6 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["webpack", "virtual:4b5c9942d8f588496db32b10f8b58eb90e576fbd4bb1cc150c7cd1c82910ee1a251a10367d2d805899cc07cbb963043bb5a13870ae8a4909f8dbc6c86d180308#npm:5.37.1"]
           ],
           "linkType": "HARD",
-        }]
-      ]],
-      ["@ats/react-user", [
-        ["workspace:packages/react-user", {
-          "packageLocation": "./packages/react-user/",
-          "packageDependencies": [
-            ["@ats/react-user", "workspace:packages/react-user"],
-            ["@atlantis-lab/jest-config", "npm:0.1.2"],
-            ["@types/jest", "npm:26.0.20"],
-            ["@types/react", "npm:17.0.6"],
-            ["react", "npm:16.14.0"],
-            ["react-test-renderer", "virtual:9f216164fd6bae235717145322d3807eb7ff7702b48f7fda09c85c60eaf25dcb2e43da9ddee293dd2e646a14604242a5827424bf0cde9778a00fa1efd824c2b2#npm:17.0.1"],
-            ["ts-jest", "virtual:9f216164fd6bae235717145322d3807eb7ff7702b48f7fda09c85c60eaf25dcb2e43da9ddee293dd2e646a14604242a5827424bf0cde9778a00fa1efd824c2b2#npm:26.4.4"],
-            ["typescript", "patch:typescript@npm%3A4.2.3#builtin<compat/typescript>::version=4.2.3&hash=a45b0e"]
-          ],
-          "linkType": "SOFT",
         }]
       ]],
       ["@babel/code-frame", [

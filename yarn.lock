@@ -405,6 +405,20 @@ __metadata:
   languageName: unknown
   linkType: soft
 
+"@atls/react-user@workspace:packages/react-user":
+  version: 0.0.0-use.local
+  resolution: "@atls/react-user@workspace:packages/react-user"
+  dependencies:
+    "@atlantis-lab/jest-config": ^0.1.2
+    "@types/jest": ^26.0.20
+    "@types/react": 17.0.3
+    react: 16.14.0
+    react-test-renderer: ^17.0.1
+    ts-jest: ^26.4.4
+    typescript: 4.2.3
+  languageName: unknown
+  linkType: soft
+
 "@atls/stack-trace@npm:^0.0.1":
   version: 0.0.1
   resolution: "@atls/stack-trace@npm:0.0.1"
@@ -451,20 +465,6 @@ __metadata:
   checksum: c916b1c84e6c763cb70627f5d3768479f91c1e070984c0079e97a806d39f9872a5cf2e9e4985739b0b7424210a1202b72bd56039efcb7c6b0d79b89feb57e4f3
   languageName: node
   linkType: hard
-
-"@ats/react-user@workspace:packages/react-user":
-  version: 0.0.0-use.local
-  resolution: "@ats/react-user@workspace:packages/react-user"
-  dependencies:
-    "@atlantis-lab/jest-config": ^0.1.2
-    "@types/jest": ^26.0.20
-    "@types/react": 17.0.3
-    react: 16.14.0
-    react-test-renderer: ^17.0.1
-    ts-jest: ^26.4.4
-    typescript: 4.2.3
-  languageName: unknown
-  linkType: soft
 
 "@babel/code-frame@npm:7.12.11":
   version: 7.12.11
