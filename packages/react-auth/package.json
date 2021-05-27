@@ -1,6 +1,6 @@
 {
   "name": "@atls/react-auth",
-  "version": "0.1.38",
+  "version": "0.1.39",
   "license": "BSD 3-Clause",
   "main": "dist/index.js",
   "source": "src/index.ts",
