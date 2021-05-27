@@ -1,6 +1,6 @@
 {
   "name": "@atls/react-modals",
-  "version": "0.1.41",
+  "version": "0.1.42",
   "license": "BSD 3-Clause",
   "main": "dist/index.js",
   "source": "src/index.ts",
