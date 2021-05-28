@@ -1,10 +1,10 @@
 {
   "name": "@atls/react-user",
-  "version": "0.1.38",
+  "version": "0.1.39",
   "license": "BSD 3-Clause",
-  "main": "dist/index.js",
+  "main": "dist/src/index.js",
   "source": "src/index.ts",
-  "typings": "dist/types/index.d.ts",
+  "typings": "dist/src/index.d.ts",
   "files": [
     "dist"
   ],
