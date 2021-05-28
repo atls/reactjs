@@ -1,6 +1,6 @@
 {
   "name": "@atls/react-user",
-  "version": "0.1.39",
+  "version": "0.1.40",
   "license": "BSD 3-Clause",
   "main": "dist/src/index.js",
   "source": "src/index.ts",
