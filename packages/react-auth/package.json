@@ -2,9 +2,9 @@
   "name": "@atls/react-auth",
   "version": "0.1.40",
   "license": "BSD 3-Clause",
-  "main": "dist/index.js",
+  "main": "dist/src/index.js",
   "source": "src/index.ts",
-  "typings": "dist/index.d.ts",
+  "typings": "dist/src/index.d.ts",
   "files": [
     "dist"
   ],
