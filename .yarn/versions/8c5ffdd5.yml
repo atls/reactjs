@@ -1,0 +1,5 @@
+releases:
+  "@atls/react-api-auth-user": patch
+  "@atls/react-identity-links": patch
+  "@atls/react-kratos-forms": patch
+  "@atls/react-user": patch
