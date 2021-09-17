@@ -348,7 +348,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@atls/react-api-auth-user@workspace:packages/api-auth-user"
   dependencies:
-    "@atls/react-user": "workspace:0.1.40"
+    "@atls/react-user": "workspace:0.1.41"
     "@types/react": ^17.0.20
     react: ^17.0.2
   peerDependencies:
@@ -424,7 +424,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@atls/react-user@workspace:0.1.40, @atls/react-user@workspace:packages/react-user":
+"@atls/react-user@workspace:0.1.41, @atls/react-user@workspace:packages/react-user":
   version: 0.0.0-use.local
   resolution: "@atls/react-user@workspace:packages/react-user"
   dependencies:
