@@ -1,0 +1,6 @@
+releases:
+  "@atls/react-api-auth-user": patch
+  "@atls/react-auth": patch
+  "@atls/react-locale": patch
+  "@atls/react-modals": patch
+  "@atls/react-user": patch
