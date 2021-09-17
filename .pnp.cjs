@@ -542,8 +542,8 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["@testing-library/jest-dom", "npm:5.12.0"],
             ["@testing-library/react", "virtual:2d74908b37cf7e6a42ef32c9475075d062632c0123ec82f206e6c55aa9eaa2cf6502553fa8848802c95b5e73e1cc9a69c2c80b63bad0de913cf3b30db447a32b#npm:11.2.7"],
             ["@types/react", "npm:17.0.6"],
-            ["@types/react-dom", "npm:17.0.5"],
-            ["@types/testing-library__jest-dom", "npm:5.9.5"],
+            ["@types/react-dom", "npm:17.0.9"],
+            ["@types/testing-library__jest-dom", "npm:5.14.1"],
             ["react", "npm:17.0.2"],
             ["react-dom", "virtual:3c6684a2a71ebfee624a1a07e386044939c871ad84e4f3de0a9680f3e06cb110c72bd84362a38fe0ae70f01c0f8564a8682422c054b9abc39706979b46282127#npm:17.0.2"]
           ],
@@ -2070,7 +2070,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["@babel/runtime", "npm:7.14.0"],
             ["@testing-library/dom", "npm:7.31.0"],
             ["@types/react", "npm:17.0.6"],
-            ["@types/react-dom", "npm:17.0.5"],
+            ["@types/react-dom", "npm:17.0.9"],
             ["react", "npm:17.0.2"],
             ["react-dom", "virtual:3c6684a2a71ebfee624a1a07e386044939c871ad84e4f3de0a9680f3e06cb110c72bd84362a38fe0ae70f01c0f8564a8682422c054b9abc39706979b46282127#npm:17.0.2"]
           ],
@@ -2483,14 +2483,6 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
         }]
       ]],
       ["@types/react-dom", [
-        ["npm:17.0.5", {
-          "packageLocation": "./.yarn/cache/@types-react-dom-npm-17.0.5-63db13d4bc-ff301198c6.zip/node_modules/@types/react-dom/",
-          "packageDependencies": [
-            ["@types/react-dom", "npm:17.0.5"],
-            ["@types/react", "npm:17.0.6"]
-          ],
-          "linkType": "HARD",
-        }],
         ["npm:17.0.9", {
           "packageLocation": "./.yarn/cache/@types-react-dom-npm-17.0.9-046b4282f3-b7e898e1a2.zip/node_modules/@types/react-dom/",
           "packageDependencies": [
