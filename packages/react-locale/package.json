@@ -7,7 +7,8 @@
     "dist"
   ],
   "scripts": {
-    "build": "yarn app library build",
+    "exclude-tests": "rm -rf dist/unit && cp -R dist/src/ dist/ && rm -rf dist/src",
+    "build": "yarn app library build && yarn exclude-tests",
     "postpack": "rm -rf dist",
     "prepack": "yarn run build"
   },
