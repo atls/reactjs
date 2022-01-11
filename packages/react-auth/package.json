@@ -4,7 +4,7 @@
   "license": "BSD 3-Clause",
   "main": "src/index.ts",
   "files": [
-    "dist"
+    "dist/src"
   ],
   "scripts": {
     "build": "yarn app library build",
@@ -25,7 +25,7 @@
   },
   "publishConfig": {
     "access": "public",
-    "main": "dist/index.js",
-    "typings": "dist/index.d.ts"
+    "main": "dist/src/index.js",
+    "typings": "dist/src/index.d.ts"
   }
 }
