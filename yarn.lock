@@ -70,7 +70,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@atls/react-api-auth-user@workspace:packages/api-auth-user"
   dependencies:
-    "@atls/react-user": "workspace:0.1.43"
+    "@atls/react-user": "workspace:0.1.44"
     "@types/react": ^17.0.39
     react: ^17.0.2
   peerDependencies:
@@ -101,7 +101,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@atls/react-identity-user-provider@workspace:packages/identity-user-provider"
   dependencies:
-    "@atls/react-user": "workspace:0.1.43"
+    "@atls/react-user": "workspace:0.1.44"
     "@types/react": ^17.0.39
     react: ^17.0.2
     tldjs: ^2.3.1
@@ -131,7 +131,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@atls/react-user@workspace:0.1.43, @atls/react-user@workspace:packages/user":
+"@atls/react-user@workspace:0.1.44, @atls/react-user@workspace:packages/user":
   version: 0.0.0-use.local
   resolution: "@atls/react-user@workspace:packages/user"
   dependencies:
