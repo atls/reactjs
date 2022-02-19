@@ -1,9 +1,10 @@
-import { useEffect }           from 'react'
 import { useState }            from 'react'
+import { getDomain }           from 'tldjs'
 
 import { UseIdentityUrlProps } from './identity-url.interfaces'
+import { useBrowserEffect }    from './use-browser-effect.hook'
 
-export const IdentityUrlTypes = {
+export const identityUrlTypes = {
   login: '/auth/login',
   registration: '/auth/registration',
   verification: '/auth/verification',
@@ -12,46 +13,33 @@ export const IdentityUrlTypes = {
   settings: '/profile/settings',
 }
 
-export const useIdentityUrl = ({
-  type = 'login',
-  subdomain = 'accounts',
-  returnTo,
-  substractHost,
-}: UseIdentityUrlProps = {}): string | null => {
+export const useIdentityUrl = ({ type = 'login', returnTo }: UseIdentityUrlProps = {}):
+  | string
+  | null => {
   const [url, setUrl] = useState<string | null>(null)
 
-  useEffect(() => {
-    if (typeof window !== 'undefined') {
-      const { hostname, origin, href } = window.location
-      const path = IdentityUrlTypes[type]
+  useBrowserEffect(() => {
+    const { hostname, origin, href, protocol } = window.location
+    const path = identityUrlTypes[type]
 
-      let host = hostname
+    const domain = hostname === 'localhost' ? 'localhost:4433' : getDomain(hostname)
 
-      if (substractHost && host.startsWith(substractHost)) {
-        host = host.replace(substractHost.endsWith('.') ? substractHost : `${substractHost}.`, '')
-      }
+    if (returnTo === false) {
+      setUrl(`${protocol}//accounts.${domain}${path}`)
+    } else {
+      let returnToValue = href
 
-      if (subdomain) {
-        host = `${subdomain}.${host}`
-      }
-
-      if (returnTo === false) {
-        setUrl(`https://${host}${path}`)
-      } else {
-        let returnToValue = href
-
-        if (returnTo) {
-          if (returnTo.startsWith('http')) {
-            returnToValue = returnTo
-          } else if (returnTo.startsWith('/')) {
-            returnToValue = `${origin}${returnTo}`
-          }
+      if (returnTo) {
+        if (returnTo.startsWith('http')) {
+          returnToValue = returnTo
+        } else if (returnTo.startsWith('/')) {
+          returnToValue = `${origin}${returnTo}`
         }
-
-        setUrl(`https://${host}${path}?return_to=${returnToValue}`)
       }
+
+      setUrl(`${protocol}//accounts.${domain}${path}?return_to=${returnToValue}`)
     }
-  }, [type, subdomain, returnTo, substractHost])
+  }, [type, returnTo])
 
   return url
 }

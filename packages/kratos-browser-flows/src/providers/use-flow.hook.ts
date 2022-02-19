@@ -2,8 +2,8 @@ import { useContext } from 'react'
 import { useEffect }  from 'react'
 import { useState }   from 'react'
 
-import { Context }    from './flows.context'
 import { Flow }       from '../flows/flow.interfaces'
+import { Context }    from './flows.context'
 
 export const useFlow = (): Flow => {
   const flow = useContext(Context)

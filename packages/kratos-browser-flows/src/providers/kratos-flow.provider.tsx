@@ -1,15 +1,16 @@
 import React                from 'react'
-import { useMemo }          from 'react'
 import { FC }               from 'react'
+import { useMemo }          from 'react'
 
-import { RegistrationFlow } from '../flows/registration.flow'
-import { VerificationFlow } from '../flows/verification.flow'
-import { RecoveryFlow }     from '../flows/recovery.flow'
-import { SettingsFlow }     from '../flows/settings.flow'
 import { ErrorsFlow }       from '../flows/errors.flow'
-import { LoginFlow }        from '../flows/login.flow'
 import { FlowName }         from '../flows/flow.interfaces'
 import { KratosClient }     from '../flows/kratos.client'
+import { LoginFlow }        from '../flows/login.flow'
+import { LogoutFlow }       from '../flows/logout.flow'
+import { RecoveryFlow }     from '../flows/recovery.flow'
+import { RegistrationFlow } from '../flows/registration.flow'
+import { SettingsFlow }     from '../flows/settings.flow'
+import { VerificationFlow } from '../flows/verification.flow'
 import { Provider }         from './flows.context'
 
 export interface KratosFlowProviderProps {
@@ -43,6 +44,10 @@ export const KratosFlowProvider: FC<KratosFlowProviderProps> = ({ name, basePath
 
     if (name === 'errors') {
       return new ErrorsFlow(client)
+    }
+
+    if (name === 'logout') {
+      return new LogoutFlow(client)
     }
 
     throw new Error(`Unkown flow: ${name}`)

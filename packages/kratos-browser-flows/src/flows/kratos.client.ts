@@ -1,7 +1,7 @@
 import { Configuration } from '@ory/kratos-client'
-import { V0alpha1Api }   from '@ory/kratos-client'
+import { V0alpha2Api }   from '@ory/kratos-client'
 
-export class KratosClient extends V0alpha1Api {
+export class KratosClient extends V0alpha2Api {
   constructor(basePath?: string) {
     if (!basePath && typeof window !== 'undefined') {
       if (window.location.hostname === 'localhost') {

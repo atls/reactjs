@@ -27,7 +27,7 @@ export class RegistrationFlow extends AbstractFlow<
         ? await this.client.getSelfServiceRegistrationFlow(flowId, undefined, {
             withCredentials: true,
           })
-        : await this.client.initializeSelfServiceRegistrationFlowForBrowsers({
+        : await this.client.initializeSelfServiceRegistrationFlowForBrowsers(undefined, {
             withCredentials: true,
           })
 

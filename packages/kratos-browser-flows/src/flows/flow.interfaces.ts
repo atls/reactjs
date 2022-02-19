@@ -10,6 +10,7 @@ import type { SubmitSelfServiceSettingsFlowBody }     from '@ory/kratos-client'
 import type { SubmitSelfServiceLoginFlowBody }        from '@ory/kratos-client'
 import type { UiText }                                from '@ory/kratos-client'
 import type { UiNode }                                from '@ory/kratos-client'
+
 import { EventEmitter }                               from 'events'
 
 export type FlowName =

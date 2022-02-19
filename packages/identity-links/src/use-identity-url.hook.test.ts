@@ -25,7 +25,7 @@ describe('use-identity-url', () => {
     const { result } = renderHook(() => useIdentityUrl())
 
     expect(result.current).toBe(
-      'https://accounts.identity.atls.tech/auth/login?return_to=https://identity.atls.tech/'
+      'https://accounts.atls.tech/auth/login?return_to=https://identity.atls.tech/'
     )
   })
 
@@ -35,17 +35,7 @@ describe('use-identity-url', () => {
     const { result } = renderHook(() => useIdentityUrl({ type: 'registration' }))
 
     expect(result.current).toBe(
-      'https://accounts.identity.atls.tech/auth/registration?return_to=https://identity.atls.tech/'
-    )
-  })
-
-  it('custom subdomain', () => {
-    mockWindowLocation(new URL('https://identity.atls.tech'))
-
-    const { result } = renderHook(() => useIdentityUrl({ subdomain: 'custom' }))
-
-    expect(result.current).toBe(
-      'https://custom.identity.atls.tech/auth/login?return_to=https://identity.atls.tech/'
+      'https://accounts.atls.tech/auth/registration?return_to=https://identity.atls.tech/'
     )
   })
 
@@ -55,7 +45,7 @@ describe('use-identity-url', () => {
     const { result } = renderHook(() => useIdentityUrl({ returnTo: '/custom' }))
 
     expect(result.current).toBe(
-      'https://accounts.identity.atls.tech/auth/login?return_to=https://identity.atls.tech/custom'
+      'https://accounts.atls.tech/auth/login?return_to=https://identity.atls.tech/custom'
     )
   })
 
@@ -65,17 +55,7 @@ describe('use-identity-url', () => {
     const { result } = renderHook(() => useIdentityUrl({ returnTo: 'https://custom.atls.tech/' }))
 
     expect(result.current).toBe(
-      'https://accounts.identity.atls.tech/auth/login?return_to=https://custom.atls.tech/'
-    )
-  })
-
-  it('substract host', () => {
-    mockWindowLocation(new URL('https://identity.atls.tech'))
-
-    const { result } = renderHook(() => useIdentityUrl({ substractHost: 'identity' }))
-
-    expect(result.current).toBe(
-      'https://accounts.atls.tech/auth/login?return_to=https://identity.atls.tech/'
+      'https://accounts.atls.tech/auth/login?return_to=https://custom.atls.tech/'
     )
   })
 })

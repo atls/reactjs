@@ -71,7 +71,7 @@ __metadata:
   resolution: "@atls/react-api-auth-user@workspace:packages/api-auth-user"
   dependencies:
     "@atls/react-user": "workspace:0.1.43"
-    "@types/react": ^17.0.20
+    "@types/react": ^17.0.39
     react: ^17.0.2
   peerDependencies:
     "@atls/react-user": "*"
@@ -83,15 +83,30 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@atls/react-identity-links@workspace:packages/identity-links"
   dependencies:
-    "@testing-library/jest-dom": ^5.14.1
-    "@testing-library/react": ^12.1.0
+    "@testing-library/jest-dom": ^5.16.2
+    "@testing-library/react": ^12.1.3
     "@testing-library/react-hooks": ^7.0.2
-    "@types/react": ^17.0.20
-    "@types/react-dom": ^17.0.9
+    "@types/react": ^17.0.39
+    "@types/react-dom": ^17.0.11
     "@types/testing-library__jest-dom": ^5.14.1
     react: ^17.0.2
     react-dom: ^17.0.2
+    tldjs: ^2.3.1
   peerDependencies:
+    react: ^17.0.1
+  languageName: unknown
+  linkType: soft
+
+"@atls/react-identity-user-provider@workspace:packages/identity-user-provider":
+  version: 0.0.0-use.local
+  resolution: "@atls/react-identity-user-provider@workspace:packages/identity-user-provider"
+  dependencies:
+    "@atls/react-user": "workspace:0.1.43"
+    "@types/react": ^17.0.39
+    react: ^17.0.2
+    tldjs: ^2.3.1
+  peerDependencies:
+    "@atls/react-user": "*"
     react: ^17.0.1
   languageName: unknown
   linkType: soft
@@ -100,12 +115,12 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@atls/react-kratos-browser-flows@workspace:packages/kratos-browser-flows"
   dependencies:
-    "@ory/kratos-client": ^0.7.6-alpha.1
-    "@testing-library/jest-dom": ^5.14.1
-    "@testing-library/react": ^12.1.0
+    "@ory/kratos-client": ^0.8.2-alpha.1
+    "@testing-library/jest-dom": ^5.16.2
+    "@testing-library/react": ^12.1.3
     "@types/events": ^3.0.0
-    "@types/react": ^17.0.20
-    "@types/react-dom": ^17.0.9
+    "@types/react": ^17.0.39
+    "@types/react-dom": ^17.0.11
     "@types/testing-library__jest-dom": ^5.14.1
     axios: ^0.21.4
     events: ^3.3.0
@@ -120,7 +135,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@atls/react-user@workspace:packages/user"
   dependencies:
-    "@types/react": ^17.0.20
+    "@types/react": ^17.0.39
     react: ^17.0.2
   peerDependencies:
     react: ^17.0.1
@@ -1222,12 +1237,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@ory/kratos-client@npm:^0.7.6-alpha.1":
-  version: 0.7.6-alpha.3
-  resolution: "@ory/kratos-client@npm:0.7.6-alpha.3"
+"@ory/kratos-client@npm:^0.8.2-alpha.1":
+  version: 0.8.2-alpha.1
+  resolution: "@ory/kratos-client@npm:0.8.2-alpha.1"
   dependencies:
     axios: ^0.21.1
-  checksum: 3b1d195ef5d5802f5bef989829634f1aaf635a0b210153497c6f4b7227ba0c772a0867b76b3d527e5fb145e8d454be37d28b9a97cb300208ef07ec099d8671ec
+  checksum: d103ffdf08f76e565622abda8e748b5d17f9829c727e37a74e50b87b6d86431499b2e2f191ad2b6571202c1dea0455840585734c09b8ed923843aa7ca84f107a
   languageName: node
   linkType: hard
 
@@ -1265,20 +1280,20 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@testing-library/jest-dom@npm:^5.14.1":
-  version: 5.14.1
-  resolution: "@testing-library/jest-dom@npm:5.14.1"
+"@testing-library/jest-dom@npm:^5.16.2":
+  version: 5.16.2
+  resolution: "@testing-library/jest-dom@npm:5.16.2"
   dependencies:
     "@babel/runtime": ^7.9.2
     "@types/testing-library__jest-dom": ^5.9.1
-    aria-query: ^4.2.2
+    aria-query: ^5.0.0
     chalk: ^3.0.0
     css: ^3.0.0
     css.escape: ^1.5.1
     dom-accessibility-api: ^0.5.6
     lodash: ^4.17.15
     redent: ^3.0.0
-  checksum: eeba37ba10be550bd9ab7dd0dda77d9011a96d9a4f75c70ed57d7bf120fe4126b251ccfb1444da1746c19773bbe4efbd96a0408f970d98c9cd1d399b2455d2c1
+  checksum: e4569df67c4c4998d2c60c6cf00ce2f1ac10c9397e0970320728c8be8f4e2c17a0e801705ce8a7384f7f5629b598a6f58db91d4401dde02044f5625405ca0988
   languageName: node
   linkType: hard
 
@@ -1304,16 +1319,17 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@testing-library/react@npm:^12.1.0":
-  version: 12.1.0
-  resolution: "@testing-library/react@npm:12.1.0"
+"@testing-library/react@npm:^12.1.3":
+  version: 12.1.3
+  resolution: "@testing-library/react@npm:12.1.3"
   dependencies:
     "@babel/runtime": ^7.12.5
     "@testing-library/dom": ^8.0.0
+    "@types/react-dom": "*"
   peerDependencies:
     react: "*"
     react-dom: "*"
-  checksum: 84ab074f12dbea82e5b08b976a6471c3a7d71629c72c895b661a2652d2b136cbc3de91f7152ca9e1485255c54f39acfa2ff2982ac20f94cf63f5eb84319c56d5
+  checksum: 2f059e93dc3f161c4d15910d1fa80cd4f5cfb6eff8a733939a72ac720c2499b74761e8980c02983a6e49153b776e82bd770a1c3e66e05c4429db0e01612f7d0a
   languageName: node
   linkType: hard
 
@@ -1521,7 +1537,16 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/react-dom@npm:>=16.9.0, @types/react-dom@npm:^17.0.9":
+"@types/react-dom@npm:*, @types/react-dom@npm:^17.0.11":
+  version: 17.0.11
+  resolution: "@types/react-dom@npm:17.0.11"
+  dependencies:
+    "@types/react": "*"
+  checksum: 4d5730dffbef86c887cecad7e3cecda424ce6a64d0b5441c63b5b015d48219868660a2bb1aa15e897e565ad8867fa6b885d4358b04e1c4e589ba4c07c3fda55c
+  languageName: node
+  linkType: hard
+
+"@types/react-dom@npm:>=16.9.0":
   version: 17.0.9
   resolution: "@types/react-dom@npm:17.0.9"
   dependencies:
@@ -1539,7 +1564,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/react@npm:*, @types/react@npm:>=16.9.0, @types/react@npm:^17.0.20":
+"@types/react@npm:*, @types/react@npm:>=16.9.0, @types/react@npm:^17.0.39":
   version: 17.0.39
   resolution: "@types/react@npm:17.0.39"
   dependencies:
@@ -1888,6 +1913,13 @@ __metadata:
     "@babel/runtime": ^7.10.2
     "@babel/runtime-corejs3": ^7.10.2
   checksum: 38401a9a400f26f3dcc24b84997461a16b32869a9893d323602bed8da40a8bcc0243b8d2880e942249a1496cea7a7de769e93d21c0baa439f01e1ee936fed665
+  languageName: node
+  linkType: hard
+
+"aria-query@npm:^5.0.0":
+  version: 5.0.0
+  resolution: "aria-query@npm:5.0.0"
+  checksum: c41f98866c5a304561ee8cae55856711cddad6f3f85d8cb43cc5f79667078d9b8979ce32d244c1ff364e6463a4d0b6865804a33ccc717fed701b281cf7dc6296
   languageName: node
   linkType: hard
 
@@ -4764,6 +4796,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"punycode@npm:^1.4.1":
+  version: 1.4.1
+  resolution: "punycode@npm:1.4.1"
+  checksum: fa6e698cb53db45e4628559e557ddaf554103d2a96a1d62892c8f4032cd3bc8871796cae9eabc1bc700e2b6677611521ce5bb1d9a27700086039965d0cf34518
+  languageName: node
+  linkType: hard
+
 "punycode@npm:^2.1.0, punycode@npm:^2.1.1":
   version: 2.1.1
   resolution: "punycode@npm:2.1.1"
@@ -5446,6 +5485,15 @@ resolve@^1.3.2:
   version: 6.0.1
   resolution: "throat@npm:6.0.1"
   checksum: 782d4171ee4e3cf947483ed2ff1af3e17cc4354c693b9d339284f61f99fbc401d171e0b0d2db3295bb7d447630333e9319c174ebd7ef315c6fb791db9675369c
+  languageName: node
+  linkType: hard
+
+"tldjs@npm:^2.3.1":
+  version: 2.3.1
+  resolution: "tldjs@npm:2.3.1"
+  dependencies:
+    punycode: ^1.4.1
+  checksum: f699c6a6aa29b0f0ed1297f3a8c692dd9403139d2e5c5381490c69e9e447e499dd8caaa2b228af30ecc8591b45af51344d2b39d99af2d29fcee964e8093428de
   languageName: node
   linkType: hard
 

@@ -22,7 +22,7 @@ export class LoginFlow extends AbstractFlow<SelfServiceLoginFlow, SubmitSelfServ
 
       const { data } = flowId
         ? await this.client.getSelfServiceLoginFlow(flowId, undefined, { withCredentials: true })
-        : await this.client.initializeSelfServiceLoginFlowForBrowsers(false, {
+        : await this.client.initializeSelfServiceLoginFlowForBrowsers(false, undefined, undefined, {
             withCredentials: true,
           })
 
@@ -55,7 +55,7 @@ export class LoginFlow extends AbstractFlow<SelfServiceLoginFlow, SubmitSelfServ
     }
 
     try {
-      await this.client.submitSelfServiceLoginFlow(this.getState().id, body, {
+      await this.client.submitSelfServiceLoginFlow(this.getState().id, undefined, body, {
         withCredentials: true,
       })
 
