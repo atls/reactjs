@@ -2,9 +2,11 @@
  * @jest-environment jsdom
  */
 
-import React            from 'react'
-import { render }       from '@testing-library/react'
 import '@testing-library/jest-dom/extend-expect'
+
+import { render }       from '@testing-library/react'
+
+import React            from 'react'
 
 import { IdentityLink } from './identity-link.component'
 
@@ -22,14 +24,14 @@ describe('identity-link.component', () => {
   })
 
   it('without params', async () => {
-    mockWindowLocation(new URL('https://identity.atls.tech'))
+    mockWindowLocation(new URL('https://identity.monstrs.dev'))
 
     const { getByText } = render(<IdentityLink>{(url) => <a href={url}>Login</a>}</IdentityLink>)
 
     // @ts-ignore
     expect(getByText('Login')).toHaveAttribute(
       'href',
-      'https://accounts.identity.atls.tech/auth/login?return_to=https://identity.atls.tech/'
+      'https://accounts.monstrs.dev/auth/login?return_to=https://identity.monstrs.dev/'
     )
   })
 })
