@@ -1,10 +1,11 @@
-import type { UiNodeInputAttributes }     from '@ory/kratos-client'
-import { EventEmitter }                   from 'events'
-
-import { KratosClient }                   from './kratos.client'
 import type { SubmitSelfServiceFlowBody } from './flow.interfaces'
 import type { SelfServiceFlow }           from './flow.interfaces'
 import type { Flow }                      from './flow.interfaces'
+import type { UiNodeInputAttributes }     from '@ory/kratos-client'
+
+import { EventEmitter }                   from 'events'
+
+import { KratosClient }                   from './kratos.client'
 
 export abstract class AbstractFlow<
     State extends SelfServiceFlow,

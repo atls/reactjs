@@ -29,6 +29,10 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
         "reference": "workspace:packages/identity-links"\
       },\
       {\
+        "name": "@atls/react-identity-user-provider",\
+        "reference": "workspace:packages/identity-user-provider"\
+      },\
+      {\
         "name": "@atls/react-kratos-browser-flows",\
         "reference": "workspace:packages/kratos-browser-flows"\
       },\
@@ -42,6 +46,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
     "fallbackExclusionList": [\
       ["@atls/react-api-auth-user", ["workspace:packages/api-auth-user"]],\
       ["@atls/react-identity-links", ["workspace:packages/identity-links"]],\
+      ["@atls/react-identity-user-provider", ["workspace:packages/identity-user-provider"]],\
       ["@atls/react-kratos-browser-flows", ["workspace:packages/kratos-browser-flows"]],\
       ["@atls/react-user", ["virtual:3ceedfe52a4367336e64693125ab45dbd4d5297af4b0beb13fa80c755b2a8540885a9beb615a2d0b3306600ad96d118e7015dd0916af8a4f315b5ede18134945#workspace:packages/user", "workspace:packages/user"]],\
       ["reactjs", ["workspace:."]]\
@@ -159,14 +164,28 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "packageLocation": "./packages/identity-links/",\
           "packageDependencies": [\
             ["@atls/react-identity-links", "workspace:packages/identity-links"],\
-            ["@testing-library/jest-dom", "npm:5.14.1"],\
-            ["@testing-library/react", "virtual:3c6684a2a71ebfee624a1a07e386044939c871ad84e4f3de0a9680f3e06cb110c72bd84362a38fe0ae70f01c0f8564a8682422c054b9abc39706979b46282127#npm:12.1.0"],\
+            ["@testing-library/jest-dom", "npm:5.16.2"],\
+            ["@testing-library/react", "virtual:3c6684a2a71ebfee624a1a07e386044939c871ad84e4f3de0a9680f3e06cb110c72bd84362a38fe0ae70f01c0f8564a8682422c054b9abc39706979b46282127#npm:12.1.3"],\
             ["@testing-library/react-hooks", "virtual:3c6684a2a71ebfee624a1a07e386044939c871ad84e4f3de0a9680f3e06cb110c72bd84362a38fe0ae70f01c0f8564a8682422c054b9abc39706979b46282127#npm:7.0.2"],\
             ["@types/react", "npm:17.0.39"],\
-            ["@types/react-dom", "npm:17.0.9"],\
+            ["@types/react-dom", "npm:17.0.11"],\
             ["@types/testing-library__jest-dom", "npm:5.14.1"],\
             ["react", "npm:17.0.2"],\
-            ["react-dom", "virtual:3c6684a2a71ebfee624a1a07e386044939c871ad84e4f3de0a9680f3e06cb110c72bd84362a38fe0ae70f01c0f8564a8682422c054b9abc39706979b46282127#npm:17.0.2"]\
+            ["react-dom", "virtual:3c6684a2a71ebfee624a1a07e386044939c871ad84e4f3de0a9680f3e06cb110c72bd84362a38fe0ae70f01c0f8564a8682422c054b9abc39706979b46282127#npm:17.0.2"],\
+            ["tldjs", "npm:2.3.1"]\
+          ],\
+          "linkType": "SOFT"\
+        }]\
+      ]],\
+      ["@atls/react-identity-user-provider", [\
+        ["workspace:packages/identity-user-provider", {\
+          "packageLocation": "./packages/identity-user-provider/",\
+          "packageDependencies": [\
+            ["@atls/react-identity-user-provider", "workspace:packages/identity-user-provider"],\
+            ["@atls/react-user", "virtual:3ceedfe52a4367336e64693125ab45dbd4d5297af4b0beb13fa80c755b2a8540885a9beb615a2d0b3306600ad96d118e7015dd0916af8a4f315b5ede18134945#workspace:packages/user"],\
+            ["@types/react", "npm:17.0.39"],\
+            ["react", "npm:17.0.2"],\
+            ["tldjs", "npm:2.3.1"]\
           ],\
           "linkType": "SOFT"\
         }]\
@@ -176,12 +195,12 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "packageLocation": "./packages/kratos-browser-flows/",\
           "packageDependencies": [\
             ["@atls/react-kratos-browser-flows", "workspace:packages/kratos-browser-flows"],\
-            ["@ory/kratos-client", "npm:0.7.6-alpha.3"],\
-            ["@testing-library/jest-dom", "npm:5.14.1"],\
-            ["@testing-library/react", "virtual:3c6684a2a71ebfee624a1a07e386044939c871ad84e4f3de0a9680f3e06cb110c72bd84362a38fe0ae70f01c0f8564a8682422c054b9abc39706979b46282127#npm:12.1.0"],\
+            ["@ory/kratos-client", "npm:0.8.2-alpha.1"],\
+            ["@testing-library/jest-dom", "npm:5.16.2"],\
+            ["@testing-library/react", "virtual:3c6684a2a71ebfee624a1a07e386044939c871ad84e4f3de0a9680f3e06cb110c72bd84362a38fe0ae70f01c0f8564a8682422c054b9abc39706979b46282127#npm:12.1.3"],\
             ["@types/events", "npm:3.0.0"],\
             ["@types/react", "npm:17.0.39"],\
-            ["@types/react-dom", "npm:17.0.9"],\
+            ["@types/react-dom", "npm:17.0.11"],\
             ["@types/testing-library__jest-dom", "npm:5.14.1"],\
             ["axios", "npm:0.21.4"],\
             ["events", "npm:3.3.0"],\
@@ -1711,10 +1730,10 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
         }]\
       ]],\
       ["@ory/kratos-client", [\
-        ["npm:0.7.6-alpha.3", {\
-          "packageLocation": "./.yarn/cache/@ory-kratos-client-npm-0.7.6-alpha.3-de86c083a3-3b1d195ef5.zip/node_modules/@ory/kratos-client/",\
+        ["npm:0.8.2-alpha.1", {\
+          "packageLocation": "./.yarn/cache/@ory-kratos-client-npm-0.8.2-alpha.1-8d2a5db47c-d103ffdf08.zip/node_modules/@ory/kratos-client/",\
           "packageDependencies": [\
-            ["@ory/kratos-client", "npm:0.7.6-alpha.3"],\
+            ["@ory/kratos-client", "npm:0.8.2-alpha.1"],\
             ["axios", "npm:0.21.4"]\
           ],\
           "linkType": "HARD"\
@@ -1758,13 +1777,13 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
         }]\
       ]],\
       ["@testing-library/jest-dom", [\
-        ["npm:5.14.1", {\
-          "packageLocation": "./.yarn/cache/@testing-library-jest-dom-npm-5.14.1-1ece992419-eeba37ba10.zip/node_modules/@testing-library/jest-dom/",\
+        ["npm:5.16.2", {\
+          "packageLocation": "./.yarn/cache/@testing-library-jest-dom-npm-5.16.2-1ae5bcade4-e4569df67c.zip/node_modules/@testing-library/jest-dom/",\
           "packageDependencies": [\
-            ["@testing-library/jest-dom", "npm:5.14.1"],\
+            ["@testing-library/jest-dom", "npm:5.16.2"],\
             ["@babel/runtime", "npm:7.14.0"],\
             ["@types/testing-library__jest-dom", "npm:5.9.5"],\
-            ["aria-query", "npm:4.2.2"],\
+            ["aria-query", "npm:5.0.0"],\
             ["chalk", "npm:3.0.0"],\
             ["css", "npm:3.0.0"],\
             ["css.escape", "npm:1.5.1"],\
@@ -1776,21 +1795,21 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
         }]\
       ]],\
       ["@testing-library/react", [\
-        ["npm:12.1.0", {\
-          "packageLocation": "./.yarn/cache/@testing-library-react-npm-12.1.0-0552057b66-84ab074f12.zip/node_modules/@testing-library/react/",\
+        ["npm:12.1.3", {\
+          "packageLocation": "./.yarn/cache/@testing-library-react-npm-12.1.3-9cd5a455e7-2f059e93dc.zip/node_modules/@testing-library/react/",\
           "packageDependencies": [\
-            ["@testing-library/react", "npm:12.1.0"]\
+            ["@testing-library/react", "npm:12.1.3"]\
           ],\
           "linkType": "SOFT"\
         }],\
-        ["virtual:3c6684a2a71ebfee624a1a07e386044939c871ad84e4f3de0a9680f3e06cb110c72bd84362a38fe0ae70f01c0f8564a8682422c054b9abc39706979b46282127#npm:12.1.0", {\
-          "packageLocation": "./.yarn/__virtual__/@testing-library-react-virtual-8ce60f3f94/0/cache/@testing-library-react-npm-12.1.0-0552057b66-84ab074f12.zip/node_modules/@testing-library/react/",\
+        ["virtual:3c6684a2a71ebfee624a1a07e386044939c871ad84e4f3de0a9680f3e06cb110c72bd84362a38fe0ae70f01c0f8564a8682422c054b9abc39706979b46282127#npm:12.1.3", {\
+          "packageLocation": "./.yarn/__virtual__/@testing-library-react-virtual-2858908d9d/0/cache/@testing-library-react-npm-12.1.3-9cd5a455e7-2f059e93dc.zip/node_modules/@testing-library/react/",\
           "packageDependencies": [\
-            ["@testing-library/react", "virtual:3c6684a2a71ebfee624a1a07e386044939c871ad84e4f3de0a9680f3e06cb110c72bd84362a38fe0ae70f01c0f8564a8682422c054b9abc39706979b46282127#npm:12.1.0"],\
+            ["@testing-library/react", "virtual:3c6684a2a71ebfee624a1a07e386044939c871ad84e4f3de0a9680f3e06cb110c72bd84362a38fe0ae70f01c0f8564a8682422c054b9abc39706979b46282127#npm:12.1.3"],\
             ["@babel/runtime", "npm:7.14.0"],\
             ["@testing-library/dom", "npm:8.5.0"],\
             ["@types/react", "npm:17.0.39"],\
-            ["@types/react-dom", "npm:17.0.9"],\
+            ["@types/react-dom", "npm:17.0.11"],\
             ["react", "npm:17.0.2"],\
             ["react-dom", "virtual:3c6684a2a71ebfee624a1a07e386044939c871ad84e4f3de0a9680f3e06cb110c72bd84362a38fe0ae70f01c0f8564a8682422c054b9abc39706979b46282127#npm:17.0.2"]\
           ],\
@@ -1817,7 +1836,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["@testing-library/react-hooks", "virtual:3c6684a2a71ebfee624a1a07e386044939c871ad84e4f3de0a9680f3e06cb110c72bd84362a38fe0ae70f01c0f8564a8682422c054b9abc39706979b46282127#npm:7.0.2"],\
             ["@babel/runtime", "npm:7.14.0"],\
             ["@types/react", "npm:17.0.39"],\
-            ["@types/react-dom", "npm:17.0.9"],\
+            ["@types/react-dom", "npm:17.0.11"],\
             ["@types/react-test-renderer", "npm:17.0.1"],\
             ["react", "npm:17.0.2"],\
             ["react-dom", "virtual:3c6684a2a71ebfee624a1a07e386044939c871ad84e4f3de0a9680f3e06cb110c72bd84362a38fe0ae70f01c0f8564a8682422c054b9abc39706979b46282127#npm:17.0.2"],\
@@ -2077,10 +2096,10 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
         }]\
       ]],\
       ["@types/react-dom", [\
-        ["npm:17.0.9", {\
-          "packageLocation": "./.yarn/cache/@types-react-dom-npm-17.0.9-046b4282f3-b7e898e1a2.zip/node_modules/@types/react-dom/",\
+        ["npm:17.0.11", {\
+          "packageLocation": "./.yarn/cache/@types-react-dom-npm-17.0.11-fc2e584a96-4d5730dffb.zip/node_modules/@types/react-dom/",\
           "packageDependencies": [\
-            ["@types/react-dom", "npm:17.0.9"],\
+            ["@types/react-dom", "npm:17.0.11"],\
             ["@types/react", "npm:17.0.39"]\
           ],\
           "linkType": "HARD"\
@@ -2462,6 +2481,13 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["aria-query", "npm:4.2.2"],\
             ["@babel/runtime", "npm:7.14.0"],\
             ["@babel/runtime-corejs3", "npm:7.14.0"]\
+          ],\
+          "linkType": "HARD"\
+        }],\
+        ["npm:5.0.0", {\
+          "packageLocation": "./.yarn/cache/aria-query-npm-5.0.0-986fb11e0e-c41f98866c.zip/node_modules/aria-query/",\
+          "packageDependencies": [\
+            ["aria-query", "npm:5.0.0"]\
           ],\
           "linkType": "HARD"\
         }]\
@@ -5809,6 +5835,13 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
         }]\
       ]],\
       ["punycode", [\
+        ["npm:1.4.1", {\
+          "packageLocation": "./.yarn/cache/punycode-npm-1.4.1-be4c23e6d2-fa6e698cb5.zip/node_modules/punycode/",\
+          "packageDependencies": [\
+            ["punycode", "npm:1.4.1"]\
+          ],\
+          "linkType": "HARD"\
+        }],\
         ["npm:2.1.1", {\
           "packageLocation": "./.yarn/cache/punycode-npm-2.1.1-26eb3e15cf-823bf443c6.zip/node_modules/punycode/",\
           "packageDependencies": [\
@@ -6550,6 +6583,16 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "packageLocation": "./.yarn/cache/throat-npm-6.0.1-1308a37a10-782d4171ee.zip/node_modules/throat/",\
           "packageDependencies": [\
             ["throat", "npm:6.0.1"]\
+          ],\
+          "linkType": "HARD"\
+        }]\
+      ]],\
+      ["tldjs", [\
+        ["npm:2.3.1", {\
+          "packageLocation": "./.yarn/unplugged/tldjs-npm-2.3.1-25e51f3b87/node_modules/tldjs/",\
+          "packageDependencies": [\
+            ["tldjs", "npm:2.3.1"],\
+            ["punycode", "npm:1.4.1"]\
           ],\
           "linkType": "HARD"\
         }]\

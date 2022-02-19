@@ -27,7 +27,7 @@ export class RecoveryFlow extends AbstractFlow<
         ? await this.client.getSelfServiceRecoveryFlow(flowId, undefined, {
             withCredentials: true,
           })
-        : await this.client.initializeSelfServiceRecoveryFlowForBrowsers({
+        : await this.client.initializeSelfServiceRecoveryFlowForBrowsers(undefined, {
             withCredentials: true,
           })
 

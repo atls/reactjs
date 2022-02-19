@@ -71,9 +71,9 @@ export class SettingsFlow extends AbstractFlow<
         }
       )
 
-      this.setState(data.flow)
-      this.setValues(data.flow)
-      this.emit('load', data.flow)
+      this.setState(data)
+      this.setValues(data)
+      this.emit('load', data)
     } catch (error) {
       const { data, status } = (error as AxiosError<SelfServiceSettingsFlow>)
         .response as AxiosResponse<SelfServiceSettingsFlow>

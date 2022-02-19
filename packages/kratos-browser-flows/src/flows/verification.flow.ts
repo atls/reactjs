@@ -27,7 +27,7 @@ export class VerificationFlow extends AbstractFlow<
         ? await this.client.getSelfServiceVerificationFlow(flowId, undefined, {
             withCredentials: true,
           })
-        : await this.client.initializeSelfServiceVerificationFlowForBrowsers({
+        : await this.client.initializeSelfServiceVerificationFlowForBrowsers(undefined, {
             withCredentials: true,
           })
 
