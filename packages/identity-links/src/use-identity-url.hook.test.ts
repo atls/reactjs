@@ -20,42 +20,42 @@ describe('use-identity-url', () => {
   })
 
   it('without params', () => {
-    mockWindowLocation(new URL('https://identity.atls.tech'))
+    mockWindowLocation(new URL('https://identity.monstrs.dev'))
 
-    const { result } = renderHook(() => useIdentityUrl())
+    const { result } = renderHook(() => useIdentityUrl({ returnTo: true }))
 
     expect(result.current).toBe(
-      'https://accounts.atls.tech/auth/login?return_to=https://identity.atls.tech/'
+      'https://accounts.monstrs.dev/auth/login?return_to=https://identity.monstrs.dev/'
     )
   })
 
   it('custom type', () => {
-    mockWindowLocation(new URL('https://identity.atls.tech'))
+    mockWindowLocation(new URL('https://identity.monstrs.dev'))
 
-    const { result } = renderHook(() => useIdentityUrl({ type: 'registration' }))
+    const { result } = renderHook(() => useIdentityUrl({ type: 'registration', returnTo: true }))
 
     expect(result.current).toBe(
-      'https://accounts.atls.tech/auth/registration?return_to=https://identity.atls.tech/'
+      'https://accounts.monstrs.dev/auth/registration?return_to=https://identity.monstrs.dev/'
     )
   })
 
   it('return to path', () => {
-    mockWindowLocation(new URL('https://identity.atls.tech'))
+    mockWindowLocation(new URL('https://identity.monstrs.dev'))
 
-    const { result } = renderHook(() => useIdentityUrl({ returnTo: '/custom' }))
+    const { result } = renderHook(() => useIdentityUrl({ returnTo: { pathname: '/custom' } }))
 
     expect(result.current).toBe(
-      'https://accounts.atls.tech/auth/login?return_to=https://identity.atls.tech/custom'
+      'https://accounts.monstrs.dev/auth/login?return_to=https://identity.monstrs.dev/custom'
     )
   })
 
   it('return to url', () => {
-    mockWindowLocation(new URL('https://identity.atls.tech'))
+    mockWindowLocation(new URL('https://identity.monstrs.dev'))
 
-    const { result } = renderHook(() => useIdentityUrl({ returnTo: 'https://custom.atls.tech/' }))
+    const { result } = renderHook(() => useIdentityUrl({ returnTo: { subdomain: 'custom' } }))
 
     expect(result.current).toBe(
-      'https://accounts.atls.tech/auth/login?return_to=https://custom.atls.tech/'
+      'https://accounts.monstrs.dev/auth/login?return_to=https://custom.monstrs.dev/'
     )
   })
 })

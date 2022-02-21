@@ -13,31 +13,33 @@ export const identityUrlTypes = {
   settings: '/profile/settings',
 }
 
-export const useIdentityUrl = ({ type = 'login', returnTo }: UseIdentityUrlProps = {}):
+export const useIdentityUrl = ({ type = 'login', returnTo = false }: UseIdentityUrlProps = {}):
   | string
   | null => {
   const [url, setUrl] = useState<string | null>(null)
 
   useBrowserEffect(() => {
-    const { hostname, origin, href, protocol } = window.location
+    const { hostname, origin, href, protocol, pathname } = window.location
     const path = identityUrlTypes[type]
 
-    const domain = hostname === 'localhost' ? 'localhost:4433' : getDomain(hostname)
+    if (hostname === 'localhost') {
+      setUrl(`${protocol}//localhost:3000${path}`)
 
-    if (returnTo === false) {
-      setUrl(`${protocol}//accounts.${domain}${path}`)
     } else {
-      let returnToValue = href
+      const domain = getDomain(hostname)
 
-      if (returnTo) {
-        if (returnTo.startsWith('http')) {
-          returnToValue = returnTo
-        } else if (returnTo.startsWith('/')) {
-          returnToValue = `${origin}${returnTo}`
-        }
+      if (returnTo === false) {
+        setUrl(`${protocol}//accounts.${domain}${path}`)
+      } else if (returnTo === true) {
+        setUrl(`${protocol}//accounts.${domain}${path}?return_to=${href}`)
+      } else {
+        const returnToOrigin = returnTo.subdomain
+          ? `${protocol}//${returnTo.subdomain}.${domain}`
+          : origin
+        const returnToValue = `${returnToOrigin}${returnTo.pathname ? returnTo.pathname : pathname}`
+
+        setUrl(`${protocol}//accounts.${domain}${path}?return_to=${returnToValue}`)
       }
-
-      setUrl(`${protocol}//accounts.${domain}${path}?return_to=${returnToValue}`)
     }
   }, [type, returnTo])
 
