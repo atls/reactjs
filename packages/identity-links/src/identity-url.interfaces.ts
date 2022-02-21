@@ -6,9 +6,12 @@ export type IdentityUrlType =
   | 'recovery'
   | 'logout'
 
+export interface UseIdentityUrlReturnToProps {
+  subdomain?: string
+  pathname?: string
+}
+
 export interface UseIdentityUrlProps {
   type?: IdentityUrlType
-  returnTo?: string | false
-  subdomain?: string
-  substractHost?: string
+  returnTo?: true | false | UseIdentityUrlReturnToProps
 }

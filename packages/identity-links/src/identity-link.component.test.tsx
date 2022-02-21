@@ -26,7 +26,9 @@ describe('identity-link.component', () => {
   it('without params', async () => {
     mockWindowLocation(new URL('https://identity.monstrs.dev'))
 
-    const { getByText } = render(<IdentityLink>{(url) => <a href={url}>Login</a>}</IdentityLink>)
+    const { getByText } = render(
+        <IdentityLink returnTo>{(url) => <a href={url}>Login</a>}</IdentityLink>
+    )
 
     // @ts-ignore
     expect(getByText('Login')).toHaveAttribute(
