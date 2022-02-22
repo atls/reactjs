@@ -25,6 +25,10 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
         "reference": "workspace:packages/api-auth-user"\
       },\
       {\
+        "name": "@atls/react-app-links",\
+        "reference": "workspace:packages/app-links"\
+      },\
+      {\
         "name": "@atls/react-identity-links",\
         "reference": "workspace:packages/identity-links"\
       },\
@@ -45,6 +49,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
     "ignorePatternData": "(^(?:\\\\.yarn\\\\/sdks(?:\\\\/(?!\\\\.{1,2}(?:\\\\/|$))(?:(?:(?!(?:^|\\\\/)\\\\.{1,2}(?:\\\\/|$)).)*?)|$))$)",\
     "fallbackExclusionList": [\
       ["@atls/react-api-auth-user", ["workspace:packages/api-auth-user"]],\
+      ["@atls/react-app-links", ["workspace:packages/app-links"]],\
       ["@atls/react-identity-links", ["workspace:packages/identity-links"]],\
       ["@atls/react-identity-user-provider", ["workspace:packages/identity-user-provider"]],\
       ["@atls/react-kratos-browser-flows", ["workspace:packages/kratos-browser-flows"]],\
@@ -159,19 +164,37 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "linkType": "SOFT"\
         }]\
       ]],\
+      ["@atls/react-app-links", [\
+        ["workspace:packages/app-links", {\
+          "packageLocation": "./packages/app-links/",\
+          "packageDependencies": [\
+            ["@atls/react-app-links", "workspace:packages/app-links"],\
+            ["@testing-library/jest-dom", "npm:5.16.2"],\
+            ["@testing-library/react", "virtual:0f253325d64667267f8a5c1074e4aa2f59120ad20372d39bddcfd3951915b9b89e0bfaf1fa90999b4185ff651ab603643a0d5aca289d2a340e670217b32db551#npm:12.1.3"],\
+            ["@testing-library/react-hooks", "virtual:0f253325d64667267f8a5c1074e4aa2f59120ad20372d39bddcfd3951915b9b89e0bfaf1fa90999b4185ff651ab603643a0d5aca289d2a340e670217b32db551#npm:7.0.2"],\
+            ["@types/react", "npm:17.0.39"],\
+            ["@types/react-dom", "npm:17.0.11"],\
+            ["@types/testing-library__jest-dom", "npm:5.14.2"],\
+            ["react", "npm:17.0.2"],\
+            ["react-dom", "virtual:0f253325d64667267f8a5c1074e4aa2f59120ad20372d39bddcfd3951915b9b89e0bfaf1fa90999b4185ff651ab603643a0d5aca289d2a340e670217b32db551#npm:17.0.2"],\
+            ["tldjs", "npm:2.3.1"]\
+          ],\
+          "linkType": "SOFT"\
+        }]\
+      ]],\
       ["@atls/react-identity-links", [\
         ["workspace:packages/identity-links", {\
           "packageLocation": "./packages/identity-links/",\
           "packageDependencies": [\
             ["@atls/react-identity-links", "workspace:packages/identity-links"],\
             ["@testing-library/jest-dom", "npm:5.16.2"],\
-            ["@testing-library/react", "virtual:3c6684a2a71ebfee624a1a07e386044939c871ad84e4f3de0a9680f3e06cb110c72bd84362a38fe0ae70f01c0f8564a8682422c054b9abc39706979b46282127#npm:12.1.3"],\
-            ["@testing-library/react-hooks", "virtual:3c6684a2a71ebfee624a1a07e386044939c871ad84e4f3de0a9680f3e06cb110c72bd84362a38fe0ae70f01c0f8564a8682422c054b9abc39706979b46282127#npm:7.0.2"],\
+            ["@testing-library/react", "virtual:0f253325d64667267f8a5c1074e4aa2f59120ad20372d39bddcfd3951915b9b89e0bfaf1fa90999b4185ff651ab603643a0d5aca289d2a340e670217b32db551#npm:12.1.3"],\
+            ["@testing-library/react-hooks", "virtual:0f253325d64667267f8a5c1074e4aa2f59120ad20372d39bddcfd3951915b9b89e0bfaf1fa90999b4185ff651ab603643a0d5aca289d2a340e670217b32db551#npm:7.0.2"],\
             ["@types/react", "npm:17.0.39"],\
             ["@types/react-dom", "npm:17.0.11"],\
             ["@types/testing-library__jest-dom", "npm:5.14.1"],\
             ["react", "npm:17.0.2"],\
-            ["react-dom", "virtual:3c6684a2a71ebfee624a1a07e386044939c871ad84e4f3de0a9680f3e06cb110c72bd84362a38fe0ae70f01c0f8564a8682422c054b9abc39706979b46282127#npm:17.0.2"],\
+            ["react-dom", "virtual:0f253325d64667267f8a5c1074e4aa2f59120ad20372d39bddcfd3951915b9b89e0bfaf1fa90999b4185ff651ab603643a0d5aca289d2a340e670217b32db551#npm:17.0.2"],\
             ["tldjs", "npm:2.3.1"]\
           ],\
           "linkType": "SOFT"\
@@ -197,7 +220,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["@atls/react-kratos-browser-flows", "workspace:packages/kratos-browser-flows"],\
             ["@ory/kratos-client", "npm:0.8.2-alpha.1"],\
             ["@testing-library/jest-dom", "npm:5.16.2"],\
-            ["@testing-library/react", "virtual:3c6684a2a71ebfee624a1a07e386044939c871ad84e4f3de0a9680f3e06cb110c72bd84362a38fe0ae70f01c0f8564a8682422c054b9abc39706979b46282127#npm:12.1.3"],\
+            ["@testing-library/react", "virtual:0f253325d64667267f8a5c1074e4aa2f59120ad20372d39bddcfd3951915b9b89e0bfaf1fa90999b4185ff651ab603643a0d5aca289d2a340e670217b32db551#npm:12.1.3"],\
             ["@types/events", "npm:3.0.0"],\
             ["@types/react", "npm:17.0.39"],\
             ["@types/react-dom", "npm:17.0.11"],\
@@ -205,7 +228,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["axios", "npm:0.21.4"],\
             ["events", "npm:3.3.0"],\
             ["react", "npm:17.0.2"],\
-            ["react-dom", "virtual:3c6684a2a71ebfee624a1a07e386044939c871ad84e4f3de0a9680f3e06cb110c72bd84362a38fe0ae70f01c0f8564a8682422c054b9abc39706979b46282127#npm:17.0.2"]\
+            ["react-dom", "virtual:0f253325d64667267f8a5c1074e4aa2f59120ad20372d39bddcfd3951915b9b89e0bfaf1fa90999b4185ff651ab603643a0d5aca289d2a340e670217b32db551#npm:17.0.2"]\
           ],\
           "linkType": "SOFT"\
         }]\
@@ -1802,16 +1825,16 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           ],\
           "linkType": "SOFT"\
         }],\
-        ["virtual:3c6684a2a71ebfee624a1a07e386044939c871ad84e4f3de0a9680f3e06cb110c72bd84362a38fe0ae70f01c0f8564a8682422c054b9abc39706979b46282127#npm:12.1.3", {\
-          "packageLocation": "./.yarn/__virtual__/@testing-library-react-virtual-2858908d9d/0/cache/@testing-library-react-npm-12.1.3-9cd5a455e7-2f059e93dc.zip/node_modules/@testing-library/react/",\
+        ["virtual:0f253325d64667267f8a5c1074e4aa2f59120ad20372d39bddcfd3951915b9b89e0bfaf1fa90999b4185ff651ab603643a0d5aca289d2a340e670217b32db551#npm:12.1.3", {\
+          "packageLocation": "./.yarn/__virtual__/@testing-library-react-virtual-99ac5e8381/0/cache/@testing-library-react-npm-12.1.3-9cd5a455e7-2f059e93dc.zip/node_modules/@testing-library/react/",\
           "packageDependencies": [\
-            ["@testing-library/react", "virtual:3c6684a2a71ebfee624a1a07e386044939c871ad84e4f3de0a9680f3e06cb110c72bd84362a38fe0ae70f01c0f8564a8682422c054b9abc39706979b46282127#npm:12.1.3"],\
+            ["@testing-library/react", "virtual:0f253325d64667267f8a5c1074e4aa2f59120ad20372d39bddcfd3951915b9b89e0bfaf1fa90999b4185ff651ab603643a0d5aca289d2a340e670217b32db551#npm:12.1.3"],\
             ["@babel/runtime", "npm:7.14.0"],\
             ["@testing-library/dom", "npm:8.5.0"],\
             ["@types/react", "npm:17.0.39"],\
             ["@types/react-dom", "npm:17.0.11"],\
             ["react", "npm:17.0.2"],\
-            ["react-dom", "virtual:3c6684a2a71ebfee624a1a07e386044939c871ad84e4f3de0a9680f3e06cb110c72bd84362a38fe0ae70f01c0f8564a8682422c054b9abc39706979b46282127#npm:17.0.2"]\
+            ["react-dom", "virtual:0f253325d64667267f8a5c1074e4aa2f59120ad20372d39bddcfd3951915b9b89e0bfaf1fa90999b4185ff651ab603643a0d5aca289d2a340e670217b32db551#npm:17.0.2"]\
           ],\
           "packagePeers": [\
             "@types/react-dom",\
@@ -1830,17 +1853,17 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           ],\
           "linkType": "SOFT"\
         }],\
-        ["virtual:3c6684a2a71ebfee624a1a07e386044939c871ad84e4f3de0a9680f3e06cb110c72bd84362a38fe0ae70f01c0f8564a8682422c054b9abc39706979b46282127#npm:7.0.2", {\
-          "packageLocation": "./.yarn/__virtual__/@testing-library-react-hooks-virtual-7d64c28e32/0/cache/@testing-library-react-hooks-npm-7.0.2-da146b13d2-27c6169b5c.zip/node_modules/@testing-library/react-hooks/",\
+        ["virtual:0f253325d64667267f8a5c1074e4aa2f59120ad20372d39bddcfd3951915b9b89e0bfaf1fa90999b4185ff651ab603643a0d5aca289d2a340e670217b32db551#npm:7.0.2", {\
+          "packageLocation": "./.yarn/__virtual__/@testing-library-react-hooks-virtual-b9f935a2b8/0/cache/@testing-library-react-hooks-npm-7.0.2-da146b13d2-27c6169b5c.zip/node_modules/@testing-library/react-hooks/",\
           "packageDependencies": [\
-            ["@testing-library/react-hooks", "virtual:3c6684a2a71ebfee624a1a07e386044939c871ad84e4f3de0a9680f3e06cb110c72bd84362a38fe0ae70f01c0f8564a8682422c054b9abc39706979b46282127#npm:7.0.2"],\
+            ["@testing-library/react-hooks", "virtual:0f253325d64667267f8a5c1074e4aa2f59120ad20372d39bddcfd3951915b9b89e0bfaf1fa90999b4185ff651ab603643a0d5aca289d2a340e670217b32db551#npm:7.0.2"],\
             ["@babel/runtime", "npm:7.14.0"],\
             ["@types/react", "npm:17.0.39"],\
             ["@types/react-dom", "npm:17.0.11"],\
             ["@types/react-test-renderer", "npm:17.0.1"],\
             ["react", "npm:17.0.2"],\
-            ["react-dom", "virtual:3c6684a2a71ebfee624a1a07e386044939c871ad84e4f3de0a9680f3e06cb110c72bd84362a38fe0ae70f01c0f8564a8682422c054b9abc39706979b46282127#npm:17.0.2"],\
-            ["react-error-boundary", "virtual:7d64c28e32f00e303fc0e774e4874d4f16530a1ca732551b341a3289725f7a433e272a2706cf9b6754671402aa7ce803631fbdc48ba593bbc37a71c137a33154#npm:3.1.3"],\
+            ["react-dom", "virtual:0f253325d64667267f8a5c1074e4aa2f59120ad20372d39bddcfd3951915b9b89e0bfaf1fa90999b4185ff651ab603643a0d5aca289d2a340e670217b32db551#npm:17.0.2"],\
+            ["react-error-boundary", "virtual:b9f935a2b8d5b3ae46e332467f483427f4a4f65c8ef3e0e5ee8313ed142da617569d7d032d499a5a2e9f42cda1daca9d991b26135e1270c732d9733d96f220ec#npm:3.1.3"],\
             ["react-test-renderer", null]\
           ],\
           "packagePeers": [\
@@ -5869,10 +5892,10 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           ],\
           "linkType": "SOFT"\
         }],\
-        ["virtual:3c6684a2a71ebfee624a1a07e386044939c871ad84e4f3de0a9680f3e06cb110c72bd84362a38fe0ae70f01c0f8564a8682422c054b9abc39706979b46282127#npm:17.0.2", {\
-          "packageLocation": "./.yarn/__virtual__/react-dom-virtual-8499e0b0c8/0/cache/react-dom-npm-17.0.2-f551215af1-1c1eaa3bca.zip/node_modules/react-dom/",\
+        ["virtual:0f253325d64667267f8a5c1074e4aa2f59120ad20372d39bddcfd3951915b9b89e0bfaf1fa90999b4185ff651ab603643a0d5aca289d2a340e670217b32db551#npm:17.0.2", {\
+          "packageLocation": "./.yarn/__virtual__/react-dom-virtual-617a2affda/0/cache/react-dom-npm-17.0.2-f551215af1-1c1eaa3bca.zip/node_modules/react-dom/",\
           "packageDependencies": [\
-            ["react-dom", "virtual:3c6684a2a71ebfee624a1a07e386044939c871ad84e4f3de0a9680f3e06cb110c72bd84362a38fe0ae70f01c0f8564a8682422c054b9abc39706979b46282127#npm:17.0.2"],\
+            ["react-dom", "virtual:0f253325d64667267f8a5c1074e4aa2f59120ad20372d39bddcfd3951915b9b89e0bfaf1fa90999b4185ff651ab603643a0d5aca289d2a340e670217b32db551#npm:17.0.2"],\
             ["@types/react", "npm:17.0.39"],\
             ["loose-envify", "npm:1.4.0"],\
             ["object-assign", "npm:4.1.1"],\
@@ -5894,10 +5917,10 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           ],\
           "linkType": "SOFT"\
         }],\
-        ["virtual:7d64c28e32f00e303fc0e774e4874d4f16530a1ca732551b341a3289725f7a433e272a2706cf9b6754671402aa7ce803631fbdc48ba593bbc37a71c137a33154#npm:3.1.3", {\
-          "packageLocation": "./.yarn/__virtual__/react-error-boundary-virtual-01eb7e3744/0/cache/react-error-boundary-npm-3.1.3-df04a8391c-0a05af404a.zip/node_modules/react-error-boundary/",\
+        ["virtual:b9f935a2b8d5b3ae46e332467f483427f4a4f65c8ef3e0e5ee8313ed142da617569d7d032d499a5a2e9f42cda1daca9d991b26135e1270c732d9733d96f220ec#npm:3.1.3", {\
+          "packageLocation": "./.yarn/__virtual__/react-error-boundary-virtual-eccc09089f/0/cache/react-error-boundary-npm-3.1.3-df04a8391c-0a05af404a.zip/node_modules/react-error-boundary/",\
           "packageDependencies": [\
-            ["react-error-boundary", "virtual:7d64c28e32f00e303fc0e774e4874d4f16530a1ca732551b341a3289725f7a433e272a2706cf9b6754671402aa7ce803631fbdc48ba593bbc37a71c137a33154#npm:3.1.3"],\
+            ["react-error-boundary", "virtual:b9f935a2b8d5b3ae46e332467f483427f4a4f65c8ef3e0e5ee8313ed142da617569d7d032d499a5a2e9f42cda1daca9d991b26135e1270c732d9733d96f220ec#npm:3.1.3"],\
             ["@babel/runtime", "npm:7.14.0"],\
             ["@types/react", "npm:17.0.39"],\
             ["react", "npm:17.0.2"]\
