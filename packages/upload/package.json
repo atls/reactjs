@@ -1,0 +1,32 @@
+{
+  "name": "@atls/react-upload",
+  "version": "0.0.0",
+  "license": "BSD-3-Clause",
+  "main": "src/index.ts",
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "build": "yarn library build",
+    "prepack": "yarn run build",
+    "postpack": "rm -rf dist"
+  },
+  "dependencies": {
+    "@atls/react-app-links": "workspace:0.0.2",
+    "graphql-request": "^4.0.0"
+  },
+  "devDependencies": {
+    "@types/react": "^17.0.38",
+    "graphql": "^16.3.0",
+    "react": "^17.0.2"
+  },
+  "peerDependencies": {
+    "graphql": "^16.3.0",
+    "react": "^17.0.1"
+  },
+  "publishConfig": {
+    "access": "public",
+    "main": "dist/index.js",
+    "typings": "dist/index.d.ts"
+  }
+}
