@@ -42,7 +42,7 @@ export const useUpload = ({ bucket, endpoint: defaultEndpoint }: UseUploadProps)
       })
   }, [endpoint]) as GraphQLClient
 
-  return (file: File) => async () => {
+  return async (file: File) => {
     const data = await client.request(uploadMutation, {
       input: {
         bucket,
