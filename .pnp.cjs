@@ -77,7 +77,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["@types/testing-library__jest-dom", "npm:5.14.2"],\
             ["eslint", "npm:8.9.0"],\
             ["husky", "npm:7.0.4"],\
-            ["typescript", "patch:typescript@npm%3A4.5.5#~builtin<compat/typescript>::version=4.5.5&hash=142761"]\
+            ["typescript", "patch:typescript@npm%3A4.5.5#~builtin<compat/typescript>::version=4.5.5&hash=bda367"]\
           ],\
           "linkType": "SOFT"\
         }]\
@@ -6070,7 +6070,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["@types/testing-library__jest-dom", "npm:5.14.2"],\
             ["eslint", "npm:8.9.0"],\
             ["husky", "npm:7.0.4"],\
-            ["typescript", "patch:typescript@npm%3A4.5.5#~builtin<compat/typescript>::version=4.5.5&hash=142761"]\
+            ["typescript", "patch:typescript@npm%3A4.5.5#~builtin<compat/typescript>::version=4.5.5&hash=bda367"]\
           ],\
           "linkType": "SOFT"\
         }]\
@@ -6901,10 +6901,10 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
         }]\
       ]],\
       ["typescript", [\
-        ["patch:typescript@npm%3A4.5.5#~builtin<compat/typescript>::version=4.5.5&hash=142761", {\
-          "packageLocation": "./.yarn/cache/typescript-patch-01c2584a7f-858c61fa63.zip/node_modules/typescript/",\
+        ["patch:typescript@npm%3A4.5.5#~builtin<compat/typescript>::version=4.5.5&hash=bda367", {\
+          "packageLocation": "./.yarn/cache/typescript-patch-1413b5712d-858c61fa63.zip/node_modules/typescript/",\
           "packageDependencies": [\
-            ["typescript", "patch:typescript@npm%3A4.5.5#~builtin<compat/typescript>::version=4.5.5&hash=142761"]\
+            ["typescript", "patch:typescript@npm%3A4.5.5#~builtin<compat/typescript>::version=4.5.5&hash=bda367"]\
           ],\
           "linkType": "HARD"\
         }]\
@@ -7533,8 +7533,8 @@ async function copyPromise(destinationFs, destination, sourceFs, source, opts) {
   const normalizedSource = sourceFs.pathUtils.normalize(source);
   const prelayout = [];
   const postlayout = [];
-  const referenceTime = opts.stableTime ? {mtime: defaultTime, atime: defaultTime} : await sourceFs.lstatPromise(normalizedSource);
-  await destinationFs.mkdirpPromise(destinationFs.pathUtils.dirname(destination), {utimes: [referenceTime.atime, referenceTime.mtime]});
+  const {atime, mtime} = opts.stableTime ? {atime: defaultTime, mtime: defaultTime} : await sourceFs.lstatPromise(normalizedSource);
+  await destinationFs.mkdirpPromise(destinationFs.pathUtils.dirname(destination), {utimes: [atime, mtime]});
   const updateTime = typeof destinationFs.lutimesPromise === `function` ? destinationFs.lutimesPromise.bind(destinationFs) : destinationFs.utimesPromise.bind(destinationFs);
   await copyImpl(prelayout, postlayout, updateTime, destinationFs, normalizedDestination, sourceFs, normalizedSource, __spreadProps$2(__spreadValues$4({}, opts), {didParentExist: true}));
   for (const operation of prelayout)
@@ -7547,7 +7547,7 @@ async function copyImpl(prelayout, postlayout, updateTime, destinationFs, destin
   var _a, _b;
   const destinationStat = opts.didParentExist ? await maybeLStat(destinationFs, destination) : null;
   const sourceStat = await sourceFs.lstatPromise(source);
-  const referenceTime = opts.stableTime ? {mtime: defaultTime, atime: defaultTime} : sourceStat;
+  const {atime, mtime} = opts.stableTime ? {atime: defaultTime, mtime: defaultTime} : sourceStat;
   let updated;
   switch (true) {
     case sourceStat.isDirectory():
@@ -7570,8 +7570,8 @@ async function copyImpl(prelayout, postlayout, updateTime, destinationFs, destin
         throw new Error(`Unsupported file type (${sourceStat.mode})`);
       }
   }
-  if (updated || ((_a = destinationStat == null ? void 0 : destinationStat.mtime) == null ? void 0 : _a.getTime()) !== referenceTime.mtime.getTime() || ((_b = destinationStat == null ? void 0 : destinationStat.atime) == null ? void 0 : _b.getTime()) !== referenceTime.atime.getTime()) {
-    postlayout.push(() => updateTime(destination, referenceTime.atime, referenceTime.mtime));
+  if (updated || ((_a = destinationStat == null ? void 0 : destinationStat.mtime) == null ? void 0 : _a.getTime()) !== mtime.getTime() || ((_b = destinationStat == null ? void 0 : destinationStat.atime) == null ? void 0 : _b.getTime()) !== atime.getTime()) {
+    postlayout.push(() => updateTime(destination, atime, mtime));
     updated = true;
   }
   if (destinationStat === null || (destinationStat.mode & 511) !== (sourceStat.mode & 511)) {
@@ -7836,24 +7836,18 @@ class FakeFS {
           return this.removePromise(this.pathUtils.resolve(p, entry));
         }));
       }
-      let t = 0;
-      do {
+      for (let t = 0; t <= maxRetries; t++) {
         try {
           await this.rmdirPromise(p);
           break;
         } catch (error) {
-          if (error.code === `EBUSY` || error.code === `ENOTEMPTY`) {
-            if (maxRetries === 0) {
-              break;
-            } else {
-              await new Promise((resolve) => setTimeout(resolve, t * 100));
-              continue;
-            }
-          } else {
+          if (error.code !== `EBUSY` && error.code !== `ENOTEMPTY`) {
             throw error;
+          } else if (t < maxRetries) {
+            await new Promise((resolve) => setTimeout(resolve, t * 100));
           }
         }
-      } while (t++ < maxRetries);
+      }
     } else {
       await this.unlinkPromise(p);
     }
@@ -8966,11 +8960,7 @@ class ZipFS extends BasePortableFakeFS {
     const entry = this.fds.get(fd);
     if (typeof entry === `undefined`)
       throw EBADF(`read`);
-    let realPosition;
-    if (position === -1 || position === null)
-      realPosition = entry.cursor;
-    else
-      realPosition = position;
+    const realPosition = position === -1 || position === null ? entry.cursor : position;
     const source = this.readFileSync(entry.p);
     source.copy(buffer, offset, realPosition, realPosition + length);
     const bytesRead = Math.max(0, Math.min(source.length - realPosition, length));
@@ -9201,14 +9191,14 @@ class ZipFS extends BasePortableFakeFS {
     return this.libzip.getValue(this.libzip.uint32S, `i32`) >>> 16;
   }
   registerListing(p) {
-    let listing = this.listings.get(p);
-    if (listing)
-      return listing;
+    const existingListing = this.listings.get(p);
+    if (existingListing)
+      return existingListing;
     const parentListing = this.registerListing(ppath.dirname(p));
-    listing = new Set();
     parentListing.add(ppath.basename(p));
-    this.listings.set(p, listing);
-    return listing;
+    const newListing = new Set();
+    this.listings.set(p, newListing);
+    return newListing;
   }
   registerEntry(p, index) {
     const parentListing = this.registerListing(ppath.dirname(p));
@@ -9314,11 +9304,7 @@ class ZipFS extends BasePortableFakeFS {
       if (newIndex === -1)
         throw this.makeLibzipError(this.libzip.getError(this.zip));
       if (this.level !== `mixed`) {
-        let method;
-        if (this.level === 0)
-          method = this.libzip.ZIP_CM_STORE;
-        else
-          method = this.libzip.ZIP_CM_DEFLATE;
+        const method = this.level === 0 ? this.libzip.ZIP_CM_STORE : this.libzip.ZIP_CM_DEFLATE;
         const rc = this.libzip.file.setCompression(this.zip, newIndex, 0, method, this.level);
         if (rc === -1) {
           throw this.makeLibzipError(this.libzip.getError(this.zip));
@@ -10754,7 +10740,7 @@ class ZipOpenFS extends BasePortableFakeFS {
       return null;
     let filePath = ``;
     while (true) {
-      const pathPartWithArchive = p.substr(filePath.length);
+      const pathPartWithArchive = p.substring(filePath.length);
       let archivePart;
       if (!this.fileExtensions) {
         archivePart = getArchivePart(pathPartWithArchive, `.zip`);
@@ -10784,7 +10770,7 @@ class ZipOpenFS extends BasePortableFakeFS {
       }
       return {
         archivePath: filePath,
-        subPath: this.pathUtils.join(PortablePath.root, p.substr(filePath.length))
+        subPath: this.pathUtils.join(PortablePath.root, p.substring(filePath.length))
       };
     }
   }
