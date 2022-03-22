@@ -5,25 +5,34 @@ import { useMemo }       from 'react'
 import { useGatewayUrl } from './use-gateway-url.hook'
 
 const uploadMutation = gql`
-  mutation CreateUpload($input: CreateUploadInput!) {
-    createUpload(input: $input) {
-      result {
-        id
-        url
-      }
+    mutation CreateUpload($input: CreateUploadInput!) {
+        createUpload(input: $input) {
+            id
+            url
+        }
     }
-  }
 `
 const confirmMutation = gql`
-  mutation ConfirmUpload($input: ConfirmUploadInput!) {
-    confirmUpload(input: $input) {
-      result {
-        id
-        url
-      }
+    mutation ConfirmUpload($input: ConfirmUploadInput!) {
+        confirmUpload(input: $input) {
+            id
+            url
+        }
     }
-  }
 `
+
+const upload = async (url: string, file: File) => {
+  try {
+    await fetch(url, {
+      method: 'POST',
+      body: file,
+      headers: {
+        'Content-Type': file.type,
+      },
+    })
+    // eslint-disable-next-line no-empty
+  } catch {}
+}
 
 export interface UseUploadProps {
   bucket: string
@@ -38,7 +47,6 @@ export const useUpload = ({ bucket, endpoint: defaultEndpoint }: UseUploadProps)
     if (endpoint)
       return new GraphQLClient(endpoint, {
         credentials: 'include',
-        mode: 'cors',
       })
   }, [endpoint]) as GraphQLClient
 
@@ -53,13 +61,7 @@ export const useUpload = ({ bucket, endpoint: defaultEndpoint }: UseUploadProps)
 
     const { id, url } = data.createUpload
 
-    await fetch(url, {
-      method: 'POST',
-      body: file,
-      headers: {
-        'Content-Type': file.type,
-      },
-    })
+    await upload(url, file)
 
     const confirmData = await client.request(confirmMutation, {
       input: { id },
