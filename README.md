@@ -1,3 +1,10 @@
+
+[//]: # 'VERSIONS'
+
+[<img src="https://img.shields.io/static/v1?style=for-the-badge&label=%40atls%2Fschematics&message=0.0.13&labelColor=ECEEF5&color=D7DCEB">](https://npmjs.com/package/@atls/schematics) [<img src="https://img.shields.io/static/v1?style=for-the-badge&label=%40atls%2Freact-kratos-browser-flows&message=0.0.2&labelColor=43CFF4&color=2DBFE6">](https://npmjs.com/package/@atls/react-kratos-browser-flows)
+
+[//]: # 'VERSIONS'
+
 ## 🎯 **React Custom Components Repository**
 
 #### Этот репозиторий содержит набор кастомных компонентов, хуков и контекстов для работы с пользовательскими данными и другими функциональными возможностями в React-приложениях. 
