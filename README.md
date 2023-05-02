@@ -1,4 +1,4 @@
-![reactjs-github-cover](https://user-images.githubusercontent.com/102182195/235640650-032b9a0d-9d6e-4258-a1fd-9530c0b31ef2.png)
+![reactjs-github-cover](https://user-images.githubusercontent.com/102182195/235649844-634220e7-e35f-48e3-8270-cd523eb68d07.png)
 # ReactJS Custom Workshop
 [//]: # 'VERSIONS'
 
