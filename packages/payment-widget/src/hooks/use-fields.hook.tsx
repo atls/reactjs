@@ -1,0 +1,43 @@
+import React                     from 'react'
+import { useState }              from 'react'
+
+import { AdditionalFieldsProps } from '../interfaces/payment-fields.interfaces'
+import { FieldsNames }           from '../interfaces/payment-fields.interfaces'
+import { FieldsProps }           from '../interfaces/payment-fields.interfaces'
+import { RequiredFieldsNames }   from '../interfaces/payment-fields.interfaces'
+import { RequiredFieldsProps }   from '../interfaces/payment-fields.interfaces'
+import { handleChange }          from '../handlers'
+
+const defaultFields: RequiredFieldsProps[] = [
+  {
+    name: RequiredFieldsNames.Amount,
+    placeholder: 'Сумма заказа',
+    required: true,
+  },
+]
+
+export const useFields = (additionalFields?: AdditionalFieldsProps[]) => {
+  const mergedFields: FieldsProps[] = additionalFields
+    ? [...defaultFields, ...additionalFields]
+    : defaultFields
+
+  const initialFormState: Record<FieldsNames, string> = mergedFields.reduce(
+    (acc, field) => ({ ...acc, [field.name]: '' }),
+    {} as Record<FieldsNames, string>
+  )
+  const [formState, setFormState] = useState<Record<FieldsNames, string>>(initialFormState)
+
+  const fields = mergedFields.map((field, index) => (
+    <input
+      key={field.name}
+      type={field.type ?? 'text'}
+      name={field.name}
+      placeholder={field.placeholder}
+      required={field.required ?? false}
+      value={formState[field.name]}
+      onChange={(e) => handleChange(e.target.name, e.target.value, setFormState)}
+    />
+  ))
+
+  return { fields, formState }
+}
