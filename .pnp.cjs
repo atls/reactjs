@@ -41,6 +41,10 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
         "reference": "workspace:packages/kratos-browser-flows"\
       },\
       {\
+        "name": "payment-widget",\
+        "reference": "workspace:packages/payment-widget"\
+      },\
+      {\
         "name": "@atls/react-upload",\
         "reference": "workspace:packages/upload"\
       },\
@@ -59,6 +63,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
       ["@atls/react-kratos-browser-flows", ["workspace:packages/kratos-browser-flows"]],\
       ["@atls/react-upload", ["workspace:packages/upload"]],\
       ["@atls/react-user", ["virtual:3ceedfe52a4367336e64693125ab45dbd4d5297af4b0beb13fa80c755b2a8540885a9beb615a2d0b3306600ad96d118e7015dd0916af8a4f315b5ede18134945#workspace:packages/user", "workspace:packages/user"]],\
+      ["payment-widget", ["workspace:packages/payment-widget"]],\
       ["reactjs", ["workspace:."]]\
     ],\
     "fallbackPool": [\
@@ -5835,6 +5840,17 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["path-parse", "npm:1.0.6"]\
           ],\
           "linkType": "HARD"\
+        }]\
+      ]],\
+      ["payment-widget", [\
+        ["workspace:packages/payment-widget", {\
+          "packageLocation": "./packages/payment-widget/",\
+          "packageDependencies": [\
+            ["payment-widget", "workspace:packages/payment-widget"],\
+            ["@types/react", "npm:17.0.39"],\
+            ["react", "npm:17.0.2"]\
+          ],\
+          "linkType": "SOFT"\
         }]\
       ]],\
       ["picocolors", [\

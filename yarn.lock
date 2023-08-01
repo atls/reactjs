@@ -4771,6 +4771,17 @@ __metadata:
   languageName: node
   linkType: hard
 
+"payment-widget@workspace:packages/payment-widget":
+  version: 0.0.0-use.local
+  resolution: "payment-widget@workspace:packages/payment-widget"
+  dependencies:
+    "@types/react": ^17.0.38
+    react: ^17.0.2
+  peerDependencies:
+    react: ^17.0.1
+  languageName: unknown
+  linkType: soft
+
 "picocolors@npm:^1.0.0":
   version: 1.0.0
   resolution: "picocolors@npm:1.0.0"
