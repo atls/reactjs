@@ -10,10 +10,10 @@ export const PaymentSettings: FC<PaymentSettingsProps> = (props) => {
 
   return (
     <>
-      <HiddenInput name='terminalkey' value={storeId} />
-      <HiddenInput name='frame' value={isNewWindow.toString()} />
-      <HiddenInput name='language' value={language} />
-      {generateReceipt && <HiddenInput name='receipt' value='' />}
+      <HiddenInput name='terminalkey' defaultValue={storeId} />
+      <HiddenInput name='frame' defaultValue={isNewWindow.toString()} />
+      <HiddenInput name='language' defaultValue={language} />
+      {generateReceipt && <HiddenInput name='receipt' defaultValue='' />}
     </>
   )
 }
