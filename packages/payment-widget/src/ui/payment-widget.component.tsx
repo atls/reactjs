@@ -1,3 +1,5 @@
+import { Button }             from '@atls-ui-proto/button'
+
 import React                  from 'react'
 import { FC }                 from 'react'
 
@@ -12,9 +14,9 @@ export const PaymentWidget: FC<PaymentWidgetProps> = ({ settings, additionalFiel
     <form>
       <PaymentSettings storeId={settings.storeId} />
       <PaymentFields additionalFields={additionalFields} />
-      <button type='button' onClick={pay}>
+      <Button type='button' onClick={pay}>
         Оплатить
-      </button>
+      </Button>
     </form>
   )
 }

@@ -11,7 +11,13 @@ interface PaymentFieldsProps {
 export const PaymentFields: FC<PaymentFieldsProps> = ({ additionalFields = [] }) => {
   const { fields } = usePayment(additionalFields)
 
-  return <div>{fields}</div>
+  return (
+    <>
+      {fields.map((field) => (
+        <React.Fragment key={field.key}>{field}</React.Fragment>
+      ))}
+    </>
+  )
 }
 
 PaymentFields.defaultProps = {

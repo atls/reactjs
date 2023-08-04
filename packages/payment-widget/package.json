@@ -11,8 +11,16 @@
     "prepack": "yarn run build",
     "postpack": "rm -rf dist"
   },
+  "dependencies": {
+    "@atls-ui-proto/button": "^0.0.14",
+    "@atls-ui-proto/input": "^0.0.13",
+    "@emotion/react": "^11.11.1",
+    "@emotion/styled": "^11.11.0",
+    "styled-system": "^5.1.5"
+  },
   "devDependencies": {
     "@types/react": "^17.0.38",
+    "@types/styled-system": "^5",
     "react": "^17.0.2"
   },
   "peerDependencies": {
