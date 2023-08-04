@@ -1,25 +1,14 @@
-import React                     from 'react'
-import { FC }                    from 'react'
-
-import { AdditionalFieldsProps } from '../interfaces/payment-fields.interfaces'
-import { usePayment }            from '../hooks'
+import React  from 'react'
+import { FC } from 'react'
 
 interface PaymentFieldsProps {
-  additionalFields?: AdditionalFieldsProps[]
+  fields: JSX.Element[]
 }
 
-export const PaymentFields: FC<PaymentFieldsProps> = ({ additionalFields = [] }) => {
-  const { fields } = usePayment(additionalFields)
-
-  return (
-    <>
-      {fields.map((field) => (
-        <React.Fragment key={field.key}>{field}</React.Fragment>
-      ))}
-    </>
-  )
-}
-
-PaymentFields.defaultProps = {
-  additionalFields: [],
-}
+export const PaymentFields: FC<PaymentFieldsProps> = ({ fields }) => (
+  <>
+    {fields.map((field) => (
+      <React.Fragment key={field.key}>{field}</React.Fragment>
+    ))}
+  </>
+)

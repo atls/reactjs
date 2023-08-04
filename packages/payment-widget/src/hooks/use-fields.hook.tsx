@@ -8,7 +8,7 @@ import { FieldsNames }           from '../interfaces/payment-fields.interfaces'
 import { FieldsProps }           from '../interfaces/payment-fields.interfaces'
 import { RequiredFieldsNames }   from '../interfaces/payment-fields.interfaces'
 import { RequiredFieldsProps }   from '../interfaces/payment-fields.interfaces'
-import { handleChange }          from '../handlers'
+import { handleChange }           from '../utils'
 
 const defaultFields: RequiredFieldsProps[] = [
   {

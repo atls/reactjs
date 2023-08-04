@@ -9,11 +9,12 @@ import { PaymentSettings }    from './payment-settings.component'
 import { usePayment }         from '../hooks'
 
 export const PaymentWidget: FC<PaymentWidgetProps> = ({ settings, additionalFields }) => {
-  const { pay } = usePayment(additionalFields)
+  const { fields, pay } = usePayment(additionalFields)
+
   return (
     <form>
       <PaymentSettings storeId={settings.storeId} />
-      <PaymentFields additionalFields={additionalFields} />
+      <PaymentFields fields={fields} />
       <Button type='button' onClick={pay}>
         Оплатить
       </Button>
