@@ -11,6 +11,10 @@
     "prepack": "yarn run build",
     "postpack": "rm -rf dist"
   },
+  "dependencies": {
+    "@ory/kratos-client": "^0.8.2-alpha.1",
+    "events": "^3.3.0"
+  },
   "devDependencies": {
     "@testing-library/jest-dom": "^5.16.2",
     "@testing-library/react": "^12.1.3",
@@ -29,9 +33,5 @@
     "access": "public",
     "main": "dist/index.js",
     "typings": "dist/index.d.ts"
-  },
-  "dependencies": {
-    "@ory/kratos-client": "^0.8.2-alpha.1",
-    "events": "^3.3.0"
   }
 }

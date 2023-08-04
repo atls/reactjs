@@ -5,20 +5,20 @@ import { useMemo }       from 'react'
 import { useGatewayUrl } from './use-gateway-url.hook'
 
 const uploadMutation = gql`
-    mutation CreateUpload($input: CreateUploadInput!) {
-        createUpload(input: $input) {
-            id
-            url
-        }
+  mutation CreateUpload($input: CreateUploadInput!) {
+    createUpload(input: $input) {
+      id
+      url
     }
+  }
 `
 const confirmMutation = gql`
-    mutation ConfirmUpload($input: ConfirmUploadInput!) {
-        confirmUpload(input: $input) {
-            id
-            url
-        }
+  mutation ConfirmUpload($input: ConfirmUploadInput!) {
+    confirmUpload(input: $input) {
+      id
+      url
     }
+  }
 `
 
 const upload = async (url: string, file: File) => {

@@ -24,7 +24,6 @@ export const useIdentityUrl = ({ type = 'login', returnTo = false }: UseIdentity
 
     if (hostname === 'localhost') {
       setUrl(`${protocol}//localhost:3000${path}`)
-
     } else {
       const domain = getDomain(hostname)
 
