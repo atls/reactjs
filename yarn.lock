@@ -78,6 +78,16 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@atls-ui-parts/hidden-input@npm:^0.0.6":
+  version: 0.0.6
+  resolution: "@atls-ui-parts/hidden-input@npm:0.0.6"
+  peerDependencies:
+    "@emotion/styled": ^11.1.5
+    react: ^17.0.1
+  checksum: 5f6ed9bb3c851bccd52ab43c82181e1e78d2bbbeef204da889b2957a218e5e5468d57c75902c3a033f35c98860d12af1ee59f8950ebea683cf6384993ea6f2da
+  languageName: node
+  linkType: hard
+
 "@atls-ui-parts/input@npm:0.0.13":
   version: 0.0.13
   resolution: "@atls-ui-parts/input@npm:0.0.13"
@@ -5227,6 +5237,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "payment-widget@workspace:packages/payment-widget"
   dependencies:
+    "@atls-ui-parts/hidden-input": "npm:^0.0.6"
     "@atls-ui-proto/button": "npm:^0.0.14"
     "@atls-ui-proto/input": "npm:^0.0.13"
     "@emotion/react": "npm:^11.11.1"

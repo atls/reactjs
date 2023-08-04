@@ -1,4 +1,4 @@
-import { Input }                from '@atls-ui-proto/input'
+import { HiddenInput }          from '@atls-ui-parts/hidden-input'
 
 import React                    from 'react'
 import { FC }                   from 'react'
@@ -10,10 +10,10 @@ export const PaymentSettings: FC<PaymentSettingsProps> = (props) => {
 
   return (
     <>
-      <Input type='hidden' name='terminalkey' value={storeId} />
-      <Input type='hidden' name='frame' value={isNewWindow.toString()} />
-      <Input type='hidden' name='language' value={language} />
-      {generateReceipt && <Input type='hidden' name='receipt' value='' />}
+      <HiddenInput name='terminalkey' value={storeId} />
+      <HiddenInput name='frame' value={isNewWindow.toString()} />
+      <HiddenInput name='language' value={language} />
+      {generateReceipt && <HiddenInput name='receipt' value='' />}
     </>
   )
 }
