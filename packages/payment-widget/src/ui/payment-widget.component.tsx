@@ -12,7 +12,7 @@ export const PaymentWidget: FC<PaymentWidgetProps> = ({ settings, additionalFiel
   const { fields, pay } = usePayment(additionalFields)
 
   return (
-    <form>
+    <form name='payform-tinkoff'>
       <PaymentSettings storeId={settings.storeId} />
       <PaymentFields fields={fields} />
       <Button type='button' onClick={pay}>
