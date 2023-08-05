@@ -1,9 +1,9 @@
-import { HiddenInput }          from '@atls-ui-parts/hidden-input'
+import { HiddenInput }         from '@atls-ui-parts/hidden-input'
 
-import React                    from 'react'
-import { FC }                   from 'react'
+import React                   from 'react'
+import { FC }                  from 'react'
 
-import { PaymentSettingsProps } from '../interfaces/payment-settings.interfaces'
+import { PaymentSettingsProps } from '../interfaces'
 
 export const PaymentSettings: FC<PaymentSettingsProps> = (props) => {
   const { storeId, language = 'ru', isNewWindow = false, generateReceipt = false } = props

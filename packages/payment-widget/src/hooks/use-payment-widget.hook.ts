@@ -1,4 +1,4 @@
-import { AdditionalFieldsProps } from '../interfaces/payment-fields.interfaces'
+import { AdditionalFieldsProps } from '../interfaces'
 import { getPay }                from '../utils'
 import { useFields }             from './use-fields.hook'
 
