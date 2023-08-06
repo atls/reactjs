@@ -1,7 +1,7 @@
-import { HiddenInput }         from '@atls-ui-parts/hidden-input'
+import { HiddenInput }          from '@atls-ui-parts/hidden-input'
 
-import React                   from 'react'
-import { FC }                  from 'react'
+import React                    from 'react'
+import { FC }                   from 'react'
 
 import { PaymentSettingsProps } from '../interfaces'
 
