@@ -1,4 +1,5 @@
 import React                from 'react'
+import { ReactNode }        from 'react'
 import { FC }               from 'react'
 import { useMemo }          from 'react'
 
@@ -16,6 +17,7 @@ import { Provider }         from './flows.context'
 export interface KratosFlowProviderProps {
   basePath?: string
   name: FlowName
+  children: ReactNode | ReactNode[]
 }
 
 export const KratosFlowProvider: FC<KratosFlowProviderProps> = ({ name, basePath, children }) => {
