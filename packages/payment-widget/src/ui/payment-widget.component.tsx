@@ -1,23 +1,23 @@
-import { Button }             from '@atls-ui-proto/button'
+import * as messagesRu  from '../locales/ru.json'
+import * as messagesEn  from '../locales/en.json'
 
-import React                  from 'react'
-import { FC }                 from 'react'
+import React            from 'react'
+import { IntlProvider } from 'react-intl'
 
-import { PaymentWidgetProps } from '../interfaces'
-import { PaymentFields }      from './payment-fields.component'
-import { PaymentSettings }    from './payment-settings.component'
-import { usePayment }         from '../hooks'
+import { Languages }    from '../interfaces/payment-settings.interfaces'
+import { PaymentForm }  from './payment-form.component'
 
-export const PaymentWidget: FC<PaymentWidgetProps> = ({ settings, additionalFields }) => {
-  const { fields, pay } = usePayment(additionalFields)
+const messages = {
+  [Languages.RUSSIAN]: messagesRu,
+  [Languages.ENGLISH]: messagesEn,
+}
+
+export const PaymentWidget = ({ settings, additionalFields }) => {
+  const locale = settings.language ?? Languages.RUSSIAN
 
   return (
-    <form name='payform-tinkoff'>
-      <PaymentSettings {...settings} />
-      <PaymentFields fields={fields} />
-      <Button type='button' onClick={pay}>
-        Оплатить
-      </Button>
-    </form>
+    <IntlProvider locale={locale} messages={messages[locale]} defaultLocale={Languages.RUSSIAN}>
+      <PaymentForm settings={settings} additionalFields={additionalFields} />
+    </IntlProvider>
   )
 }

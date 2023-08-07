@@ -1,1 +1,1 @@
-export * from './ui'
+export { PaymentWidget } from './ui'

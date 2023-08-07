@@ -4,9 +4,15 @@ import React                    from 'react'
 import { FC }                   from 'react'
 
 import { PaymentSettingsProps } from '../interfaces'
+import { Languages }            from '../interfaces/payment-settings.interfaces'
 
 export const PaymentSettings: FC<PaymentSettingsProps> = (props) => {
-  const { storeId, language = 'ru', isNewWindow = false, generateReceipt = false } = props
+  const {
+    storeId,
+    language = Languages.RUSSIAN,
+    isNewWindow = false,
+    generateReceipt = false,
+  } = props
 
   return (
     <>

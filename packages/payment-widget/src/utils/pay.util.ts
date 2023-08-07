@@ -1,6 +1,6 @@
 import { MouseEventHandler } from 'react'
 
-import { FieldsNames }       from '../interfaces/payment-fields.interfaces'
+import { FieldsNames }       from '../interfaces'
 import { init }              from './init.util'
 
 export const getPay = (formFields: Record<FieldsNames, string>) => {

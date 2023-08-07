@@ -17,6 +17,7 @@
     "@atls-ui-proto/input": "^0.0.13",
     "@emotion/react": "11.9.3",
     "@emotion/styled": "11.9.3",
+    "react-intl": "^6.4.4",
     "styled-system": "^5.1.5"
   },
   "devDependencies": {
