@@ -1,14 +1,9 @@
-import { MouseEventHandler } from 'react'
+import { FormEventHandler } from 'react'
 
-import { FieldsNames }       from '../interfaces'
-import { init }              from './init.util'
+import { init }            from './init.util'
 
-export const getPay = (formFields: Record<FieldsNames, string>) => {
-  const handlePay: MouseEventHandler<HTMLButtonElement> = async (event) => {
-    event.preventDefault()
-    const pay = await init()
-    pay(formFields)
-  }
-
-  return handlePay
+export const handlerPay: FormEventHandler<HTMLFormElement> = async (event) => {
+  event.preventDefault()
+  const pay = await init()
+  pay(event.target)
 }

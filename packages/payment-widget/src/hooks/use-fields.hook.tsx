@@ -46,5 +46,5 @@ export const useFields = (additionalFields?: AdditionalFieldsProps[]) => {
     )
   })
 
-  return { fields, formState }
+  return fields
 }

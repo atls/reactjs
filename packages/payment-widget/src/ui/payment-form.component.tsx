@@ -6,16 +6,17 @@ import { FormattedMessage }   from 'react-intl'
 
 import { PaymentWidgetProps } from '../interfaces'
 import { PaymentSettings }    from './payment-settings.component'
-import { usePayment }         from '../hooks/use-payment-widget.hook'
+import { useFields }           from '../hooks'
+import { handlerPay }          from '../utils'
 
 export const PaymentForm: FC<PaymentWidgetProps> = ({ settings, additionalFields }) => {
-  const { fields, pay } = usePayment(additionalFields)
+  const fields = useFields(additionalFields)
 
   return (
-    <form name='payform-tinkoff'>
+    <form name='payform-tinkoff' onSubmit={handlerPay}>
       <PaymentSettings {...settings} />
       {fields}
-      <Button type='button' onClick={pay}>
+      <Button type='submit'>
         <FormattedMessage id='payment-widget.pay' defaultMessage='Оплатить' />
       </Button>
     </form>

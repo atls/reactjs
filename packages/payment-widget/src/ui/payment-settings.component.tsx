@@ -1,4 +1,4 @@
-import { Condition }             from '@atls-ui-parts/condition'
+import { Condition }            from '@atls-ui-parts/condition'
 import { HiddenInput }          from '@atls-ui-parts/hidden-input'
 
 import React                    from 'react'
