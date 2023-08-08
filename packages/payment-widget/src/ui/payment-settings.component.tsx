@@ -1,3 +1,4 @@
+import { Condition }             from '@atls-ui-parts/condition'
 import { HiddenInput }          from '@atls-ui-parts/hidden-input'
 
 import React                    from 'react'
@@ -19,7 +20,9 @@ export const PaymentSettings: FC<PaymentSettingsProps> = (props) => {
       <HiddenInput name='terminalkey' defaultValue={storeId} />
       <HiddenInput name='frame' defaultValue={isNewWindow.toString()} />
       <HiddenInput name='language' defaultValue={language} />
-      {generateReceipt && <HiddenInput name='receipt' defaultValue='' />}
+      <Condition match={generateReceipt}>
+        <HiddenInput name='receipt' defaultValue='' />
+      </Condition>
     </>
   )
 }

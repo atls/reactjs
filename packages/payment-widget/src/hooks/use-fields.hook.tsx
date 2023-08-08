@@ -39,7 +39,7 @@ export const useFields = (additionalFields?: AdditionalFieldsProps[]) => {
         type={field.type ?? 'text'}
         name={field.name}
         placeholder={translatePlaceholder}
-        required={field.required}
+        required={field.required ?? false}
         value={formState[field.name]}
         onChange={(value) => handleChange(field.name, value, setFormState)}
       />
