@@ -5,7 +5,7 @@ import React                    from 'react'
 import { FC }                   from 'react'
 
 import { PaymentSettingsProps } from '../interfaces'
-import { Languages }            from '../interfaces/payment-settings.interfaces'
+import { Languages }            from '../interfaces'
 
 export const PaymentSettings: FC<PaymentSettingsProps> = (props) => {
   const {

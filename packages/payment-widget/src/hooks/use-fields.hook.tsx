@@ -7,21 +7,15 @@ import { useIntl }               from 'react-intl'
 import { AdditionalFieldsProps } from '../interfaces'
 import { FieldsNames }           from '../interfaces'
 import { FieldsProps }           from '../interfaces'
-import { RequiredFieldsNames }   from '../interfaces'
-import { RequiredFieldsProps }   from '../interfaces'
+import { requiredFields }        from '../data'
 import { handleChange }          from '../utils'
 import { mergeFields }           from '../utils'
 
-const requiredFields: RequiredFieldsProps[] = [
-  {
-    name: RequiredFieldsNames.Amount,
-    placeholder: 'Сумма заказа',
-    required: true,
-  },
-]
-
-export const useFields = (additionalFields?: AdditionalFieldsProps[]) => {
-  const mergedFields: FieldsProps[] = mergeFields(requiredFields, additionalFields)
+export const useFields = (
+  additionalFields?: AdditionalFieldsProps[],
+  generateReceipt?: boolean
+) => {
+  const mergedFields: FieldsProps[] = mergeFields(requiredFields, additionalFields, generateReceipt)
   const initialFormState: Record<FieldsNames, string> = mergedFields.reduce(
     (acc, field) => ({ ...acc, [field.name]: '' }),
     {} as Record<FieldsNames, string>

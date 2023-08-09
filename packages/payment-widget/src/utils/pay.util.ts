@@ -1,9 +1,44 @@
 import { FormEventHandler } from 'react'
+import { MouseEvent }       from 'react'
 
-import { init }            from './init.util'
+import { Receipt }          from '../interfaces/payment-receipt.interfaces'
+import { ReceiptSettings }  from '../interfaces/payment-receipt.interfaces'
+import { convertToKopecks } from './convertToKopecks.util'
 
-export const handlerPay: FormEventHandler<HTMLFormElement> = async (event) => {
+export const makePayment: FormEventHandler<HTMLFormElement> = (event) => {
   event.preventDefault()
-  const pay = await init()
+  const { pay } = window as any
   pay(event.target)
+}
+
+export const makePaymentWithCheck = (
+  event: MouseEvent<HTMLButtonElement>,
+  receiptSettings: ReceiptSettings
+) => {
+  event.preventDefault()
+  const form = event.currentTarget?.parentElement
+
+  if (!form) return
+  const receiptElement = form.querySelector('input[name="receipt"]') as HTMLInputElement
+  const email = form.querySelector('input[name="email"]') as HTMLInputElement
+  const phone = form.querySelector('input[name="phone"]') as HTMLInputElement
+
+  const receipt: Receipt = {
+    Taxation: receiptSettings.Taxation,
+    EmailCompany: receiptSettings.EmailCompany,
+    Items: convertToKopecks(receiptSettings.Items),
+  }
+
+  if (email?.value) {
+    receipt.Email = email.value
+  }
+
+  if (phone?.value) {
+    receipt.Phone = phone.value
+  }
+
+  receiptElement.value = JSON.stringify(receipt)
+
+  const { pay } = window as any
+  pay(form)
 }

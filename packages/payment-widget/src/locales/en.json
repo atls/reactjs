@@ -1,4 +1,5 @@
 {
   "payment_widget.pay": "Pay",
-  "payment_widget.order_price": "Order amount"
+  "payment_widget.order_price": "Order amount",
+  "payment_widget.email": "E-mail"
 }
