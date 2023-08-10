@@ -14,12 +14,22 @@ const messages = {
   [Languages.ENGLISH]: messagesEn,
 }
 
-export const PaymentWidget: FC<PaymentWidgetProps> = ({ settings, additionalFields, receipt }) => {
+export const PaymentWidget: FC<PaymentWidgetProps> = ({
+  amount,
+  settings,
+  additionalFields,
+  receipt,
+}) => {
   const locale = settings.language ?? Languages.RUSSIAN
 
   return (
     <IntlProvider locale={locale} messages={messages[locale]} defaultLocale={Languages.RUSSIAN}>
-      <PaymentForm settings={settings} additionalFields={additionalFields} receipt={receipt} />
+      <PaymentForm
+        amount={amount}
+        settings={settings}
+        additionalFields={additionalFields}
+        receipt={receipt}
+      />
     </IntlProvider>
   )
 }
