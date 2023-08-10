@@ -1,9 +1,9 @@
 import { AdditionalFieldsNames } from '../interfaces'
-import { AdditionalFieldsProps } from '../interfaces'
+import { AdditionalFields }      from '../interfaces'
 import { RequiredFieldsNames }   from '../interfaces'
-import { RequiredFieldsProps }   from '../interfaces'
+import { RequiredFields }        from '../interfaces'
 
-export const requiredFields: RequiredFieldsProps[] = [
+export const requiredFields: RequiredFields[] = [
   {
     type: 'text',
     name: RequiredFieldsNames.Amount,
@@ -12,7 +12,7 @@ export const requiredFields: RequiredFieldsProps[] = [
   },
 ]
 
-export const receiptFields: AdditionalFieldsProps[] = [
+export const receiptFields: AdditionalFields[] = [
   {
     type: 'text',
     name: AdditionalFieldsNames.Email,

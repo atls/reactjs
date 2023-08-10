@@ -1,9 +1,9 @@
-import { AdditionalFieldsProps } from './payment-fields.interfaces'
-import { ReceiptSettings }       from './payment-receipt.interfaces'
-import { PaymentSettingsProps }  from './payment-settings.interfaces'
+import { AdditionalFields } from './payment-fields.interfaces'
+import { ReceiptSettings }  from './payment-receipt.interfaces'
+import { Settings }         from './payment-settings.interfaces'
 
 export interface PaymentWidgetProps {
-  settings: PaymentSettingsProps
+  settings: Settings
   receipt?: ReceiptSettings
-  additionalFields?: AdditionalFieldsProps[]
+  additionalFields?: AdditionalFields[]
 }

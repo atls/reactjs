@@ -8,7 +8,7 @@ export enum TaxationType {
   Esn = 'esn',
 }
 
-enum PaymentMethodType {
+export enum PaymentMethodType {
   FullPayment = 'full_payment',
   FullPrepayment = 'full_prepayment',
   Prepayment = 'prepayment',
@@ -18,7 +18,7 @@ enum PaymentMethodType {
   CreditPayment = 'credit_payment',
 }
 
-enum PaymentObjectType {
+export enum PaymentObjectType {
   Commodity = 'commodity',
   Excise = 'excise',
   Job = 'job',

@@ -1,16 +1,16 @@
 import { AdditionalFieldsNames } from '../interfaces'
-import { AdditionalFieldsProps } from '../interfaces'
-import { RequiredFieldsProps }   from '../interfaces'
+import { AdditionalFields }      from '../interfaces'
+import { RequiredFields }        from '../interfaces'
 import { receiptFields }         from '../data'
 
-const deleteDuplicateFields = (fields: (RequiredFieldsProps | AdditionalFieldsProps)[]) => {
+const deleteDuplicateFields = (fields: (RequiredFields | AdditionalFields)[]) => {
   const uniqueNames = new Set<string>()
   return fields.filter((field) => !uniqueNames.has(field.name) && uniqueNames.add(field.name))
 }
 
 export const mergeFields = (
-  requiredFields: RequiredFieldsProps[],
-  additionalFields?: AdditionalFieldsProps[],
+  requiredFields: RequiredFields[],
+  additionalFields?: AdditionalFields[],
   generateReceipt?: boolean
 ) => {
   const mergedFields = additionalFields ? [...requiredFields, ...additionalFields] : requiredFields

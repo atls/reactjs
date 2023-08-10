@@ -1,13 +1,13 @@
-import { Condition }            from '@atls-ui-parts/condition'
-import { HiddenInput }          from '@atls-ui-parts/hidden-input'
+import { Condition }   from '@atls-ui-parts/condition'
+import { HiddenInput } from '@atls-ui-parts/hidden-input'
 
-import React                    from 'react'
-import { FC }                   from 'react'
+import React           from 'react'
+import { FC }          from 'react'
 
-import { PaymentSettingsProps } from '../interfaces'
-import { Languages }            from '../interfaces'
+import { Settings }    from '../interfaces'
+import { Languages }   from '../interfaces'
 
-export const PaymentSettings: FC<PaymentSettingsProps> = (props) => {
+export const PaymentSettings: FC<Settings> = (props) => {
   const {
     storeId,
     language = Languages.RUSSIAN,

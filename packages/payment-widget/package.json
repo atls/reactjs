@@ -12,7 +12,7 @@
     "postpack": "rm -rf dist"
   },
   "dependencies": {
-    "@atls-ui-parts/condition": "^0.0.4",
+    "@atls-ui-parts/condition": "0.0.4",
     "@atls-ui-parts/hidden-input": "0.0.6",
     "@atls-ui-proto/button": "0.0.14",
     "@atls-ui-proto/input": "0.0.13",

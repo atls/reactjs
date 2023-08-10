@@ -1,9 +1,9 @@
 import { FormEventHandler } from 'react'
 import { MouseEvent }       from 'react'
 
-import { Receipt }          from '../interfaces/payment-receipt.interfaces'
-import { ReceiptSettings }  from '../interfaces/payment-receipt.interfaces'
-import { convertToKopecks } from './convertToKopecks.util'
+import { Receipt }          from '../interfaces'
+import { ReceiptSettings }  from '../interfaces'
+import { convertToPenny }   from './convert-to-penny.util'
 
 export const makePayment: FormEventHandler<HTMLFormElement> = (event) => {
   event.preventDefault()
@@ -26,7 +26,7 @@ export const makePaymentWithCheck = (
   const receipt: Receipt = {
     Taxation: receiptSettings.Taxation,
     EmailCompany: receiptSettings.EmailCompany,
-    Items: convertToKopecks(receiptSettings.Items),
+    Items: convertToPenny(receiptSettings.Items),
   }
 
   if (email?.value) {

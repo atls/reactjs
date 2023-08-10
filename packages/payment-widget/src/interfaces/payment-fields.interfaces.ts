@@ -1,4 +1,6 @@
 /* eslint-disable no-shadow */
+import { HTMLInputTypeAttribute } from 'react'
+
 export enum RequiredFieldsNames {
   Amount = 'amount',
 }
@@ -13,17 +15,17 @@ export enum AdditionalFieldsNames {
 
 export type FieldsNames = RequiredFieldsNames | AdditionalFieldsNames
 
-export interface FieldsProps {
+export interface Fields {
   name: FieldsNames
   placeholder: string
   required?: boolean
-  type?: string
+  type?: HTMLInputTypeAttribute
 }
 
-export interface AdditionalFieldsProps extends FieldsProps {
+export interface AdditionalFields extends Fields {
   name: AdditionalFieldsNames
 }
 
-export interface RequiredFieldsProps extends FieldsProps {
+export interface RequiredFields extends Fields {
   name: RequiredFieldsNames
 }
