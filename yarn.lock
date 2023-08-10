@@ -75,7 +75,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@atls-ui-parts/condition@npm:^0.0.4":
+"@atls-ui-parts/condition@npm:0.0.4":
   version: 0.0.4
   resolution: "@atls-ui-parts/condition@npm:0.0.4"
   dependencies:
@@ -270,6 +270,27 @@ __metadata:
     react-dom: "npm:^18.2.0"
   peerDependencies:
     react: ^17.0.1
+  languageName: unknown
+  linkType: soft
+
+"@atls/react-payment-widget@workspace:packages/payment-widget":
+  version: 0.0.0-use.local
+  resolution: "@atls/react-payment-widget@workspace:packages/payment-widget"
+  dependencies:
+    "@atls-ui-parts/condition": "npm:0.0.4"
+    "@atls-ui-parts/hidden-input": "npm:0.0.6"
+    "@atls-ui-proto/button": "npm:0.0.14"
+    "@atls-ui-proto/input": "npm:0.0.13"
+    "@emotion/react": "npm:11.9.3"
+    "@emotion/styled": "npm:11.9.3"
+    "@types/react": "npm:18.2.18"
+    "@types/styled-system": "npm:5.1.16"
+    react: "npm:18.2.0"
+    react-intl: "npm:6.4.4"
+    styled-system: "npm:5.1.5"
+    styled-tools: "npm:1.7.2"
+  peerDependencies:
+    react: 18.2.0
   languageName: unknown
   linkType: soft
 
@@ -5431,27 +5452,6 @@ __metadata:
   checksum: 6a9330ad8d96f31e929feb414cde2959078379ba5a48c9e3eab34f280d7850eec6a0fa3ed5be9150e9e4d7df5139c1ae92f891b18167528553a11382d8f54183
   languageName: node
   linkType: hard
-
-"payment-widget@workspace:packages/payment-widget":
-  version: 0.0.0-use.local
-  resolution: "payment-widget@workspace:packages/payment-widget"
-  dependencies:
-    "@atls-ui-parts/condition": "npm:^0.0.4"
-    "@atls-ui-parts/hidden-input": "npm:0.0.6"
-    "@atls-ui-proto/button": "npm:0.0.14"
-    "@atls-ui-proto/input": "npm:0.0.13"
-    "@emotion/react": "npm:11.9.3"
-    "@emotion/styled": "npm:11.9.3"
-    "@types/react": "npm:18.2.18"
-    "@types/styled-system": "npm:5.1.16"
-    react: "npm:18.2.0"
-    react-intl: "npm:6.4.4"
-    styled-system: "npm:5.1.5"
-    styled-tools: "npm:1.7.2"
-  peerDependencies:
-    react: 18.2.0
-  languageName: unknown
-  linkType: soft
 
 "picocolors@npm:^1.0.0":
   version: 1.0.0

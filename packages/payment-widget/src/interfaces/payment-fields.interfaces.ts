@@ -29,3 +29,9 @@ export interface AdditionalFields extends Fields {
 export interface RequiredFields extends Fields {
   name: RequiredFieldsNames
 }
+
+export interface PaymentFieldsProps {
+  amount: number
+  shouldGenerateReceipt: boolean
+  additionalFields?: AdditionalFields[]
+}

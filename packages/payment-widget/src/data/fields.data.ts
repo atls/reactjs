@@ -1,8 +1,16 @@
-import { AdditionalFieldsNames } from '../interfaces'
 import { AdditionalFields }      from '../interfaces'
+import { AdditionalFieldsNames } from '../interfaces'
 import { RequiredFields }        from '../interfaces'
+import { RequiredFieldsNames }   from '../interfaces'
 
-export const requiredFields: RequiredFields[] = []
+export const requiredFields: RequiredFields[] = [
+  {
+    type: 'text',
+    name: RequiredFieldsNames.Amount,
+    placeholder: 'payment_widget.order_price',
+    required: true,
+  },
+]
 
 export const receiptFields: AdditionalFields[] = [
   {
