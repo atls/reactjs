@@ -8,21 +8,22 @@ import { PaymentFieldsProps }  from '../interfaces'
 import { RequiredFieldsNames } from '../interfaces'
 import { requiredFields }      from '../data'
 import { useFields }           from '../hooks'
+import { generateReceipt }     from '../utils'
 
 export const PaymentFields: FC<PaymentFieldsProps> = ({
   amount,
-  shouldGenerateReceipt,
-  additionalFields,
-}) => (
-  <>
-    <Condition match={!!amount}>
-      <HiddenInput name={RequiredFieldsNames.Amount} defaultValue={amount} disabled />
-    </Condition>
+  additionalFields = [],
+  isGenerateReceipt = false,
+}) => {
+  const fieldsWithReceipt = useFields(generateReceipt(additionalFields, isGenerateReceipt))
 
-    <Condition match={!amount}>{useFields(requiredFields)}</Condition>
-
-    <Condition match={!!additionalFields}>
-      {useFields(additionalFields!, shouldGenerateReceipt)}
-    </Condition>
-  </>
-)
+  return (
+    <>
+      <Condition match={!!amount}>
+        <HiddenInput name={RequiredFieldsNames.Amount} defaultValue={amount} disabled />
+      </Condition>
+      <Condition match={!amount}>{useFields(requiredFields)}</Condition>
+      {fieldsWithReceipt}
+    </>
+  )
+}

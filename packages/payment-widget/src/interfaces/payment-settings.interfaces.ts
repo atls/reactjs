@@ -1,7 +1,7 @@
 /* eslint-disable no-shadow */
 interface AutoPaymentConfig {
-  customerKey: string
   reccurentPayment: boolean
+  customerKey: string
 }
 
 export enum Languages {
@@ -9,10 +9,13 @@ export enum Languages {
   RUSSIAN = 'ru',
 }
 
-export interface Settings {
+export interface PaymentSettings {
   storeId: string
   language?: Languages
   isNewWindow?: boolean
   autopayment?: AutoPaymentConfig
-  generateReceipt?: boolean
+}
+
+export interface PaymentSettingsProps extends PaymentSettings {
+  isGenerateReceipt?: boolean
 }

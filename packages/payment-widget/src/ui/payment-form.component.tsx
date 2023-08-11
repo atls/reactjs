@@ -15,8 +15,8 @@ import { makePaymentWithCheck } from '../utils'
 export const PaymentForm: FC<PaymentWidgetProps> = ({
   amount,
   settings,
-  additionalFields,
   receipt,
+  additionalFields,
 }) => {
   const isLoaded = useInit()
 
@@ -28,10 +28,10 @@ export const PaymentForm: FC<PaymentWidgetProps> = ({
 
   return (
     <form name='payform-tinkoff' onSubmit={payHandler}>
-      <PaymentSettings {...settings} generateReceipt={!!receipt} />
+      <PaymentSettings {...settings} isGenerateReceipt={!!receipt} />
       <PaymentFields
         amount={amount}
-        shouldGenerateReceipt={!!receipt}
+        isGenerateReceipt={!!receipt}
         additionalFields={additionalFields}
       />
       <Button type={buttonType} disabled={!isLoaded} onClick={payWithCheck}>

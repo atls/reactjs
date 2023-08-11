@@ -1,18 +1,18 @@
-import { Condition }   from '@atls-ui-parts/condition'
-import { HiddenInput } from '@atls-ui-parts/hidden-input'
+import { Condition }            from '@atls-ui-parts/condition'
+import { HiddenInput }          from '@atls-ui-parts/hidden-input'
 
-import React           from 'react'
-import { FC }          from 'react'
+import React                    from 'react'
+import { FC }                   from 'react'
 
-import { Settings }    from '../interfaces'
-import { Languages }   from '../interfaces'
+import { Languages }            from '../interfaces'
+import { PaymentSettingsProps } from '../interfaces'
 
-export const PaymentSettings: FC<Settings> = (props) => {
+export const PaymentSettings: FC<PaymentSettingsProps> = (props) => {
   const {
     storeId,
     language = Languages.RUSSIAN,
     isNewWindow = false,
-    generateReceipt = false,
+    isGenerateReceipt = false,
   } = props
 
   return (
@@ -20,7 +20,7 @@ export const PaymentSettings: FC<Settings> = (props) => {
       <HiddenInput name='terminalkey' defaultValue={storeId} />
       <HiddenInput name='frame' defaultValue={isNewWindow.toString()} />
       <HiddenInput name='language' defaultValue={language} />
-      <Condition match={generateReceipt}>
+      <Condition match={isGenerateReceipt}>
         <HiddenInput name='receipt' defaultValue='' />
       </Condition>
     </>

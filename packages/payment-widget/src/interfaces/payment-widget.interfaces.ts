@@ -1,10 +1,10 @@
 import { AdditionalFields } from './payment-fields.interfaces'
 import { ReceiptSettings }  from './payment-receipt.interfaces'
-import { Settings }         from './payment-settings.interfaces'
+import { PaymentSettings }  from './payment-settings.interfaces'
 
 export interface PaymentWidgetProps {
   amount: number
-  settings: Settings
+  settings: PaymentSettings
   receipt?: ReceiptSettings
   additionalFields?: AdditionalFields[]
 }

@@ -1,17 +1,15 @@
-import { Input }         from '@atls-ui-proto/input'
+import { Input }        from '@atls-ui-proto/input'
 
-import React             from 'react'
-import { useState }      from 'react'
-import { useIntl }       from 'react-intl'
+import React            from 'react'
+import { useState }     from 'react'
+import { useIntl }      from 'react-intl'
 
-import { FieldsNames }   from '../interfaces'
-import { Fields }        from '../interfaces'
-import { handleChange }  from '../utils'
-import { prepareFields } from '../utils'
+import { FieldsNames }  from '../interfaces'
+import { Fields }       from '../interfaces'
+import { handleChange } from '../utils'
 
-export const useFields = (fields: Fields[], shouldGenerateReceipt?: boolean) => {
-  const preparedFields: Fields[] = prepareFields(fields, shouldGenerateReceipt)
-  const initialState: Record<FieldsNames, string> = preparedFields.reduce(
+export const useFields = (fields: Fields[]) => {
+  const initialState: Record<FieldsNames, string> = fields.reduce(
     (acc, field) => ({ ...acc, [field.name]: '' }),
     {} as Record<FieldsNames, string>
   )
@@ -19,7 +17,7 @@ export const useFields = (fields: Fields[], shouldGenerateReceipt?: boolean) => 
 
   const intl = useIntl()
 
-  return preparedFields.map((field) => {
+  return fields.map((field) => {
     const translatePlaceholder = intl.messages[field.placeholder]
       ? intl.formatMessage({ id: field.placeholder })
       : field.placeholder
