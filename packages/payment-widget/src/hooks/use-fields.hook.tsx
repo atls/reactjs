@@ -8,7 +8,7 @@ import { FieldsNames }  from '../interfaces'
 import { Fields }       from '../interfaces'
 import { handleChange } from '../utils'
 
-export const useFields = (fields: Fields[]) => {
+export const useFields = (fields: Fields[], fieldStyle?: React.CSSProperties) => {
   const initialState: Record<FieldsNames, string> = fields.reduce(
     (acc, field) => ({ ...acc, [field.name]: '' }),
     {} as Record<FieldsNames, string>
@@ -29,6 +29,7 @@ export const useFields = (fields: Fields[]) => {
         name={field.name}
         placeholder={translatePlaceholder}
         required={field.required ?? false}
+        style={fieldStyle}
         value={fieldsState[field.name]}
         onChange={(value) => handleChange(field.name, value, setFieldsState)}
       />

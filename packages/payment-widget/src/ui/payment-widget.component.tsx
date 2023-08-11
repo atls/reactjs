@@ -17,8 +17,9 @@ const messages = {
 export const PaymentWidget: FC<PaymentWidgetProps> = ({
   amount,
   settings,
-  additionalFields,
   receipt,
+  additionalFields,
+  styles,
 }) => {
   const locale = settings.language ?? Languages.RUSSIAN
 
@@ -27,8 +28,9 @@ export const PaymentWidget: FC<PaymentWidgetProps> = ({
       <PaymentForm
         amount={amount}
         settings={settings}
-        additionalFields={additionalFields}
         receipt={receipt}
+        styles={styles}
+        additionalFields={additionalFields}
       />
     </IntlProvider>
   )

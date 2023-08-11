@@ -1,4 +1,6 @@
 /* eslint-disable no-shadow */
+import React                             from 'react'
+
 import { HTMLInputTypeAttribute } from 'react'
 
 export enum RequiredFieldsNames {
@@ -34,4 +36,5 @@ export interface PaymentFieldsProps {
   amount?: number
   isGenerateReceipt?: boolean
   additionalFields?: AdditionalFields[]
+  fieldStyle?: React.CSSProperties
 }
