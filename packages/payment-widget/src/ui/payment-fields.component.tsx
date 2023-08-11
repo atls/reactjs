@@ -20,7 +20,7 @@ export const PaymentFields: FC<PaymentFieldsProps> = ({
   return (
     <>
       <Condition match={!!amount}>
-        <HiddenInput name={RequiredFieldsNames.Amount} defaultValue={amount} disabled />
+        <HiddenInput name={RequiredFieldsNames.Amount} defaultValue={amount} disabled readOnly />
       </Condition>
       <Condition match={!amount}>{useFields(requiredFields)}</Condition>
       {fieldsWithReceipt}

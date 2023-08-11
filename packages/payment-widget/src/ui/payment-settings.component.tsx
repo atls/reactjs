@@ -17,11 +17,11 @@ export const PaymentSettings: FC<PaymentSettingsProps> = (props) => {
 
   return (
     <>
-      <HiddenInput name='terminalkey' defaultValue={storeId} />
-      <HiddenInput name='frame' defaultValue={isNewWindow.toString()} />
-      <HiddenInput name='language' defaultValue={language} />
+      <HiddenInput name='terminalkey' defaultValue={storeId} disabled readOnly />
+      <HiddenInput name='frame' defaultValue={String(isNewWindow)} disabled readOnly />
+      <HiddenInput name='language' defaultValue={language} disabled readOnly />
       <Condition match={isGenerateReceipt}>
-        <HiddenInput name='receipt' defaultValue='' />
+        <HiddenInput name='receipt' defaultValue='' disabled readOnly />
       </Condition>
     </>
   )
