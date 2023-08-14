@@ -1,6 +1,5 @@
 /* eslint-disable no-shadow */
-import React                             from 'react'
-
+import React                      from 'react'
 import { HTMLInputTypeAttribute } from 'react'
 
 export enum RequiredFieldsNames {

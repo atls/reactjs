@@ -11,8 +11,8 @@ interface PaymentWidgetStyles {
 }
 
 export interface PaymentWidgetProps {
-  amount: number
   settings: PaymentSettings
+  amount?: number
   receipt?: ReceiptSettings
   styles?: PaymentWidgetStyles
   additionalFields?: AdditionalFields[]

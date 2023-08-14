@@ -16,6 +16,7 @@ export const PaymentFields: FC<PaymentFieldsProps> = ({
   isGenerateReceipt = false,
   fieldStyle,
 }) => {
+  const baseFields = useFields(requiredFields, fieldStyle)
   const fieldsWithReceipt = useFields(
     generateReceipt(additionalFields, isGenerateReceipt),
     fieldStyle
@@ -23,10 +24,10 @@ export const PaymentFields: FC<PaymentFieldsProps> = ({
 
   return (
     <>
-      <Condition match={!!amount}>
+      <Condition match={Boolean(amount)}>
         <HiddenInput name={RequiredFieldsNames.Amount} defaultValue={amount} disabled readOnly />
       </Condition>
-      <Condition match={!amount}>{useFields(requiredFields, fieldStyle)}</Condition>
+      <Condition match={!amount}>{baseFields}</Condition>
       {fieldsWithReceipt}
     </>
   )
