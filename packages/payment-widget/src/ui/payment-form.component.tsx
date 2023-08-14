@@ -37,7 +37,7 @@ export const PaymentForm: FC<PaymentWidgetProps> = ({
         direction={styles?.direction}
       />
       <Button type={buttonType} disabled={!isLoaded} onClick={payWithCheck}>
-        <FormattedMessage id='payment-widget.pay' defaultMessage='Оплатить' />
+        <FormattedMessage id='payment_widget.pay' defaultMessage='Оплатить' />
       </Button>
     </form>
   )
