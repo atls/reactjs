@@ -1,6 +1,7 @@
 /* eslint-disable no-shadow */
-import React                      from 'react'
 import { HTMLInputTypeAttribute } from 'react'
+
+import { DirectionFields }        from './payment-styles.interfaces'
 
 export enum RequiredFieldsNames {
   Amount = 'amount',
@@ -33,7 +34,7 @@ export interface RequiredFields extends Fields {
 
 export interface PaymentFieldsProps {
   amount?: number
+  direction?: DirectionFields
   isGenerateReceipt?: boolean
   additionalFields?: AdditionalFields[]
-  fieldStyle?: React.CSSProperties
 }

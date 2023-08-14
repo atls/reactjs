@@ -28,20 +28,15 @@ export const PaymentForm: FC<PaymentWidgetProps> = ({
     : undefined
 
   return (
-    <form name='payform-tinkoff' onSubmit={payHandler} style={styles?.formStyle}>
+    <form name='payform-tinkoff' onSubmit={payHandler}>
       <PaymentSettings {...settings} isGenerateReceipt={!!receipt} />
       <PaymentFields
         amount={amount}
         isGenerateReceipt={!!receipt}
         additionalFields={additionalFields}
-        fieldStyle={styles?.fieldStyle}
+        direction={styles?.direction}
       />
-      <Button
-        type={buttonType}
-        disabled={!isLoaded}
-        onClick={payWithCheck}
-        style={styles?.buttonStyle}
-      >
+      <Button type={buttonType} disabled={!isLoaded} onClick={payWithCheck}>
         <FormattedMessage id='payment-widget.pay' defaultMessage='Оплатить' />
       </Button>
     </form>

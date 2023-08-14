@@ -323,6 +323,37 @@ const RAW_RUNTIME_STATE =
         "linkType": "HARD"\
       }]\
     ]],\
+    ["@atls-ui-parts/layout", [\
+      ["npm:0.0.7", {\
+        "packageLocation": "./.yarn/cache/@atls-ui-parts-layout-npm-0.0.7-ea4d3f1780-9b09886c54.zip/node_modules/@atls-ui-parts/layout/",\
+        "packageDependencies": [\
+          ["@atls-ui-parts/layout", "npm:0.0.7"]\
+        ],\
+        "linkType": "SOFT"\
+      }],\
+      ["virtual:19d7eaf137e33421ff5238900f2fdd4e99a0ba752774535459c4d3a7f8ca81429b82550d05152f34261f2882346c7d8459777f85638dc6cedf919ce9bc362a3a#npm:0.0.7", {\
+        "packageLocation": "./.yarn/__virtual__/@atls-ui-parts-layout-virtual-3026485964/0/cache/@atls-ui-parts-layout-npm-0.0.7-ea4d3f1780-9b09886c54.zip/node_modules/@atls-ui-parts/layout/",\
+        "packageDependencies": [\
+          ["@atls-ui-parts/layout", "virtual:19d7eaf137e33421ff5238900f2fdd4e99a0ba752774535459c4d3a7f8ca81429b82550d05152f34261f2882346c7d8459777f85638dc6cedf919ce9bc362a3a#npm:0.0.7"],\
+          ["@emotion/is-prop-valid", "npm:1.2.1"],\
+          ["@emotion/styled", "virtual:19d7eaf137e33421ff5238900f2fdd4e99a0ba752774535459c4d3a7f8ca81429b82550d05152f34261f2882346c7d8459777f85638dc6cedf919ce9bc362a3a#npm:11.9.3"],\
+          ["@types/emotion__styled", null],\
+          ["@types/react", "npm:18.2.18"],\
+          ["@types/styled-system", "npm:5.1.16"],\
+          ["react", "npm:18.2.0"],\
+          ["styled-system", "npm:5.1.5"]\
+        ],\
+        "packagePeers": [\
+          "@emotion/styled",\
+          "@types/emotion__styled",\
+          "@types/react",\
+          "@types/styled-system",\
+          "react",\
+          "styled-system"\
+        ],\
+        "linkType": "HARD"\
+      }]\
+    ]],\
     ["@atls-ui-parts/styles", [\
       ["npm:0.0.4", {\
         "packageLocation": "./.yarn/cache/@atls-ui-parts-styles-npm-0.0.4-faa7b97a87-db71a0768b.zip/node_modules/@atls-ui-parts/styles/",\
@@ -548,12 +579,14 @@ const RAW_RUNTIME_STATE =
           ["@atls/react-payment-widget", "workspace:packages/payment-widget"],\
           ["@atls-ui-parts/condition", "virtual:19d7eaf137e33421ff5238900f2fdd4e99a0ba752774535459c4d3a7f8ca81429b82550d05152f34261f2882346c7d8459777f85638dc6cedf919ce9bc362a3a#npm:0.0.4"],\
           ["@atls-ui-parts/hidden-input", "virtual:19d7eaf137e33421ff5238900f2fdd4e99a0ba752774535459c4d3a7f8ca81429b82550d05152f34261f2882346c7d8459777f85638dc6cedf919ce9bc362a3a#npm:0.0.6"],\
+          ["@atls-ui-parts/layout", "virtual:19d7eaf137e33421ff5238900f2fdd4e99a0ba752774535459c4d3a7f8ca81429b82550d05152f34261f2882346c7d8459777f85638dc6cedf919ce9bc362a3a#npm:0.0.7"],\
           ["@atls-ui-proto/button", "virtual:19d7eaf137e33421ff5238900f2fdd4e99a0ba752774535459c4d3a7f8ca81429b82550d05152f34261f2882346c7d8459777f85638dc6cedf919ce9bc362a3a#npm:0.0.14"],\
           ["@atls-ui-proto/input", "virtual:19d7eaf137e33421ff5238900f2fdd4e99a0ba752774535459c4d3a7f8ca81429b82550d05152f34261f2882346c7d8459777f85638dc6cedf919ce9bc362a3a#npm:0.0.13"],\
           ["@emotion/react", "virtual:19d7eaf137e33421ff5238900f2fdd4e99a0ba752774535459c4d3a7f8ca81429b82550d05152f34261f2882346c7d8459777f85638dc6cedf919ce9bc362a3a#npm:11.9.3"],\
           ["@emotion/styled", "virtual:19d7eaf137e33421ff5238900f2fdd4e99a0ba752774535459c4d3a7f8ca81429b82550d05152f34261f2882346c7d8459777f85638dc6cedf919ce9bc362a3a#npm:11.9.3"],\
           ["@types/react", "npm:18.2.18"],\
           ["@types/styled-system", "npm:5.1.16"],\
+          ["csstype", "npm:3.1.2"],\
           ["react", "npm:18.2.0"],\
           ["react-intl", "virtual:19d7eaf137e33421ff5238900f2fdd4e99a0ba752774535459c4d3a7f8ca81429b82550d05152f34261f2882346c7d8459777f85638dc6cedf919ce9bc362a3a#npm:6.4.4"],\
           ["styled-system", "npm:5.1.5"],\

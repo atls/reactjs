@@ -13,10 +13,12 @@
   "dependencies": {
     "@atls-ui-parts/condition": "0.0.4",
     "@atls-ui-parts/hidden-input": "0.0.6",
+    "@atls-ui-parts/layout": "0.0.7",
     "@atls-ui-proto/button": "0.0.14",
     "@atls-ui-proto/input": "0.0.13",
     "@emotion/react": "11.9.3",
     "@emotion/styled": "11.9.3",
+    "csstype": "3.1.2",
     "react-intl": "6.4.4",
     "styled-system": "5.1.5",
     "styled-tools": "1.7.2"
