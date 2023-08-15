@@ -1,3 +1,5 @@
+import { Condition }    from '@atls-ui-parts/condition'
+import { Layout }       from '@atls-ui-parts/layout'
 import { Input }        from '@atls-ui-proto/input'
 
 import React            from 'react'
@@ -8,7 +10,7 @@ import { FieldsNames }  from '../interfaces'
 import { Fields }       from '../interfaces'
 import { handleChange } from '../utils'
 
-export const useFields = (fields: Fields[]) => {
+export const useFields = (fields: Fields[], inputGaps?: number) => {
   const initialState: Record<FieldsNames, string> = fields.reduce(
     (acc, field) => ({ ...acc, [field.name]: '' }),
     {} as Record<FieldsNames, string>
@@ -17,21 +19,27 @@ export const useFields = (fields: Fields[]) => {
 
   const intl = useIntl()
 
-  return fields.map((field) => {
+  return fields.map((field, i, currentFields) => {
     const translatePlaceholder = intl.messages[field.placeholder]
       ? intl.formatMessage({ id: field.placeholder })
       : field.placeholder
+    const isNotLastField = currentFields.length === 1 || i !== currentFields.length - 1
 
     return (
-      <Input
-        key={field.name}
-        type={field.type ?? 'text'}
-        name={field.name}
-        placeholder={translatePlaceholder}
-        required={field.required ?? false}
-        value={fieldsState[field.name]}
-        onChange={(value) => handleChange(field.name, value, setFieldsState)}
-      />
+      <>
+        <Input
+          key={field.name}
+          type={field.type ?? 'text'}
+          name={field.name}
+          placeholder={translatePlaceholder}
+          required={field.required ?? false}
+          value={fieldsState[field.name]}
+          onChange={(value) => handleChange(field.name, value, setFieldsState)}
+        />
+        <Condition match={isNotLastField}>
+          <Layout flexBasis={inputGaps} flexShrink={0} />
+        </Condition>
+      </>
     )
   })
 }

@@ -13,8 +13,8 @@ import { makePayment }          from '../utils'
 import { makePaymentWithCheck } from '../utils'
 
 export const PaymentForm: FC<PaymentWidgetProps> = ({
-  amount,
   settings,
+  amount,
   receipt,
   styles,
   additionalFields,
@@ -35,6 +35,7 @@ export const PaymentForm: FC<PaymentWidgetProps> = ({
         isGenerateReceipt={!!receipt}
         additionalFields={additionalFields}
         direction={styles?.direction}
+        inputGaps={styles?.inputGaps}
       />
       <Button type={buttonType} disabled={!isLoaded} onClick={payWithCheck}>
         <FormattedMessage id='payment_widget.pay' defaultMessage='Оплатить' />

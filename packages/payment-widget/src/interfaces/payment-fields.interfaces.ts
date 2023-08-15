@@ -35,6 +35,7 @@ export interface RequiredFields extends Fields {
 export interface PaymentFieldsProps {
   amount?: number
   direction?: DirectionFields
+  inputGaps?: number
   isGenerateReceipt?: boolean
   additionalFields?: AdditionalFields[]
 }
