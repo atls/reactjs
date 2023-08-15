@@ -61,7 +61,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@atls-ui-parts/button@npm:0.0.12":
+"@atls-ui-parts/button@npm:0.0.12, @atls-ui-parts/button@npm:^0.0.12":
   version: 0.0.12
   resolution: "@atls-ui-parts/button@npm:0.0.12"
   dependencies:
@@ -290,6 +290,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@atls/react-payment-widget@workspace:packages/payment-widget"
   dependencies:
+    "@atls-ui-parts/button": "npm:^0.0.12"
     "@atls-ui-parts/condition": "npm:0.0.4"
     "@atls-ui-parts/hidden-input": "npm:0.0.6"
     "@atls-ui-parts/layout": "npm:0.0.7"

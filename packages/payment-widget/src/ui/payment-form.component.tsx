@@ -1,11 +1,10 @@
-import { Button }               from '@atls-ui-proto/button'
-
 import React                    from 'react'
 import { FC }                   from 'react'
 import { MouseEvent }           from 'react'
 import { FormattedMessage }     from 'react-intl'
 
 import { PaymentWidgetProps }   from '../interfaces'
+import { PaymentButton }        from './payment-button/payment-button.component'
 import { PaymentFields }        from './payment-fields.component'
 import { PaymentSettings }      from './payment-settings.component'
 import { useInit }              from '../hooks'
@@ -37,9 +36,14 @@ export const PaymentForm: FC<PaymentWidgetProps> = ({
         direction={styles?.direction}
         inputGaps={styles?.inputGaps}
       />
-      <Button type={buttonType} disabled={!isLoaded} onClick={payWithCheck}>
+      <PaymentButton
+        type={buttonType}
+        disabled={!isLoaded}
+        onClick={payWithCheck}
+        {...styles?.button}
+      >
         <FormattedMessage id='payment_widget.pay' defaultMessage='Оплатить' />
-      </Button>
+      </PaymentButton>
     </form>
   )
 }

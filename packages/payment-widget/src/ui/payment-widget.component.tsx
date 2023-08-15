@@ -8,6 +8,7 @@ import { IntlProvider }       from 'react-intl'
 import { PaymentWidgetProps } from '../interfaces'
 import { Languages }          from '../interfaces'
 import { PaymentForm }        from './payment-form.component'
+import { ThemeProvider }      from './payment-theme/src'
 
 const messages = {
   [Languages.RUSSIAN]: messagesRu,
@@ -24,14 +25,16 @@ export const PaymentWidget: FC<PaymentWidgetProps> = ({
   const locale = settings.language ?? Languages.RUSSIAN
 
   return (
-    <IntlProvider locale={locale} messages={messages[locale]} defaultLocale={Languages.RUSSIAN}>
-      <PaymentForm
-        amount={amount}
-        settings={settings}
-        receipt={receipt}
-        styles={styles}
-        additionalFields={additionalFields}
-      />
-    </IntlProvider>
+    <ThemeProvider>
+      <IntlProvider locale={locale} messages={messages[locale]} defaultLocale={Languages.RUSSIAN}>
+        <PaymentForm
+          amount={amount}
+          settings={settings}
+          receipt={receipt}
+          styles={styles}
+          additionalFields={additionalFields}
+        />
+      </IntlProvider>
+    </ThemeProvider>
   )
 }

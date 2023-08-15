@@ -26,9 +26,8 @@ export const useFields = (fields: Fields[], inputGaps?: number) => {
     const isNotLastField = currentFields.length === 1 || i !== currentFields.length - 1
 
     return (
-      <>
+      <React.Fragment key={field.name}>
         <Input
-          key={field.name}
           type={field.type ?? 'text'}
           name={field.name}
           placeholder={translatePlaceholder}
@@ -39,7 +38,7 @@ export const useFields = (fields: Fields[], inputGaps?: number) => {
         <Condition match={isNotLastField}>
           <Layout flexBasis={inputGaps} flexShrink={0} />
         </Condition>
-      </>
+      </React.Fragment>
     )
   })
 }

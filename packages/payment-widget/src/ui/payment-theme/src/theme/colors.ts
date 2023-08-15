@@ -1,4 +1,4 @@
-export const colors = {
+const colors = {
   button: {
     light: {
       backgroundColor: 'rgb(255,255,255)',
@@ -9,6 +9,8 @@ export const colors = {
       backgroundColor: 'rgb(0,0,0)',
       font: 'rgb(242,242,242)',
       border: 'rgb(0,0,0)',
-    }
-  }
+    },
+  },
 }
+
+export { colors }
