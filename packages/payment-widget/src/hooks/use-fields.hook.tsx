@@ -1,6 +1,5 @@
 import { Condition }    from '@atls-ui-parts/condition'
 import { Layout }       from '@atls-ui-parts/layout'
-import { Input }        from '@atls-ui-proto/input'
 
 import React            from 'react'
 import { useState }     from 'react'
@@ -8,6 +7,7 @@ import { useIntl }      from 'react-intl'
 
 import { FieldsNames }  from '../interfaces'
 import { Fields }       from '../interfaces'
+import { PaymentInput } from '../ui'
 import { handleChange } from '../utils'
 
 export const useFields = (fields: Fields[], inputGaps?: number) => {
@@ -27,7 +27,7 @@ export const useFields = (fields: Fields[], inputGaps?: number) => {
 
     return (
       <React.Fragment key={field.name}>
-        <Input
+        <PaymentInput
           type={field.type ?? 'text'}
           name={field.name}
           placeholder={translatePlaceholder}

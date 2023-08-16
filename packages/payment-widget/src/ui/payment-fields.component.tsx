@@ -20,7 +20,7 @@ export const PaymentFields: FC<PaymentFieldsProps> = ({
   additionalFields = [],
   isGenerateReceipt = false,
   direction = DirectionFields.Column,
-  inputGaps = 12,
+  inputGaps = 16,
 }) => {
   const baseFields = useFields(requiredFields, inputGaps)
   const fieldsWithReceipt = useFields(
@@ -31,7 +31,7 @@ export const PaymentFields: FC<PaymentFieldsProps> = ({
 
   return (
     <Box flexDirection='column'>
-      <Layout flexBasis={12} flexShrink={0} />
+      <Layout flexBasis={inputGaps} flexShrink={0} />
       <Direction>
         <Condition match={Boolean(amount)}>
           <HiddenInput name={RequiredFieldsNames.Amount} defaultValue={amount} disabled readOnly />
@@ -39,7 +39,7 @@ export const PaymentFields: FC<PaymentFieldsProps> = ({
         <Condition match={!amount}>{baseFields}</Condition>
         {fieldsWithReceipt}
       </Direction>
-      <Layout flexBasis={12} flexShrink={0} />
+      <Layout flexBasis={inputGaps} flexShrink={0} />
     </Box>
   )
 }

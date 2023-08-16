@@ -88,15 +88,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@atls-ui-parts/conditional-render@npm:0.0.4":
-  version: 0.0.4
-  resolution: "@atls-ui-parts/conditional-render@npm:0.0.4"
-  peerDependencies:
-    react: ^17.0.1
-  checksum: 594c69885675715f11cb859667762b65840dc2673bcc67db98e06c690d4055fe452f1ca1ecf1cd5fd6b3a398ded1c9d3f02aa7f89691168fc093c068d76a568a
-  languageName: node
-  linkType: hard
-
 "@atls-ui-parts/events-state@npm:0.0.4":
   version: 0.0.4
   resolution: "@atls-ui-parts/events-state@npm:0.0.4"
@@ -153,33 +144,15 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@atls-ui-proto/button@npm:0.0.14":
-  version: 0.0.14
-  resolution: "@atls-ui-proto/button@npm:0.0.14"
+"@atls-ui-parts/text@npm:0.0.11":
+  version: 0.0.11
+  resolution: "@atls-ui-parts/text@npm:0.0.11"
   dependencies:
-    "@atls-ui-parts/button": "npm:0.0.12"
-    "@emotion/is-prop-valid": "npm:^1.1.3"
+    styled-system: "npm:^5.1.5"
   peerDependencies:
-    "@emotion/styled": ^11.1.5
-    react: ^17.0.1
-    styled-system: ^5.1.5
-    styled-tools: ^1.7.2
-  checksum: 19c52dbc01be3206275140e3ce7b1620f3efc183539df37c7ab15a2983fc3b58b9e102c550b1f4b4d7194f8213b059b073376266d158cbd09b54cbb2708d9be4
-  languageName: node
-  linkType: hard
-
-"@atls-ui-proto/input@npm:0.0.13":
-  version: 0.0.13
-  resolution: "@atls-ui-proto/input@npm:0.0.13"
-  dependencies:
-    "@atls-ui-parts/conditional-render": "npm:0.0.4"
-    "@atls-ui-parts/input": "npm:0.0.13"
-  peerDependencies:
-    "@emotion/styled": ^11.1.5
-    react: ^17.0.1
-    styled-system: ^5.1.5
-    styled-tools: ^1.7.2
-  checksum: 3483004d6bb5c91a9a6831ff64ef3e068ed86175a2c2cd0c743e2eaeb678a48694a7941deb10c73839dee9cbb118873eae9e2e492929ad8152c784e5856445fe
+    "@emotion/styled": ^11.9.3
+    react: ^18.2.0
+  checksum: 5ff00c3edaa36dc58964739533764aabe439f65bc8c05935a7ffc31f725fe2a70dd42c0737739c721a297fef6947759643e406faaa150d1e666bed7a6e46f6f3
   languageName: node
   linkType: hard
 
@@ -293,9 +266,9 @@ __metadata:
     "@atls-ui-parts/button": "npm:0.0.12"
     "@atls-ui-parts/condition": "npm:0.0.4"
     "@atls-ui-parts/hidden-input": "npm:0.0.6"
+    "@atls-ui-parts/input": "npm:0.0.13"
     "@atls-ui-parts/layout": "npm:0.0.7"
-    "@atls-ui-proto/button": "npm:0.0.14"
-    "@atls-ui-proto/input": "npm:0.0.13"
+    "@atls-ui-parts/text": "npm:0.0.11"
     "@emotion/react": "npm:11.9.3"
     "@emotion/styled": "npm:11.9.3"
     "@types/react": "npm:18.2.20"
@@ -6895,7 +6868,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"styled-system@npm:5.1.5":
+"styled-system@npm:5.1.5, styled-system@npm:^5.1.5":
   version: 5.1.5
   resolution: "styled-system@npm:5.1.5"
   dependencies:
