@@ -61,7 +61,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@atls-ui-parts/button@npm:0.0.12, @atls-ui-parts/button@npm:^0.0.12":
+"@atls-ui-parts/button@npm:0.0.12":
   version: 0.0.12
   resolution: "@atls-ui-parts/button@npm:0.0.12"
   dependencies:
@@ -290,7 +290,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@atls/react-payment-widget@workspace:packages/payment-widget"
   dependencies:
-    "@atls-ui-parts/button": "npm:^0.0.12"
+    "@atls-ui-parts/button": "npm:0.0.12"
     "@atls-ui-parts/condition": "npm:0.0.4"
     "@atls-ui-parts/hidden-input": "npm:0.0.6"
     "@atls-ui-parts/layout": "npm:0.0.7"
@@ -303,6 +303,7 @@ __metadata:
     csstype: "npm:3.1.2"
     react: "npm:18.2.0"
     react-intl: "npm:6.4.4"
+    react-laag: "npm:2.0.5"
     styled-system: "npm:5.1.5"
     styled-tools: "npm:1.7.2"
   peerDependencies:
@@ -6358,6 +6359,18 @@ __metadata:
   languageName: node
   linkType: hard
 
+"react-laag@npm:2.0.5":
+  version: 2.0.5
+  resolution: "react-laag@npm:2.0.5"
+  dependencies:
+    tiny-warning: "npm:^1.0.3"
+  peerDependencies:
+    react: ^16.0.0 || ^17.0.0 || ^18.0.0
+    react-dom: ^16.0.0 || ^17.0.0 || ^18.0.0
+  checksum: 32de5cb560153a0d53d120bb9893e243cd90f4cee5d05ce037562c9c8f5e8d8bc766ac3706f3264d1363fc79c9ae0610e2cb06a22835381f61094d4bb550a5ed
+  languageName: node
+  linkType: hard
+
 "react@npm:18.2.0, react@npm:^18.2.0":
   version: 18.2.0
   resolution: "react@npm:18.2.0"
@@ -7014,6 +7027,13 @@ __metadata:
   version: 6.0.2
   resolution: "throat@npm:6.0.2"
   checksum: d10faf23692866fc19ba2f2f982439524673a8d22044c02cfa28fc47115ab279804a6e6466a3038d0306f95ecdcf631fe8d4985b3bdcd0da65a31333ee0a8d49
+  languageName: node
+  linkType: hard
+
+"tiny-warning@npm:^1.0.3":
+  version: 1.0.3
+  resolution: "tiny-warning@npm:1.0.3"
+  checksum: 2fe4472b8904b1682eaeb2f4ac980b4eef1af65d94b57c391e0f2cac2a0b1e84c5d8d0b64edf451695b6a6566cfc3b0460f1812ec18ace189a34f0cfed4c9875
   languageName: node
   linkType: hard
 

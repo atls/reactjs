@@ -1,5 +1,5 @@
 /* eslint-disable no-shadow */
-import { ButtonProps } from './payment-button.interfaces'
+import { ButtonProps } from '@atls-ui-parts/button'
 
 export enum DirectionFields {
   Row = 'row',

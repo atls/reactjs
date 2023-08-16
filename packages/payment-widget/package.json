@@ -11,13 +11,14 @@
     "postpack": "rm -rf dist"
   },
   "dependencies": {
-    "@atls-ui-parts/button": "^0.0.12",
+    "@atls-ui-parts/button": "0.0.12",
     "@atls-ui-parts/condition": "0.0.4",
     "@atls-ui-parts/hidden-input": "0.0.6",
     "@atls-ui-parts/layout": "0.0.7",
     "@atls-ui-proto/button": "0.0.14",
     "@atls-ui-proto/input": "0.0.13",
     "react-intl": "6.4.4",
+    "react-laag": "2.0.5",
     "styled-system": "5.1.5",
     "styled-tools": "1.7.2"
   },
