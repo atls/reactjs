@@ -1,9 +1,10 @@
-import { FormEventHandler } from 'react'
-import { MouseEvent }       from 'react'
+import { FormEvent }                   from 'react'
 
-import { Receipt }          from '../interfaces'
-import { ReceiptSettings }  from '../interfaces'
-import { convertToPenny }   from './convert-to-penny.util'
+import { FormEventHandler } from 'react'
+
+import { Receipt }                    from '../interfaces'
+import { ReceiptSettings }            from '../interfaces'
+import { convertToPenny }             from './convert-to-penny.util'
 
 export const makePayment: FormEventHandler<HTMLFormElement> = (event) => {
   event.preventDefault()
@@ -12,16 +13,15 @@ export const makePayment: FormEventHandler<HTMLFormElement> = (event) => {
 }
 
 export const makePaymentWithCheck = (
-  event: MouseEvent<HTMLButtonElement>,
+  event: FormEvent<HTMLFormElement>,
   receiptSettings: ReceiptSettings
 ) => {
   event.preventDefault()
-  const form = event.currentTarget?.parentElement
 
-  if (!form) return
-  const receiptElement = form.querySelector('input[name="receipt"]') as HTMLInputElement
-  const email = form.querySelector('input[name="email"]') as HTMLInputElement
-  const phone = form.querySelector('input[name="phone"]') as HTMLInputElement
+  const form = event.target as HTMLFormElement
+  const receiptElement = form.elements.namedItem('receipt') as HTMLInputElement
+  const email = form.elements.namedItem('email') as HTMLInputElement
+  const phone = form.elements.namedItem('phone') as HTMLInputElement
 
   const receipt: Receipt = {
     Taxation: receiptSettings.Taxation,

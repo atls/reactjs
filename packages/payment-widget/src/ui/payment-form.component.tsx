@@ -1,6 +1,6 @@
 import React                    from 'react'
+import { FormEvent }      from 'react'
 import { FC }                   from 'react'
-import { MouseEvent }           from 'react'
 import { FormattedMessage }     from 'react-intl'
 
 import { PaymentWidgetProps }   from '../interfaces'
@@ -19,15 +19,12 @@ export const PaymentForm: FC<PaymentWidgetProps> = ({
   additionalFields,
 }) => {
   const isLoaded = useInit()
-
-  const buttonType = receipt ? 'button' : 'submit'
-  const payHandler = receipt ? undefined : makePayment
-  const payWithCheck = receipt
-    ? (e: MouseEvent<HTMLButtonElement>) => makePaymentWithCheck(e, receipt)
-    : undefined
+  const pay = receipt
+    ? (e: FormEvent<HTMLFormElement>) => makePaymentWithCheck(e, receipt)
+    : makePayment
 
   return (
-    <form name='payform-tinkoff' onSubmit={payHandler}>
+    <form name='payform-tinkoff' onSubmit={pay}>
       <PaymentSettings {...settings} isGenerateReceipt={!!receipt} />
       <PaymentFields
         amount={amount}
@@ -36,12 +33,7 @@ export const PaymentForm: FC<PaymentWidgetProps> = ({
         direction={styles?.direction}
         inputGaps={styles?.inputGaps}
       />
-      <PaymentButton
-        type={buttonType}
-        disabled={!isLoaded}
-        onClick={payWithCheck}
-        {...styles?.button}
-      >
+      <PaymentButton type='submit' disabled={!isLoaded} {...styles?.button}>
         <FormattedMessage id='payment_widget.pay' defaultMessage='Оплатить' />
       </PaymentButton>
     </form>
