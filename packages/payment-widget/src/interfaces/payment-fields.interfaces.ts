@@ -32,7 +32,15 @@ export interface RequiredFields extends Fields {
   name: RequiredFieldsNames
 }
 
+export type FieldsErrors = {
+  [key in FieldsNames]: string
+}
+
+export type ValidateField = (name: FieldsNames, value: string, required?: boolean) => void
+
 export interface PaymentFieldsProps {
+  errors: FieldsErrors
+  validateField: ValidateField
   amount?: number
   direction?: DirectionFields
   inputGaps?: number

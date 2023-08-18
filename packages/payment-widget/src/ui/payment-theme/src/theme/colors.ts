@@ -35,7 +35,7 @@ const colors = {
     },
     error: {
       backgroundColor: 'rgba(224, 31, 25, 0.12)',
-      font: 'rgb(0, 0, 0)',
+      font: 'rgb(227, 28, 28)',
       border: 'transparent',
     },
   },

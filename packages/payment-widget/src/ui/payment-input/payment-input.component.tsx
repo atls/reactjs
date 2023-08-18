@@ -14,6 +14,7 @@ import { forwardRef }                   from 'react'
 import { useHover }                     from 'react-laag'
 import { layout }                       from 'styled-system'
 
+import { theme }                        from './../payment-theme/src/index'
 import { appearanceStyles }             from './payment-input.styles'
 import { baseStyles }                   from './payment-input.styles'
 import { shapeStyles }                  from './payment-input.styles'
@@ -38,7 +39,17 @@ interface InputProps extends BaseInputProps {
 }
 
 export const InputWithoutRef: ForwardRefRenderFunction<HTMLInputElement, InputProps> = (
-  { value, type, disabled, errorText = '', onChange, onChangeNative, placeholder, ...props },
+  {
+    value,
+    type,
+    required,
+    disabled,
+    errorText = '',
+    onChange,
+    onChangeNative,
+    placeholder,
+    ...props
+  },
   ref
 ) => {
   const changeValue = useChangeValue(disabled, onChange, onChangeNative)
@@ -66,16 +77,17 @@ export const InputWithoutRef: ForwardRefRenderFunction<HTMLInputElement, InputPr
         <RawInput
           ref={ref}
           type={type}
+          required={required}
           disabled={disabled}
           value={value}
           onChange={changeValue}
-          placeholder={placeholder}
+          placeholder={required ? `${placeholder}*` : placeholder}
           {...props}
         />
       </InputElement>
       <Condition match={!!errorText}>
         <Layout flexBasis={8} flexShrink={0} />
-        <Text>{errorText}</Text>
+        <Text color={theme.colors.input.error.font}>{errorText}</Text>
       </Condition>
     </Container>
   )

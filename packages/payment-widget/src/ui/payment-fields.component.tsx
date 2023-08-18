@@ -16,15 +16,19 @@ import { useFields }           from '../hooks'
 import { generateReceipt }     from '../utils'
 
 export const PaymentFields: FC<PaymentFieldsProps> = ({
+  errors,
+  validateField,
   amount,
   additionalFields = [],
   isGenerateReceipt = false,
   direction = DirectionFields.Column,
   inputGaps = 16,
 }) => {
-  const baseFields = useFields(requiredFields, inputGaps)
+  const baseFields = useFields(requiredFields, errors, validateField, inputGaps)
   const fieldsWithReceipt = useFields(
     generateReceipt(additionalFields, isGenerateReceipt),
+    errors,
+    validateField,
     inputGaps
   )
   const Direction = direction === DirectionFields.Column ? Column : Row

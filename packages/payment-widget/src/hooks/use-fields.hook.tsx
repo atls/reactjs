@@ -1,16 +1,23 @@
-import { Condition }    from '@atls-ui-parts/condition'
-import { Layout }       from '@atls-ui-parts/layout'
+import { Condition }     from '@atls-ui-parts/condition'
+import { Layout }        from '@atls-ui-parts/layout'
 
-import React            from 'react'
-import { useState }     from 'react'
-import { useIntl }      from 'react-intl'
+import React             from 'react'
+import { useState }      from 'react'
+import { useIntl }       from 'react-intl'
 
-import { FieldsNames }  from '../interfaces'
-import { Fields }       from '../interfaces'
-import { PaymentInput } from '../ui'
-import { handleChange } from '../utils'
+import { FieldsErrors }  from '../interfaces'
+import { FieldsNames }   from '../interfaces'
+import { ValidateField } from '../interfaces'
+import { Fields }        from '../interfaces'
+import { PaymentInput }  from '../ui'
+import { handleChange }  from '../utils'
 
-export const useFields = (fields: Fields[], inputGaps?: number) => {
+export const useFields = (
+  fields: Fields[],
+  errors: FieldsErrors,
+  validateField: ValidateField,
+  inputGaps?: number
+) => {
   const initialState: Record<FieldsNames, string> = fields.reduce(
     (acc, field) => ({ ...acc, [field.name]: '' }),
     {} as Record<FieldsNames, string>
@@ -23,6 +30,8 @@ export const useFields = (fields: Fields[], inputGaps?: number) => {
     const translatePlaceholder = intl.messages[field.placeholder]
       ? intl.formatMessage({ id: field.placeholder })
       : field.placeholder
+    const translateError =
+      intl.messages[errors[field.name]] && intl.formatMessage({ id: errors[field.name] })
     const isNotLastField = currentFields.length === 1 || i !== currentFields.length - 1
 
     return (
@@ -33,7 +42,9 @@ export const useFields = (fields: Fields[], inputGaps?: number) => {
           placeholder={translatePlaceholder}
           required={field.required ?? false}
           value={fieldsState[field.name]}
+          errorText={translateError}
           onChange={(value) => handleChange(field.name, value, setFieldsState)}
+          onBlur={(e) => validateField(field.name, e.target.value, field.required)}
         />
         <Condition match={isNotLastField}>
           <Layout flexBasis={inputGaps} flexShrink={0} />

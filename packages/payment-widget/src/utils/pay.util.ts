@@ -1,13 +1,11 @@
-import { FormEvent }                   from 'react'
-
+import { FormEvent }        from 'react'
 import { FormEventHandler } from 'react'
 
-import { Receipt }                    from '../interfaces'
-import { ReceiptSettings }            from '../interfaces'
-import { convertToPenny }             from './convert-to-penny.util'
+import { Receipt }          from '../interfaces'
+import { ReceiptSettings }  from '../interfaces'
+import { convertToPenny }   from './convert-to-penny.util'
 
 export const makePayment: FormEventHandler<HTMLFormElement> = (event) => {
-  event.preventDefault()
   const { pay } = window as any
   pay(event.target)
 }
@@ -16,8 +14,6 @@ export const makePaymentWithCheck = (
   event: FormEvent<HTMLFormElement>,
   receiptSettings: ReceiptSettings
 ) => {
-  event.preventDefault()
-
   const form = event.target as HTMLFormElement
   const receiptElement = form.elements.namedItem('receipt') as HTMLInputElement
   const email = form.elements.namedItem('email') as HTMLInputElement
