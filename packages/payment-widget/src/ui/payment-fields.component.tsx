@@ -13,7 +13,7 @@ import { RequiredFieldsNames } from '../interfaces'
 import { DirectionFields }     from '../interfaces'
 import { requiredFields }      from '../data'
 import { useFields }           from '../hooks'
-import { generateReceipt }     from '../utils'
+import { addReceiptFieldsUtil }    from '../utils'
 
 export const PaymentFields: FC<PaymentFieldsProps> = ({
   errors,
@@ -24,13 +24,9 @@ export const PaymentFields: FC<PaymentFieldsProps> = ({
   direction = DirectionFields.Column,
   inputGaps = 16,
 }) => {
-  const baseFields = useFields(requiredFields, errors, validateField, inputGaps)
-  const fieldsWithReceipt = useFields(
-    generateReceipt(additionalFields, isGenerateReceipt),
-    errors,
-    validateField,
-    inputGaps
-  )
+  const processedFields = isGenerateReceipt ? addReceiptFieldsUtil(additionalFields) : additionalFields
+  const fields = !amount ? [...requiredFields, ...processedFields] : [...processedFields]
+  const renderedFields = useFields(fields, errors, validateField, inputGaps)
   const Direction = direction === DirectionFields.Column ? Column : Row
 
   return (
@@ -40,8 +36,7 @@ export const PaymentFields: FC<PaymentFieldsProps> = ({
         <Condition match={Boolean(amount)}>
           <HiddenInput name={RequiredFieldsNames.Amount} defaultValue={amount} disabled readOnly />
         </Condition>
-        <Condition match={!amount}>{baseFields}</Condition>
-        {fieldsWithReceipt}
+        {renderedFields}
       </Direction>
       <Layout flexBasis={inputGaps} flexShrink={0} />
     </Box>

@@ -26,13 +26,13 @@ export const useFields = (
 
   const intl = useIntl()
 
-  return fields.map((field, i, currentFields) => {
+  return fields.map((field, index, currentFields) => {
     const translatePlaceholder = intl.messages[field.placeholder]
       ? intl.formatMessage({ id: field.placeholder })
       : field.placeholder
     const translateError =
       intl.messages[errors[field.name]] && intl.formatMessage({ id: errors[field.name] })
-    const isNotLastField = currentFields.length === 1 || i !== currentFields.length - 1
+    const isNotLastField = index !== currentFields.length - 1
 
     return (
       <React.Fragment key={field.name}>
