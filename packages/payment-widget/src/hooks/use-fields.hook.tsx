@@ -11,7 +11,7 @@ import { ValidateField } from '../interfaces'
 import { Fields }        from '../interfaces'
 import { PaymentInput }  from '../ui'
 import { handleChange }  from '../utils'
-import { translate }      from '../utils/translate.util'
+import { translate }     from '../utils/translate.util'
 
 export const useFields = (
   fields: Fields[],

@@ -1,12 +1,11 @@
 /* eslint-disable no-useless-escape */
+import { useState }             from 'react'
 
-import { useState }              from 'react'
-
-import { AdditionalFieldsNames } from '../interfaces'
-import { FieldsErrors }          from '../interfaces'
-import { FieldsNames }           from '../interfaces'
-import { RequiredFieldsNames }   from '../interfaces'
-import { ValidateField }         from '../interfaces'
+import { AdditionalFieldsType } from '../enums'
+import { RequiredFieldsType }   from '../enums'
+import { FieldsErrors }         from '../interfaces'
+import { FieldsNames }          from '../interfaces'
+import { ValidateField }        from '../interfaces'
 
 const validateEmail = (value: string) => /^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/.test(value)
 const validatePhone = (value: string) =>
@@ -25,12 +24,12 @@ export const useValidate = () => {
       setError(name, 'payment_widget.error_required')
     } else if (!required && value.length === 0) {
       setError(name, '')
-    } else if (name === RequiredFieldsNames.Amount && Number(value) <= 0) {
-      setError(RequiredFieldsNames.Amount, 'payment_widget.error_amount')
-    } else if (name === AdditionalFieldsNames.Email && !validateEmail(value)) {
-      setError(AdditionalFieldsNames.Email, 'payment_widget.error_email')
-    } else if (name === AdditionalFieldsNames.Phone && !validatePhone(value)) {
-      setError(AdditionalFieldsNames.Phone, 'payment_widget.error_phone')
+    } else if (name === RequiredFieldsType.Amount && Number(value) <= 0) {
+      setError(RequiredFieldsType.Amount, 'payment_widget.error_amount')
+    } else if (name === AdditionalFieldsType.Email && !validateEmail(value)) {
+      setError(AdditionalFieldsType.Email, 'payment_widget.error_email')
+    } else if (name === AdditionalFieldsType.Phone && !validatePhone(value)) {
+      setError(AdditionalFieldsType.Phone, 'payment_widget.error_phone')
     } else {
       setError(name, '')
     }

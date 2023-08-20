@@ -6,16 +6,15 @@ import { Layout }               from '@atls-ui-parts/layout'
 import { Row }                  from '@atls-ui-parts/layout'
 
 import React                    from 'react'
-import { FC }                   from 'react'
 
+import { RequiredFieldsType }   from '../enums'
 import { PaymentFieldsProps }   from '../interfaces'
-import { RequiredFieldsNames }  from '../interfaces'
 import { DirectionFields }      from '../interfaces'
 import { requiredFields }       from '../data'
 import { useFields }            from '../hooks'
 import { addReceiptFieldsUtil } from '../utils'
 
-export const PaymentFields: FC<PaymentFieldsProps> = ({
+export const PaymentFields = ({
   errors,
   validateField,
   amount,
@@ -23,7 +22,7 @@ export const PaymentFields: FC<PaymentFieldsProps> = ({
   isGenerateReceipt = false,
   direction = DirectionFields.Column,
   inputGaps = 16,
-}) => {
+}: PaymentFieldsProps) => {
   const processedFields = isGenerateReceipt
     ? addReceiptFieldsUtil(additionalFields)
     : additionalFields
@@ -36,7 +35,7 @@ export const PaymentFields: FC<PaymentFieldsProps> = ({
       <Layout flexBasis={inputGaps} flexShrink={0} />
       <Direction>
         <Condition match={Boolean(amount)}>
-          <HiddenInput name={RequiredFieldsNames.Amount} defaultValue={amount} disabled readOnly />
+          <HiddenInput name={RequiredFieldsType.Amount} defaultValue={amount} disabled readOnly />
         </Condition>
         {renderedFields}
       </Direction>

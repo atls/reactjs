@@ -1,47 +1,7 @@
-/* eslint-disable no-shadow */
-export enum TaxationType {
-  Osn = 'osn',
-  UsnIncome = 'usn_income',
-  UsnIncomeOutcome = 'usn_income_outcome',
-  Patent = 'patent',
-  Envd = 'envd',
-  Esn = 'esn',
-}
-
-export enum PaymentMethodType {
-  FullPayment = 'full_payment',
-  FullPrepayment = 'full_prepayment',
-  Prepayment = 'prepayment',
-  Advance = 'advance',
-  PartialPayment = 'partial_payment',
-  Credit = 'credit',
-  CreditPayment = 'credit_payment',
-}
-
-export enum PaymentObjectType {
-  Commodity = 'commodity',
-  Excise = 'excise',
-  Job = 'job',
-  Service = 'service',
-  GamblingBet = 'gambling_bet',
-  GamblingPrize = 'gambling_prize',
-  Lottery = 'lottery',
-  LotteryPrize = 'lottery_prize',
-  IntellectualActivity = 'intellectual_activity',
-  Payment = 'payment',
-  AgentCommission = 'agent_commission',
-  Composite = 'composite',
-  Another = 'another',
-}
-
-export enum TaxType {
-  None = 'none',
-  Vat0 = 'vat0',
-  Vat10 = 'vat10',
-  Vat20 = 'vat20',
-  Vat110 = 'vat110',
-  Vat120 = 'vat120',
-}
+import { PaymentMethodType } from '../enums'
+import { PaymentObjectType } from '../enums'
+import { TaxType }           from '../enums'
+import { TaxationType }      from '../enums'
 
 export interface ReceiptItem {
   Name: string

@@ -1,6 +1,5 @@
 import React                    from 'react'
 import { FormEventHandler }     from 'react'
-import { FC }                   from 'react'
 import { FormattedMessage }     from 'react-intl'
 
 import { PaymentWidgetProps }   from '../interfaces'
@@ -12,13 +11,13 @@ import { useValidate }          from '../hooks'
 import { makePayment }          from '../utils'
 import { makePaymentWithCheck } from '../utils'
 
-export const PaymentForm: FC<PaymentWidgetProps> = ({
+export const PaymentForm = ({
   settings,
   amount,
   receipt,
   styles,
   additionalFields,
-}) => {
+}: PaymentWidgetProps) => {
   const isLoaded = useInit()
   const { errors, validateField, isValidate } = useValidate()
   const payHandler: FormEventHandler<HTMLFormElement> = (event) => {

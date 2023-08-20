@@ -1,21 +1,10 @@
-/* eslint-disable no-shadow */
 import { HTMLInputTypeAttribute } from 'react'
 
+import { AdditionalFieldsType }   from '../enums'
+import { RequiredFieldsType }     from '../enums'
 import { DirectionFields }        from './payment-styles.interfaces'
 
-export enum RequiredFieldsNames {
-  Amount = 'amount',
-}
-
-export enum AdditionalFieldsNames {
-  Name = 'name',
-  Email = 'email',
-  Phone = 'phone',
-  Description = 'description',
-  Order = 'order',
-}
-
-export type FieldsNames = RequiredFieldsNames | AdditionalFieldsNames
+export type FieldsNames = RequiredFieldsType | AdditionalFieldsType
 
 export interface Fields {
   name: FieldsNames
@@ -25,11 +14,11 @@ export interface Fields {
 }
 
 export interface AdditionalFields extends Fields {
-  name: AdditionalFieldsNames
+  name: AdditionalFieldsType
 }
 
 export interface RequiredFields extends Fields {
-  name: RequiredFieldsNames
+  name: RequiredFieldsType
 }
 
 export type FieldsErrors = {

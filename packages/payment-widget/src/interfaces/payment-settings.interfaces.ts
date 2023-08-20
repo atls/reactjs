@@ -1,17 +1,13 @@
-/* eslint-disable no-shadow */
+import { LanguagesType } from '../enums'
+
 interface AutoPaymentConfig {
   reccurentPayment: boolean
   customerKey: string
 }
 
-export enum Languages {
-  ENGLISH = 'en',
-  RUSSIAN = 'ru',
-}
-
 export interface PaymentSettings {
   storeId: string
-  language?: Languages
+  language?: LanguagesType
   isNewWindow?: boolean
   autopayment?: AutoPaymentConfig
 }
