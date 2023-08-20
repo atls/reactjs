@@ -11,6 +11,7 @@ import { ValidateField } from '../interfaces'
 import { Fields }        from '../interfaces'
 import { PaymentInput }  from '../ui'
 import { handleChange }  from '../utils'
+import { translate }      from '../utils/translate.util'
 
 export const useFields = (
   fields: Fields[],
@@ -27,11 +28,8 @@ export const useFields = (
   const intl = useIntl()
 
   return fields.map((field, index, currentFields) => {
-    const translatePlaceholder = intl.messages[field.placeholder]
-      ? intl.formatMessage({ id: field.placeholder })
-      : field.placeholder
-    const translateError =
-      intl.messages[errors[field.name]] && intl.formatMessage({ id: errors[field.name] })
+    const translatePlaceholder = translate(intl, field.placeholder, field.placeholder)
+    const translateError = translate(intl, errors[field.name], errors[field.name])
     const isNotLastField = index !== currentFields.length - 1
 
     return (
