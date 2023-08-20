@@ -1,4 +1,5 @@
 /* eslint-disable no-useless-escape */
+import { useCallback }          from 'react'
 import { useState }             from 'react'
 
 import { AdditionalFieldsType } from '../enums'
@@ -19,7 +20,7 @@ export const useValidate = () => {
     setErrors((err) => ({ ...err, [name]: errorMessage }))
   }
 
-  const validateField: ValidateField = (name, value, required = false) => {
+  const validateField: ValidateField = useCallback((name, value, required = false) => {
     if (required && value.length === 0) {
       setError(name, 'payment_widget.error_required')
     } else if (!required && value.length === 0) {
@@ -33,7 +34,7 @@ export const useValidate = () => {
     } else {
       setError(name, '')
     }
-  }
+  }, [])
 
   return { errors, validateField, isValidate }
 }
