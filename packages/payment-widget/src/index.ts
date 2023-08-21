@@ -2,7 +2,7 @@ export { PaymentWidget } from './ui'
 export {
   PaymentSettings,
   PaymentStyles,
-  AdditionalFields,
+  AdditionalField,
   Receipt,
   ReceiptItem,
   DirectionFields,

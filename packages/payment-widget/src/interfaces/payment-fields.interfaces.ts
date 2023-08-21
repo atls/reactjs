@@ -6,18 +6,18 @@ import { DirectionFields }        from './payment-styles.interfaces'
 
 export type FieldsNames = RequiredFieldsType | AdditionalFieldsType
 
-export interface Fields {
+export interface Field {
   name: FieldsNames
   placeholder: string
   required?: boolean
   type?: HTMLInputTypeAttribute
 }
 
-export interface AdditionalFields extends Fields {
+export interface AdditionalField extends Field {
   name: AdditionalFieldsType
 }
 
-export interface RequiredFields extends Fields {
+export interface RequiredField extends Field {
   name: RequiredFieldsType
 }
 
@@ -34,5 +34,5 @@ export interface PaymentFieldsProps {
   direction?: DirectionFields
   inputGaps?: number
   isGenerateReceipt?: boolean
-  additionalFields?: AdditionalFields[]
+  additionalFields?: AdditionalField[]
 }
