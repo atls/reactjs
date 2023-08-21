@@ -63,6 +63,9 @@ export const InputWithoutRef: ForwardRefRenderFunction<HTMLInputElement, InputPr
   return (
     <Container
       type={type}
+      onClick={() => {
+        ;(ref as any).current.focus()
+      }}
       onBlur={() => {
         ;(ref as any).current.blur()
         setFocus(false)
