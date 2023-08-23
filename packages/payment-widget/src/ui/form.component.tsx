@@ -2,22 +2,16 @@ import React                    from 'react'
 import { FormEventHandler }     from 'react'
 import { FormattedMessage }     from 'react-intl'
 
-import { PaymentWidgetProps }   from '../interfaces'
-import { PaymentButton }        from './payment-button/payment-button.component'
-import { PaymentFields }        from './payment-fields.component'
-import { PaymentSettings }      from './payment-settings.component'
+import { WidgetProps }          from '../interfaces'
+import { Button }               from './button/button.component'
+import { Fields }               from './fields.component'
+import { Settings }             from './settings.component'
 import { useInit }              from '../hooks'
 import { useValidate }          from '../hooks'
 import { makePayment }          from '../utils'
 import { makePaymentWithCheck } from '../utils'
 
-export const PaymentForm = ({
-  settings,
-  amount,
-  receipt,
-  styles,
-  additionalFields,
-}: PaymentWidgetProps) => {
+export const Form = ({ settings, amount, receipt, styles, additionalFields }: WidgetProps) => {
   const isLoaded = useInit()
   const { errors, validateField, isValidate } = useValidate()
   const payHandler: FormEventHandler<HTMLFormElement> = (event) => {
@@ -33,8 +27,8 @@ export const PaymentForm = ({
 
   return (
     <form name='payform-tinkoff' onSubmit={payHandler}>
-      <PaymentSettings {...settings} isGenerateReceipt={!!receipt} />
-      <PaymentFields
+      <Settings {...settings} isGenerateReceipt={!!receipt} />
+      <Fields
         errors={errors}
         validateField={validateField}
         amount={amount}
@@ -43,9 +37,9 @@ export const PaymentForm = ({
         direction={styles?.direction}
         inputGaps={styles?.inputGaps}
       />
-      <PaymentButton type='submit' disabled={!isLoaded} {...styles?.button}>
+      <Button type='submit' disabled={!isLoaded} {...styles?.button}>
         <FormattedMessage id='payment_widget.pay' defaultMessage='Оплатить' />
-      </PaymentButton>
+      </Button>
     </form>
   )
 }

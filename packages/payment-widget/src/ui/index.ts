@@ -1,2 +1,2 @@
-export * from './payment-widget.component'
-export { PaymentInput } from './payment-input/payment-input.component'
+export * from './widget.component'
+export { Input } from './input/input.component'

@@ -2,7 +2,7 @@ import { HTMLInputTypeAttribute } from 'react'
 
 import { AdditionalFieldsType }   from '../enums'
 import { RequiredFieldsType }     from '../enums'
-import { DirectionFields }        from './payment-styles.interfaces'
+import { DirectionFields }        from './styles.interfaces'
 
 export type FieldsNames = RequiredFieldsType | AdditionalFieldsType
 
@@ -27,7 +27,7 @@ export type FieldsErrors = {
 
 export type ValidateField = (name: FieldsNames, value: string, required?: boolean) => void
 
-export interface PaymentFieldsProps {
+export interface FieldsProps {
   errors: FieldsErrors
   validateField: ValidateField
   amount?: number

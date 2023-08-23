@@ -6,7 +6,7 @@ import { createShapeStyles }      from '@atls-ui-parts/button'
 import { ifProp }                 from 'styled-tools'
 import { prop }                   from 'styled-tools'
 
-import { theme }                  from '../payment-theme/src/index'
+import { theme }                  from '../theme/src/index'
 
 const buttonDefaultStyles = createAppearanceStyles({
   fontColor: theme.colors.button.default.font,

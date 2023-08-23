@@ -5,10 +5,10 @@ import React                from 'react'
 import { FC }               from 'react'
 import { useHover }         from 'react-laag'
 
-import { appearanceStyles } from './payment-button.styles'
-import { contentStyles }    from './payment-button.styles'
-import { baseStyles }       from './payment-button.styles'
-import { shapeStyles }      from './payment-button.styles'
+import { appearanceStyles } from './button.styles'
+import { contentStyles }    from './button.styles'
+import { baseStyles }       from './button.styles'
+import { shapeStyles }      from './button.styles'
 
 const ButtonElement = styled('button')<any>(
   baseStyles,
@@ -17,7 +17,7 @@ const ButtonElement = styled('button')<any>(
   shapeStyles
 )
 
-export const PaymentButton: FC<ButtonProps> = ({ children, ...props }) => {
+export const Button: FC<ButtonProps> = ({ children, ...props }) => {
   const [hover, hoverProps] = useHover()
   return (
     <ButtonElement hover={hover} {...hoverProps} {...props}>

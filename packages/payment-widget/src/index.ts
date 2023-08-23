@@ -1,7 +1,7 @@
-export { PaymentWidget } from './ui'
+export { Widget } from './ui'
 export {
-  PaymentSettings,
-  PaymentStyles,
+  Settings,
+  Styles,
   AdditionalField,
   Receipt,
   ReceiptItem,

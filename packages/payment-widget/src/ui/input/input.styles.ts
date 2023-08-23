@@ -4,7 +4,7 @@ import { createAppearanceStyles } from '@atls-ui-parts/input'
 
 import { ifProp }                 from 'styled-tools'
 
-import { theme }                  from '../payment-theme/src/index'
+import { theme }                  from '../theme/src/index'
 
 export const shapeStyles = createShapeStyles({
   fontWeight: 400,

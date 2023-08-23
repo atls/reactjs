@@ -9,7 +9,7 @@ import { FieldsErrors }  from '../interfaces'
 import { FieldsNames }   from '../interfaces'
 import { ValidateField } from '../interfaces'
 import { Field }         from '../interfaces'
-import { PaymentInput }  from '../ui'
+import { Input }         from '../ui'
 import { handleChange }  from '../utils'
 import { translate }     from '../utils/translate.util'
 
@@ -34,7 +34,7 @@ export const useFields = (
 
     return (
       <React.Fragment key={field.name}>
-        <PaymentInput
+        <Input
           type={field.type ?? 'text'}
           name={field.name}
           placeholder={translatePlaceholder}

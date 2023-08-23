@@ -6,7 +6,7 @@ export enum DirectionFields {
   Column = 'column',
 }
 
-export interface PaymentStyles {
+export interface Styles {
   direction?: DirectionFields
   inputGaps?: number
   button?: ButtonProps

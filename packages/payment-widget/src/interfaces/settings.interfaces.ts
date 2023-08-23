@@ -5,13 +5,13 @@ interface AutoPaymentConfig {
   customerKey: string
 }
 
-export interface PaymentSettings {
+export interface Settings {
   storeId: string
   language?: LanguagesType
   isNewWindow?: boolean
   autopayment?: AutoPaymentConfig
 }
 
-export interface PaymentSettingsProps extends PaymentSettings {
+export interface SettingsProps extends Settings {
   isGenerateReceipt?: boolean
 }

@@ -1,17 +1,17 @@
-import { Condition }            from '@atls-ui-parts/condition'
-import { HiddenInput }          from '@atls-ui-parts/hidden-input'
+import { Condition }     from '@atls-ui-parts/condition'
+import { HiddenInput }   from '@atls-ui-parts/hidden-input'
 
-import React                    from 'react'
+import React             from 'react'
 
-import { LanguagesType }        from '../enums'
-import { PaymentSettingsProps } from '../interfaces'
+import { LanguagesType } from '../enums'
+import { SettingsProps } from '../interfaces'
 
-export const PaymentSettings = ({
+export const Settings = ({
   storeId,
   language = LanguagesType.RUSSIAN,
   isNewWindow = false,
   isGenerateReceipt = false,
-}: PaymentSettingsProps) => (
+}: SettingsProps) => (
   <>
     <HiddenInput name='terminalkey' defaultValue={storeId} disabled readOnly />
     <HiddenInput name='frame' defaultValue={String(isNewWindow)} disabled readOnly />

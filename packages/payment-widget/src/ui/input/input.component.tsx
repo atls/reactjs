@@ -14,11 +14,11 @@ import { forwardRef }                   from 'react'
 import { useHover }                     from 'react-laag'
 import { layout }                       from 'styled-system'
 
-import { theme }                        from './../payment-theme/src/index'
-import { appearanceStyles }             from './payment-input.styles'
-import { baseStyles }                   from './payment-input.styles'
-import { shapeStyles }                  from './payment-input.styles'
-import { transitionStyles }             from './payment-input.styles'
+import { theme }                        from '../theme/src/index'
+import { appearanceStyles }             from './input.styles'
+import { baseStyles }                   from './input.styles'
+import { shapeStyles }                  from './input.styles'
+import { transitionStyles }             from './input.styles'
 
 export const InputElement = styled.div<any>(
   baseStyles,
@@ -96,4 +96,4 @@ export const InputWithoutRef: ForwardRefRenderFunction<HTMLInputElement, InputPr
   )
 }
 
-export const PaymentInput = forwardRef<HTMLInputElement, InputProps>(InputWithoutRef)
+export const Input = forwardRef<HTMLInputElement, InputProps>(InputWithoutRef)

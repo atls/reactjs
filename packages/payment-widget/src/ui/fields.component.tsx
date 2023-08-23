@@ -8,13 +8,13 @@ import { Row }                  from '@atls-ui-parts/layout'
 import React                    from 'react'
 
 import { RequiredFieldsType }   from '../enums'
-import { PaymentFieldsProps }   from '../interfaces'
+import { FieldsProps }          from '../interfaces'
 import { DirectionFields }      from '../interfaces'
 import { requiredFields }       from '../data'
 import { useFields }            from '../hooks'
 import { addReceiptFieldsUtil } from '../utils'
 
-export const PaymentFields = ({
+export const Fields = ({
   errors,
   validateField,
   amount,
@@ -22,7 +22,7 @@ export const PaymentFields = ({
   isGenerateReceipt = false,
   direction = DirectionFields.Column,
   inputGaps = 16,
-}: PaymentFieldsProps) => {
+}: FieldsProps) => {
   const processedFields = isGenerateReceipt
     ? addReceiptFieldsUtil(additionalFields)
     : additionalFields
