@@ -5,6 +5,8 @@ import { RequiredFieldsType }     from '../enums'
 import { DirectionFields }        from './styles.interfaces'
 
 export type FieldsNames = RequiredFieldsType | AdditionalFieldsType
+export type FieldState = Record<FieldsNames, string>
+export type HandleChangeField = (fieldName: FieldsNames, value: string) => void
 
 export interface Field {
   name: FieldsNames

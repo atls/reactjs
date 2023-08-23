@@ -11,7 +11,8 @@ import { RequiredFieldsType }   from '../enums'
 import { FieldsProps }          from '../interfaces'
 import { DirectionFields }      from '../interfaces'
 import { requiredFields }       from '../data'
-import { useFields }            from '../hooks'
+import { useFieldsState }       from '../hooks'
+import { useFieldsRenderer }    from '../hooks'
 import { addReceiptFieldsUtil } from '../utils'
 
 export const Fields = ({
@@ -27,7 +28,15 @@ export const Fields = ({
     ? addReceiptFieldsUtil(additionalFields)
     : additionalFields
   const fields = !amount ? [...requiredFields, ...processedFields] : [...processedFields]
-  const renderedFields = useFields(fields, errors, validateField, inputGaps)
+  const { fieldsState, handleChange, handleBlur } = useFieldsState(fields, validateField)
+  const renderedFields = useFieldsRenderer(
+    fields,
+    errors,
+    fieldsState,
+    handleChange,
+    handleBlur,
+    inputGaps
+  )
   const Direction = direction === DirectionFields.Column ? Column : Row
 
   return (

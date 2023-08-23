@@ -97,3 +97,4 @@ export const InputWithoutRef: ForwardRefRenderFunction<HTMLInputElement, InputPr
 }
 
 export const Input = forwardRef<HTMLInputElement, InputProps>(InputWithoutRef)
+export const MemoizedInput = React.memo(Input)
