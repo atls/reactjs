@@ -27,7 +27,7 @@ describe('identity-link.component', () => {
     mockWindowLocation(new URL('https://identity.monstrs.dev'))
 
     const { getByText } = render(
-        <IdentityLink returnTo>{(url) => <a href={url}>Login</a>}</IdentityLink>
+      <IdentityLink returnTo>{(url) => <a href={url}>Login</a>}</IdentityLink>
     )
 
     // @ts-ignore

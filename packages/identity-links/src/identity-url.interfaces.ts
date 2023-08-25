@@ -15,3 +15,7 @@ export interface UseIdentityUrlProps {
   type?: IdentityUrlType
   returnTo?: true | false | UseIdentityUrlReturnToProps
 }
+
+export interface IdentityLinkProps extends UseIdentityUrlProps {
+  children?: (value: string) => JSX.Element
+}

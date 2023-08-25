@@ -1,0 +1,43 @@
+{
+  "name": "@atls/react-payment-widget",
+  "license": "BSD-3-Clause",
+  "main": "src/index.ts",
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "build": "yarn library build",
+    "prepack": "yarn run build",
+    "postpack": "rm -rf dist"
+  },
+  "dependencies": {
+    "@atls-ui-parts/button": "0.0.12",
+    "@atls-ui-parts/condition": "0.0.4",
+    "@atls-ui-parts/hidden-input": "0.0.6",
+    "@atls-ui-parts/input": "0.0.13",
+    "@atls-ui-parts/layout": "0.0.7",
+    "@atls-ui-parts/text": "0.0.11",
+    "react-intl": "6.4.4",
+    "react-laag": "2.0.5",
+    "styled-tools": "1.7.2"
+  },
+  "devDependencies": {
+    "@emotion/react": "11.9.3",
+    "@emotion/styled": "11.9.3",
+    "@types/react": "18.2.20",
+    "@types/styled-system": "5.1.16",
+    "csstype": "3.1.2",
+    "react": "18.2.0",
+    "styled-system": "5.1.5"
+  },
+  "peerDependencies": {
+    "@emotion/react": "11.9.3",
+    "@emotion/styled": "11.9.3",
+    "react": "18.2.0"
+  },
+  "publishConfig": {
+    "access": "public",
+    "main": "dist/index.js",
+    "typings": "dist/index.d.ts"
+  }
+}
