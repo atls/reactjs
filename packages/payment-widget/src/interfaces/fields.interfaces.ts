@@ -1,3 +1,4 @@
+import { FormEvent }              from 'react'
 import { HTMLInputTypeAttribute } from 'react'
 
 import { AdditionalFieldsType }   from '../enums'
@@ -6,7 +7,9 @@ import { DirectionFields }        from './styles.interfaces'
 
 export type FieldsNames = RequiredFieldsType | AdditionalFieldsType
 export type FieldState = Record<FieldsNames, string>
-export type HandleChangeField = (fieldName: FieldsNames, value: string) => void
+export type ValidateField = (name: FieldsNames, value: string, required?: boolean) => void
+export type HandleChangeField = (e: FormEvent<HTMLInputElement>) => void
+export type HandleBlurField = (e: FormEvent<HTMLInputElement>) => void
 
 export interface Field {
   name: FieldsNames
@@ -26,8 +29,6 @@ export interface RequiredField extends Field {
 export type FieldsErrors = {
   [key in FieldsNames]: string
 }
-
-export type ValidateField = (name: FieldsNames, value: string, required?: boolean) => void
 
 export interface FieldsProps {
   errors: FieldsErrors

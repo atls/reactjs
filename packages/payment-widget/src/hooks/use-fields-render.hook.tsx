@@ -5,10 +5,10 @@ import React                 from 'react'
 import { useIntl }           from 'react-intl'
 
 import { Field }             from '../interfaces'
+import { HandleBlurField }   from '../interfaces'
 import { FieldState }        from '../interfaces'
 import { HandleChangeField } from '../interfaces'
 import { FieldsErrors }      from '../interfaces'
-import { ValidateField }     from '../interfaces'
 import { MemoizedInput }     from '../ui'
 import { translate }         from '../utils/translate.util'
 
@@ -17,7 +17,7 @@ export const useFieldsRenderer = (
   errors: FieldsErrors,
   fieldsState: FieldState,
   handleChange: HandleChangeField,
-  handleBlur: ValidateField,
+  handleBlur: HandleBlurField,
   inputGaps: number
 ) => {
   const intl = useIntl()
@@ -36,8 +36,8 @@ export const useFieldsRenderer = (
           required={field.required ?? false}
           value={fieldsState[field.name]}
           errorText={translateError}
-          onChange={(value) => handleChange(field.name, value)}
-          onBlur={() => handleBlur(field.name, fieldsState[field.name], field.required)}
+          onChangeNative={handleChange}
+          onBlur={handleBlur}
         />
         <Condition match={isNotLastField}>
           <Layout flexBasis={inputGaps} flexShrink={0} />

@@ -2,11 +2,12 @@ import { Condition }     from '@atls-ui-parts/condition'
 import { HiddenInput }   from '@atls-ui-parts/hidden-input'
 
 import React             from 'react'
+import { memo }          from 'react'
 
 import { LanguagesType } from '../enums'
 import { SettingsProps } from '../interfaces'
 
-export const Settings = ({
+export const Settings = memo(({
   storeId,
   language = LanguagesType.RUSSIAN,
   isNewWindow = false,
@@ -20,4 +21,4 @@ export const Settings = ({
       <HiddenInput name='receipt' defaultValue='' disabled readOnly />
     </Condition>
   </>
-)
+))
