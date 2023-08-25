@@ -90,7 +90,7 @@ export const InputWithoutRef: ForwardRefRenderFunction<HTMLInputElement, InputPr
       </InputElement>
       <Condition match={!!errorText}>
         <Layout flexBasis={8} flexShrink={0} />
-        <Text color={theme.colors.input.error.font}>{errorText}</Text>
+        <Text color={theme.colors.input.error.default.font}>{errorText}</Text>
       </Condition>
     </Container>
   )

@@ -2,9 +2,10 @@ import { createBaseStyles }       from '@atls-ui-parts/input'
 import { createShapeStyles }      from '@atls-ui-parts/input'
 import { createAppearanceStyles } from '@atls-ui-parts/input'
 
-import { ifProp }                 from 'styled-tools'
+import { styleFn }                from 'styled-system'
 
-import { theme }                  from '../theme/src/index'
+export const baseStyles = createBaseStyles()
+export const transitionStyles = { transition: '.25s' }
 
 export const shapeStyles = createShapeStyles({
   fontWeight: 400,
@@ -15,9 +16,7 @@ export const shapeStyles = createShapeStyles({
   paddingRight: 16,
 })
 
-export const baseStyles = createBaseStyles()
-
-export const inputColorsStyles = () => ({
+export const appearanceStyles: styleFn = ({ theme, error }) => ({
   ...createAppearanceStyles({
     fontColor: theme.colors.input.default.font,
     backgroundColor: theme.colors.input.default.backgroundColor,
@@ -26,32 +25,31 @@ export const inputColorsStyles = () => ({
   '&:hover': {
     ...createAppearanceStyles({
       fontColor: theme.colors.input.hover.font,
-      backgroundColor: theme.colors.input.hover.backgroundColor,
+      backgroundColor: error
+        ? theme.colors.input.error.hover.backgroundColor
+        : theme.colors.input.hover.backgroundColor,
       borderColor: theme.colors.input.hover.border,
     })(),
   },
-  '&:focus-within': {
+  '&:focus-within, &:active, &:focus': {
     ...createAppearanceStyles({
       fontColor: theme.colors.input.focus.font,
       backgroundColor: theme.colors.input.focus.backgroundColor,
-      borderColor: theme.colors.input.focus.border,
+      borderColor: error
+        ? theme.colors.input.error.focus.borderColor
+        : theme.colors.input.focus.border,
     })(),
   },
-  '&:active': {
+  ...(error && {
     ...createAppearanceStyles({
-      fontColor: theme.colors.input.focus.font,
-      backgroundColor: theme.colors.input.focus.backgroundColor,
-      borderColor: theme.colors.input.focus.border,
+      fontColor: theme.colors.input.error.default.font,
+      backgroundColor: theme.colors.input.error.default.backgroundColor,
+      borderColor: theme.colors.input.error.default.border,
     })(),
-  },
+  }),
+  'input:-webkit-autofill, input:-webkit-autofill:hover, input:-webkit-autofill:focus, input:-webkit-autofill:active':
+    {
+      WebkitTransition: 'color 9999s ease-out, background-color 9999s ease-out',
+      WebkitTransitionDelay: '9999s',
+    },
 })
-
-export const inputErrorColorsStyles = createAppearanceStyles({
-  fontColor: theme.colors.input.error.font,
-  backgroundColor: theme.colors.input.error.backgroundColor,
-  borderColor: theme.colors.input.error.border,
-})
-
-export const appearanceStyles = ifProp('error', inputErrorColorsStyles, inputColorsStyles)
-
-export const transitionStyles = { transition: '.25s' }

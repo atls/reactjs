@@ -34,9 +34,21 @@ const colors = {
       border: 'rgb(0, 0, 0)',
     },
     error: {
-      backgroundColor: 'rgba(224, 31, 25, 0.12)',
-      font: 'rgb(227, 28, 28)',
-      border: 'transparent',
+      default: {
+        backgroundColor: 'rgba(224, 31, 25, 0.12)',
+        font: 'rgb(227, 28, 28)',
+        border: 'transparent',
+      },
+      hover: {
+        fontColor: 'rgb(0, 0, 0)',
+        backgroundColor: 'rgba(224, 31, 25, 0.16)',
+        borderColor: 'transparent',
+      },
+      focus: {
+        fontColor: 'rgb(0, 0, 0)',
+        backgroundColor: 'rgb(255, 255, 255)',
+        borderColor: 'rgb(227, 28, 28)',
+      },
     },
   },
 }

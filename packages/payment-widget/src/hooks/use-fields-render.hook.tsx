@@ -9,7 +9,7 @@ import { FieldState }        from '../interfaces'
 import { HandleChangeField } from '../interfaces'
 import { FieldsErrors }      from '../interfaces'
 import { ValidateField }     from '../interfaces'
-import { MemoizedInput }     from '../ui/input/input.component'
+import { MemoizedInput }     from '../ui'
 import { translate }         from '../utils/translate.util'
 
 export const useFieldsRenderer = (
