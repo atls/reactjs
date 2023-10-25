@@ -1,0 +1,9 @@
+releases:
+  "@atls/react-api-auth-user": patch
+  "@atls/react-app-links": patch
+  "@atls/react-identity-links": patch
+  "@atls/react-identity-user-provider": patch
+  "@atls/react-kratos-browser-flows": patch
+  "@atls/react-payment-widget": patch
+  "@atls/react-upload": patch
+  "@atls/react-user": patch
