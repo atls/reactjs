@@ -21,6 +21,7 @@ export const Widget = ({
   additionalFields,
   styles,
   customTheme,
+  disabled,
 }: WidgetProps) => {
   const locale = settings.language ?? LanguagesType.RUSSIAN
 
@@ -37,6 +38,7 @@ export const Widget = ({
           receipt={receipt}
           styles={styles}
           additionalFields={additionalFields}
+          disabled={disabled}
         />
       </IntlProvider>
     </ThemeProvider>

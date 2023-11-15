@@ -11,4 +11,5 @@ export interface WidgetProps {
   styles?: Styles
   additionalFields?: AdditionalField[]
   customTheme?: Theme
+  disabled?: boolean
 }

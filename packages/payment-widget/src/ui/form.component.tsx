@@ -11,7 +11,14 @@ import { useValidate }          from '../hooks'
 import { makePayment }          from '../utils'
 import { makePaymentWithCheck } from '../utils'
 
-export const Form = ({ settings, amount, receipt, styles, additionalFields }: WidgetProps) => {
+export const Form = ({
+  settings,
+  amount,
+  receipt,
+  styles,
+  additionalFields,
+  disabled,
+}: WidgetProps) => {
   const isLoaded = useInit()
   const { errors, validateField, isValidate } = useValidate()
   const payHandler: FormEventHandler<HTMLFormElement> = (event) => {
@@ -37,7 +44,7 @@ export const Form = ({ settings, amount, receipt, styles, additionalFields }: Wi
         direction={styles?.direction}
         inputGaps={styles?.inputGaps}
       />
-      <Button type='submit' disabled={!isLoaded} {...styles?.button}>
+      <Button type='submit' disabled={!isLoaded || disabled} {...styles?.button}>
         <FormattedMessage id='payment_widget.pay' defaultMessage='Оплатить' />
       </Button>
     </form>
