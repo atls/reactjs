@@ -14,11 +14,18 @@ const messages = {
   [LanguagesType.ENGLISH]: messagesEn,
 }
 
-export const Widget = ({ amount, settings, receipt, additionalFields, styles }: WidgetProps) => {
+export const Widget = ({
+  amount,
+  settings,
+  receipt,
+  additionalFields,
+  styles,
+  customTheme,
+}: WidgetProps) => {
   const locale = settings.language ?? LanguagesType.RUSSIAN
 
   return (
-    <ThemeProvider>
+    <ThemeProvider customTheme={customTheme}>
       <IntlProvider
         locale={locale}
         messages={messages[locale]}

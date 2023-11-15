@@ -4,6 +4,6 @@ import { ThemeProvider as EmotionThemeProvider } from '@emotion/react'
 
 import React                                     from 'react'
 
-export const ThemeProvider = ({ children }) => (
-  <EmotionThemeProvider theme={theme}>{children}</EmotionThemeProvider>
+export const ThemeProvider = ({ customTheme, children }) => (
+  <EmotionThemeProvider theme={customTheme ?? theme}>{children}</EmotionThemeProvider>
 )
