@@ -43,6 +43,7 @@ export const Form = ({
         additionalFields={additionalFields}
         direction={styles?.direction}
         inputGaps={styles?.inputGaps}
+        styles={styles?.input}
       />
       <Button type='submit' disabled={!isLoaded || disabled} {...styles?.button}>
         <FormattedMessage id='payment_widget.pay' defaultMessage='Оплатить' />

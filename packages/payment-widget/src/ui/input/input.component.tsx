@@ -14,19 +14,19 @@ import { forwardRef }                   from 'react'
 import { useHover }                     from 'react-laag'
 import { layout }                       from 'styled-system'
 
+import { InputStyles }                  from '../../interfaces'
 import { theme }                        from '../theme/src/index'
 import { appearanceStyles }             from './input.styles'
 import { baseStyles }                   from './input.styles'
 import { shapeStyles }                  from './input.styles'
 import { transitionStyles }             from './input.styles'
 
-export const InputElement = styled.div<any>(
-  baseStyles,
-  shapeStyles,
-  appearanceStyles,
-  transitionStyles,
-  layout
-)
+export const InputElement = ({ styledArray, ...props }) => {
+  const StyledInput = styledArray.length
+    ? styled.div<any>(baseStyles, ...styledArray, layout)
+    : styled.div<any>(baseStyles, shapeStyles, appearanceStyles, transitionStyles, layout)
+  return <StyledInput {...props} />
+}
 
 const Container = styled.div(({ type }: any) => ({
   display: type === 'hidden' ? 'none' : 'flex',
@@ -36,6 +36,7 @@ const Container = styled.div(({ type }: any) => ({
 
 interface InputProps extends BaseInputProps {
   errorText?: string
+  styles?: InputStyles
 }
 
 export const InputWithoutRef: ForwardRefRenderFunction<HTMLInputElement, InputProps> = (
@@ -48,13 +49,14 @@ export const InputWithoutRef: ForwardRefRenderFunction<HTMLInputElement, InputPr
     onChange,
     onChangeNative,
     placeholder,
+    styles,
     ...props
   },
   ref
 ) => {
   const changeValue = useChangeValue(disabled, onChange, onChangeNative)
-  const [, hoverProps] = useHover()
-  const [, setFocus] = useState<boolean>(false)
+  const [hover, hoverProps] = useHover()
+  const [focus, setFocus] = useState<boolean>(false)
 
   if (!ref) {
     ref = useRef(null) // eslint-disable-line
@@ -76,7 +78,13 @@ export const InputWithoutRef: ForwardRefRenderFunction<HTMLInputElement, InputPr
       }}
       {...hoverProps}
     >
-      <InputElement {...props} error={errorText !== ''}>
+      <InputElement
+        {...props}
+        error={errorText !== ''}
+        size={styles?.size}
+        styledArray={styles?.styledArray || []}
+        rounding={focus || hover ? styles?.rounding?.active : styles?.rounding?.default}
+      >
         <RawInput
           ref={ref}
           type={type}
@@ -84,7 +92,7 @@ export const InputWithoutRef: ForwardRefRenderFunction<HTMLInputElement, InputPr
           disabled={disabled}
           value={value}
           onChange={changeValue}
-          placeholder={required ? `${placeholder}*` : placeholder}
+          placeholder={placeholder}
           {...props}
         />
       </InputElement>
