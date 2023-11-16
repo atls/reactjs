@@ -20,7 +20,7 @@ const ButtonElement = ({ styledArray, ...props }) => {
 export const Button: FC<ButtonStyles> = ({ children, styledArray, ...props }) => {
   const [hover, hoverProps] = useHover()
   return (
-    <ButtonElement hover={hover} {...hoverProps} styledArray={styledArray} {...props}>
+    <ButtonElement hover={hover} {...hoverProps} styledArray={styledArray || []} {...props}>
       {children}
     </ButtonElement>
   )
