@@ -2,6 +2,7 @@ import React                    from 'react'
 import { FormEventHandler }     from 'react'
 import { FormattedMessage }     from 'react-intl'
 
+import { CustomButtonProps }    from '../interfaces'
 import { WidgetProps }          from '../interfaces'
 import { Button }               from './button/button.component'
 import { Fields }               from './fields.component'
@@ -32,7 +33,7 @@ export const Form = ({
       makePayment(event)
     }
   }
-  const buttonProps = {
+  const buttonProps: CustomButtonProps = {
     type: 'submit',
     disabled: !isLoaded || !!disabled,
   }

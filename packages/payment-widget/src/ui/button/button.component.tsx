@@ -4,7 +4,7 @@ import React                 from 'react'
 import { FC }                from 'react'
 import { useHover }          from 'react-laag'
 
-import { CustomButtonProps } from '../../interfaces/custom-elements.interfaces'
+import { CustomButtonProps } from '../../interfaces'
 import { appearanceStyles }  from './button.styles'
 import { contentStyles }     from './button.styles'
 import { baseStyles }        from './button.styles'

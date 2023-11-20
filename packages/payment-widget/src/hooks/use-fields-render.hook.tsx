@@ -4,12 +4,13 @@ import { Layout }            from '@atls-ui-parts/layout'
 import React                 from 'react'
 import { useIntl }           from 'react-intl'
 
+import { CustomInputProps }  from '../interfaces'
 import { Field }             from '../interfaces'
 import { HandleBlurField }   from '../interfaces'
 import { FieldState }        from '../interfaces'
 import { HandleChangeField } from '../interfaces'
 import { FieldsErrors }      from '../interfaces'
-import { CustomInput }       from '../interfaces/custom-elements.interfaces'
+import { CustomInput }       from '../interfaces'
 import { MemoizedInput }     from '../ui'
 import { translate }         from '../utils/translate.util'
 
@@ -20,7 +21,7 @@ export const useFieldsRenderer = (
   handleChange: HandleChangeField,
   handleBlur: HandleBlurField,
   inputGaps: number,
-  customInput: CustomInput | undefined
+  customInput?: CustomInput
 ) => {
   const intl = useIntl()
 
@@ -28,7 +29,7 @@ export const useFieldsRenderer = (
     const translatePlaceholder = translate(intl, field.placeholder, field.placeholder)
     const translateError = translate(intl, errors[field.name], errors[field.name])
     const isNotLastField = index !== currentFields.length - 1
-    const inputProps = {
+    const inputProps: CustomInputProps = {
       type: field.type ?? 'text',
       name: field.name,
       placeholder: translatePlaceholder,
