@@ -3,9 +3,12 @@ import * as theme                                from './theme'
 import { ThemeProvider as EmotionThemeProvider } from '@emotion/react'
 
 import React                                     from 'react'
+import { FC }                                    from 'react'
 
-export const ThemeProvider = ({ customTheme, children }) =>
-  customTheme ? (
+import { ThemeProps }                            from '../../../interfaces/theme.interfaces'
+
+export const ThemeProvider: FC<ThemeProps> = ({ useCustomTheme, children }) =>
+  useCustomTheme ? (
     <>{children}</> // eslint-disable-line
   ) : (
     <EmotionThemeProvider theme={theme}>{children}</EmotionThemeProvider>

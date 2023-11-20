@@ -18,6 +18,7 @@ export const Form = ({
   styles,
   additionalFields,
   disabled,
+  customElements,
 }: WidgetProps) => {
   const isLoaded = useInit()
   const { errors, validateField, isValidate } = useValidate()
@@ -31,6 +32,10 @@ export const Form = ({
       makePayment(event)
     }
   }
+  const buttonProps = {
+    type: 'submit',
+    disabled: !isLoaded || !!disabled,
+  }
 
   return (
     <form name='payform-tinkoff' onSubmit={payHandler}>
@@ -43,11 +48,15 @@ export const Form = ({
         additionalFields={additionalFields}
         direction={styles?.direction}
         inputGaps={styles?.inputGaps}
-        styles={styles?.input}
+        customInput={customElements?.input}
       />
-      <Button type='submit' disabled={!isLoaded || disabled} {...styles?.button}>
-        <FormattedMessage id='payment_widget.pay' defaultMessage='Оплатить' />
-      </Button>
+      {customElements?.button ? (
+        customElements.button(buttonProps)
+      ) : (
+        <Button {...buttonProps} {...styles?.button}>
+          <FormattedMessage id='payment_widget.pay' defaultMessage='Оплатить' />
+        </Button>
+      )}
     </form>
   )
 }

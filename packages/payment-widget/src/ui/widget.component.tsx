@@ -20,13 +20,14 @@ export const Widget = ({
   receipt,
   additionalFields,
   styles,
-  customTheme,
   disabled,
+  customElements,
 }: WidgetProps) => {
   const locale = settings.language ?? LanguagesType.RUSSIAN
+  const useCustomTheme = !!customElements?.input
 
   return (
-    <ThemeProvider customTheme={customTheme}>
+    <ThemeProvider useCustomTheme={useCustomTheme}>
       <IntlProvider
         locale={locale}
         messages={messages[locale]}
@@ -39,6 +40,7 @@ export const Widget = ({
           styles={styles}
           additionalFields={additionalFields}
           disabled={disabled}
+          customElements={customElements}
         />
       </IntlProvider>
     </ThemeProvider>

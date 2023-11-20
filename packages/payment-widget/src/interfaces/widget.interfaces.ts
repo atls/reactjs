@@ -1,3 +1,4 @@
+import { CustomElements }  from './custom-elements.interfaces'
 import { AdditionalField } from './fields.interfaces'
 import { ReceiptSettings } from './receipt.interfaces'
 import { Settings }        from './settings.interfaces'
@@ -9,6 +10,6 @@ export interface WidgetProps {
   receipt?: ReceiptSettings
   styles?: Styles
   additionalFields?: AdditionalField[]
-  customTheme?: boolean
   disabled?: boolean
+  customElements?: CustomElements
 }

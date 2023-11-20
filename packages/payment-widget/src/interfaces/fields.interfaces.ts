@@ -3,8 +3,8 @@ import { HTMLInputTypeAttribute } from 'react'
 
 import { AdditionalFieldsType }   from '../enums'
 import { RequiredFieldsType }     from '../enums'
+import { CustomInput }            from './custom-elements.interfaces'
 import { DirectionFields }        from './styles.interfaces'
-import { InputStyles }            from './styles.interfaces'
 
 export type FieldsNames = RequiredFieldsType | AdditionalFieldsType
 export type FieldState = Record<FieldsNames, string>
@@ -39,5 +39,5 @@ export interface FieldsProps {
   inputGaps?: number
   isGenerateReceipt?: boolean
   additionalFields?: AdditionalField[]
-  styles?: InputStyles
+  customInput?: CustomInput
 }

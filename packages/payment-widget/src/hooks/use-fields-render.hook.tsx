@@ -5,11 +5,11 @@ import React                 from 'react'
 import { useIntl }           from 'react-intl'
 
 import { Field }             from '../interfaces'
-import { InputStyles }       from '../interfaces'
 import { HandleBlurField }   from '../interfaces'
 import { FieldState }        from '../interfaces'
 import { HandleChangeField } from '../interfaces'
 import { FieldsErrors }      from '../interfaces'
+import { CustomInput }       from '../interfaces/custom-elements.interfaces'
 import { MemoizedInput }     from '../ui'
 import { translate }         from '../utils/translate.util'
 
@@ -20,7 +20,7 @@ export const useFieldsRenderer = (
   handleChange: HandleChangeField,
   handleBlur: HandleBlurField,
   inputGaps: number,
-  styles: InputStyles
+  customInput: CustomInput | undefined
 ) => {
   const intl = useIntl()
 
@@ -28,20 +28,20 @@ export const useFieldsRenderer = (
     const translatePlaceholder = translate(intl, field.placeholder, field.placeholder)
     const translateError = translate(intl, errors[field.name], errors[field.name])
     const isNotLastField = index !== currentFields.length - 1
+    const inputProps = {
+      type: field.type ?? 'text',
+      name: field.name,
+      placeholder: translatePlaceholder,
+      required: field.required ?? false,
+      value: fieldsState[field.name],
+      errorText: translateError,
+      onChangeNative: handleChange,
+      onBlur: handleBlur,
+    }
 
     return (
       <React.Fragment key={field.name}>
-        <MemoizedInput
-          type={field.type ?? 'text'}
-          name={field.name}
-          placeholder={translatePlaceholder}
-          required={field.required ?? false}
-          value={fieldsState[field.name]}
-          errorText={translateError}
-          onChangeNative={handleChange}
-          onBlur={handleBlur}
-          styles={styles}
-        />
+        {customInput ? customInput(inputProps) : <MemoizedInput {...inputProps} />}
         <Condition match={isNotLastField}>
           <Layout flexBasis={inputGaps} flexShrink={0} />
         </Condition>
