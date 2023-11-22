@@ -24,7 +24,6 @@ export const Fields = ({
   isGenerateReceipt = false,
   direction = DirectionFields.Column,
   inputGaps = 16,
-  customInput,
 }: FieldsProps) => {
   const processedFields = isGenerateReceipt
     ? addReceiptFieldsUtil(additionalFields)
@@ -37,8 +36,7 @@ export const Fields = ({
     fieldsState as FieldState,
     handleChange,
     handleBlur,
-    inputGaps,
-    customInput
+    inputGaps
   )
   const Direction = direction === DirectionFields.Column ? Column : Row
 
