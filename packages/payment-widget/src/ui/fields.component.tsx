@@ -8,6 +8,7 @@ import { Row }                  from '@atls-ui-parts/layout'
 import React                    from 'react'
 
 import { RequiredFieldsType }   from '../enums'
+import { FieldState }           from '../interfaces'
 import { FieldsProps }          from '../interfaces'
 import { DirectionFields }      from '../interfaces'
 import { requiredFields }       from '../data'
@@ -29,11 +30,11 @@ export const Fields = ({
     ? addReceiptFieldsUtil(additionalFields)
     : additionalFields
   const fields = !amount ? [...requiredFields, ...processedFields] : [...processedFields]
-  const { fieldsState, handleChange, handleBlur } = useFieldsState(fields, validateField)
+  const { fieldsState, handleChange, handleBlur } = useFieldsState(validateField, fields)
   const renderedFields = useFieldsRenderer(
     fields,
     errors,
-    fieldsState,
+    fieldsState as FieldState,
     handleChange,
     handleBlur,
     inputGaps,

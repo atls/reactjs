@@ -1,4 +1,4 @@
-export { Widget } from './ui'
+export { Widget, InputWrapper, ButtonWrapper } from './ui'
 export {
   Settings,
   Styles,
