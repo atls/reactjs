@@ -15,16 +15,16 @@ import { requiredFields }       from '../data'
 import { useFieldsState }       from '../hooks'
 import { useFieldsRenderer }    from '../hooks'
 import { addReceiptFieldsUtil } from '../utils'
+import { useForm }              from './form'
 
 export const Fields = ({
-  errors,
-  validateField,
   amount,
   additionalFields = [],
   isGenerateReceipt = false,
   direction = DirectionFields.Column,
   inputGaps = 16,
 }: FieldsProps) => {
+  const { errors, validateField } = useForm()
   const processedFields = isGenerateReceipt
     ? addReceiptFieldsUtil(additionalFields)
     : additionalFields

@@ -7,9 +7,10 @@ import { FC }             from 'react'
 import { IntlProvider }   from 'react-intl'
 import { isValidElement } from 'react'
 
+import FormProvider       from './form/form.provider'
 import { LanguagesType }  from '../enums'
 import { WidgetProps }    from '../interfaces'
-import { Form }           from './form.component'
+import { Form }           from './form'
 import { ThemeProvider }  from './theme/src'
 
 const messages = {
@@ -45,18 +46,20 @@ export const Widget: FC<WidgetProps> = ({
         messages={messages[locale]}
         defaultLocale={LanguagesType.RUSSIAN}
       >
-        <Form
-          amount={amount}
-          settings={settings}
-          receipt={receipt}
-          styles={styles}
-          additionalFields={customFields.length ? [] : additionalFields}
-          useCustomButton={!!customButton}
-          isGenerateReceipt={isGenerateReceipt}
-        >
-          {customFields}
-          {customButton}
-        </Form>
+        <FormProvider>
+          <Form
+            amount={amount}
+            settings={settings}
+            receipt={receipt}
+            styles={styles}
+            additionalFields={customFields.length ? [] : additionalFields}
+            useCustomButton={!!customButton}
+            isGenerateReceipt={isGenerateReceipt}
+          >
+            {customFields}
+            {customButton}
+          </Form>
+        </FormProvider>
       </IntlProvider>
     </ThemeProvider>
   )

@@ -31,11 +31,15 @@ export type FieldsErrors = {
 }
 
 export interface FieldsProps {
-  errors: FieldsErrors
-  validateField: ValidateField
   amount?: number
   direction?: DirectionFields
   inputGaps?: number
   isGenerateReceipt?: boolean
   additionalFields?: AdditionalField[]
+}
+
+export interface FieldsValidator {
+  errors: FieldsErrors
+  validateField: ValidateField
+  isValidate: boolean
 }
