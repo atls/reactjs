@@ -1,18 +1,19 @@
-import { FormEvent }    from 'react'
-import { ReactElement } from 'react'
+import { ReactElement }                       from 'react'
 
-type OnCallback = (event: FormEvent<HTMLInputElement> | string | any) => void
+import { HandleBlurField }                    from './fields.interfaces'
+
+import { HandleChangeField } from './fields.interfaces'
 
 export interface InputWrapperProps {
   name: string
   children: (
     value: string,
-    onChange: OnCallback,
-    onBlur: OnCallback,
+    onChange: HandleChangeField,
+    onBlur: HandleBlurField,
     errorText: string
-  ) => ReactElement<any>
+  ) => ReactElement
 }
 
 export interface ButtonWrapperProps {
-  children: () => ReactElement<any>
+  children: () => ReactElement
 }
