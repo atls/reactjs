@@ -13,7 +13,13 @@ export const InputWrapper: FC<InputWrapperProps> = ({ name, children }) => {
   const translateError = translate(intl, errors[name], errors[name])
 
   if (typeof children === 'function') {
-    return children(fieldsState as string, handleChange, handleBlur, translateError)
+    return children({
+      name,
+      value: fieldsState as string,
+      onChangeNative: handleChange,
+      onBlur: handleBlur,
+      errorText: translateError,
+    })
   }
 
   return null

@@ -1,17 +1,19 @@
-import { ReactElement }                       from 'react'
+import { ReactElement }      from 'react'
 
-import { HandleBlurField }                    from './fields.interfaces'
-
+import { HandleBlurField }   from './fields.interfaces'
 import { HandleChangeField } from './fields.interfaces'
+
+interface ChildrenInputProps {
+  name: string
+  value: string
+  onChangeNative: HandleChangeField
+  onBlur: HandleBlurField
+  errorText: string
+}
 
 export interface InputWrapperProps {
   name: string
-  children: (
-    value: string,
-    onChange: HandleChangeField,
-    onBlur: HandleBlurField,
-    errorText: string
-  ) => ReactElement
+  children: (props: ChildrenInputProps) => ReactElement
 }
 
 export interface ButtonWrapperProps {
