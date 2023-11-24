@@ -24,6 +24,7 @@ export const Widget: FC<WidgetProps> = ({
   receipt,
   additionalFields,
   styles,
+  disabled,
   children,
 }) => {
   const locale = settings.language ?? LanguagesType.RUSSIAN
@@ -46,7 +47,7 @@ export const Widget: FC<WidgetProps> = ({
         messages={messages[locale]}
         defaultLocale={LanguagesType.RUSSIAN}
       >
-        <FormProvider>
+        <FormProvider disabled={!!disabled}>
           <Form
             amount={amount}
             settings={settings}

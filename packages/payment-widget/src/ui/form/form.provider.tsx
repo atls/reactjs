@@ -6,11 +6,11 @@ import { FormProviderProps } from '../../interfaces'
 import { Provider }          from './form.context'
 import { useValidate }       from '../../hooks'
 
-const FormProvider: FC<FormProviderProps> = ({ children }) => {
+const FormProvider: FC<FormProviderProps> = ({ disabled, children }) => {
   const { errors, validateField, isValidate } = useValidate()
   const value = useMemo(
-    () => ({ errors, validateField, isValidate }),
-    [errors, validateField, isValidate]
+    () => ({ errors, validateField, isValidate, disabled }),
+    [errors, validateField, isValidate, disabled]
   )
 
   return <Provider value={value}>{children}</Provider>

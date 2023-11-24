@@ -1,4 +1,4 @@
-import React               from 'react'
+import { ReactNode }       from 'react'
 
 import { AdditionalField } from './fields.interfaces'
 import { ReceiptSettings } from './receipt.interfaces'
@@ -11,5 +11,6 @@ export interface WidgetProps {
   receipt?: ReceiptSettings
   styles?: Styles
   additionalFields?: AdditionalField[]
-  children: React.ReactNode
+  disabled?: boolean
+  children: ReactNode
 }

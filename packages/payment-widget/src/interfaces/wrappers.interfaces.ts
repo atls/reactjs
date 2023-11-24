@@ -11,11 +11,16 @@ interface ChildrenInputProps {
   errorText: string
 }
 
+interface ChildrenButtonProps {
+  type: string
+  disabled: boolean
+}
+
 export interface InputWrapperProps {
   name: string
   children: (props: ChildrenInputProps) => ReactElement
 }
 
 export interface ButtonWrapperProps {
-  children: () => ReactElement
+  children: (props: ChildrenButtonProps) => ReactElement
 }

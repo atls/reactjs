@@ -1,6 +1,6 @@
-import React from 'react'
+import { ReactNode } from 'react'
 
 export interface ThemeProps {
   useCustomTheme: boolean
-  children: React.ReactNode
+  children: ReactNode
 }

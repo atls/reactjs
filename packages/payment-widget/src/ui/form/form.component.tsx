@@ -23,7 +23,7 @@ export const Form: FC<FormProps> = ({
   children,
 }) => {
   const isLoaded = useInit()
-  const { isValidate } = useForm()
+  const { isValidate, disabled } = useForm()
   const payHandler: FormEventHandler<HTMLFormElement> = (event) => {
     event.preventDefault()
     if (!isValidate) return
@@ -47,7 +47,7 @@ export const Form: FC<FormProps> = ({
       />
       {children}
       {!useCustomButton && (
-        <Button type='submit' disabled={!isLoaded} {...styles?.button}>
+        <Button type='submit' disabled={!isLoaded || disabled} {...styles?.button}>
           <FormattedMessage id='payment_widget.pay' defaultMessage='Оплатить' />
         </Button>
       )}

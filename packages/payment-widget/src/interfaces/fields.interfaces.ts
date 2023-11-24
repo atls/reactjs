@@ -43,3 +43,9 @@ export interface FieldsValidator {
   validateField: ValidateField
   isValidate: boolean
 }
+
+export interface FieldsState {
+  fieldsState: FieldState | string
+  handleChange: HandleChangeField
+  handleBlur: HandleBlurField
+}

@@ -1,6 +1,12 @@
-import { useContext }      from 'react'
+import { useContext }  from 'react'
 
-import { FieldsValidator } from '../../interfaces'
-import { Context }         from './form.context'
+import { FormContext } from '../../interfaces'
+import { Context }     from './form.context'
 
-export const useForm = () => useContext(Context) as FieldsValidator
+export const useForm = (): FormContext => {
+  const context = useContext(Context)
+
+  if (!context) throw new Error('Missing form context provider')
+
+  return context
+}
