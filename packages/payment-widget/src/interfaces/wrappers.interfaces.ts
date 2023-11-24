@@ -1,5 +1,6 @@
 import { ReactElement }      from 'react'
 
+import { ButtonType }        from '../enums'
 import { HandleBlurField }   from './fields.interfaces'
 import { HandleChangeField } from './fields.interfaces'
 
@@ -12,7 +13,7 @@ interface ChildrenInputProps {
 }
 
 interface ChildrenButtonProps {
-  type: string
+  type: ButtonType
   disabled: boolean
 }
 
