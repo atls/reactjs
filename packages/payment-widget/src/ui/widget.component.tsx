@@ -7,10 +7,10 @@ import { FC }             from 'react'
 import { IntlProvider }   from 'react-intl'
 import { isValidElement } from 'react'
 
-import FormProvider       from './form/form.provider'
 import { LanguagesType }  from '../enums'
 import { WidgetProps }    from '../interfaces'
 import { Form }           from './form'
+import { FormProvider }   from './form/form.provider'
 import { ThemeProvider }  from './theme/src'
 
 const messages = {
