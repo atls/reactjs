@@ -10,20 +10,15 @@ import { HandleChangeField } from '../interfaces'
 import { FieldsNames }       from '../interfaces'
 import { ValidateField }     from '../interfaces'
 
-export const useFieldsState = (validateField: ValidateField, fields?: Field[]): FieldsState => {
-  const initialState = fields
-    ? fields.reduce((acc, field) => ({ ...acc, [field.name]: '' }), {})
-    : ''
-  const [fieldsState, setFieldsState] = useState<FieldState | string>(
-    initialState as FieldState | string
-  )
+export const useFieldsState = (validateField: ValidateField, fields: Field[]): FieldsState => {
+  const initialState = fields.reduce((acc, field) => ({ ...acc, [field.name]: '' }), {})
+  const [fieldsState, setFieldsState] = useState<FieldState>(initialState as FieldState)
 
   const handleChange: HandleChangeField = useCallback(
     (e: FormEvent<HTMLInputElement>) => {
       const name = e.currentTarget.name as FieldsNames
       const { value } = e.currentTarget
-      setFieldsState((prevFields) =>
-        typeof prevFields === 'object' ? { ...prevFields, [name]: value } : value)
+      setFieldsState((prevFields) => ({ ...prevFields, [name]: value }))
     },
     [setFieldsState]
   )

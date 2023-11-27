@@ -1,8 +1,10 @@
-import { ReactElement }      from 'react'
+import { ReactElement }         from 'react'
 
-import { ButtonType }        from '../enums'
-import { HandleBlurField }   from './fields.interfaces'
-import { HandleChangeField } from './fields.interfaces'
+import { AdditionalFieldsType } from '../enums'
+import { ButtonType }           from '../enums'
+import { RequiredFieldsType }   from '../enums'
+import { HandleBlurField }      from './fields.interfaces'
+import { HandleChangeField }    from './fields.interfaces'
 
 interface ChildrenInputProps {
   name: string
@@ -18,7 +20,7 @@ interface ChildrenButtonProps {
 }
 
 export interface InputWrapperProps {
-  name: string
+  name: AdditionalFieldsType | RequiredFieldsType
   children: (props: ChildrenInputProps) => ReactElement
 }
 

@@ -1,24 +1,21 @@
-import * as messagesRu    from '../locales/ru.json'
-import * as messagesEn    from '../locales/en.json'
+import * as messagesRu       from '../locales/ru.json'
+import * as messagesEn       from '../locales/en.json'
 
-import React              from 'react'
-import { Children }       from 'react'
-import { FC }             from 'react'
-import { IntlProvider }   from 'react-intl'
-import { isValidElement } from 'react'
+import React                 from 'react'
+import { IntlProvider }      from 'react-intl'
 
-import { LanguagesType }  from '../enums'
-import { WidgetProps }    from '../interfaces'
-import { Form }           from './form'
-import { FormProvider }   from './form/form.provider'
-import { ThemeProvider }  from './theme/src'
+import { LanguagesType }     from '../enums'
+import { WidgetProps }       from '../interfaces'
+import { Form }              from './form'
+import { FormProvider }      from './form/form.provider'
+import { useCustomElements } from '../hooks'
 
 const messages = {
   [LanguagesType.RUSSIAN]: messagesRu,
   [LanguagesType.ENGLISH]: messagesEn,
 }
 
-export const Widget: FC<WidgetProps> = ({
+export const Widget = ({
   amount,
   settings,
   receipt,
@@ -26,42 +23,37 @@ export const Widget: FC<WidgetProps> = ({
   styles,
   disabled,
   children,
-}) => {
+}: WidgetProps) => {
   const locale = settings.language ?? LanguagesType.RUSSIAN
-  const childrenArray = Children.toArray(children)
-  const customFields = childrenArray.filter((child) =>
-    isValidElement(child) // @ts-ignore
-      ? child.type.name === 'InputWrapper' && typeof child.props.children === 'function'
-      : false)
-  const customButton = childrenArray.find((child) =>
-    isValidElement(child) // @ts-ignore
-      ? child.type.name === 'ButtonWrapper' && typeof child.props.children === 'function'
-      : false)
-  // @ts-ignore
-  const isGenerateReceipt = !!receipt && !customFields.find((field) => field.props.name === 'email')
+  const {
+    customFields,
+    customButton,
+    isGenerateReceiptField,
+    isGenerateRequiredField,
+    nameFields,
+  } = useCustomElements(!!amount, !!receipt, !!additionalFields?.length, children)
 
   return (
-    <ThemeProvider useCustomTheme={!!customFields.length}>
-      <IntlProvider
-        locale={locale}
-        messages={messages[locale]}
-        defaultLocale={LanguagesType.RUSSIAN}
+    <IntlProvider locale={locale} messages={messages[locale]} defaultLocale={LanguagesType.RUSSIAN}>
+      <FormProvider
+        additionalFields={additionalFields}
+        nameFields={nameFields}
+        isGenerateReceipt={isGenerateReceiptField}
+        isGenerateRequiredField={isGenerateRequiredField}
+        disabled={!!disabled}
       >
-        <FormProvider disabled={!!disabled}>
-          <Form
-            amount={amount}
-            settings={settings}
-            receipt={receipt}
-            styles={styles}
-            additionalFields={customFields.length ? [] : additionalFields}
-            useCustomButton={!!customButton}
-            isGenerateReceipt={isGenerateReceipt}
-          >
-            {customFields}
-            {customButton}
-          </Form>
-        </FormProvider>
-      </IntlProvider>
-    </ThemeProvider>
+        <Form
+          amount={amount}
+          settings={settings}
+          receipt={receipt}
+          styles={styles}
+          useCustomButton={!!customButton}
+          useCustomFields={!!customFields.length}
+        >
+          {customFields}
+          {customButton}
+        </Form>
+      </FormProvider>
+    </IntlProvider>
   )
 }

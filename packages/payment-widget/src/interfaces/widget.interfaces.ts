@@ -12,5 +12,5 @@ export interface WidgetProps {
   styles?: Styles
   additionalFields?: AdditionalField[]
   disabled?: boolean
-  children: ReactNode
+  children?: ReactNode
 }

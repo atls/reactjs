@@ -8,7 +8,5 @@ export const addReceiptFieldsUtil = (additionalFields: AdditionalField[]) => {
       field.name === AdditionalFieldsType.Email || field.name === AdditionalFieldsType.Phone
   )
 
-  if (missingReceiptFields) return [...receiptFields, ...additionalFields]
-
-  return additionalFields
+  return missingReceiptFields ? [...receiptFields, ...additionalFields] : additionalFields
 }

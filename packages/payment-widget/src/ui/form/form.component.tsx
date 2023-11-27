@@ -1,5 +1,4 @@
 import React                    from 'react'
-import { FC }                   from 'react'
 import { FormEventHandler }     from 'react'
 import { FormattedMessage }     from 'react-intl'
 
@@ -7,23 +6,20 @@ import { FormProps }            from '../../interfaces'
 import { Button }               from '../button/button.component'
 import { Fields }               from '../fields.component'
 import { Settings }             from '../settings.component'
-import { useInit }              from '../../hooks'
 import { makePayment }          from '../../utils'
 import { makePaymentWithCheck } from '../../utils'
 import { useForm }              from './use-form.hook'
 
-export const Form: FC<FormProps> = ({
+export const Form = ({
   settings,
   amount,
   receipt,
   styles,
-  additionalFields,
   useCustomButton,
-  isGenerateReceipt,
+  useCustomFields,
   children,
-}) => {
-  const isLoaded = useInit()
-  const { isValidate, disabled } = useForm()
+}: FormProps) => {
+  const { isValidate, disabled, isLoaded } = useForm()
   const payHandler: FormEventHandler<HTMLFormElement> = (event) => {
     event.preventDefault()
     if (!isValidate) return
@@ -37,13 +33,12 @@ export const Form: FC<FormProps> = ({
 
   return (
     <form name='payform-tinkoff' onSubmit={payHandler}>
-      <Settings {...settings} isGenerateReceipt={isGenerateReceipt} />
+      <Settings {...settings} isGenerateReceipt={!!receipt} />
       <Fields
         amount={amount}
-        isGenerateReceipt={isGenerateReceipt}
-        additionalFields={additionalFields}
         direction={styles?.direction}
         inputGaps={styles?.inputGaps}
+        useCustomFields={useCustomFields}
       />
       {children}
       {!useCustomButton && (
