@@ -1,6 +1,6 @@
 import { ReactNode }       from 'react'
 
-import { NameField }       from './custom-elements.iterfaces'
+import { NameField }       from './custom-fields.iterfaces'
 import { Field }           from './fields.interfaces'
 import { FieldsState }     from './fields.interfaces'
 import { FieldsValidator } from './fields.interfaces'

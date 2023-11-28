@@ -4,17 +4,15 @@ import { Field }     from './fields.interfaces'
 
 export type NameField = Pick<Field, 'name'>
 
-export interface CustomElements {
+export interface CustomFields {
   customFields: ReactNode[]
-  customButton: ReactNode
   isGenerateReceiptField: boolean
   isGenerateRequiredField: boolean
-  nameFields: Field[]
 }
 
-export interface CustomElementsProps {
+export interface CustomFieldsProps {
   existAmount: boolean
   existReceipt: boolean
   existAdditionalFields: boolean
-  nodes: ReactNode
+  nodeArray: ReactNode[]
 }

@@ -1,27 +1,19 @@
-import { Children }              from 'react'
-import { ReactNode }             from 'react'
-import { JSXElementConstructor } from 'react'
-import { isValidElement }        from 'react'
+import { ReactNode }                                  from 'react'
+import { isValidElement }                             from 'react'
 
-import { AdditionalFieldsType }  from '../enums'
-import { RequiredFieldsType }    from '../enums'
-import { CustomElements }        from '../interfaces'
-import { CustomElementsProps }   from '../interfaces'
-import { Field }                 from '../interfaces'
+import { AdditionalFieldsType }                       from '../enums'
+import { NameWrapperComponent } from '../enums'
+import { RequiredFieldsType }                         from '../enums'
+import { CustomFields }                               from '../interfaces'
+import { CustomFieldsProps }            from '../interfaces'
+import { isCustomElement }                            from '../utils'
 
-export const useCustomElements = ({
+export const useCustomFields = ({
   existAmount,
   existReceipt,
   existAdditionalFields,
-  nodes,
-}: CustomElementsProps): CustomElements => {
-  const nodeArray = Children.toArray(nodes)
-
-  const isCustomElement = (nameNode: string, node: ReactNode): boolean =>
-    isValidElement(node)
-      ? (node.type as JSXElementConstructor<any>).name === nameNode &&
-        typeof node.props.children === 'function'
-      : false
+  nodeArray,
+}: CustomFieldsProps): CustomFields => {
   const isAdditionalField = (node: ReactNode): boolean =>
     isValidElement(node) ? Object.values(AdditionalFieldsType).includes(node.props.name) : false
   const isRequiredField = (node: ReactNode): boolean =>
@@ -29,17 +21,9 @@ export const useCustomElements = ({
 
   const customFields = nodeArray.filter(
     (node) =>
-      isCustomElement('InputWrapper', node) && (isAdditionalField(node) || isRequiredField(node))
+      isCustomElement(NameWrapperComponent.InputWrapper, node) &&
+      (isAdditionalField(node) || isRequiredField(node))
   )
-  const nameFields = customFields.reduce<Field[]>((acc, field) => {
-    if (isValidElement(field))
-      acc.push({
-        name: AdditionalFieldsType[field.props.name] || RequiredFieldsType[field.props.name],
-      })
-    return acc
-  }, [])
-
-  const customButton = nodeArray.find((node) => isCustomElement('ButtonWrapper', node))
 
   const isGenerateReceiptField = existReceipt && !customFields.length
 
@@ -70,9 +54,7 @@ export const useCustomElements = ({
 
   return {
     customFields,
-    customButton,
     isGenerateReceiptField,
     isGenerateRequiredField,
-    nameFields,
   }
 }

@@ -1,15 +1,18 @@
-import * as messagesRu       from '../locales/ru.json'
-import * as messagesEn       from '../locales/en.json'
+import * as messagesRu                      from '../locales/ru.json'
+import * as messagesEn                      from '../locales/en.json'
 
-import React                 from 'react'
-import { useMemo }    from 'react'
-import { IntlProvider }      from 'react-intl'
+import React                                from 'react'
+import { Children }                         from 'react'
+import { IntlProvider }                     from 'react-intl'
+import { useMemo }                          from 'react'
 
-import { LanguagesType }     from '../enums'
-import { WidgetProps }       from '../interfaces'
-import { Form }              from './form'
-import { FormProvider }      from './form/form.provider'
-import { useCustomElements } from '../hooks'
+import { LanguagesType }                    from '../enums'
+import { WidgetProps }                      from '../interfaces'
+import { Form }                             from './form'
+import { FormProvider }                     from './form/form.provider'
+import { useCustomButton }                  from '../hooks'
+import { useCustomFields } from '../hooks'
+import { getNameFields }                    from '../utils'
 
 const messages = {
   [LanguagesType.RUSSIAN]: messagesRu,
@@ -26,22 +29,20 @@ export const Widget = ({
   children,
 }: WidgetProps) => {
   const locale = settings.language ?? LanguagesType.RUSSIAN
-  const customElementsProps = useMemo(
+  const childrenArray = Children.toArray(children)
+  const customFieldsProps = useMemo(
     () => ({
       existAmount: !!amount,
       existReceipt: !!receipt,
       existAdditionalFields: !!additionalFields?.length,
-      nodes: children,
+      nodeArray: childrenArray,
     }),
-    [amount, receipt, additionalFields, children]
+    [amount, receipt, additionalFields, childrenArray]
   )
-  const {
-    customFields,
-    customButton,
-    isGenerateReceiptField,
-    isGenerateRequiredField,
-    nameFields,
-  } = useCustomElements(customElementsProps)
+  const { customFields, isGenerateReceiptField, isGenerateRequiredField } =
+    useCustomFields(customFieldsProps)
+  const customButton = useCustomButton(childrenArray)
+  const nameFields = getNameFields(customFields)
 
   return (
     <IntlProvider locale={locale} messages={messages[locale]} defaultLocale={LanguagesType.RUSSIAN}>
