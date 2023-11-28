@@ -2,6 +2,7 @@ import * as messagesRu       from '../locales/ru.json'
 import * as messagesEn       from '../locales/en.json'
 
 import React                 from 'react'
+import { useMemo }    from 'react'
 import { IntlProvider }      from 'react-intl'
 
 import { LanguagesType }     from '../enums'
@@ -25,13 +26,22 @@ export const Widget = ({
   children,
 }: WidgetProps) => {
   const locale = settings.language ?? LanguagesType.RUSSIAN
+  const customElementsProps = useMemo(
+    () => ({
+      existAmount: !!amount,
+      existReceipt: !!receipt,
+      existAdditionalFields: !!additionalFields?.length,
+      nodes: children,
+    }),
+    [amount, receipt, additionalFields, children]
+  )
   const {
     customFields,
     customButton,
     isGenerateReceiptField,
     isGenerateRequiredField,
     nameFields,
-  } = useCustomElements(!!amount, !!receipt, !!additionalFields?.length, children)
+  } = useCustomElements(customElementsProps)
 
   return (
     <IntlProvider locale={locale} messages={messages[locale]} defaultLocale={LanguagesType.RUSSIAN}>

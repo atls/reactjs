@@ -11,3 +11,10 @@ export interface CustomElements {
   isGenerateRequiredField: boolean
   nameFields: Field[]
 }
+
+export interface CustomElementsProps {
+  existAmount: boolean
+  existReceipt: boolean
+  existAdditionalFields: boolean
+  nodes: ReactNode
+}

@@ -6,17 +6,18 @@ import { isValidElement }        from 'react'
 import { AdditionalFieldsType }  from '../enums'
 import { RequiredFieldsType }    from '../enums'
 import { CustomElements }        from '../interfaces'
+import { CustomElementsProps }   from '../interfaces'
 import { Field }                 from '../interfaces'
 
-export const useCustomElements = (
-  existAmount: boolean,
-  existReceipt: boolean,
-  existAdditionalFields: boolean,
-  nodes: ReactNode
-): CustomElements => {
+export const useCustomElements = ({
+  existAmount,
+  existReceipt,
+  existAdditionalFields,
+  nodes,
+}: CustomElementsProps): CustomElements => {
   const nodeArray = Children.toArray(nodes)
 
-  const isCastomElement = (nameNode: string, node: ReactNode): boolean =>
+  const isCustomElement = (nameNode: string, node: ReactNode): boolean =>
     isValidElement(node)
       ? (node.type as JSXElementConstructor<any>).name === nameNode &&
         typeof node.props.children === 'function'
@@ -28,7 +29,7 @@ export const useCustomElements = (
 
   const customFields = nodeArray.filter(
     (node) =>
-      isCastomElement('InputWrapper', node) && (isAdditionalField(node) || isRequiredField(node))
+      isCustomElement('InputWrapper', node) && (isAdditionalField(node) || isRequiredField(node))
   )
   const nameFields = customFields.reduce<Field[]>((acc, field) => {
     if (isValidElement(field))
@@ -38,7 +39,7 @@ export const useCustomElements = (
     return acc
   }, [])
 
-  const customButton = nodeArray.find((node) => isCastomElement('ButtonWrapper', node))
+  const customButton = nodeArray.find((node) => isCustomElement('ButtonWrapper', node))
 
   const isGenerateReceiptField = existReceipt && !customFields.length
 
