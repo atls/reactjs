@@ -259,37 +259,6 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@atls/react-payment-widget@workspace:packages/payment-widget":
-  version: 0.0.0-use.local
-  resolution: "@atls/react-payment-widget@workspace:packages/payment-widget"
-  dependencies:
-    "@atls-ui-parts/button": "npm:0.0.12"
-    "@atls-ui-parts/condition": "npm:0.0.4"
-    "@atls-ui-parts/hidden-input": "npm:0.0.6"
-    "@atls-ui-parts/input": "npm:0.0.13"
-    "@atls-ui-parts/layout": "npm:0.0.7"
-    "@atls-ui-parts/text": "npm:0.0.11"
-    "@emotion/jest": "npm:11.9.4"
-    "@emotion/react": "npm:11.9.3"
-    "@emotion/styled": "npm:11.9.3"
-    "@testing-library/react": "npm:14.1.0"
-    "@types/react": "npm:18.2.20"
-    "@types/react-dom": "npm:18"
-    "@types/styled-system": "npm:5.1.16"
-    csstype: "npm:3.1.2"
-    react: "npm:18.2.0"
-    react-dom: "npm:18.2.0"
-    react-intl: "npm:6.4.4"
-    react-laag: "npm:2.0.5"
-    styled-system: "npm:5.1.5"
-    styled-tools: "npm:1.7.2"
-  peerDependencies:
-    "@emotion/react": 11.9.3
-    "@emotion/styled": 11.9.3
-    react: 18.2.0
-  languageName: unknown
-  linkType: soft
-
 "@atls/react-upload@workspace:packages/upload":
   version: 0.0.0-use.local
   resolution: "@atls/react-upload@workspace:packages/upload"
@@ -340,6 +309,37 @@ __metadata:
   checksum: e7abba0eecd8be823ee081c2b69e1653d93bd4640f857e373e236d35e0e679935a9b28b19bd6c01277a370e752d4e48b8ec2d1eb869668a95af73768f04c31d1
   languageName: node
   linkType: hard
+
+"@atls/tinkoff-payment-widget@workspace:packages/payment-widget":
+  version: 0.0.0-use.local
+  resolution: "@atls/tinkoff-payment-widget@workspace:packages/payment-widget"
+  dependencies:
+    "@atls-ui-parts/button": "npm:0.0.12"
+    "@atls-ui-parts/condition": "npm:0.0.4"
+    "@atls-ui-parts/hidden-input": "npm:0.0.6"
+    "@atls-ui-parts/input": "npm:0.0.13"
+    "@atls-ui-parts/layout": "npm:0.0.7"
+    "@atls-ui-parts/text": "npm:0.0.11"
+    "@emotion/jest": "npm:11.9.4"
+    "@emotion/react": "npm:11.9.3"
+    "@emotion/styled": "npm:11.9.3"
+    "@testing-library/react": "npm:14.1.0"
+    "@types/react": "npm:18.2.20"
+    "@types/react-dom": "npm:18"
+    "@types/styled-system": "npm:5.1.16"
+    csstype: "npm:3.1.2"
+    react: "npm:18.2.0"
+    react-dom: "npm:18.2.0"
+    react-intl: "npm:6.4.4"
+    react-laag: "npm:2.0.5"
+    styled-system: "npm:5.1.5"
+    styled-tools: "npm:1.7.2"
+  peerDependencies:
+    "@emotion/react": 11.9.3
+    "@emotion/styled": 11.9.3
+    react: 18.2.0
+  languageName: unknown
+  linkType: soft
 
 "@babel/code-frame@npm:^7.0.0, @babel/code-frame@npm:^7.10.4, @babel/code-frame@npm:^7.12.13, @babel/code-frame@npm:^7.22.10, @babel/code-frame@npm:^7.22.5":
   version: 7.22.10
