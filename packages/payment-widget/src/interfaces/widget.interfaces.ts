@@ -1,3 +1,5 @@
+import { ReactNode }       from 'react'
+
 import { AdditionalField } from './fields.interfaces'
 import { ReceiptSettings } from './receipt.interfaces'
 import { Settings }        from './settings.interfaces'
@@ -9,4 +11,6 @@ export interface WidgetProps {
   receipt?: ReceiptSettings
   styles?: Styles
   additionalFields?: AdditionalField[]
+  disabled?: boolean
+  children?: ReactNode
 }

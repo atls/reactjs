@@ -13,7 +13,7 @@ export type HandleBlurField = (e: FormEvent<HTMLInputElement>) => void
 
 export interface Field {
   name: FieldsNames
-  placeholder: string
+  placeholder?: string
   required?: boolean
   type?: HTMLInputTypeAttribute
 }
@@ -31,11 +31,20 @@ export type FieldsErrors = {
 }
 
 export interface FieldsProps {
-  errors: FieldsErrors
-  validateField: ValidateField
   amount?: number
   direction?: DirectionFields
   inputGaps?: number
-  isGenerateReceipt?: boolean
-  additionalFields?: AdditionalField[]
+  useCustomFields: boolean
+}
+
+export interface FieldsValidator {
+  errors: FieldsErrors
+  validateField: ValidateField
+  isValidate: boolean
+}
+
+export interface FieldsState {
+  fieldsState: FieldState
+  handleChange: HandleChangeField
+  handleBlur: HandleBlurField
 }

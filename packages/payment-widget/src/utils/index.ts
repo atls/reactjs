@@ -1,3 +1,5 @@
 export * from './pay.util'
 export * from './add-receipt-fields.util'
 export * from './convert-to-penny.util'
+export * from './is-custom-element.util'
+export * from './get-name-fields.util'
