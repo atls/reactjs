@@ -32,9 +32,9 @@ export const Form = () => <Widget settings={{ storeId: 'STORE_ID' }} />
 
 ```tsx
 import { AdditionalFieldsType } from '@atls/react-payment-widget'
-import { ButtonWrapper } from '@atls/react-payment-widget'
-import { InputWrapper } from '@atls/react-payment-widget'
-import { Widget } from '@atls/react-payment-widget'
+import { ButtonWrapper }        from '@atls/react-payment-widget'
+import { InputWrapper }         from '@atls/react-payment-widget'
+import { Widget }               from '@atls/react-payment-widget'
 export const Form = () => (
   <Widget amount={5000} settings={{ storeId: '1698844342541DEMO' }}>
     <InputWrapper name={AdditionalFieldsType.Email}>{(props) => <Input {...props} />}</InputWrapper>
