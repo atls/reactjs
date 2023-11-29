@@ -1,12 +1,12 @@
-import { ReactNode }                                  from 'react'
-import { isValidElement }                             from 'react'
+import { ReactNode }            from 'react'
+import { isValidElement }       from 'react'
 
-import { AdditionalFieldsType }                       from '../enums'
+import { AdditionalFieldsType } from '../enums'
 import { NameWrapperComponent } from '../enums'
-import { RequiredFieldsType }                         from '../enums'
-import { CustomFields }                               from '../interfaces'
-import { CustomFieldsProps }            from '../interfaces'
-import { isCustomElement }                            from '../utils'
+import { RequiredFieldsType }   from '../enums'
+import { CustomFields }         from '../interfaces'
+import { CustomFieldsProps }    from '../interfaces'
+import { isCustomElement }      from '../utils'
 
 export const useCustomFields = ({
   existAmount,

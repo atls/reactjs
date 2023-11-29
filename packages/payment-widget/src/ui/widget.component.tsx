@@ -1,18 +1,18 @@
-import * as messagesRu                      from '../locales/ru.json'
-import * as messagesEn                      from '../locales/en.json'
+import * as messagesRu     from '../locales/ru.json'
+import * as messagesEn     from '../locales/en.json'
 
-import React                                from 'react'
-import { Children }                         from 'react'
-import { IntlProvider }                     from 'react-intl'
-import { useMemo }                          from 'react'
+import React               from 'react'
+import { Children }        from 'react'
+import { IntlProvider }    from 'react-intl'
+import { useMemo }         from 'react'
 
-import { LanguagesType }                    from '../enums'
-import { WidgetProps }                      from '../interfaces'
-import { Form }                             from './form'
-import { FormProvider }                     from './form/form.provider'
-import { useCustomButton }                  from '../hooks'
+import { LanguagesType }   from '../enums'
+import { WidgetProps }     from '../interfaces'
+import { Form }            from './form'
+import { FormProvider }    from './form/form.provider'
+import { useCustomButton } from '../hooks'
 import { useCustomFields } from '../hooks'
-import { getNameFields }                    from '../utils'
+import { getNameFields }   from '../utils'
 
 const messages = {
   [LanguagesType.RUSSIAN]: messagesRu,

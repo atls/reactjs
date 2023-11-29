@@ -1,68 +1,61 @@
-# Применение
+# @atls/react-payment-widget
 
-## С темой виджета
+[//]: # 'VERSIONS'
 
-Для корректной работы Виджета достаточно атрибуту `settings` назначить объект с ключом `storeID`:
+## [<img src="https://img.shields.io/static/v1?style=for-the-badge&label=%40atls-ui-parts%2Fbutton&message=0.0.12&labelColor=097CEB&color=0B6DCC">](https://www.npmjs.com/package/@atls-ui-parts/button/v/0.0.12) [<img src="https://img.shields.io/static/v1?style=for-the-badge&label=%40atls-ui-parts%2Fcondition&message=0.0.4&labelColor=097CEB&color=0B6DCC">](https://www.npmjs.com/package/@atls-ui-parts/condition/v/0.0.4) [<img src="https://img.shields.io/static/v1?style=for-the-badge&label=%40atls-ui-parts%2Fhidden-input&message=0.0.6&labelColor=097CEB&color=0B6DCC">](https://www.npmjs.com/package/@atls-ui-parts/hidden-input/v/0.0.6) [<img src="https://img.shields.io/static/v1?style=for-the-badge&label=%40atls-ui-parts%2Finput&message=0.0.13&labelColor=097CEB&color=0B6DCC">](https://www.npmjs.com/package/@atls-ui-parts/input/v/0.0.13) [<img src="https://img.shields.io/static/v1?style=for-the-badge&label=%40atls-ui-parts%2Flayout&message=0.0.7&labelColor=097CEB&color=0B6DCC">](https://www.npmjs.com/package/@atls-ui-parts/layout/v/0.0.7) [<img src="https://img.shields.io/static/v1?style=for-the-badge&label=%40atls-ui-parts%2Ftext&message=0.0.11&labelColor=097CEB&color=0B6DCC">](https://www.npmjs.com/package/@atls-ui-parts/layout/v/0.0.7) [<img src="https://img.shields.io/static/v1?style=for-the-badge&label=react-intl&message=6.4.4&labelColor=ECEEF5&color=D7DCEB">](https://www.npmjs.com/package/react-intl/v/6.4.4) [<img src="https://img.shields.io/static/v1?style=for-the-badge&label=react-laag&message=2.0.5&labelColor=ECEEF5&color=D7DCEB">](https://www.npmjs.com/package/react-laag) [<img src="https://img.shields.io/static/v1?style=for-the-badge&label=styled-tools&message=1.7.2&labelColor=ECEEF5&color=D7DCEB">](https://www.npmjs.com/package/styled-tools)
+
+**@atls/react-payment-widget** предназначен для интеграции в проекты формы, позволяющей проводить оплаты с помощью терминала "Тинькофф Касса". Реализован при помощи `styled-components` и `@emotion`.
+
+## Использование со стандартной темой
+
+Для корректной работы **@atls/react-payment-widget** достаточно для компонента `Widget` назначить атрибуту `settings` объект с ключом `storeID`:
 
 ```tsx
-import { Widget } from "@atls/react-payment-widget";
-export const Form = () => <Widget settings={{ storeId: "STORE_ID" }} />;
+import { Widget } from '@atls/react-payment-widget'
+export const Form = () => <Widget settings={{ storeId: 'STORE_ID' }} />
 ```
 
-Для добавления дополнительных полей используйте атрибут `additionalFields` который принимает в себя массив объектов с обязательным ключом `name`.
+Основные атрибуты для компонента `Widget`:
 
-Атрибут `amount` принимает сумму платежа. Без заданного значения Виджет генерирует обязательное поле для ввода суммы.
+- **`settings`** - обязательный атрибут, принимает объект с настройками для терминала.
+- **`amount`** - опциональный атрибут, принимает сумму платежа.Без заданного значения `Widget` генерирует обязательное поле для ввода суммы.
+- **`additionalFields`** - опциональный атрибут для добавления дополнительных полей, принимает массив объектов с обязательным ключом `name`.
+- **`receipt`** - опциональный атрибут, принимает объект с настройками для генерации чека.
+- **`styles`** - опциональный атрибут, принимает объект с настройками для генерации чека.
+- **`disabled`** - опциональный атрибут для управлением активным состоянием кнопки, принимает булево значение.
 
-```tsx
-import { Widget, AdditionalFieldsType } from "@atls/react-payment-widget";
-export const Form = () => (
-  <Widget
-    amount={10000}
-    settings={{ storeId: "STORE_ID" }}
-    additionalFields={[{ name: AdditionalFieldsType.Email }]}
-  />
-);
-```
+## Использование с кастомной темой
 
-## С темой проекта
+**@atls/react-payment-widget** предусматривает возможность использования стилизованных полей ввода и кнопки из Вашего проекта. Для этого предоставляются компоненты обёртки `InputWrapper` и `ButtonWrapper`.
 
-Если Вы хотите использовать кастомные поля и кнопку, то используйте предоставляемые Виджетом обёртки `InputWrapper` и `ButtonWrapper`. `InputWrapper` принимает обязательный атрибут `name`.
+`InputWrapper` принимает обязательный атрибут `name`.
 
 ```tsx
-import {
-  Widget,
-  AdditionalFieldsType,
-  InputWrapper,
-  ButtonWrapper,
-} from "@atls/react-payment-widget";
+import { AdditionalFieldsType } from '@atls/react-payment-widget'
+import { ButtonWrapper } from '@atls/react-payment-widget'
+import { InputWrapper } from '@atls/react-payment-widget'
+import { Widget } from '@atls/react-payment-widget'
 export const Form = () => (
-  <Widget
-    amount={amount}
-    settings={{ storeId: "1698844342541DEMO" }}
-    disabled={!privacyPolicy}
-  >
-    <InputWrapper name={AdditionalFieldsType.Email}>
-      {(props) => <Input {...props} placeholder={fieldToLabelMap.email} />}
-    </InputWrapper>
-    <ButtonWrapper>
-      {(props) => <Button {...props}>Оплатить</Button>}
-    </ButtonWrapper>
+  <Widget amount={5000} settings={{ storeId: '1698844342541DEMO' }}>
+    <InputWrapper name={AdditionalFieldsType.Email}>{(props) => <Input {...props} />}</InputWrapper>
+    <ButtonWrapper>{(props) => <Button {...props}>Оплатить</Button>}</ButtonWrapper>
   </Widget>
-);
+)
 ```
 
-> [!WARNING]
+> [!WARNING]  
 > Не используйте атрибут `additionalFields` совместно с `InputWrapper`, это приведет к исключению.
+>
 > Так же, при использовании `InputWrapper` Виджет не генерирует дополнительные поля.
 
 ## Экспортируемые компоненты
 
-**Widget** - главный компонент Виджета.
+[**Widget**]() - главный компонент Виджета.
 
-**InputWrapper** - компонент обёртка для полей ввода.
+[**InputWrapper**]() - компонент обёртка для полей ввода.
 
-**ButtonWrapper** - компонент обёртка для кнопки.
+[**ButtonWrapper**]() - компонент обёртка для кнопки.
 
-**AdditionalFieldsType** - интерфейс дополнительных полей.
+[**AdditionalFieldsType**]() - интерфейс дополнительных полей.
 
-**RequiredFieldsType** - интерфейс обязательных полей.
+[**RequiredFieldsType**]() - интерфейс обязательных полей.
