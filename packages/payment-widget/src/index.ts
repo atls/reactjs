@@ -1,4 +1,8 @@
-export { Widget, InputWrapper, ButtonWrapper } from './ui'
+export {
+  Widget,
+  ButtonWrapper,
+  InputWrapper,
+}        from './ui'
 export {
   Settings,
   Styles,
@@ -6,5 +10,5 @@ export {
   Receipt,
   ReceiptItem,
   DirectionFields,
-} from './interfaces'
+}        from './interfaces'
 export * from './enums'

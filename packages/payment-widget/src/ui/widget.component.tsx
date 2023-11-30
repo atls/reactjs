@@ -28,8 +28,8 @@ export const Widget = ({
   disabled,
   children,
 }: WidgetProps) => {
-  const locale = settings.language ?? LanguagesType.RUSSIAN
   const childrenArray = Children.toArray(children)
+  const locale = settings.language ?? LanguagesType.RUSSIAN
   const customFieldsProps = useMemo(
     () => ({
       existAmount: !!amount,
