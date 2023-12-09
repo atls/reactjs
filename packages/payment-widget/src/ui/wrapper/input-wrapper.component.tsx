@@ -1,14 +1,15 @@
-import { Condition }         from '@atls-ui-parts/condition'
+import { Condition }            from '@atls-ui-parts/condition'
 
-import React                 from 'react'
-import { FC }                from 'react'
-import { useIntl }           from 'react-intl'
+import React                    from 'react'
+import { FC }                   from 'react'
+import { useIntl }              from 'react-intl'
 
-import { InputWrapperProps } from '../../interfaces'
-import { translate }         from '../../utils/translate.util'
-import { useForm }           from '../form'
+import { NameWrapperComponent } from '../../enums'
+import { InputWrapperProps }    from '../../interfaces'
+import { translate }            from '../../utils/translate.util'
+import { useForm }              from '../form'
 
-export const InputWrapper: FC<InputWrapperProps> = ({ name, children }) => {
+const InputWrapper: FC<InputWrapperProps> = ({ name, children }) => {
   const { fieldsState, handleChange, handleBlur, errors } = useForm()
   const intl = useIntl()
   const translateError = translate(intl, errors[name], errors[name])
@@ -25,3 +26,7 @@ export const InputWrapper: FC<InputWrapperProps> = ({ name, children }) => {
     </Condition>
   )
 }
+
+InputWrapper.displayName = NameWrapperComponent.InputWrapper
+
+export { InputWrapper }
