@@ -1,5 +1,4 @@
 import { UiNode }       from '@ory/kratos-client'
-
 import { ReactElement } from 'react'
 import { FC }           from 'react'
 

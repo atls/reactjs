@@ -1,8 +1,7 @@
 import { Condition }            from '@atls-ui-parts/condition'
-
-import React                    from 'react'
 import { FC }                   from 'react'
 import { useIntl }              from 'react-intl'
+import React                    from 'react'
 
 import { NameWrapperComponent } from '../../enums'
 import { InputWrapperProps }    from '../../interfaces'

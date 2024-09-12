@@ -1,7 +1,6 @@
 import { createBaseStyles }       from '@atls-ui-parts/input'
 import { createShapeStyles }      from '@atls-ui-parts/input'
 import { createAppearanceStyles } from '@atls-ui-parts/input'
-
 import { styleFn }                from 'styled-system'
 
 export const baseStyles = createBaseStyles()

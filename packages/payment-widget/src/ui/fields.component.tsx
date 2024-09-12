@@ -4,7 +4,6 @@ import { Box }                from '@atls-ui-parts/layout'
 import { Column }             from '@atls-ui-parts/layout'
 import { Layout }             from '@atls-ui-parts/layout'
 import { Row }                from '@atls-ui-parts/layout'
-
 import React                  from 'react'
 
 import { RequiredFieldsType } from '../enums'

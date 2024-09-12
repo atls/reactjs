@@ -1,9 +1,8 @@
-import styled               from '@emotion/styled'
 import { ButtonProps }      from '@atls-ui-parts/button'
-
-import React                from 'react'
+import styled               from '@emotion/styled'
 import { FC }               from 'react'
 import { useHover }         from 'react-laag'
+import React                from 'react'
 
 import { appearanceStyles } from './button.styles'
 import { contentStyles }    from './button.styles'

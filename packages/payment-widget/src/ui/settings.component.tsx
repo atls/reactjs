@@ -1,8 +1,7 @@
 import { Condition }     from '@atls-ui-parts/condition'
 import { HiddenInput }   from '@atls-ui-parts/hidden-input'
-
-import React             from 'react'
 import { memo }          from 'react'
+import React             from 'react'
 
 import { LanguagesType } from '../enums'
 import { SettingsProps } from '../interfaces'

@@ -1,8 +1,7 @@
 import { Condition }         from '@atls-ui-parts/condition'
 import { Layout }            from '@atls-ui-parts/layout'
-
-import React                 from 'react'
 import { useIntl }           from 'react-intl'
+import React                 from 'react'
 
 import { Field }             from '../interfaces'
 import { NameField }         from '../interfaces'

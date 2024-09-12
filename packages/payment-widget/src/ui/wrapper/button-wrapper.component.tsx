@@ -1,7 +1,6 @@
 import { Condition }            from '@atls-ui-parts/condition'
-
-import React                    from 'react'
 import { FC }                   from 'react'
+import React                    from 'react'
 
 import { ButtonType }           from '../../enums'
 import { NameWrapperComponent } from '../../enums'

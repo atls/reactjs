@@ -2,7 +2,6 @@ import { createAppearanceStyles } from '@atls-ui-parts/button'
 import { createContentStyles }    from '@atls-ui-parts/button'
 import { createBaseStyles }       from '@atls-ui-parts/button'
 import { createShapeStyles }      from '@atls-ui-parts/button'
-
 import { ifProp }                 from 'styled-tools'
 import { prop }                   from 'styled-tools'
 
