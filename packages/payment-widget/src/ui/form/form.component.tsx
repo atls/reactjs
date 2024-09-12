@@ -1,6 +1,6 @@
-import React                    from 'react'
 import { FormEventHandler }     from 'react'
 import { FormattedMessage }     from 'react-intl'
+import React                    from 'react'
 
 import { FormProps }            from '../../interfaces'
 import { Button }               from '../button/button.component'

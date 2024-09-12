@@ -2,37 +2,23 @@
   "name": "reactjs",
   "private": true,
   "license": "BSD 3-Clause",
+  "type": "module",
   "workspaces": [
-    "packages/*"
+    "packages/**/*"
   ],
   "resolutions": {
     "@emotion/react": "11.9.3",
-    "eslint": "8.18.0",
-    "typescript": "4.6.2"
+    "eslint": "8.18.0"
   },
   "dependencies": {
     "@emotion/react": "11.9.3",
     "csstype": "3.1.2"
   },
   "devDependencies": {
-    "@atls/config-jest": "0.0.6",
-    "@atls/schematics": "0.0.16",
-    "@jest/core": "27.4.7",
-    "@types/eslint": "8.4.1",
-    "@types/jest": "27.4.0",
+    "@atls/code-runtime": "1.1.0",
     "@types/node": "17.0.12",
     "@types/testing-library__jest-dom": "5.14.2",
-    "eslint": "8.18.0",
-    "husky": "7.0.4",
-    "typescript": "4.6.2"
+    "typescript": "5.4.2"
   },
-  "packageManager": "yarn@3.6.1",
-  "tools": {
-    "schematic": {
-      "collection": "@atls/schematics",
-      "schematic": "project",
-      "type": "libraries",
-      "migration": "1643130466400"
-    }
-  }
+  "packageManager": "yarn@4.0.0"
 }
