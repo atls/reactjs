@@ -211,7 +211,7 @@ __metadata:
   resolution: "@atls/react-api-auth-user@workspace:packages/api-auth-user"
   dependencies:
     "@atls/react-user": "workspace:0.1.44"
-    "@types/react": "npm:18.2.20"
+    "@types/react": "npm:18.3.6"
     react: "npm:^18.2.0"
   peerDependencies:
     "@atls/react-user": "*"
@@ -226,9 +226,10 @@ __metadata:
     "@testing-library/jest-dom": "npm:^5.16.1"
     "@testing-library/react": "npm:^12.1.2"
     "@testing-library/react-hooks": "npm:^7.0.2"
-    "@types/react": "npm:18.2.20"
+    "@types/react": "npm:18.3.6"
     "@types/react-dom": "npm:18.2.7"
     "@types/testing-library__jest-dom": "npm:^5.14.2"
+    "@types/tldjs": "npm:2.3.4"
     react: "npm:^18.2.0"
     react-dom: "npm:^18.2.0"
     tldjs: "npm:^2.3.1"
@@ -244,7 +245,7 @@ __metadata:
     "@testing-library/jest-dom": "npm:^5.16.2"
     "@testing-library/react": "npm:^12.1.3"
     "@testing-library/react-hooks": "npm:^7.0.2"
-    "@types/react": "npm:18.2.20"
+    "@types/react": "npm:18.3.6"
     "@types/react-dom": "npm:^18.2.7"
     "@types/testing-library__jest-dom": "npm:^5.14.1"
     react: "npm:^18.2.0"
@@ -260,7 +261,7 @@ __metadata:
   resolution: "@atls/react-identity-user-provider@workspace:packages/identity-user-provider"
   dependencies:
     "@atls/react-user": "workspace:0.1.44"
-    "@types/react": "npm:18.2.20"
+    "@types/react": "npm:18.3.6"
     react: "npm:18.2.0"
     tldjs: "npm:^2.3.1"
   peerDependencies:
@@ -277,7 +278,7 @@ __metadata:
     "@testing-library/jest-dom": "npm:^5.16.2"
     "@testing-library/react": "npm:^12.1.3"
     "@types/events": "npm:^3.0.0"
-    "@types/react": "npm:18.2.20"
+    "@types/react": "npm:18.3.6"
     "@types/react-dom": "npm:18.2.7"
     "@types/testing-library__jest-dom": "npm:^5.14.1"
     axios: "npm:^0.21.4"
@@ -294,7 +295,7 @@ __metadata:
   resolution: "@atls/react-upload@workspace:packages/upload"
   dependencies:
     "@atls/react-app-links": "workspace:0.0.2"
-    "@types/react": "npm:18.2.20"
+    "@types/react": "npm:18.3.6"
     graphql: "npm:^16.3.0"
     graphql-request: "npm:^4.0.0"
     react: "npm:^18.2.0"
@@ -308,7 +309,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@atls/react-user@workspace:packages/user"
   dependencies:
-    "@types/react": "npm:18.2.20"
+    "@types/react": "npm:18.3.6"
     react: "npm:18.2.0"
   peerDependencies:
     react: ^17.0.1
@@ -329,7 +330,7 @@ __metadata:
     "@emotion/react": "npm:11.9.3"
     "@emotion/styled": "npm:11.9.3"
     "@testing-library/react": "npm:14.1.0"
-    "@types/react": "npm:18.2.20"
+    "@types/react": "npm:18.3.6"
     "@types/react-dom": "npm:18"
     "@types/styled-system": "npm:5.1.16"
     csstype: "npm:3.1.2"
@@ -2256,24 +2257,13 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/react@npm:*, @types/react@npm:16 || 17 || 18, @types/react@npm:>=16.9.0":
+"@types/react@npm:*, @types/react@npm:16 || 17 || 18, @types/react@npm:18.3.6, @types/react@npm:>=16.9.0":
   version: 18.3.6
   resolution: "@types/react@npm:18.3.6"
   dependencies:
     "@types/prop-types": "npm:*"
     csstype: "npm:^3.0.2"
   checksum: 10/ba0d337244347ecbf921de174d9db9bb80b03d41ad3ae7aa65500b3339925852c97e501d7657b5cd629ffed9f7fe3820a63069847e7b8529e4d02934d0f182e9
-  languageName: node
-  linkType: hard
-
-"@types/react@npm:18.2.20":
-  version: 18.2.20
-  resolution: "@types/react@npm:18.2.20"
-  dependencies:
-    "@types/prop-types": "npm:*"
-    "@types/scheduler": "npm:*"
-    csstype: "npm:^3.0.2"
-  checksum: 10/469b0c1fb36cd97ea0b39281a521a667e459fa3b30cdeb7af6a22ebd38b0866c2fcb75416532d10a2ec58e0a421a698a0026810840c693c0708fb2bb7926c0e9
   languageName: node
   linkType: hard
 
@@ -2285,13 +2275,6 @@ __metadata:
     "@types/scheduler": "npm:^0.16"
     csstype: "npm:^3.0.2"
   checksum: 10/22febc86e465dab9d71f008e8eb29de2bf8688fda18ddf835604cd52d9f76a67200a510dad9516d2c7299083b07af8397c038bead3ab4045913007032c4a9f2c
-  languageName: node
-  linkType: hard
-
-"@types/scheduler@npm:*":
-  version: 0.23.0
-  resolution: "@types/scheduler@npm:0.23.0"
-  checksum: 10/874d753aa65c17760dfc460a91e6df24009bde37bfd427a031577b30262f7770c1b8f71a21366c7dbc76111967384cf4090a31d65315155180ef14bd7acccb32
   languageName: node
   linkType: hard
 
@@ -2340,6 +2323,13 @@ __metadata:
   dependencies:
     "@types/jest": "npm:*"
   checksum: 10/e257de95a4a9385cc09ae4ca3396d23ad4b5cfb8e021a1ca3454c424c34636075f6fe151b2f881f79bf9d497aa04fbfae62449b135f293e8d2d614fa899898a8
+  languageName: node
+  linkType: hard
+
+"@types/tldjs@npm:2.3.4":
+  version: 2.3.4
+  resolution: "@types/tldjs@npm:2.3.4"
+  checksum: 10/1586fa4516449e7de0e2a78c012e8fedcb9b84fcb7788cfe9f15b52976901a760ba559d23306ff41af1e7045fc28af0043d9af840367ff8af8dc4df97b414b9f
   languageName: node
   linkType: hard
 

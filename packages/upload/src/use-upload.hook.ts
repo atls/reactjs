@@ -42,12 +42,12 @@ export interface UseUploadProps {
 export const useUpload = ({ bucket, endpoint: defaultEndpoint }: UseUploadProps) => {
   const endpoint = useGatewayUrl(defaultEndpoint)
 
-  // eslint-disable-next-line consistent-return
   const client = useMemo(() => {
     if (endpoint)
       return new GraphQLClient(endpoint, {
         credentials: 'include',
       })
+    return null
   }, [endpoint]) as GraphQLClient
 
   return async (file: File) => {
