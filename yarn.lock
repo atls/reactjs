@@ -2197,10 +2197,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/node@npm:17.0.12":
-  version: 17.0.12
-  resolution: "@types/node@npm:17.0.12"
-  checksum: 10/e35269fd7bc3f8f15a2172e41d099e701d09c671530f09e29ef7af4a7f039e2f5889d4a5a24c3996d68fe3042a8da94e331cfd4252cb5d92f021ffbc4d4389d3
+"@types/node@npm:22.1.0":
+  version: 22.1.0
+  resolution: "@types/node@npm:22.1.0"
+  dependencies:
+    undici-types: "npm:~6.13.0"
+  checksum: 10/c2ac1340509646b6c673b27fae2a46e501a97e540e7221be4dd2e0be7a0f61efefb5bf3be8bedf2dbce245fa49cfc49bba77bce73fa3c4296d0d19521ced3222
   languageName: node
   linkType: hard
 
@@ -6862,7 +6864,7 @@ __metadata:
   dependencies:
     "@atls/code-runtime": "npm:1.1.0"
     "@emotion/react": "npm:11.9.3"
-    "@types/node": "npm:17.0.12"
+    "@types/node": "npm:22.1.0"
     "@types/testing-library__jest-dom": "npm:5.14.2"
     csstype: "npm:3.1.2"
     typescript: "npm:5.4.2"
@@ -7871,6 +7873,13 @@ __metadata:
     has-symbols: "npm:^1.0.3"
     which-boxed-primitive: "npm:^1.0.2"
   checksum: 10/06e1ee41c1095e37281cb71a975cb3350f7cb470a0665d2576f02cc9564f623bd90cfc0183693b8a7fdf2d242963dcc3010b509fa3ac683f540c765c0f3e7e43
+  languageName: node
+  linkType: hard
+
+"undici-types@npm:~6.13.0":
+  version: 6.13.0
+  resolution: "undici-types@npm:6.13.0"
+  checksum: 10/da52e37cbc6da3a75da86fa08dd795ca8924430deb91005eb884b840e46e19013ccd4c1c289f70018e8cf0c338add24a500e7c3acfcd49b1ffb27ff9f91e38b9
   languageName: node
   linkType: hard
 
