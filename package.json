@@ -7,8 +7,7 @@
     "packages/**/*"
   ],
   "resolutions": {
-    "@emotion/react": "11.9.3",
-    "eslint": "8.18.0"
+    "@emotion/react": "11.9.3"
   },
   "dependencies": {
     "@emotion/react": "11.9.3",
