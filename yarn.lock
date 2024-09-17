@@ -296,7 +296,7 @@ __metadata:
   dependencies:
     "@atls/react-app-links": "workspace:0.0.2"
     "@types/react": "npm:18.3.6"
-    graphql: "npm:^16.3.0"
+    graphql: "npm:16.9.0"
     graphql-request: "npm:^4.0.0"
     react: "npm:^18.2.0"
   peerDependencies:
@@ -4743,7 +4743,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"graphql@npm:^16.3.0":
+"graphql@npm:16.9.0":
   version: 16.9.0
   resolution: "graphql@npm:16.9.0"
   checksum: 10/5833f82bb6c31bec120bbf9cd400eda873e1bb7ef5c17974fa262cd82dc68728fda5d4cb859dc8aaa4c4fe4f6fe1103a9c47efc01a12c02ae5cb581d8e4029e2
