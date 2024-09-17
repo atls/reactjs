@@ -2,7 +2,7 @@ import { GraphQLClient } from 'graphql-request'
 import { gql }           from 'graphql-request'
 import { useMemo }       from 'react'
 
-import { useGatewayUrl } from './use-gateway-url.hook'
+import { useGatewayUrl } from './use-gateway-url.hook.js'
 
 const uploadMutation = gql`
   mutation CreateUpload($input: CreateUploadInput!) {
