@@ -2,8 +2,8 @@
   "name": "@atls/react-upload",
   "version": "1.0.1",
   "license": "BSD-3-Clause",
-  "main": "src/index.ts",
   "type": "module",
+  "main": "src/index.ts",
   "files": [
     "dist"
   ],
