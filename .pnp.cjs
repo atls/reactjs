@@ -523,6 +523,7 @@ const RAW_RUNTIME_STATE =
           ["@atls/react-identity-user-provider", "workspace:packages/identity-user-provider"],\
           ["@atls/react-user", "virtual:61d45502fb00c2d6437c52113377823215b16b8b986286560df00c121869319de13add614725457916f0d2ad27356e803697f8dd95c1f32a16bd0baae84b7e2c#workspace:packages/user"],\
           ["@types/react", "npm:18.3.6"],\
+          ["@types/tldjs", "npm:2.3.4"],\
           ["react", "npm:18.2.0"],\
           ["tldjs", "npm:2.3.1"]\
         ],\

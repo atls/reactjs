@@ -263,6 +263,7 @@ __metadata:
   dependencies:
     "@atls/react-user": "workspace:0.1.44"
     "@types/react": "npm:18.3.6"
+    "@types/tldjs": "npm:2.3.4"
     react: "npm:18.2.0"
     tldjs: "npm:^2.3.1"
   peerDependencies:

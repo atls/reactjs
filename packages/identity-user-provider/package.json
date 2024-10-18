@@ -17,6 +17,7 @@
   "devDependencies": {
     "@atls/react-user": "workspace:0.1.44",
     "@types/react": "18.3.6",
+    "@types/tldjs": "2.3.4",
     "react": "18.2.0"
   },
   "peerDependencies": {
