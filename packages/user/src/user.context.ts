@@ -1,5 +1,6 @@
 import { createContext } from 'react'
 
-export const Context = createContext<null | undefined | any>(undefined)
+// eslint-disable-next-line @typescript-eslint/no-redundant-type-constituents
+export const Context = createContext<any | null | undefined>(undefined)
 
 export const { Provider, Consumer } = Context
