@@ -1,7 +1,12 @@
-import React                  from 'react'
+import type { FC }                      from 'react'
 
-import { KratosFlowProvider } from './kratos-flow.provider'
+import type { FlowName }                from '../flows/flow.interfaces'
+import type { KratosFlowProviderProps } from './kratos-flow.provider'
 
-export const KratosRecoveryFlowProvider = (props) => (
-  <KratosFlowProvider {...props} name='recovery' />
+import React                            from 'react'
+
+import { KratosFlowProvider }           from './kratos-flow.provider'
+
+export const KratosRecoveryFlowProvider: FC<Omit<KratosFlowProviderProps, 'name'>> = (props) => (
+  <KratosFlowProvider {...props} name={'recovery' as FlowName} />
 )

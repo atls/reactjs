@@ -1,6 +1,6 @@
-import { createContext } from 'react'
+import type { Flow }     from '../flows/flow.interfaces'
 
-import { Flow }          from '../flows/flow.interfaces'
+import { createContext } from 'react'
 
 export const Context = createContext<Flow | null>(null)
 

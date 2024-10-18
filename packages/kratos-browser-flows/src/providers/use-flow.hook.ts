@@ -1,8 +1,9 @@
+import type { Flow }  from '../flows/flow.interfaces'
+
 import { useContext } from 'react'
 import { useEffect }  from 'react'
 import { useState }   from 'react'
 
-import { Flow }       from '../flows/flow.interfaces'
 import { Context }    from './flows.context'
 
 export const useFlow = (): Flow => {
@@ -12,12 +13,15 @@ export const useFlow = (): Flow => {
     throw new Error('Missing <KratosFlowProvider>')
   }
 
-  const [, setState] = useState(null)
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
+  const [state, setState] = useState(null)
 
   useEffect(() => {
     flow.load()
 
-    const callback = (flowState) => {
+    // @ts-expect-error
+    const callback = (flowState): void => {
+      // eslint-disable-next-line @typescript-eslint/no-unsafe-argument
       setState(flowState)
     }
 

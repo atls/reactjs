@@ -1,10 +1,13 @@
-import { ReactNode }        from 'react'
-import { FC }               from 'react'
+import type { ReactNode }   from 'react'
+import type { FC }          from 'react'
+
+import type { Flow }        from '../flows/flow.interfaces'
+import type { FlowName }    from '../flows/flow.interfaces'
+
 import { useMemo }          from 'react'
 import React                from 'react'
 
 import { ErrorsFlow }       from '../flows/errors.flow'
-import { FlowName }         from '../flows/flow.interfaces'
 import { KratosClient }     from '../flows/kratos.client'
 import { LoginFlow }        from '../flows/login.flow'
 import { LogoutFlow }       from '../flows/logout.flow'
@@ -17,10 +20,14 @@ import { Provider }         from './flows.context'
 export interface KratosFlowProviderProps {
   basePath?: string
   name: FlowName
-  children: ReactNode | ReactNode[]
+  children: Array<ReactNode> | ReactNode
 }
 
-export const KratosFlowProvider: FC<KratosFlowProviderProps> = ({ name, basePath, children }) => {
+export const KratosFlowProvider: FC<KratosFlowProviderProps> = ({
+  name,
+  basePath,
+  children,
+}: KratosFlowProviderProps) => {
   const client = useMemo(() => new KratosClient(basePath), [basePath])
 
   const flow = useMemo(() => {
@@ -52,8 +59,8 @@ export const KratosFlowProvider: FC<KratosFlowProviderProps> = ({ name, basePath
       return new LogoutFlow(client)
     }
 
-    throw new Error(`Unkown flow: ${name}`)
+    throw new Error(`Unkown flow: ${name as string}`)
   }, [name, client])
 
-  return <Provider value={flow}>{children}</Provider>
+  return <Provider value={flow as Flow}>{children}</Provider>
 }
