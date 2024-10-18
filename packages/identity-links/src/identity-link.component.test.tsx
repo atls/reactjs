@@ -12,9 +12,10 @@ import { IdentityLink } from './identity-link.component'
 describe('identity-link.component', () => {
   const originalLocation = window.location
 
-  const mockWindowLocation = (newLocation) => {
-    // @ts-ignore
+  const mockWindowLocation = (newLocation: Location | URL | string): void => {
+    // @ts-expect-error
     delete window.location
+    // @ts-expect-error
     window.location = newLocation
   }
 
@@ -26,10 +27,10 @@ describe('identity-link.component', () => {
     mockWindowLocation(new URL('https://identity.monstrs.dev'))
 
     const { getByText } = render(
+      // eslint-disable-next-line @typescript-eslint/explicit-function-return-type
       <IdentityLink returnTo>{(url) => <a href={url}>Login</a>}</IdentityLink>
     )
 
-    // @ts-ignore
     expect(getByText('Login')).toHaveAttribute(
       'href',
       'https://accounts.monstrs.dev/auth/login?return_to=https://identity.monstrs.dev/'

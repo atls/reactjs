@@ -508,6 +508,7 @@ const RAW_RUNTIME_STATE =
           ["@types/react", "npm:18.3.6"],\
           ["@types/react-dom", "npm:18.3.0"],\
           ["@types/testing-library__jest-dom", "npm:5.14.9"],\
+          ["@types/tldjs", "npm:2.3.4"],\
           ["react", "npm:18.3.1"],\
           ["react-dom", "virtual:0f253325d64667267f8a5c1074e4aa2f59120ad20372d39bddcfd3951915b9b89e0bfaf1fa90999b4185ff651ab603643a0d5aca289d2a340e670217b32db551#npm:18.3.1"],\
           ["tldjs", "npm:2.3.1"]\

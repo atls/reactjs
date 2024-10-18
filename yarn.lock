@@ -248,6 +248,7 @@ __metadata:
     "@types/react": "npm:18.3.6"
     "@types/react-dom": "npm:^18.2.7"
     "@types/testing-library__jest-dom": "npm:^5.14.1"
+    "@types/tldjs": "npm:2.3.4"
     react: "npm:^18.2.0"
     react-dom: "npm:^18.2.0"
     tldjs: "npm:^2.3.1"

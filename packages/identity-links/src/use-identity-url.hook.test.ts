@@ -9,9 +9,10 @@ import { useIdentityUrl } from './use-identity-url.hook'
 describe('use-identity-url', () => {
   const originalLocation = window.location
 
-  const mockWindowLocation = (newLocation) => {
-    // @ts-ignore
+  const mockWindowLocation = (newLocation: Location | URL | string): void => {
+    // @ts-expect-error
     delete window.location
+    // @ts-expect-error
     window.location = newLocation
   }
 

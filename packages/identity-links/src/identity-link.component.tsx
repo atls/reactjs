@@ -1,7 +1,8 @@
-import { FC }                from 'react'
+import type { FC }                from 'react'
 
-import { IdentityLinkProps } from './identity-url.interfaces'
-import { useIdentityUrl }    from './use-identity-url.hook'
+import type { IdentityLinkProps } from './identity-url.interfaces'
+
+import { useIdentityUrl }         from './use-identity-url.hook'
 
 export const IdentityLink: FC<IdentityLinkProps> = ({ children, type, returnTo }) => {
   const url = useIdentityUrl({ type, returnTo })
