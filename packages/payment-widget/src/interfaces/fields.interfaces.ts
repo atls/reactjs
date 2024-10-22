@@ -1,11 +1,11 @@
-import { FormEvent }              from 'react'
-import { HTMLInputTypeAttribute } from 'react'
+import type { FormEvent }              from 'react'
+import type { HTMLInputTypeAttribute } from 'react'
 
-import { AdditionalFieldsType }   from '../enums'
-import { RequiredFieldsType }     from '../enums'
-import { DirectionFields }        from './styles.interfaces'
+import type { AdditionalFieldsType }   from '../enums'
+import type { RequiredFieldsType }     from '../enums'
+import type { DirectionFields }        from './styles.interfaces'
 
-export type FieldsNames = RequiredFieldsType | AdditionalFieldsType
+export type FieldsNames = AdditionalFieldsType | RequiredFieldsType
 export type FieldState = Record<FieldsNames, string>
 export type ValidateField = (name: FieldsNames, value: string, required?: boolean) => void
 export type HandleChangeField = (e: FormEvent<HTMLInputElement>) => void

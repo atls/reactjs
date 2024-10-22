@@ -1,4 +1,3 @@
-/* eslint-disable no-shadow */
 export enum PaymentMethodType {
   FullPayment = 'full_payment',
   FullPrepayment = 'full_prepayment',

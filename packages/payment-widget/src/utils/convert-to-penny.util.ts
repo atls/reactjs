@@ -1,6 +1,6 @@
-import { ReceiptItem } from '../interfaces'
+import type { ReceiptItem } from '../interfaces'
 
-export const convertToPenny = (products: ReceiptItem[]) =>
+export const convertToPenny = (products: Array<ReceiptItem>): Array<ReceiptItem> =>
   products.map((product) => ({
     ...product,
     Amount: product.Amount * 100,

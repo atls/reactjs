@@ -1,3 +1,7 @@
+import type { ReactNode }     from 'react'
+
+import type { FieldsProps }   from '../interfaces'
+
 import { Condition }          from '@atls-ui-parts/condition'
 import { HiddenInput }        from '@atls-ui-parts/hidden-input'
 import { Box }                from '@atls-ui-parts/layout'
@@ -7,7 +11,6 @@ import { Row }                from '@atls-ui-parts/layout'
 import React                  from 'react'
 
 import { RequiredFieldsType } from '../enums'
-import { FieldsProps }        from '../interfaces'
 import { DirectionFields }    from '../interfaces'
 import { useFieldsRenderer }  from '../hooks'
 import { useForm }            from './form'
@@ -17,7 +20,7 @@ export const Fields = ({
   direction = DirectionFields.Column,
   inputGaps = 16,
   useCustomFields,
-}: FieldsProps) => {
+}: FieldsProps): ReactNode => {
   const { fields, fieldsState, handleChange, handleBlur, errors } = useForm()
 
   const fieldsForRender = useCustomFields ? [] : fields
@@ -37,7 +40,7 @@ export const Fields = ({
       <Layout flexBasis={inputGaps} flexShrink={0} />
       <Direction>
         <Condition match={Boolean(amount)}>
-          <HiddenInput name={RequiredFieldsType.Amount} defaultValue={amount} disabled readOnly />
+          <HiddenInput disabled readOnly name={RequiredFieldsType.Amount} defaultValue={amount} />
         </Condition>
         {renderedFields}
       </Direction>

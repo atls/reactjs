@@ -1,17 +1,20 @@
-import { Children }        from 'react'
-import { IntlProvider }    from 'react-intl'
-import { useMemo }         from 'react'
-import React               from 'react'
+import type { ReactNode }   from 'react'
 
-import * as messagesEn     from '../locales/en.json'
-import * as messagesRu     from '../locales/ru.json'
-import { LanguagesType }   from '../enums'
-import { WidgetProps }     from '../interfaces'
-import { Form }            from './form'
-import { FormProvider }    from './form/form.provider'
-import { useCustomButton } from '../hooks'
-import { useCustomFields } from '../hooks'
-import { getNameFields }   from '../utils'
+import type { WidgetProps } from '../interfaces'
+
+import { Children }         from 'react'
+import { IntlProvider }     from 'react-intl'
+import { useMemo }          from 'react'
+import React                from 'react'
+
+import * as messagesEn      from '../locales/en.json'
+import * as messagesRu      from '../locales/ru.json'
+import { LanguagesType }    from '../enums'
+import { Form }             from './form'
+import { FormProvider }     from './form/form.provider'
+import { useCustomButton }  from '../hooks'
+import { useCustomFields }  from '../hooks'
+import { getNameFields }    from '../utils'
 
 const messages = {
   [LanguagesType.RUSSIAN]: messagesRu,
@@ -26,7 +29,7 @@ export const Widget = ({
   styles,
   disabled,
   children,
-}: WidgetProps) => {
+}: WidgetProps): ReactNode => {
   const childrenArray = Children.toArray(children)
   const locale = settings.language ?? LanguagesType.RUSSIAN
   const customFieldsProps = useMemo(

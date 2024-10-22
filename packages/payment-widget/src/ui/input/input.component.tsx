@@ -1,25 +1,27 @@
-import { Condition }                    from '@atls-ui-parts/condition'
-import { RawInput }                     from '@atls-ui-parts/input'
-import { InputProps as BaseInputProps } from '@atls-ui-parts/input'
-import { Layout }                       from '@atls-ui-parts/layout'
-import { Text }                         from '@atls-ui-parts/text'
-import { useChangeValue }               from '@atls-ui-parts/input'
-import styled                           from '@emotion/styled'
-import { ForwardRefRenderFunction }     from 'react'
-import { useState }                     from 'react'
-import { useRef }                       from 'react'
-import { forwardRef }                   from 'react'
-import { useHover }                     from 'react-laag'
-import { layout }                       from 'styled-system'
-import React                            from 'react'
+import type { InputProps as BaseInputProps } from '@atls-ui-parts/input'
+import type { ForwardRefRenderFunction }     from 'react'
 
-import { theme }                        from '../theme/src/index'
-import { appearanceStyles }             from './input.styles'
-import { baseStyles }                   from './input.styles'
-import { shapeStyles }                  from './input.styles'
-import { transitionStyles }             from './input.styles'
+import { Condition }                         from '@atls-ui-parts/condition'
+import { RawInput }                          from '@atls-ui-parts/input'
+import { Layout }                            from '@atls-ui-parts/layout'
+import { Text }                              from '@atls-ui-parts/text'
+import { useChangeValue }                    from '@atls-ui-parts/input'
+import styled                                from '@emotion/styled'
+import { useState }                          from 'react'
+import { useRef }                            from 'react'
+import { forwardRef }                        from 'react'
+import { useHover }                          from 'react-laag'
+import { layout }                            from 'styled-system'
+import React                                 from 'react'
+
+import { theme }                             from '../theme/src/index'
+import { appearanceStyles }                  from './input.styles'
+import { baseStyles }                        from './input.styles'
+import { shapeStyles }                       from './input.styles'
+import { transitionStyles }                  from './input.styles'
 
 export const InputElement = styled.div<any>(
+  // eslint-disable-next-line @typescript-eslint/no-unsafe-argument
   baseStyles,
   shapeStyles,
   appearanceStyles,
@@ -53,6 +55,7 @@ export const InputWithoutRef: ForwardRefRenderFunction<HTMLInputElement, InputPr
 ) => {
   const changeValue = useChangeValue(disabled, onChange, onChangeNative)
   const [, hoverProps] = useHover()
+  // eslint-disable-next-line react/hook-use-state
   const [, setFocus] = useState<boolean>(false)
 
   if (!ref) {
@@ -62,14 +65,20 @@ export const InputWithoutRef: ForwardRefRenderFunction<HTMLInputElement, InputPr
   return (
     <Container
       type={type}
+      // eslint-disable-next-line @typescript-eslint/explicit-function-return-type
       onClick={() => {
+        // eslint-disable-next-line @typescript-eslint/no-unsafe-call
         ;(ref as any).current.focus()
       }}
+      // eslint-disable-next-line @typescript-eslint/explicit-function-return-type
       onBlur={() => {
+        // eslint-disable-next-line @typescript-eslint/no-unsafe-call
         ;(ref as any).current.blur()
         setFocus(false)
       }}
+      // eslint-disable-next-line @typescript-eslint/explicit-function-return-type
       onFocus={() => {
+        // eslint-disable-next-line @typescript-eslint/no-unsafe-call
         ;(ref as any).current.focus()
         setFocus(true)
       }}
@@ -82,8 +91,10 @@ export const InputWithoutRef: ForwardRefRenderFunction<HTMLInputElement, InputPr
           required={required}
           disabled={disabled}
           value={value}
+          // eslint-disable-next-line react/jsx-sort-props
           onChange={changeValue}
-          placeholder={required ? `${placeholder}*` : placeholder}
+          // eslint-disable-next-line react/jsx-no-leaked-render
+          placeholder={required ? `${placeholder!}*` : placeholder}
           {...props}
         />
       </InputElement>

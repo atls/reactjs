@@ -1,10 +1,11 @@
-import { ReactNode }      from 'react'
+import type { ReactNode } from 'react'
+
+import type { Field }     from '../interfaces'
+
 import { isValidElement } from 'react'
 
-import { Field }          from '../interfaces'
-
-export const getNameFields = (customFields: ReactNode[]) =>
-  customFields.reduce<Field[]>((acc, field) => {
+export const getNameFields = (customFields: Array<ReactNode>): Array<Field> =>
+  customFields.reduce<Array<Field>>((acc, field) => {
     if (isValidElement(field))
       acc.push({
         name: field.props.name,

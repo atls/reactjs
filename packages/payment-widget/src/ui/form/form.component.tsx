@@ -1,14 +1,16 @@
-import { FormEventHandler }     from 'react'
-import { FormattedMessage }     from 'react-intl'
-import React                    from 'react'
+import type { FormEventHandler } from 'react'
 
-import { FormProps }            from '../../interfaces'
-import { Button }               from '../button/button.component'
-import { Fields }               from '../fields.component'
-import { Settings }             from '../settings.component'
-import { makePayment }          from '../../utils'
-import { makePaymentWithCheck } from '../../utils'
-import { useForm }              from './use-form.hook'
+import type { FormProps }        from '../../interfaces'
+
+import { FormattedMessage }      from 'react-intl'
+import React                     from 'react'
+
+import { Button }                from '../button/button.component'
+import { Fields }                from '../fields.component'
+import { Settings }              from '../settings.component'
+import { makePayment }           from '../../utils'
+import { makePaymentWithCheck }  from '../../utils'
+import { useForm }               from './use-form.hook'
 
 export const Form = ({
   settings,
@@ -18,7 +20,7 @@ export const Form = ({
   useCustomButton,
   useCustomFields,
   children,
-}: FormProps) => {
+}: FormProps): JSX.Element => {
   const { isValidate, disabled, isLoaded } = useForm()
   const payHandler: FormEventHandler<HTMLFormElement> = (event) => {
     event.preventDefault()

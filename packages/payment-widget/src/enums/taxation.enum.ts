@@ -1,4 +1,3 @@
-/* eslint-disable no-shadow */
 export enum TaxationType {
   Osn = 'osn',
   UsnIncome = 'usn_income',
