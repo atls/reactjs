@@ -19,7 +19,7 @@
     "@types/events": "3.0.3",
     "@types/react": "18.3.6",
     "@types/react-dom": "18.2.7",
-    "axios": "^0.21.4",
+    "axios": "1.7.7",
     "react": "^18.2.0",
     "react-dom": "^18.2.0"
   },
