@@ -2298,6 +2298,15 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@types/styled-system@npm:*":
+  version: 5.1.22
+  resolution: "@types/styled-system@npm:5.1.22"
+  dependencies:
+    csstype: "npm:^3.0.2"
+  checksum: 10/61aa4d7ffa4667cae507540d82c187b4025e1da4d32a203376e191d1a34f09c0c8e36f112581d4261dac40373c9d57a01ff447b85b2fd6cddc3c72b619785086
+  languageName: node
+  linkType: hard
+
 "@types/styled-system@npm:5.1.16":
   version: 5.1.16
   resolution: "@types/styled-system@npm:5.1.16"

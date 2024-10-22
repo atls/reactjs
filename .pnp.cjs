@@ -315,6 +315,7 @@ const RAW_RUNTIME_STATE =
           ["@emotion/styled", "virtual:5df5417e007cf624295c3dfc9c18b541c8f15fbbead2fcd958b8514a53e86ee6c640495d53e378a3d48c5ae0b86482593ca5c241f44dea6b3f5eb1e38d547d43#npm:11.9.3"],\
           ["@types/emotion__styled", null],\
           ["@types/react", "npm:18.3.6"],\
+          ["@types/styled-system", "npm:5.1.22"],\
           ["react", "npm:18.2.0"],\
           ["styled-system", "npm:5.1.5"]\
         ],\
@@ -3508,6 +3509,14 @@ const RAW_RUNTIME_STATE =
         "packageLocation": "../.yarn/berry/cache/@types-styled-system-npm-5.1.16-8dae4ab089-10.zip/node_modules/@types/styled-system/",\
         "packageDependencies": [\
           ["@types/styled-system", "npm:5.1.16"],\
+          ["csstype", "npm:3.1.3"]\
+        ],\
+        "linkType": "HARD"\
+      }],\
+      ["npm:5.1.22", {\
+        "packageLocation": "../.yarn/berry/cache/@types-styled-system-npm-5.1.22-5df778941b-10.zip/node_modules/@types/styled-system/",\
+        "packageDependencies": [\
+          ["@types/styled-system", "npm:5.1.22"],\
           ["csstype", "npm:3.1.3"]\
         ],\
         "linkType": "HARD"\
