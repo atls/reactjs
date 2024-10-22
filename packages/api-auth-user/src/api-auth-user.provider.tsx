@@ -1,18 +1,32 @@
-import { useState }     from 'react'
-import { useEffect }    from 'react'
-import React            from 'react'
+import type { ReactNode } from 'react'
+import type { FC }        from 'react'
 
-import { UserProvider } from '@atls/react-user'
+import { useState }       from 'react'
+import { useEffect }      from 'react'
+import React              from 'react'
 
-const fetchSession = async (url) => {
+import { UserProvider }   from '@atls/react-user'
+
+type Session = any
+
+interface ApiAuthUserProviderProps {
+  url?: string
+  children: ReactNode
+}
+
+const fetchSession = async (url: string): Promise<Session> => {
   const response = await fetch(url)
   const text = await response.text()
 
+  // eslint-disable-next-line @typescript-eslint/no-unsafe-return
   return text ? JSON.parse(text) : null
 }
 
-export const ApiAuthUserProvider = ({ url = '/api/auth/session', children }) => {
-  const [session, setSession] = useState(null)
+export const ApiAuthUserProvider: FC<ApiAuthUserProviderProps> = ({
+  url = '/api/auth/session',
+  children,
+}) => {
+  const [session, setSession] = useState<Session>(null)
 
   useEffect(() => {
     if (typeof window !== 'undefined') {
