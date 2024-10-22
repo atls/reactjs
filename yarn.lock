@@ -277,7 +277,7 @@ __metadata:
   resolution: "@atls/react-kratos-browser-flows@workspace:packages/kratos-browser-flows"
   dependencies:
     "@ory/kratos-client": "npm:^0.8.2-alpha.1"
-    "@types/events": "npm:^3.0.0"
+    "@types/events": "npm:3.0.3"
     "@types/react": "npm:18.3.6"
     "@types/react-dom": "npm:18.2.7"
     axios: "npm:^0.21.4"
@@ -2113,7 +2113,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/events@npm:^3.0.0":
+"@types/events@npm:3.0.3":
   version: 3.0.3
   resolution: "@types/events@npm:3.0.3"
   checksum: 10/50af9312fab001fd6bd4bb3ff65830f940877e6778de140a92481a0d9bf5f4853d44ec758a8800ef60e0598ac43ed1b5688116a3c65906ae54e989278d6c7c82
