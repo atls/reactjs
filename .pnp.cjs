@@ -536,12 +536,9 @@ const RAW_RUNTIME_STATE =
         "packageDependencies": [\
           ["@atls/react-kratos-browser-flows", "workspace:packages/kratos-browser-flows"],\
           ["@ory/kratos-client", "npm:0.8.2-alpha.1"],\
-          ["@testing-library/jest-dom", "npm:5.17.0"],\
-          ["@testing-library/react", "virtual:0f253325d64667267f8a5c1074e4aa2f59120ad20372d39bddcfd3951915b9b89e0bfaf1fa90999b4185ff651ab603643a0d5aca289d2a340e670217b32db551#npm:12.1.5"],\
           ["@types/events", "npm:3.0.3"],\
           ["@types/react", "npm:18.3.6"],\
           ["@types/react-dom", "npm:18.2.7"],\
-          ["@types/testing-library__jest-dom", "npm:5.14.9"],\
           ["axios", "npm:0.21.4"],\
           ["events", "npm:3.3.0"],\
           ["react", "npm:18.3.1"],\
