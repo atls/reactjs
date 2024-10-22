@@ -282,7 +282,7 @@ __metadata:
     "@types/react-dom": "npm:18.2.7"
     axios: "npm:1.7.7"
     events: "npm:3.3.0"
-    react: "npm:^18.2.0"
+    react: "npm:18.3.1"
     react-dom: "npm:^18.2.0"
   peerDependencies:
     react: ^17.0.1
@@ -6867,7 +6867,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"react@npm:^18.2.0, react@npm:^18.3.1":
+"react@npm:18.3.1, react@npm:^18.2.0, react@npm:^18.3.1":
   version: 18.3.1
   resolution: "react@npm:18.3.1"
   dependencies:
