@@ -9,7 +9,7 @@ export class RegistrationFlow extends AbstractFlow<
   SelfServiceRegistrationFlow,
   SubmitSelfServiceRegistrationFlowBody
 > {
-  async load() {
+  async load(): Promise<void> {
     if (typeof window === 'undefined') {
       return
     }
@@ -39,8 +39,9 @@ export class RegistrationFlow extends AbstractFlow<
     } catch (error) {
       this.setLoading(false)
 
+      // eslint-disable-next-line @typescript-eslint/no-unnecessary-type-assertion
       const { status } = (error as AxiosError<SelfServiceRegistrationFlow>)
-        .response as AxiosResponse<SelfServiceRegistrationFlow>
+        .response! as AxiosResponse<SelfServiceRegistrationFlow>
 
       if (status === 410) {
         this.complete(window.location.pathname)
@@ -54,7 +55,7 @@ export class RegistrationFlow extends AbstractFlow<
     }
   }
 
-  async submit(method?: string) {
+  async submit(method?: string): Promise<void> {
     const body = this.getValues()
 
     if (method) {
@@ -68,8 +69,9 @@ export class RegistrationFlow extends AbstractFlow<
 
       this.complete()
     } catch (error) {
+      // eslint-disable-next-line @typescript-eslint/no-unnecessary-type-assertion
       const { data, status } = (error as AxiosError<SelfServiceRegistrationFlow>)
-        .response as AxiosResponse<SelfServiceRegistrationFlow>
+        .response! as AxiosResponse<SelfServiceRegistrationFlow>
 
       if (status === 400) {
         this.setState(data)

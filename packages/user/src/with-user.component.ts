@@ -1,8 +1,15 @@
-import { useContext } from 'react'
+import type { ReactNode } from 'react'
+import type { FC }        from 'react'
 
-import { Context }    from './user.context'
+import { useContext }     from 'react'
 
-export const WithUser = ({ children }) => {
+import { Context }        from './user.context'
+
+export interface WithUserProps {
+  children: ReactNode | ((user: any) => ReactNode)
+}
+
+export const WithUser: FC<WithUserProps> = ({ children }) => {
   const user = useContext(Context)
 
   if (!user) {

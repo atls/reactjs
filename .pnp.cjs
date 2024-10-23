@@ -315,6 +315,7 @@ const RAW_RUNTIME_STATE =
           ["@emotion/styled", "virtual:5df5417e007cf624295c3dfc9c18b541c8f15fbbead2fcd958b8514a53e86ee6c640495d53e378a3d48c5ae0b86482593ca5c241f44dea6b3f5eb1e38d547d43#npm:11.9.3"],\
           ["@types/emotion__styled", null],\
           ["@types/react", "npm:18.3.6"],\
+          ["@types/styled-system", "npm:5.1.22"],\
           ["react", "npm:18.2.0"],\
           ["styled-system", "npm:5.1.5"]\
         ],\
@@ -508,6 +509,7 @@ const RAW_RUNTIME_STATE =
           ["@types/react", "npm:18.3.6"],\
           ["@types/react-dom", "npm:18.3.0"],\
           ["@types/testing-library__jest-dom", "npm:5.14.9"],\
+          ["@types/tldjs", "npm:2.3.4"],\
           ["react", "npm:18.3.1"],\
           ["react-dom", "virtual:0f253325d64667267f8a5c1074e4aa2f59120ad20372d39bddcfd3951915b9b89e0bfaf1fa90999b4185ff651ab603643a0d5aca289d2a340e670217b32db551#npm:18.3.1"],\
           ["tldjs", "npm:2.3.1"]\
@@ -522,6 +524,7 @@ const RAW_RUNTIME_STATE =
           ["@atls/react-identity-user-provider", "workspace:packages/identity-user-provider"],\
           ["@atls/react-user", "virtual:61d45502fb00c2d6437c52113377823215b16b8b986286560df00c121869319de13add614725457916f0d2ad27356e803697f8dd95c1f32a16bd0baae84b7e2c#workspace:packages/user"],\
           ["@types/react", "npm:18.3.6"],\
+          ["@types/tldjs", "npm:2.3.4"],\
           ["react", "npm:18.2.0"],\
           ["tldjs", "npm:2.3.1"]\
         ],\
@@ -534,13 +537,10 @@ const RAW_RUNTIME_STATE =
         "packageDependencies": [\
           ["@atls/react-kratos-browser-flows", "workspace:packages/kratos-browser-flows"],\
           ["@ory/kratos-client", "npm:0.8.2-alpha.1"],\
-          ["@testing-library/jest-dom", "npm:5.17.0"],\
-          ["@testing-library/react", "virtual:0f253325d64667267f8a5c1074e4aa2f59120ad20372d39bddcfd3951915b9b89e0bfaf1fa90999b4185ff651ab603643a0d5aca289d2a340e670217b32db551#npm:12.1.5"],\
           ["@types/events", "npm:3.0.3"],\
           ["@types/react", "npm:18.3.6"],\
           ["@types/react-dom", "npm:18.2.7"],\
-          ["@types/testing-library__jest-dom", "npm:5.14.9"],\
-          ["axios", "npm:0.21.4"],\
+          ["axios", "npm:1.7.7"],\
           ["events", "npm:3.3.0"],\
           ["react", "npm:18.3.1"],\
           ["react-dom", "virtual:0f253325d64667267f8a5c1074e4aa2f59120ad20372d39bddcfd3951915b9b89e0bfaf1fa90999b4185ff651ab603643a0d5aca289d2a340e670217b32db551#npm:18.3.1"]\
@@ -1749,7 +1749,8 @@ const RAW_RUNTIME_STATE =
       ["npm:1.4.0", {\
         "packageLocation": "../.yarn/berry/cache/@emotion-utils-npm-1.4.0-27483e6c35-10.zip/node_modules/@emotion/utils/",\
         "packageDependencies": [\
-          ["@emotion/utils", "npm:1.4.0"]\
+          ["@emotion/utils", "npm:1.4.0"],\
+          ["@emotion/sheet", "npm:1.4.0"]\
         ],\
         "linkType": "HARD"\
       }]\
@@ -3512,6 +3513,14 @@ const RAW_RUNTIME_STATE =
           ["csstype", "npm:3.1.3"]\
         ],\
         "linkType": "HARD"\
+      }],\
+      ["npm:5.1.22", {\
+        "packageLocation": "../.yarn/berry/cache/@types-styled-system-npm-5.1.22-5df778941b-10.zip/node_modules/@types/styled-system/",\
+        "packageDependencies": [\
+          ["@types/styled-system", "npm:5.1.22"],\
+          ["csstype", "npm:3.1.3"]\
+        ],\
+        "linkType": "HARD"\
       }]\
     ]],\
     ["@types/testing-library__jest-dom", [\
@@ -4354,6 +4363,16 @@ const RAW_RUNTIME_STATE =
         "packageDependencies": [\
           ["axios", "npm:0.21.4"],\
           ["follow-redirects", "virtual:e278873748b4e9d158db595d2f6cb0351c74052f52b53924aec4d9299e7b6babfb62aead374cf2f6e453bc8bea3b052380dc6b1137a162bbfc102bbb1c8cac42#npm:1.15.9"]\
+        ],\
+        "linkType": "HARD"\
+      }],\
+      ["npm:1.7.7", {\
+        "packageLocation": "../.yarn/berry/cache/axios-npm-1.7.7-cfbedc233d-10.zip/node_modules/axios/",\
+        "packageDependencies": [\
+          ["axios", "npm:1.7.7"],\
+          ["follow-redirects", "virtual:e278873748b4e9d158db595d2f6cb0351c74052f52b53924aec4d9299e7b6babfb62aead374cf2f6e453bc8bea3b052380dc6b1137a162bbfc102bbb1c8cac42#npm:1.15.9"],\
+          ["form-data", "npm:4.0.1"],\
+          ["proxy-from-env", "npm:1.1.0"]\
         ],\
         "linkType": "HARD"\
       }]\
@@ -6243,6 +6262,16 @@ const RAW_RUNTIME_STATE =
         "packageLocation": "../.yarn/berry/cache/form-data-npm-3.0.1-d080d436e0-10.zip/node_modules/form-data/",\
         "packageDependencies": [\
           ["form-data", "npm:3.0.1"],\
+          ["asynckit", "npm:0.4.0"],\
+          ["combined-stream", "npm:1.0.8"],\
+          ["mime-types", "npm:2.1.35"]\
+        ],\
+        "linkType": "HARD"\
+      }],\
+      ["npm:4.0.1", {\
+        "packageLocation": "../.yarn/berry/cache/form-data-npm-4.0.1-f1a27a1c2e-10.zip/node_modules/form-data/",\
+        "packageDependencies": [\
+          ["form-data", "npm:4.0.1"],\
           ["asynckit", "npm:0.4.0"],\
           ["combined-stream", "npm:1.0.8"],\
           ["mime-types", "npm:2.1.35"]\
@@ -8789,6 +8818,15 @@ const RAW_RUNTIME_STATE =
           ["loose-envify", "npm:1.4.0"],\
           ["object-assign", "npm:4.1.1"],\
           ["react-is", "npm:16.13.1"]\
+        ],\
+        "linkType": "HARD"\
+      }]\
+    ]],\
+    ["proxy-from-env", [\
+      ["npm:1.1.0", {\
+        "packageLocation": "../.yarn/berry/cache/proxy-from-env-npm-1.1.0-c13d07f26b-10.zip/node_modules/proxy-from-env/",\
+        "packageDependencies": [\
+          ["proxy-from-env", "npm:1.1.0"]\
         ],\
         "linkType": "HARD"\
       }]\

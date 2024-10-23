@@ -1,8 +1,15 @@
-import { useContext } from 'react'
+import type { FC }        from 'react'
+import type { ReactNode } from 'react'
 
-import { Context }    from './user.context'
+import { useContext }     from 'react'
 
-export const WithoutUser = ({ children }) => {
+import { Context }        from './user.context'
+
+export interface WithoutUserProps {
+  children: ReactNode
+}
+
+export const WithoutUser: FC<WithoutUserProps> = ({ children }) => {
   const user = useContext(Context)
 
   if (user) {

@@ -1,10 +1,10 @@
-import { ReactElement }         from 'react'
+import type { ReactElement }         from 'react'
 
-import { AdditionalFieldsType } from '../enums'
-import { ButtonType }           from '../enums'
-import { RequiredFieldsType }   from '../enums'
-import { HandleBlurField }      from './fields.interfaces'
-import { HandleChangeField }    from './fields.interfaces'
+import type { AdditionalFieldsType } from '../enums'
+import type { ButtonType }           from '../enums'
+import type { RequiredFieldsType }   from '../enums'
+import type { HandleBlurField }      from './fields.interfaces'
+import type { HandleChangeField }    from './fields.interfaces'
 
 interface ChildrenInputProps {
   name: string

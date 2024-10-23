@@ -1,7 +1,8 @@
+import type { styleFn }           from 'styled-system'
+
 import { createBaseStyles }       from '@atls-ui-parts/input'
 import { createShapeStyles }      from '@atls-ui-parts/input'
 import { createAppearanceStyles } from '@atls-ui-parts/input'
-import { styleFn }                from 'styled-system'
 
 export const baseStyles = createBaseStyles()
 export const transitionStyles = { transition: '.25s' }
@@ -15,6 +16,7 @@ export const shapeStyles = createShapeStyles({
   paddingRight: 16,
 })
 
+// eslint-disable-next-line @typescript-eslint/no-unsafe-return
 export const appearanceStyles: styleFn = ({ theme, error }) => ({
   ...createAppearanceStyles({
     fontColor: theme.colors.input.default.font,

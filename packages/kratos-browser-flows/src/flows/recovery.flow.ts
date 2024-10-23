@@ -9,7 +9,7 @@ export class RecoveryFlow extends AbstractFlow<
   SelfServiceRecoveryFlow,
   SubmitSelfServiceRecoveryFlowBody
 > {
-  async load() {
+  async load(): Promise<void> {
     if (typeof window === 'undefined') {
       return
     }
@@ -39,8 +39,9 @@ export class RecoveryFlow extends AbstractFlow<
     } catch (error) {
       this.setLoading(false)
 
+      // eslint-disable-next-line @typescript-eslint/no-unnecessary-type-assertion
       const { status } = (error as AxiosError<SelfServiceRecoveryFlow>)
-        .response as AxiosResponse<SelfServiceRecoveryFlow>
+        .response! as AxiosResponse<SelfServiceRecoveryFlow>
 
       if (status === 410) {
         this.complete(window.location.pathname)
@@ -54,7 +55,7 @@ export class RecoveryFlow extends AbstractFlow<
     }
   }
 
-  async submit(method?: string) {
+  async submit(method?: string): Promise<void> {
     const body = this.getValues()
 
     if (method) {
@@ -75,8 +76,9 @@ export class RecoveryFlow extends AbstractFlow<
       this.setValues(data)
       this.emit('load', data)
     } catch (error) {
+      // eslint-disable-next-line @typescript-eslint/no-unnecessary-type-assertion
       const { data, status } = (error as AxiosError<SelfServiceRecoveryFlow>)
-        .response as AxiosResponse<SelfServiceRecoveryFlow>
+        .response! as AxiosResponse<SelfServiceRecoveryFlow>
 
       if (status === 400) {
         this.setState(data)

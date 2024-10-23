@@ -210,7 +210,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@atls/react-api-auth-user@workspace:packages/api-auth-user"
   dependencies:
-    "@atls/react-user": "workspace:0.1.44"
+    "@atls/react-user": "workspace:0.1.45"
     "@types/react": "npm:18.3.6"
     react: "npm:^18.2.0"
   peerDependencies:
@@ -248,6 +248,7 @@ __metadata:
     "@types/react": "npm:18.3.6"
     "@types/react-dom": "npm:^18.2.7"
     "@types/testing-library__jest-dom": "npm:^5.14.1"
+    "@types/tldjs": "npm:2.3.4"
     react: "npm:^18.2.0"
     react-dom: "npm:^18.2.0"
     tldjs: "npm:^2.3.1"
@@ -260,8 +261,9 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@atls/react-identity-user-provider@workspace:packages/identity-user-provider"
   dependencies:
-    "@atls/react-user": "workspace:0.1.44"
+    "@atls/react-user": "workspace:0.1.45"
     "@types/react": "npm:18.3.6"
+    "@types/tldjs": "npm:2.3.4"
     react: "npm:18.2.0"
     tldjs: "npm:^2.3.1"
   peerDependencies:
@@ -275,16 +277,13 @@ __metadata:
   resolution: "@atls/react-kratos-browser-flows@workspace:packages/kratos-browser-flows"
   dependencies:
     "@ory/kratos-client": "npm:^0.8.2-alpha.1"
-    "@testing-library/jest-dom": "npm:^5.16.2"
-    "@testing-library/react": "npm:^12.1.3"
-    "@types/events": "npm:^3.0.0"
+    "@types/events": "npm:3.0.3"
     "@types/react": "npm:18.3.6"
     "@types/react-dom": "npm:18.2.7"
-    "@types/testing-library__jest-dom": "npm:^5.14.1"
-    axios: "npm:^0.21.4"
-    events: "npm:^3.3.0"
-    react: "npm:^18.2.0"
-    react-dom: "npm:^18.2.0"
+    axios: "npm:1.7.7"
+    events: "npm:3.3.0"
+    react: "npm:18.3.1"
+    react-dom: "npm:18.3.1"
   peerDependencies:
     react: ^17.0.1
   languageName: unknown
@@ -305,7 +304,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@atls/react-user@workspace:0.1.44, @atls/react-user@workspace:packages/user":
+"@atls/react-user@workspace:0.1.45, @atls/react-user@workspace:packages/user":
   version: 0.0.0-use.local
   resolution: "@atls/react-user@workspace:packages/user"
   dependencies:
@@ -906,7 +905,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@emotion/sheet@npm:^1.4.0":
+"@emotion/sheet@npm:*, @emotion/sheet@npm:^1.4.0":
   version: 1.4.0
   resolution: "@emotion/sheet@npm:1.4.0"
   checksum: 10/8ac6e9bf6b373a648f26ae7f1c24041038524f4c72f436f4f8c4761c665e58880c3229d8d89b1f7a4815dd8e5b49634d03e60187cb6f93097d7f7c1859e869d5
@@ -2114,7 +2113,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/events@npm:^3.0.0":
+"@types/events@npm:3.0.3":
   version: 3.0.3
   resolution: "@types/events@npm:3.0.3"
   checksum: 10/50af9312fab001fd6bd4bb3ff65830f940877e6778de140a92481a0d9bf5f4853d44ec758a8800ef60e0598ac43ed1b5688116a3c65906ae54e989278d6c7c82
@@ -2296,6 +2295,15 @@ __metadata:
   version: 2.0.3
   resolution: "@types/stack-utils@npm:2.0.3"
   checksum: 10/72576cc1522090fe497337c2b99d9838e320659ac57fa5560fcbdcbafcf5d0216c6b3a0a8a4ee4fdb3b1f5e3420aa4f6223ab57b82fef3578bec3206425c6cf5
+  languageName: node
+  linkType: hard
+
+"@types/styled-system@npm:*":
+  version: 5.1.22
+  resolution: "@types/styled-system@npm:5.1.22"
+  dependencies:
+    csstype: "npm:^3.0.2"
+  checksum: 10/61aa4d7ffa4667cae507540d82c187b4025e1da4d32a203376e191d1a34f09c0c8e36f112581d4261dac40373c9d57a01ff447b85b2fd6cddc3c72b619785086
   languageName: node
   linkType: hard
 
@@ -2955,7 +2963,18 @@ __metadata:
   languageName: node
   linkType: hard
 
-"axios@npm:^0.21.1, axios@npm:^0.21.4":
+"axios@npm:1.7.7":
+  version: 1.7.7
+  resolution: "axios@npm:1.7.7"
+  dependencies:
+    follow-redirects: "npm:^1.15.6"
+    form-data: "npm:^4.0.0"
+    proxy-from-env: "npm:^1.1.0"
+  checksum: 10/7f875ea13b9298cd7b40fd09985209f7a38d38321f1118c701520939de2f113c4ba137832fe8e3f811f99a38e12c8225481011023209a77b0c0641270e20cde1
+  languageName: node
+  linkType: hard
+
+"axios@npm:^0.21.1":
   version: 0.21.4
   resolution: "axios@npm:0.21.4"
   dependencies:
@@ -4242,7 +4261,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"events@npm:^3.2.0, events@npm:^3.3.0":
+"events@npm:3.3.0, events@npm:^3.2.0":
   version: 3.3.0
   resolution: "events@npm:3.3.0"
   checksum: 10/a3d47e285e28d324d7180f1e493961a2bbb4cad6412090e4dec114f4db1f5b560c7696ee8e758f55e23913ede856e3689cd3aa9ae13c56b5d8314cd3b3ddd1be
@@ -4422,7 +4441,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"follow-redirects@npm:^1.14.0":
+"follow-redirects@npm:^1.14.0, follow-redirects@npm:^1.15.6":
   version: 1.15.9
   resolution: "follow-redirects@npm:1.15.9"
   peerDependenciesMeta:
@@ -4459,6 +4478,17 @@ __metadata:
     combined-stream: "npm:^1.0.8"
     mime-types: "npm:^2.1.12"
   checksum: 10/944b40ff63b9cb1ca7a97e70f72104c548e0b0263e3e817e49919015a0d687453086259b93005389896dbffd3777cccea2e67c51f4e827590e5979b14ff91bf7
+  languageName: node
+  linkType: hard
+
+"form-data@npm:^4.0.0":
+  version: 4.0.1
+  resolution: "form-data@npm:4.0.1"
+  dependencies:
+    asynckit: "npm:^0.4.0"
+    combined-stream: "npm:^1.0.8"
+    mime-types: "npm:^2.1.12"
+  checksum: 10/6adb1cff557328bc6eb8a68da205f9ae44ab0e88d4d9237aaf91eed591ffc64f77411efb9016af7d87f23d0a038c45a788aa1c6634e51175c4efa36c2bc53774
   languageName: node
   linkType: hard
 
@@ -6701,6 +6731,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"proxy-from-env@npm:^1.1.0":
+  version: 1.1.0
+  resolution: "proxy-from-env@npm:1.1.0"
+  checksum: 10/f0bb4a87cfd18f77bc2fba23ae49c3b378fb35143af16cc478171c623eebe181678f09439707ad80081d340d1593cd54a33a0113f3ccb3f4bc9451488780ee23
+  languageName: node
+  linkType: hard
+
 "punycode@npm:^1.4.1":
   version: 1.4.1
   resolution: "punycode@npm:1.4.1"
@@ -6750,7 +6787,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"react-dom@npm:^18.2.0":
+"react-dom@npm:18.3.1, react-dom@npm:^18.2.0":
   version: 18.3.1
   resolution: "react-dom@npm:18.3.1"
   dependencies:
@@ -6839,7 +6876,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"react@npm:^18.2.0, react@npm:^18.3.1":
+"react@npm:18.3.1, react@npm:^18.2.0, react@npm:^18.3.1":
   version: 18.3.1
   resolution: "react@npm:18.3.1"
   dependencies:

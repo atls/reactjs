@@ -1,12 +1,14 @@
-import { ReactNode }            from 'react'
-import { isValidElement }       from 'react'
+import type { ReactNode }         from 'react'
 
-import { AdditionalFieldsType } from '../enums'
-import { NameWrapperComponent } from '../enums'
-import { RequiredFieldsType }   from '../enums'
-import { CustomFields }         from '../interfaces'
-import { CustomFieldsProps }    from '../interfaces'
-import { isCustomElement }      from '../utils'
+import type { CustomFields }      from '../interfaces'
+import type { CustomFieldsProps } from '../interfaces'
+
+import { isValidElement }         from 'react'
+
+import { AdditionalFieldsType }   from '../enums'
+import { NameWrapperComponent }   from '../enums'
+import { RequiredFieldsType }     from '../enums'
+import { isCustomElement }        from '../utils'
 
 export const useCustomFields = ({
   existAmount,
@@ -15,6 +17,7 @@ export const useCustomFields = ({
   nodeArray,
 }: CustomFieldsProps): CustomFields => {
   const isAdditionalField = (node: ReactNode): boolean =>
+    // eslint-disable-next-line @typescript-eslint/no-unsafe-argument
     isValidElement(node) ? Object.values(AdditionalFieldsType).includes(node.props.name) : false
   const isRequiredField = (node: ReactNode): boolean =>
     isValidElement(node) ? node.props.name === RequiredFieldsType.Amount && !existAmount : false

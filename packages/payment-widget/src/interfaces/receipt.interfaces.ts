@@ -1,7 +1,7 @@
-import { PaymentMethodType } from '../enums'
-import { PaymentObjectType } from '../enums'
-import { TaxType }           from '../enums'
-import { TaxationType }      from '../enums'
+import type { PaymentMethodType } from '../enums'
+import type { PaymentObjectType } from '../enums'
+import type { TaxType }           from '../enums'
+import type { TaxationType }      from '../enums'
 
 export interface ReceiptItem {
   Name: string
@@ -20,11 +20,11 @@ export interface Receipt {
   Phone?: string
   EmailCompany?: string
   Taxation: TaxationType
-  Items: ReceiptItem[]
+  Items: Array<ReceiptItem>
 }
 
 export interface ReceiptSettings {
   Taxation: TaxationType
-  Items: ReceiptItem[]
+  Items: Array<ReceiptItem>
   EmailCompany?: string
 }

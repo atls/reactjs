@@ -1,10 +1,10 @@
 export type IdentityUrlType =
   | 'login'
+  | 'logout'
+  | 'recovery'
   | 'registration'
   | 'settings'
   | 'verification'
-  | 'recovery'
-  | 'logout'
 
 export interface UseIdentityUrlReturnToProps {
   subdomain?: string
@@ -13,7 +13,7 @@ export interface UseIdentityUrlReturnToProps {
 
 export interface UseIdentityUrlProps {
   type?: IdentityUrlType
-  returnTo?: true | false | UseIdentityUrlReturnToProps
+  returnTo?: UseIdentityUrlReturnToProps | false | true
 }
 
 export interface IdentityLinkProps extends UseIdentityUrlProps {

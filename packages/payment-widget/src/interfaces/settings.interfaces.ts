@@ -1,4 +1,4 @@
-import { LanguagesType } from '../enums'
+import type { LanguagesType } from '../enums'
 
 interface AutoPaymentConfig {
   reccurentPayment: boolean

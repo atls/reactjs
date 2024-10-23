@@ -6,7 +6,7 @@ import type { AxiosError }                     from 'axios'
 import { AbstractFlow }                        from './abstract.flow'
 
 export class LoginFlow extends AbstractFlow<SelfServiceLoginFlow, SubmitSelfServiceLoginFlowBody> {
-  async load() {
+  async load(): Promise<void> {
     if (typeof window === 'undefined') {
       return
     }
@@ -34,8 +34,9 @@ export class LoginFlow extends AbstractFlow<SelfServiceLoginFlow, SubmitSelfServ
     } catch (error) {
       this.setLoading(false)
 
+      // eslint-disable-next-line @typescript-eslint/no-unnecessary-type-assertion
       const { status } = (error as AxiosError<SelfServiceLoginFlow>)
-        .response as AxiosResponse<SelfServiceLoginFlow>
+        .response! as AxiosResponse<SelfServiceLoginFlow>
 
       if (status === 400) {
         this.complete()
@@ -47,7 +48,7 @@ export class LoginFlow extends AbstractFlow<SelfServiceLoginFlow, SubmitSelfServ
     }
   }
 
-  async submit(method?: string) {
+  async submit(method?: string): Promise<void> {
     const body = this.getValues()
 
     if (method) {
@@ -61,8 +62,9 @@ export class LoginFlow extends AbstractFlow<SelfServiceLoginFlow, SubmitSelfServ
 
       this.complete()
     } catch (error) {
+      // eslint-disable-next-line @typescript-eslint/no-unnecessary-type-assertion
       const { data, status } = (error as AxiosError<SelfServiceLoginFlow>)
-        .response as AxiosResponse<SelfServiceLoginFlow>
+        .response! as AxiosResponse<SelfServiceLoginFlow>
 
       if (status === 400) {
         this.setState(data)

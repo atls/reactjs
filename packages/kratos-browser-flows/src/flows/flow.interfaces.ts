@@ -10,57 +10,56 @@ import type { SubmitSelfServiceSettingsFlowBody }     from '@ory/kratos-client'
 import type { SubmitSelfServiceLoginFlowBody }        from '@ory/kratos-client'
 import type { UiText }                                from '@ory/kratos-client'
 import type { UiNode }                                from '@ory/kratos-client'
-
-import { EventEmitter }                               from 'events'
+import type { EventEmitter }                          from 'events'
 
 export type FlowName =
+  | 'errors'
   | 'login'
-  | 'registration'
   | 'recovery'
+  | 'registration'
   | 'settings'
   | 'verification'
-  | 'errors'
 
 export type SelfServiceFlow =
-  | SelfServiceRegistrationFlow
-  | SelfServiceVerificationFlow
-  | SelfServiceRecoveryFlow
-  | SelfServiceSettingsFlow
   | SelfServiceLoginFlow
+  | SelfServiceRecoveryFlow
+  | SelfServiceRegistrationFlow
+  | SelfServiceSettingsFlow
+  | SelfServiceVerificationFlow
 
 export type SubmitSelfServiceFlowBody =
-  | SubmitSelfServiceRegistrationFlowBody
-  | SubmitSelfServiceVerificationFlowBody
-  | SubmitSelfServiceRecoveryFlowBody
-  | SubmitSelfServiceSettingsFlowBody
   | SubmitSelfServiceLoginFlowBody
+  | SubmitSelfServiceRecoveryFlowBody
+  | SubmitSelfServiceRegistrationFlowBody
+  | SubmitSelfServiceSettingsFlowBody
+  | SubmitSelfServiceVerificationFlowBody
 
 export interface Flow extends EventEmitter {
-  setLoading(loading: boolean)
+  setLoading: (loading: boolean) => void
 
-  isLoading()
+  isLoading: () => boolean
 
-  setState(state: SelfServiceFlow)
+  setState: (state: SelfServiceFlow) => void
 
-  hasState()
+  hasState: () => boolean
 
-  getState(): SelfServiceFlow
+  getState: () => SelfServiceFlow
 
-  getMessages(): Array<UiText>
+  getMessages: () => Array<UiText>
 
-  getNode(name: string): UiNode | undefined
+  getNode: (name: string) => UiNode | undefined
 
-  getNodes(name: string): Array<UiNode>
+  getNodes: (name: string) => Array<UiNode>
 
-  getNodesGroup(group: string): Array<UiNode>
+  getNodesGroup: (group: string) => Array<UiNode>
 
-  getValue(name): string | any
+  getValue: (name: string) => any
 
-  setValue(name: string, value: string)
+  setValue: (name: string, value: string) => void
 
-  getValues(): SubmitSelfServiceFlowBody
+  getValues: () => SubmitSelfServiceFlowBody
 
-  load(): Promise<void>
+  load: () => Promise<void>
 
-  submit(method?: string): Promise<void>
+  submit: (method?: string) => Promise<void>
 }

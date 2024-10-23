@@ -1,6 +1,6 @@
 {
   "name": "@atls/react-identity-links",
-  "version": "0.0.4",
+  "version": "0.0.5",
   "license": "MIT",
   "main": "src/index.ts",
   "files": [
@@ -21,6 +21,7 @@
     "@types/react": "18.3.6",
     "@types/react-dom": "^18.2.7",
     "@types/testing-library__jest-dom": "^5.14.1",
+    "@types/tldjs": "2.3.4",
     "react": "^18.2.0",
     "react-dom": "^18.2.0"
   },

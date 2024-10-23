@@ -1,8 +1,9 @@
-import { useState }            from 'react'
-import { getDomain }           from 'tldjs'
+import type { UseIdentityUrlProps } from './identity-url.interfaces'
 
-import { UseIdentityUrlProps } from './identity-url.interfaces'
-import { useBrowserEffect }    from './use-browser-effect.hook'
+import { useState }                 from 'react'
+import { getDomain }                from 'tldjs'
+
+import { useBrowserEffect }         from './use-browser-effect.hook'
 
 export const identityUrlTypes = {
   login: '/auth/login',
@@ -28,15 +29,19 @@ export const useIdentityUrl = ({ type = 'login', returnTo = false }: UseIdentity
       const domain = getDomain(hostname)
 
       if (returnTo === false) {
+        // eslint-disable-next-line @typescript-eslint/restrict-template-expressions
         setUrl(`${protocol}//accounts.${domain}${path}`)
       } else if (returnTo === true) {
+        // eslint-disable-next-line @typescript-eslint/restrict-template-expressions
         setUrl(`${protocol}//accounts.${domain}${path}?return_to=${href}`)
       } else {
         const returnToOrigin = returnTo.subdomain
-          ? `${protocol}//${returnTo.subdomain}.${domain}`
+          ? // eslint-disable-next-line @typescript-eslint/restrict-template-expressions
+            `${protocol}//${returnTo.subdomain}.${domain}`
           : origin
         const returnToValue = `${returnToOrigin}${returnTo.pathname ? returnTo.pathname : pathname}`
 
+        // eslint-disable-next-line @typescript-eslint/restrict-template-expressions
         setUrl(`${protocol}//accounts.${domain}${path}?return_to=${returnToValue}`)
       }
     }

@@ -1,10 +1,11 @@
-import { Condition }     from '@atls-ui-parts/condition'
-import { HiddenInput }   from '@atls-ui-parts/hidden-input'
-import { memo }          from 'react'
-import React             from 'react'
+import type { SettingsProps } from '../interfaces'
 
-import { LanguagesType } from '../enums'
-import { SettingsProps } from '../interfaces'
+import { Condition }          from '@atls-ui-parts/condition'
+import { HiddenInput }        from '@atls-ui-parts/hidden-input'
+import { memo }               from 'react'
+import React                  from 'react'
+
+import { LanguagesType }      from '../enums'
 
 export const Settings = memo(({
   storeId,
@@ -13,11 +14,11 @@ export const Settings = memo(({
   isGenerateReceipt = false,
 }: SettingsProps) => (
   <>
-    <HiddenInput name='terminalkey' defaultValue={storeId} disabled readOnly />
-    <HiddenInput name='frame' defaultValue={String(isNewWindow)} disabled readOnly />
-    <HiddenInput name='language' defaultValue={language} disabled readOnly />
+    <HiddenInput disabled readOnly name='terminalkey' defaultValue={storeId} />
+    <HiddenInput disabled readOnly name='frame' defaultValue={String(isNewWindow)} />
+    <HiddenInput disabled readOnly name='language' defaultValue={language} />
     <Condition match={isGenerateReceipt}>
-      <HiddenInput name='receipt' defaultValue='' disabled readOnly />
+      <HiddenInput disabled readOnly name='receipt' defaultValue='' />
     </Condition>
   </>
 ))

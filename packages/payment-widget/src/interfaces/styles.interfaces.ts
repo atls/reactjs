@@ -1,5 +1,4 @@
-/* eslint-disable no-shadow */
-import { ButtonProps } from '@atls-ui-parts/button'
+import type { ButtonProps } from '@atls-ui-parts/button'
 
 export enum DirectionFields {
   Row = 'row',

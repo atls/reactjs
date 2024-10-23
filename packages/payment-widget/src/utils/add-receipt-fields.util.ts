@@ -1,8 +1,11 @@
+import type { AdditionalField } from '../interfaces'
+
 import { AdditionalFieldsType } from '../enums'
-import { AdditionalField }      from '../interfaces'
 import { receiptFields }        from '../data'
 
-export const addReceiptFieldsUtil = (additionalFields: AdditionalField[]) => {
+export const addReceiptFieldsUtil = (
+  additionalFields: Array<AdditionalField>
+): Array<AdditionalField> => {
   const missingReceiptFields = !additionalFields.some(
     (field) =>
       field.name === AdditionalFieldsType.Email || field.name === AdditionalFieldsType.Phone

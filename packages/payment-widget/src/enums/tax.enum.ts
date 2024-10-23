@@ -1,4 +1,3 @@
-/* eslint-disable no-shadow */
 export enum TaxType {
   None = 'none',
   Vat0 = 'vat0',

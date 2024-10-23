@@ -1,5 +1,5 @@
 export { Widget, ButtonWrapper, InputWrapper } from './ui'
-export {
+export type {
   Settings,
   Styles,
   AdditionalField,

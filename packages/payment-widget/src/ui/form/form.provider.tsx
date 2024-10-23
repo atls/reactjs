@@ -1,15 +1,17 @@
-import { FC }                   from 'react'
-import { useMemo }              from 'react'
-import React                    from 'react'
+import type { FC }                from 'react'
 
-import { AdditionalField }      from '../../interfaces'
-import { FormProviderProps }    from '../../interfaces'
-import { Provider }             from './form.context'
-import { requiredFields }       from '../../data'
-import { useFieldsState }       from '../../hooks'
-import { useInit }              from '../../hooks'
-import { useValidate }          from '../../hooks'
-import { addReceiptFieldsUtil } from '../../utils'
+import type { AdditionalField }   from '../../interfaces'
+import type { FormProviderProps } from '../../interfaces'
+
+import { useMemo }                from 'react'
+import React                      from 'react'
+
+import { Provider }               from './form.context'
+import { requiredFields }         from '../../data'
+import { useFieldsState }         from '../../hooks'
+import { useInit }                from '../../hooks'
+import { useValidate }            from '../../hooks'
+import { addReceiptFieldsUtil }   from '../../utils'
 
 export const FormProvider: FC<FormProviderProps> = ({
   additionalFields,
@@ -23,7 +25,7 @@ export const FormProvider: FC<FormProviderProps> = ({
 
   const processedFields =
     additionalFields && isGenerateReceipt
-      ? addReceiptFieldsUtil(additionalFields as AdditionalField[])
+      ? addReceiptFieldsUtil(additionalFields as Array<AdditionalField>)
       : nameFields
   const fields = useMemo(
     () =>

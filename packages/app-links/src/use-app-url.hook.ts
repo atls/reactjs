@@ -1,8 +1,9 @@
-import { useState }         from 'react'
-import { getDomain }        from 'tldjs'
+import type { UseAppUrlProps } from './app-url.interfaces'
 
-import { UseAppUrlProps }   from './app-url.interfaces'
-import { useBrowserEffect } from './use-browser-effect.hook'
+import { useState }            from 'react'
+import { getDomain }           from 'tldjs'
+
+import { useBrowserEffect }    from './use-browser-effect.hook'
 
 export const useAppUrl = ({ subdomain, pathname = '/' }: UseAppUrlProps = {}): string | null => {
   const [url, setUrl] = useState<string | null>(null)
@@ -12,7 +13,7 @@ export const useAppUrl = ({ subdomain, pathname = '/' }: UseAppUrlProps = {}): s
 
     const domain = getDomain(hostname)
 
-    const origin = subdomain ? `${protocol}//${subdomain}.${domain}` : `${protocol}//${domain}`
+    const origin = subdomain ? `${protocol}//${subdomain}.${domain!}` : `${protocol}//${domain!}`
 
     setUrl(`${origin}${pathname}`)
   }, [subdomain, pathname])
