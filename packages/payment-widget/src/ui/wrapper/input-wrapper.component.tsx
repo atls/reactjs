@@ -1,14 +1,14 @@
 import type { FC }                from 'react'
 
-import type { InputWrapperProps } from '../../interfaces'
+import type { InputWrapperProps } from '../../interfaces/index.js'
 
 import { Condition }              from '@atls-ui-parts/condition'
 import { useIntl }                from 'react-intl'
 import React                      from 'react'
 
-import { NameWrapperComponent }   from '../../enums'
-import { translate }              from '../../utils/translate.util'
-import { useForm }                from '../form'
+import { NameWrapperComponent }   from '../../enums/index.js'
+import { translate }              from '../../utils/translate.util.js'
+import { useForm }                from '../form/index.js'
 
 const InputWrapper: FC<InputWrapperProps> = ({ name, children }) => {
   const { fieldsState, handleChange, handleBlur, errors } = useForm()

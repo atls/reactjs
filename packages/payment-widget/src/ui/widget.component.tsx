@@ -1,6 +1,6 @@
 import type { ReactNode }   from 'react'
 
-import type { WidgetProps } from '../interfaces'
+import type { WidgetProps } from '../interfaces/index.js'
 
 import { Children }         from 'react'
 import { IntlProvider }     from 'react-intl'
@@ -9,12 +9,12 @@ import React                from 'react'
 
 import * as messagesEn      from '../locales/en.json'
 import * as messagesRu      from '../locales/ru.json'
-import { LanguagesType }    from '../enums'
-import { Form }             from './form'
-import { FormProvider }     from './form/form.provider'
-import { useCustomButton }  from '../hooks'
-import { useCustomFields }  from '../hooks'
-import { getNameFields }    from '../utils'
+import { LanguagesType }    from '../enums/index.js'
+import { Form }             from './form/index.js'
+import { FormProvider }     from './form/index.js'
+import { useCustomButton }  from '../hooks/index.js'
+import { useCustomFields }  from '../hooks/index.js'
+import { getNameFields }    from '../utils/index.js'
 
 const messages = {
   [LanguagesType.RUSSIAN]: messagesRu,

@@ -2,6 +2,7 @@
   "name": "@atls/tinkoff-payment-widget",
   "version": "0.0.5",
   "license": "BSD-3-Clause",
+  "type": "module",
   "main": "src/index.ts",
   "files": [
     "dist"
@@ -26,7 +27,8 @@
     "@emotion/jest": "11.9.4",
     "@emotion/react": "11.9.3",
     "@emotion/styled": "11.9.3",
-    "@testing-library/react": "14.1.0",
+    "@testing-library/react": "12.1.2",
+    "@types/node": "22.10.1",
     "@types/react": "18.3.6",
     "@types/react-dom": "18",
     "@types/styled-system": "5.1.16",

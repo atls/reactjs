@@ -1,20 +1,20 @@
 import type { ReactElement }      from 'react'
 
-import type { Field }             from '../interfaces'
-import type { NameField }         from '../interfaces'
-import type { HandleBlurField }   from '../interfaces'
-import type { FieldState }        from '../interfaces'
-import type { HandleChangeField } from '../interfaces'
-import type { FieldsErrors }      from '../interfaces'
+import type { Field }             from '../interfaces/index.js'
+import type { NameField }         from '../interfaces/index.js'
+import type { HandleBlurField }   from '../interfaces/index.js'
+import type { FieldState }        from '../interfaces/index.js'
+import type { HandleChangeField } from '../interfaces/index.js'
+import type { FieldsErrors }      from '../interfaces/index.js'
 
 import { Condition }              from '@atls-ui-parts/condition'
 import { Layout }                 from '@atls-ui-parts/layout'
 import { useIntl }                from 'react-intl'
 import React                      from 'react'
 
-import { MemoizedInput }          from '../ui'
-import { ThemeProvider }          from '../ui/theme/src'
-import { translate }              from '../utils/translate.util'
+import { MemoizedInput }          from '../ui/index.js'
+import { ThemeProvider }          from '../ui/theme/src/index.js'
+import { translate }              from '../utils/translate.util.js'
 
 export const useFieldsRenderer = (
   fields: Array<Field> | Array<NameField>,

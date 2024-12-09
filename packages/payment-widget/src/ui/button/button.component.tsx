@@ -5,10 +5,10 @@ import styled               from '@emotion/styled'
 import { useHover }         from 'react-laag'
 import React                from 'react'
 
-import { appearanceStyles } from './button.styles'
-import { contentStyles }    from './button.styles'
-import { baseStyles }       from './button.styles'
-import { shapeStyles }      from './button.styles'
+import { appearanceStyles } from './button.styles.js'
+import { contentStyles }    from './button.styles.js'
+import { baseStyles }       from './button.styles.js'
+import { shapeStyles }      from './button.styles.js'
 
 const ButtonElement = styled('button')<ButtonProps>(
   // @ts-expect-error

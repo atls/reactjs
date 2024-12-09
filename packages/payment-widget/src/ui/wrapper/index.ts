@@ -1,2 +1,2 @@
-export * from './input-wrapper.component'
-export * from './button-wrapper.component'
+export * from './input-wrapper.component.js'
+export * from './button-wrapper.component.js'

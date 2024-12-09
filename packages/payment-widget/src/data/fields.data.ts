@@ -1,8 +1,8 @@
-import type { AdditionalField } from '../interfaces'
-import type { RequiredField }   from '../interfaces'
+import type { AdditionalField } from '../interfaces/index.js'
+import type { RequiredField }   from '../interfaces/index.js'
 
-import { AdditionalFieldsType } from '../enums'
-import { RequiredFieldsType }   from '../enums'
+import { AdditionalFieldsType } from '../enums/index.js'
+import { RequiredFieldsType }   from '../enums/index.js'
 
 export const requiredFields: Array<RequiredField> = [
   {
