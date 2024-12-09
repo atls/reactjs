@@ -1,7 +1,7 @@
-import type { PaymentMethodType } from '../enums'
-import type { PaymentObjectType } from '../enums'
-import type { TaxType }           from '../enums'
-import type { TaxationType }      from '../enums'
+import type { PaymentMethodType } from '../enums/index.js'
+import type { PaymentObjectType } from '../enums/index.js'
+import type { TaxType }           from '../enums/index.js'
+import type { TaxationType }      from '../enums/index.js'
 
 export interface ReceiptItem {
   Name: string

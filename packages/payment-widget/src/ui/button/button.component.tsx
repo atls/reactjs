@@ -1,16 +1,16 @@
-import type { ButtonProps } from '@atls-ui-parts/button'
-import type { FC }          from 'react'
+import type { ButtonProps }  from '@atls-ui-parts/button'
+import type { FC }           from 'react'
 
-import styled               from '@emotion/styled'
-import { useHover }         from 'react-laag'
-import React                from 'react'
+import { default as styled } from '@emotion/styled'
+import { useHover }          from 'react-laag'
+import React                 from 'react'
 
-import { appearanceStyles } from './button.styles.js'
-import { contentStyles }    from './button.styles.js'
-import { baseStyles }       from './button.styles.js'
-import { shapeStyles }      from './button.styles.js'
+import { appearanceStyles }  from './button.styles.js'
+import { contentStyles }     from './button.styles.js'
+import { baseStyles }        from './button.styles.js'
+import { shapeStyles }       from './button.styles.js'
 
-const ButtonElement = styled('button')<ButtonProps>(
+const ButtonElement = styled.default('button')<ButtonProps>(
   // @ts-expect-error
   baseStyles,
   // eslint-disable-next-line @typescript-eslint/no-unsafe-argument

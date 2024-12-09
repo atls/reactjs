@@ -1,9 +1,9 @@
 import type { FormEvent }              from 'react'
 import type { HTMLInputTypeAttribute } from 'react'
 
-import type { AdditionalFieldsType }   from '../enums'
-import type { RequiredFieldsType }     from '../enums'
-import type { DirectionFields }        from './styles.interfaces'
+import type { AdditionalFieldsType }   from '../enums/index.js'
+import type { RequiredFieldsType }     from '../enums/index.js'
+import type { DirectionFields }        from './styles.interfaces.js'
 
 export type FieldsNames = AdditionalFieldsType | RequiredFieldsType
 export type FieldState = Record<FieldsNames, string>

@@ -47,6 +47,7 @@ export const Widget = ({
   const nameFields = getNameFields(customFields)
 
   return (
+    // @ts-expect-error types mismatch
     <IntlProvider locale={locale} messages={messages[locale]} defaultLocale={LanguagesType.RUSSIAN}>
       <FormProvider
         additionalFields={additionalFields}
