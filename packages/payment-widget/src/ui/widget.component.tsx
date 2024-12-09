@@ -7,8 +7,8 @@ import { IntlProvider }     from 'react-intl'
 import { useMemo }          from 'react'
 import React                from 'react'
 
-import * as messagesEn      from '../locales/en.json'
-import * as messagesRu      from '../locales/ru.json'
+import * as messagesEn      from '../locales/en.json' with { type: 'json' }
+import * as messagesRu      from '../locales/ru.json' with { type: 'json' }
 import { LanguagesType }    from '../enums/index.js'
 import { Form }             from './form/index.js'
 import { FormProvider }     from './form/index.js'

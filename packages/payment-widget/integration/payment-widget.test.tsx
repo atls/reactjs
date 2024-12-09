@@ -39,24 +39,15 @@ const Form = (
         </Box>
       )}
     </InputWrapper>
-    <ButtonWrapper>
-      {(props) => (
-        <Box>
-          <Button {...props}>
-            <Text>'Submit'</Text>
-          </Button>
-        </Box>
-      )}
-    </ButtonWrapper>
   </Widget>
 )
 
-// describe('Payment Widget', () => {
-//   it('render', async () => {
-//     render(Form)
-//
-//     const button = await screen.findByRole('button')
-//     console.debug(button)
-//     assert.equal()
-//   })
-// })
+describe('Payment Widget', () => {
+  it('render', async () => {
+    render(Form)
+
+    const button = await screen.findByRole('button')
+    console.debug(button)
+    assert.equal()
+  })
+})
