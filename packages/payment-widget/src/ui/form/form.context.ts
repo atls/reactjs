@@ -1,4 +1,4 @@
-import type { FormContext } from '../../interfaces'
+import type { FormContext } from '../../interfaces/index.js'
 
 import { createContext }    from 'react'
 

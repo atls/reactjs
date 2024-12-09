@@ -1,10 +1,10 @@
 import type { ReactNode }       from 'react'
 
-import type { NameField }       from './custom-fields.iterfaces'
-import type { Field }           from './fields.interfaces'
-import type { FieldsState }     from './fields.interfaces'
-import type { FieldsValidator } from './fields.interfaces'
-import type { WidgetProps }     from './widget.interfaces'
+import type { NameField }       from './custom-fields.iterfaces.js'
+import type { Field }           from './fields.interfaces.js'
+import type { FieldsState }     from './fields.interfaces.js'
+import type { FieldsValidator } from './fields.interfaces.js'
+import type { WidgetProps }     from './widget.interfaces.js'
 
 export interface FormProps extends WidgetProps {
   useCustomFields: boolean

@@ -1,8 +1,8 @@
-import type { FormContext } from '../../interfaces'
+import type { FormContext } from '../../interfaces/index.js'
 
 import { useContext }       from 'react'
 
-import { Context }          from './form.context'
+import { Context }          from './form.context.js'
 
 export const useForm = (): FormContext => {
   const context = useContext(Context)

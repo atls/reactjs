@@ -1,7 +1,7 @@
-import type { AdditionalField } from '../interfaces'
+import type { AdditionalField } from '../interfaces/index.js'
 
-import { AdditionalFieldsType } from '../enums'
-import { receiptFields }        from '../data'
+import { AdditionalFieldsType } from '../enums/index.js'
+import { receiptFields }        from '../data/index.js'
 
 export const addReceiptFieldsUtil = (
   additionalFields: Array<AdditionalField>

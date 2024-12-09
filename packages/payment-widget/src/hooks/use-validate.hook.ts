@@ -1,13 +1,13 @@
-import type { FieldsErrors }    from '../interfaces'
-import type { FieldsNames }     from '../interfaces'
-import type { ValidateField }   from '../interfaces'
+import type { FieldsErrors }    from '../interfaces/index.js'
+import type { FieldsNames }     from '../interfaces/index.js'
+import type { ValidateField }   from '../interfaces/index.js'
 
 /* eslint-disable no-useless-escape */
 import { useCallback }          from 'react'
 import { useState }             from 'react'
 
-import { AdditionalFieldsType } from '../enums'
-import { RequiredFieldsType }   from '../enums'
+import { AdditionalFieldsType } from '../enums/index.js'
+import { RequiredFieldsType }   from '../enums/index.js'
 
 // eslint-disable-next-line security/detect-unsafe-regex
 const validateEmail = (value: string): boolean => /^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/.test(value)

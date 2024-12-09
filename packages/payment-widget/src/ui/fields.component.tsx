@@ -1,6 +1,6 @@
 import type { ReactNode }     from 'react'
 
-import type { FieldsProps }   from '../interfaces'
+import type { FieldsProps }   from '../interfaces/index.js'
 
 import { Condition }          from '@atls-ui-parts/condition'
 import { HiddenInput }        from '@atls-ui-parts/hidden-input'
@@ -10,10 +10,10 @@ import { Layout }             from '@atls-ui-parts/layout'
 import { Row }                from '@atls-ui-parts/layout'
 import React                  from 'react'
 
-import { RequiredFieldsType } from '../enums'
-import { DirectionFields }    from '../interfaces'
-import { useFieldsRenderer }  from '../hooks'
-import { useForm }            from './form'
+import { RequiredFieldsType } from '../enums/index.js'
+import { DirectionFields }    from '../interfaces/index.js'
+import { useFieldsRenderer }  from '../hooks/index.js'
+import { useForm }            from './form/index.js'
 
 export const Fields = ({
   amount,

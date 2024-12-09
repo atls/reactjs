@@ -1,11 +1,11 @@
-import type { SettingsProps } from '../interfaces'
+import type { SettingsProps } from '../interfaces/index.js'
 
 import { Condition }          from '@atls-ui-parts/condition'
 import { HiddenInput }        from '@atls-ui-parts/hidden-input'
 import { memo }               from 'react'
 import React                  from 'react'
 
-import { LanguagesType }      from '../enums'
+import { LanguagesType }      from '../enums/index.js'
 
 export const Settings = memo(({
   storeId,

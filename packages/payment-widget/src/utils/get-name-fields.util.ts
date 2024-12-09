@@ -1,6 +1,6 @@
 import type { ReactNode } from 'react'
 
-import type { Field }     from '../interfaces'
+import type { Field }     from '../interfaces/index.js'
 
 import { isValidElement } from 'react'
 

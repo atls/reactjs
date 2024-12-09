@@ -1,7 +1,7 @@
 import type { FunctionComponent }    from 'react'
 import type { ReactNode }            from 'react'
 
-import type { NameWrapperComponent } from '../enums'
+import type { NameWrapperComponent } from '../enums/index.js'
 
 import { isValidElement }            from 'react'
 

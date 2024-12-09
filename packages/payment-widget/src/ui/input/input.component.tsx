@@ -14,13 +14,13 @@ import { useHover }                          from 'react-laag'
 import { layout }                            from 'styled-system'
 import React                                 from 'react'
 
-import { theme }                             from '../theme/src/index'
-import { appearanceStyles }                  from './input.styles'
-import { baseStyles }                        from './input.styles'
-import { shapeStyles }                       from './input.styles'
-import { transitionStyles }                  from './input.styles'
+import { theme }                             from '../theme/src/index.js'
+import { appearanceStyles }                  from './input.styles.js'
+import { baseStyles }                        from './input.styles.js'
+import { shapeStyles }                       from './input.styles.js'
+import { transitionStyles }                  from './input.styles.js'
 
-export const InputElement = styled.div<any>(
+export const InputElement = styled.default.div<any>(
   // eslint-disable-next-line @typescript-eslint/no-unsafe-argument
   baseStyles,
   shapeStyles,
@@ -29,7 +29,7 @@ export const InputElement = styled.div<any>(
   layout
 )
 
-const Container = styled.div(({ type }: any) => ({
+const Container = styled.default.div(({ type }: any) => ({
   display: type === 'hidden' ? 'none' : 'flex',
   width: '100%',
   flexDirection: 'column',

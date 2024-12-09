@@ -1,16 +1,16 @@
 import type { FormEventHandler } from 'react'
 
-import type { FormProps }        from '../../interfaces'
+import type { FormProps }        from '../../interfaces/index.js'
 
 import { FormattedMessage }      from 'react-intl'
 import React                     from 'react'
 
-import { Button }                from '../button/button.component'
-import { Fields }                from '../fields.component'
-import { Settings }              from '../settings.component'
-import { makePayment }           from '../../utils'
-import { makePaymentWithCheck }  from '../../utils'
-import { useForm }               from './use-form.hook'
+import { Button }                from '../button/button.component.js'
+import { Fields }                from '../fields.component.js'
+import { Settings }              from '../settings.component.js'
+import { makePayment }           from '../../utils/index.js'
+import { makePaymentWithCheck }  from '../../utils/index.js'
+import { useForm }               from './use-form.hook.js'
 
 export const Form = ({
   settings,

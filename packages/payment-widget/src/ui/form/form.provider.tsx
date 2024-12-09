@@ -1,17 +1,17 @@
 import type { FC }                from 'react'
 
-import type { AdditionalField }   from '../../interfaces'
-import type { FormProviderProps } from '../../interfaces'
+import type { AdditionalField }   from '../../interfaces/index.js'
+import type { FormProviderProps } from '../../interfaces/index.js'
 
 import { useMemo }                from 'react'
 import React                      from 'react'
 
-import { Provider }               from './form.context'
-import { requiredFields }         from '../../data'
-import { useFieldsState }         from '../../hooks'
-import { useInit }                from '../../hooks'
-import { useValidate }            from '../../hooks'
-import { addReceiptFieldsUtil }   from '../../utils'
+import { Provider }               from './form.context.js'
+import { requiredFields }         from '../../data/index.js'
+import { useFieldsState }         from '../../hooks/index.js'
+import { useInit }                from '../../hooks/index.js'
+import { useValidate }            from '../../hooks/index.js'
+import { addReceiptFieldsUtil }   from '../../utils/index.js'
 
 export const FormProvider: FC<FormProviderProps> = ({
   additionalFields,

@@ -1,6 +1,6 @@
 import type { ReactNode } from 'react'
 
-import type { Field }     from './fields.interfaces'
+import type { Field }     from './fields.interfaces.js'
 
 export type NameField = Pick<Field, 'name'>
 

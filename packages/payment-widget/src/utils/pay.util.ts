@@ -1,10 +1,10 @@
 import type { FormEventHandler } from 'react'
 import type { FormEvent }        from 'react'
 
-import type { Receipt }          from '../interfaces'
-import type { ReceiptSettings }  from '../interfaces'
+import type { Receipt }          from '../interfaces/index.js'
+import type { ReceiptSettings }  from '../interfaces/index.js'
 
-import { convertToPenny }        from './convert-to-penny.util'
+import { convertToPenny }        from './convert-to-penny.util.js'
 
 type PayFunction = (form: HTMLFormElement) => void
 
