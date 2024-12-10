@@ -20,7 +20,7 @@ import { baseStyles }                        from './input.styles.js'
 import { shapeStyles }                       from './input.styles.js'
 import { transitionStyles }                  from './input.styles.js'
 
-export const InputElement = styled.default.div<any>(
+export const InputElement = (styled.default ?? styled).div<any>(
   // eslint-disable-next-line @typescript-eslint/no-unsafe-argument
   baseStyles,
   shapeStyles,
@@ -29,7 +29,7 @@ export const InputElement = styled.default.div<any>(
   layout
 )
 
-const Container = styled.default.div(({ type }: any) => ({
+const Container = (styled.default ?? styled).div(({ type }: any) => ({
   display: type === 'hidden' ? 'none' : 'flex',
   width: '100%',
   flexDirection: 'column',

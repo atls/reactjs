@@ -7,9 +7,9 @@ import { IntlProvider }     from 'react-intl'
 import { useMemo }          from 'react'
 import React                from 'react'
 
-import * as messagesEn      from '../locales/en.json' with { type: 'json' }
-import * as messagesRu      from '../locales/ru.json' with { type: 'json' }
 import { LanguagesType }    from '../enums/index.js'
+import { EnLocale }         from '../locales/index.js'
+import { RuLocale }         from '../locales/index.js'
 import { Form }             from './form/index.js'
 import { FormProvider }     from './form/index.js'
 import { useCustomButton }  from '../hooks/index.js'
@@ -17,8 +17,8 @@ import { useCustomFields }  from '../hooks/index.js'
 import { getNameFields }    from '../utils/index.js'
 
 const messages = {
-  [LanguagesType.RUSSIAN]: messagesRu,
-  [LanguagesType.ENGLISH]: messagesEn,
+  [LanguagesType.RUSSIAN]: RuLocale,
+  [LanguagesType.ENGLISH]: EnLocale,
 }
 
 export const Widget = ({
@@ -47,8 +47,12 @@ export const Widget = ({
   const nameFields = getNameFields(customFields)
 
   return (
-    // @ts-expect-error types mismatch
-    <IntlProvider locale={locale} messages={messages[locale]} defaultLocale={LanguagesType.RUSSIAN}>
+    <IntlProvider
+      locale={locale ?? navigator.language}
+      // @ts-expect-error types mismatch
+      messages={messages[locale]}
+      defaultLocale={LanguagesType.RUSSIAN}
+    >
       <FormProvider
         additionalFields={additionalFields}
         nameFields={nameFields}
