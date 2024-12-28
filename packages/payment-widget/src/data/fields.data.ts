@@ -1,9 +1,10 @@
-import { AdditionalFieldsType } from '../enums'
-import { RequiredFieldsType }   from '../enums'
-import { AdditionalField }      from '../interfaces'
-import { RequiredField }        from '../interfaces'
+import type { AdditionalField } from '../interfaces/index.js'
+import type { RequiredField }   from '../interfaces/index.js'
 
-export const requiredFields: RequiredField[] = [
+import { AdditionalFieldsType } from '../enums/index.js'
+import { RequiredFieldsType }   from '../enums/index.js'
+
+export const requiredFields: Array<RequiredField> = [
   {
     type: 'text',
     name: RequiredFieldsType.Amount,
@@ -12,7 +13,7 @@ export const requiredFields: RequiredField[] = [
   },
 ]
 
-export const receiptFields: AdditionalField[] = [
+export const receiptFields: Array<AdditionalField> = [
   {
     type: 'email',
     name: AdditionalFieldsType.Email,

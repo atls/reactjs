@@ -1,18 +1,27 @@
-import { ReactElement }   from 'react'
-import { isValidElement } from 'react'
-import { cloneElement }   from 'react'
+import type { ReactElement } from 'react'
+import type { FC }           from 'react'
+import type { ReactNode }    from 'react'
 
-import { useFlow }        from '../providers'
+import { isValidElement }    from 'react'
+import { cloneElement }      from 'react'
 
-export const FlowSubmit = ({ method, children }) => {
+import { useFlow }           from '../providers'
+
+export interface FlowSubmitProps {
+  method: string
+  children: (submit: (method: string) => void) => ReactElement | ReactNode | null
+}
+
+export const FlowSubmit: FC<FlowSubmitProps> = ({ method, children }) => {
   const flow = useFlow()
 
   if (typeof children === 'function') {
-    return children((mtd) => flow.submit(mtd))
+    // eslint-disable-next-line @typescript-eslint/no-misused-promises
+    return children(async (mtd: string) => flow.submit(mtd))
   }
 
   if (isValidElement(children)) {
-    return cloneElement(children as ReactElement<any>, {
+    return cloneElement(children as ReactElement, {
       onClick: () => {
         flow.submit(method)
       },

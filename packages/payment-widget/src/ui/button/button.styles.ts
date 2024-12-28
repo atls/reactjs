@@ -5,7 +5,7 @@ import { createShapeStyles }      from '@atls-ui-parts/button'
 import { ifProp }                 from 'styled-tools'
 import { prop }                   from 'styled-tools'
 
-import { theme }                  from '../theme/src/index'
+import { theme }                  from '../theme/src/index.js'
 
 const buttonDefaultStyles = createAppearanceStyles({
   fontColor: theme.colors.button.default.font,
@@ -25,15 +25,18 @@ const buttonDisabledStyles = createAppearanceStyles({
   borderColor: theme.colors.button.disabled.border,
 })
 
+// eslint-disable-next-line @typescript-eslint/explicit-function-return-type
 const createTransitionStyles = () => () => ({
   transition: '.25s',
 })
 
-const getBaseStyles = () => {
+const getBaseStyles = (): (() => Record<string, unknown>) => {
   const baseStyles = createBaseStyles()
   const transitionStyles = createTransitionStyles()
 
+  // eslint-disable-next-line @typescript-eslint/no-unsafe-return
   return () => ({
+    // eslint-disable-next-line @typescript-eslint/no-unsafe-call
     ...baseStyles(),
     ...transitionStyles(),
   })

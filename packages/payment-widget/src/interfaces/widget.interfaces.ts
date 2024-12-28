@@ -1,16 +1,16 @@
-import { ReactNode }       from 'react'
+import type { ReactNode }       from 'react'
 
-import { AdditionalField } from './fields.interfaces'
-import { ReceiptSettings } from './receipt.interfaces'
-import { Settings }        from './settings.interfaces'
-import { Styles }          from './styles.interfaces'
+import type { AdditionalField } from './fields.interfaces.js'
+import type { ReceiptSettings } from './receipt.interfaces.js'
+import type { Settings }        from './settings.interfaces.js'
+import type { Styles }          from './styles.interfaces.js'
 
 export interface WidgetProps {
   settings: Settings
   amount?: number
   receipt?: ReceiptSettings
   styles?: Styles
-  additionalFields?: AdditionalField[]
+  additionalFields?: Array<AdditionalField>
   disabled?: boolean
   children?: ReactNode
 }

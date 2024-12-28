@@ -1,16 +1,19 @@
-import { ButtonProps }      from '@atls-ui-parts/button'
-import styled               from '@emotion/styled'
-import { FC }               from 'react'
-import { useHover }         from 'react-laag'
-import React                from 'react'
+import type { ButtonProps }  from '@atls-ui-parts/button'
+import type { FC }           from 'react'
 
-import { appearanceStyles } from './button.styles'
-import { contentStyles }    from './button.styles'
-import { baseStyles }       from './button.styles'
-import { shapeStyles }      from './button.styles'
+import styled from '@emotion/styled'
+import { useHover }          from 'react-laag'
+import React                 from 'react'
 
-const ButtonElement = styled('button')<any>(
+import { appearanceStyles }  from './button.styles.js'
+import { contentStyles }     from './button.styles.js'
+import { baseStyles }        from './button.styles.js'
+import { shapeStyles }       from './button.styles.js'
+
+const ButtonElement = (styled.default ?? styled)('button')<ButtonProps>(
+  // @ts-expect-error
   baseStyles,
+  // eslint-disable-next-line @typescript-eslint/no-unsafe-argument
   contentStyles,
   appearanceStyles,
   shapeStyles
@@ -19,6 +22,7 @@ const ButtonElement = styled('button')<any>(
 export const Button: FC<ButtonProps> = ({ children, ...props }) => {
   const [hover, hoverProps] = useHover()
   return (
+    // @ts-expect-error
     <ButtonElement hover={hover} {...hoverProps} {...props}>
       {children}
     </ButtonElement>

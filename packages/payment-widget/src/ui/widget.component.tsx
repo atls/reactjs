@@ -1,21 +1,24 @@
-import { Children }        from 'react'
-import { IntlProvider }    from 'react-intl'
-import { useMemo }         from 'react'
-import React               from 'react'
+import type { ReactNode }   from 'react'
 
-import * as messagesEn     from '../locales/en.json'
-import * as messagesRu     from '../locales/ru.json'
-import { LanguagesType }   from '../enums'
-import { WidgetProps }     from '../interfaces'
-import { Form }            from './form'
-import { FormProvider }    from './form/form.provider'
-import { useCustomButton } from '../hooks'
-import { useCustomFields } from '../hooks'
-import { getNameFields }   from '../utils'
+import type { WidgetProps } from '../interfaces/index.js'
+
+import { Children }         from 'react'
+import { IntlProvider }     from 'react-intl'
+import { useMemo }          from 'react'
+import React                from 'react'
+
+import { LanguagesType }    from '../enums/index.js'
+import { EnLocale }         from '../locales/index.js'
+import { RuLocale }         from '../locales/index.js'
+import { Form }             from './form/index.js'
+import { FormProvider }     from './form/index.js'
+import { useCustomButton }  from '../hooks/index.js'
+import { useCustomFields }  from '../hooks/index.js'
+import { getNameFields }    from '../utils/index.js'
 
 const messages = {
-  [LanguagesType.RUSSIAN]: messagesRu,
-  [LanguagesType.ENGLISH]: messagesEn,
+  [LanguagesType.RUSSIAN]: RuLocale,
+  [LanguagesType.ENGLISH]: EnLocale,
 }
 
 export const Widget = ({
@@ -26,7 +29,7 @@ export const Widget = ({
   styles,
   disabled,
   children,
-}: WidgetProps) => {
+}: WidgetProps): ReactNode => {
   const childrenArray = Children.toArray(children)
   const locale = settings.language ?? LanguagesType.RUSSIAN
   const customFieldsProps = useMemo(
@@ -44,7 +47,12 @@ export const Widget = ({
   const nameFields = getNameFields(customFields)
 
   return (
-    <IntlProvider locale={locale} messages={messages[locale]} defaultLocale={LanguagesType.RUSSIAN}>
+    <IntlProvider
+      locale={locale ?? navigator.language}
+      // @ts-expect-error types mismatch
+      messages={messages[locale]}
+      defaultLocale={LanguagesType.RUSSIAN}
+    >
       <FormProvider
         additionalFields={additionalFields}
         nameFields={nameFields}

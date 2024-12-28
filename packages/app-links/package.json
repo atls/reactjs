@@ -1,6 +1,6 @@
 {
   "name": "@atls/react-app-links",
-  "version": "0.0.2",
+  "version": "0.0.4",
   "license": "BSD-3-Clause",
   "main": "src/index.ts",
   "files": [
@@ -18,9 +18,10 @@
     "@testing-library/jest-dom": "^5.16.1",
     "@testing-library/react": "^12.1.2",
     "@testing-library/react-hooks": "^7.0.2",
-    "@types/react": "18.2.20",
+    "@types/react": "18.3.6",
     "@types/react-dom": "18.2.7",
     "@types/testing-library__jest-dom": "^5.14.2",
+    "@types/tldjs": "2.3.4",
     "react": "^18.2.0",
     "react-dom": "^18.2.0"
   },

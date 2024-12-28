@@ -1,10 +1,10 @@
-import { ReactNode }       from 'react'
+import type { ReactNode }       from 'react'
 
-import { NameField }       from './custom-fields.iterfaces'
-import { Field }           from './fields.interfaces'
-import { FieldsState }     from './fields.interfaces'
-import { FieldsValidator } from './fields.interfaces'
-import { WidgetProps }     from './widget.interfaces'
+import type { NameField }       from './custom-fields.iterfaces.js'
+import type { Field }           from './fields.interfaces.js'
+import type { FieldsState }     from './fields.interfaces.js'
+import type { FieldsValidator } from './fields.interfaces.js'
+import type { WidgetProps }     from './widget.interfaces.js'
 
 export interface FormProps extends WidgetProps {
   useCustomFields: boolean
@@ -12,8 +12,8 @@ export interface FormProps extends WidgetProps {
 }
 
 export interface FormProviderProps {
-  additionalFields?: Field[]
-  nameFields: Field[]
+  additionalFields?: Array<Field>
+  nameFields: Array<Field>
   isGenerateReceipt: boolean
   isGenerateRequiredField: boolean
   disabled: boolean
@@ -21,7 +21,7 @@ export interface FormProviderProps {
 }
 
 export interface FormContext extends FieldsValidator, FieldsState {
-  fields: Field[] | NameField[]
+  fields: Array<Field> | Array<NameField>
   disabled: boolean
   isLoaded: boolean
 }

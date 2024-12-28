@@ -1,6 +1,6 @@
 {
   "name": "@atls/react-api-auth-user",
-  "version": "0.0.4",
+  "version": "0.0.7",
   "license": "BSD 3-Clause",
   "main": "src/index.ts",
   "files": [
@@ -12,8 +12,8 @@
     "postpack": "rm -rf dist"
   },
   "devDependencies": {
-    "@atls/react-user": "workspace:0.1.44",
-    "@types/react": "18.2.20",
+    "@atls/react-user": "workspace:0.1.46",
+    "@types/react": "18.3.6",
     "react": "^18.2.0"
   },
   "peerDependencies": {

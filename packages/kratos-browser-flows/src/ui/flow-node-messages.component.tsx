@@ -1,12 +1,12 @@
-import { UiText }       from '@ory/kratos-client'
-import { ReactElement } from 'react'
-import { FC }           from 'react'
+import type { UiText }       from '@ory/kratos-client'
+import type { ReactElement } from 'react'
+import type { FC }           from 'react'
 
-import { useFlow }      from '../providers'
+import { useFlow }           from '../providers'
 
 export interface FlowNodeMessagesProps {
   name: string
-  children: (messages: Array<UiText>) => ReactElement<any>
+  children: (messages: Array<UiText>) => ReactElement
 }
 
 export const FlowNodeMessages: FC<FlowNodeMessagesProps> = ({ name, children }) => {

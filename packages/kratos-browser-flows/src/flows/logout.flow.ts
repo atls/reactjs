@@ -1,7 +1,7 @@
 import { AbstractFlow } from './abstract.flow'
 
 export class LogoutFlow extends AbstractFlow<any, any> {
-  async load() {
+  async load(): Promise<void> {
     if (typeof window === 'undefined') {
       return
     }

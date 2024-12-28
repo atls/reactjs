@@ -1,1 +1,1 @@
-export * from './fields.data'
+export * from './fields.data.js'

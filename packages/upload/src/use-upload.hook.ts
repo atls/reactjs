@@ -2,9 +2,9 @@ import { GraphQLClient } from 'graphql-request'
 import { gql }           from 'graphql-request'
 import { useMemo }       from 'react'
 
-import { useGatewayUrl } from './use-gateway-url.hook'
+import { useGatewayUrl } from './use-gateway-url.hook.js'
 
-const uploadMutation = gql`
+const uploadMutation = gql/* Graphql */ `
   mutation CreateUpload($input: CreateUploadInput!) {
     createUpload(input: $input) {
       id
@@ -12,7 +12,7 @@ const uploadMutation = gql`
     }
   }
 `
-const confirmMutation = gql`
+const confirmMutation = gql/* Graphql */ `
   mutation ConfirmUpload($input: ConfirmUploadInput!) {
     confirmUpload(input: $input) {
       id
@@ -21,7 +21,7 @@ const confirmMutation = gql`
   }
 `
 
-const upload = async (url: string, file: File) => {
+const upload = async (url: string, file: File): Promise<void> => {
   try {
     await fetch(url, {
       method: 'POST',
@@ -39,15 +39,19 @@ export interface UseUploadProps {
   endpoint?: string
 }
 
-export const useUpload = ({ bucket, endpoint: defaultEndpoint }: UseUploadProps) => {
+export const useUpload = ({
+  bucket,
+  endpoint: defaultEndpoint,
+}: UseUploadProps): ((file: File) => Promise<string>) => {
   const endpoint = useGatewayUrl(defaultEndpoint)
 
-  // eslint-disable-next-line consistent-return
+  // eslint-disable-next-line @typescript-eslint/non-nullable-type-assertion-style
   const client = useMemo(() => {
     if (endpoint)
       return new GraphQLClient(endpoint, {
         credentials: 'include',
       })
+    return null
   }, [endpoint]) as GraphQLClient
 
   return async (file: File) => {
@@ -61,12 +65,12 @@ export const useUpload = ({ bucket, endpoint: defaultEndpoint }: UseUploadProps)
 
     const { id, url } = data.createUpload
 
-    await upload(url, file)
+    await upload(url as string, file)
 
     const confirmData = await client.request(confirmMutation, {
       input: { id },
     })
 
-    return confirmData.confirmUpload
+    return confirmData.confirmUpload as string
   }
 }

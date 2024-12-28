@@ -1,18 +1,21 @@
-import { UiNode }       from '@ory/kratos-client'
-import { ReactElement } from 'react'
-import { FC }           from 'react'
-import { FormEvent }    from 'react'
-import { useMemo }      from 'react'
-import { useState }     from 'react'
-import { useCallback }  from 'react'
+import type { UiNode }       from '@ory/kratos-client'
+import type { ReactElement } from 'react'
+import type { FC }           from 'react'
+import type { FormEvent }    from 'react'
 
-import { useFlow }      from '../providers'
+import { useMemo }           from 'react'
+import { useState }          from 'react'
+import { useCallback }       from 'react'
 
-type OnChangeCallback = (event: FormEvent<HTMLInputElement> | string | any) => void
+import { useFlow }           from '../providers'
+
+// eslint-disable-next-line @typescript-eslint/no-redundant-type-constituents, @typescript-eslint/sort-type-constituents
+type OnChangeCallback = (event: string | FormEvent<HTMLInputElement> | any) => void
 
 export interface FlowNodeProps {
   name: string
-  children: (node: UiNode, value: string | any, callback: OnChangeCallback) => ReactElement<any>
+  // eslint-disable-next-line @typescript-eslint/no-redundant-type-constituents
+  children: (node: UiNode, value: any | string, callback: OnChangeCallback) => ReactElement
 }
 
 export const FlowNode: FC<FlowNodeProps> = ({ name, children }) => {
@@ -21,16 +24,20 @@ export const FlowNode: FC<FlowNodeProps> = ({ name, children }) => {
   // eslint-disable-next-line
   const node = useMemo(() => flow.getNode(name), [name, flow, flow.getState()])
 
+  // eslint-disable-next-line react/hook-use-state
   const [value = '', setValue] = useState(flow.getValue(name))
 
   const onChange = useCallback(
-    (event: FormEvent<HTMLInputElement> | string | any) => {
-      if (event && event.target) {
-        setValue(event.target.value)
-        flow.setValue(name, event.target.value)
+    (event: FormEvent<HTMLInputElement> | string) => {
+      // @ts-expect-error
+      if (event?.target?.value) {
+        // @ts-expect-error
+        setValue(event.target.value as string)
+        // @ts-expect-error
+        flow.setValue(name, event.target.value as string)
       } else {
         setValue(event)
-        flow.setValue(name, event)
+        flow.setValue(name, event as string)
       }
     },
     [name, flow, setValue]

@@ -1,10 +1,10 @@
-export { Widget, ButtonWrapper, InputWrapper, useForm } from './ui'
-export {
+export { Widget, ButtonWrapper, InputWrapper } from "./ui/index.js";
+export type {
   Settings,
   Styles,
   AdditionalField,
   Receipt,
   ReceiptItem,
   DirectionFields,
-} from './interfaces'
-export * from './enums'
+} from "./interfaces/index.js";
+export * from "./enums/index.js";

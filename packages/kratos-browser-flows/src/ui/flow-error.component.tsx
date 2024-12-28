@@ -1,8 +1,8 @@
-import { SelfServiceError } from '@ory/kratos-client'
-import { ReactElement }     from 'react'
-import { FC }               from 'react'
+import type { SelfServiceError } from '@ory/kratos-client'
+import type { ReactElement }     from 'react'
+import type { FC }               from 'react'
 
-import { useFlow }          from '../providers'
+import { useFlow }               from '../providers'
 
 interface SelfServiceErrorProps {
   code?: number
@@ -12,7 +12,7 @@ interface SelfServiceErrorProps {
 }
 
 export interface FlowErrorProps {
-  children: (error: SelfServiceErrorProps) => ReactElement<any>
+  children: (error: SelfServiceErrorProps) => ReactElement
 }
 
 export const FlowError: FC<FlowErrorProps> = ({ children }) => {

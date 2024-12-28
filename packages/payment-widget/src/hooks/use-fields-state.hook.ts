@@ -1,16 +1,17 @@
-import { FormEvent }         from 'react'
-import { useCallback }       from 'react'
-import { useState }          from 'react'
+import type { FormEvent }         from 'react'
 
-import { Field }             from '../interfaces'
-import { FieldsState }       from '../interfaces'
-import { HandleBlurField }   from '../interfaces'
-import { FieldState }        from '../interfaces'
-import { HandleChangeField } from '../interfaces'
-import { FieldsNames }       from '../interfaces'
-import { ValidateField }     from '../interfaces'
+import type { Field }             from '../interfaces/index.js'
+import type { FieldsState }       from '../interfaces/index.js'
+import type { HandleBlurField }   from '../interfaces/index.js'
+import type { FieldState }        from '../interfaces/index.js'
+import type { HandleChangeField } from '../interfaces/index.js'
+import type { FieldsNames }       from '../interfaces/index.js'
+import type { ValidateField }     from '../interfaces/index.js'
 
-export const useFieldsState = (validateField: ValidateField, fields: Field[]): FieldsState => {
+import { useCallback }            from 'react'
+import { useState }               from 'react'
+
+export const useFieldsState = (validateField: ValidateField, fields: Array<Field>): FieldsState => {
   const initialState = fields.reduce((acc, field) => ({ ...acc, [field.name]: '' }), {})
   const [fieldsState, setFieldsState] = useState<FieldState>(initialState as FieldState)
 

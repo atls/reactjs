@@ -1,1 +1,1 @@
-export * from './use-upload.hook'
+export * from './use-upload.hook.js'

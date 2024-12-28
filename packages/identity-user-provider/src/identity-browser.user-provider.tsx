@@ -1,3 +1,5 @@
+import type { FC }          from 'react'
+
 import { useState }         from 'react'
 import { getDomain }        from 'tldjs'
 import React                from 'react'
@@ -8,7 +10,14 @@ import { useBrowserEffect } from './use-browser-effect.hook'
 
 export type BasePathFn = () => string
 
-export type BasePath = string | BasePathFn
+export type BasePath = BasePathFn | string
+
+export type Session = Record<string, any>
+
+export type IdentityBrowserUserProviderProps = {
+  basePath?: BasePath
+  children: React.ReactNode
+}
 
 const locationExtractedBasePath: BasePathFn = () => {
   const { hostname, protocol } = window.location
@@ -19,11 +28,11 @@ const locationExtractedBasePath: BasePathFn = () => {
 
   const domain = getDomain(hostname)
 
-  return `${protocol}//identity.${domain}`
+  return `${protocol}//identity.${domain!}`
 }
 
 export class IdentitySessionsWhoamiUrl {
-  static fromBasePath(basePath: BasePath) {
+  static fromBasePath(basePath: BasePath): string {
     return new URL(
       '/sessions/whoami',
       typeof basePath === 'function' ? basePath() : basePath
@@ -31,7 +40,7 @@ export class IdentitySessionsWhoamiUrl {
   }
 }
 
-export const fetchSession = async (url) => {
+export const fetchSession = async (url: string): Promise<Session | null> => {
   const response = await fetch(url, {
     credentials: 'include',
   })
@@ -43,16 +52,21 @@ export const fetchSession = async (url) => {
       return null
     }
 
-    throw new Error(data.error.message)
+    throw new Error(data.error.message as string)
   }
 
+  // eslint-disable-next-line @typescript-eslint/no-unsafe-return
   return data
 }
 
-export const IdentityBrowserUserProvider = ({ basePath = locationExtractedBasePath, children }) => {
+export const IdentityBrowserUserProvider: FC<IdentityBrowserUserProviderProps> = ({
+  basePath = locationExtractedBasePath,
+  children,
+}) => {
   const [session, setSession] = useState(undefined)
 
   useBrowserEffect(() => {
+    // @ts-expect-error
     fetchSession(IdentitySessionsWhoamiUrl.fromBasePath(basePath)).then(setSession)
   }, [locationExtractedBasePath])
 

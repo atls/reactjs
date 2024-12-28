@@ -1,11 +1,11 @@
-import { ReactNode } from 'react'
+import type { ReactNode } from 'react'
 
-import { Field }     from './fields.interfaces'
+import type { Field }     from './fields.interfaces.js'
 
 export type NameField = Pick<Field, 'name'>
 
 export interface CustomFields {
-  customFields: ReactNode[]
+  customFields: Array<ReactNode>
   isGenerateReceiptField: boolean
   isGenerateRequiredField: boolean
 }
@@ -14,5 +14,5 @@ export interface CustomFieldsProps {
   existAmount: boolean
   existReceipt: boolean
   existAdditionalFields: boolean
-  nodeArray: ReactNode[]
+  nodeArray: Array<ReactNode>
 }

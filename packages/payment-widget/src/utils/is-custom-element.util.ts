@@ -1,8 +1,9 @@
-import { FunctionComponent }    from 'react'
-import { ReactNode }            from 'react'
-import { isValidElement }       from 'react'
+import type { FunctionComponent }    from 'react'
+import type { ReactNode }            from 'react'
 
-import { NameWrapperComponent } from '../enums'
+import type { NameWrapperComponent } from '../enums/index.js'
+
+import { isValidElement }            from 'react'
 
 export const isCustomElement = (nameNode: NameWrapperComponent, node: ReactNode): boolean =>
   isValidElement(node) && typeof node.type === 'function'

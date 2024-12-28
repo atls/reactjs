@@ -1,7 +1,8 @@
-import { FC }           from 'react'
+import type { FC }           from 'react'
 
-import { AppLinkProps } from './app-url.interfaces'
-import { useAppUrl }    from './use-app-url.hook'
+import type { AppLinkProps } from './app-url.interfaces'
+
+import { useAppUrl }         from './use-app-url.hook'
 
 export const AppLink: FC<AppLinkProps> = ({ children, subdomain, pathname }) => {
   const url = useAppUrl({ subdomain, pathname })

@@ -1,11 +1,13 @@
-import { Condition }            from '@atls-ui-parts/condition'
-import { FC }                   from 'react'
-import React                    from 'react'
+import type { FC }                 from 'react'
 
-import { ButtonType }           from '../../enums'
-import { NameWrapperComponent } from '../../enums'
-import { ButtonWrapperProps }   from '../../interfaces'
-import { useForm }              from '../form'
+import type { ButtonWrapperProps } from '../../interfaces/index.js'
+
+import { Condition }               from '@atls-ui-parts/condition'
+import React                       from 'react'
+
+import { ButtonType }              from '../../enums/index.js'
+import { NameWrapperComponent }    from '../../enums/index.js'
+import { useForm }                 from '../form/index.js'
 
 const ButtonWrapper: FC<ButtonWrapperProps> = ({ children }) => {
   const { disabled, isLoaded } = useForm()
