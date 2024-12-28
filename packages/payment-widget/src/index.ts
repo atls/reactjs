@@ -1,4 +1,4 @@
-export { Widget, ButtonWrapper, InputWrapper } from './ui'
+export { Widget, ButtonWrapper, InputWrapper, useForm } from './ui'
 export {
   Settings,
   Styles,
