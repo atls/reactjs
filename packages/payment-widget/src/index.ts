@@ -1,4 +1,4 @@
-export { Widget, ButtonWrapper, InputWrapper } from './ui/index.js'
+export { Widget, ButtonWrapper, InputWrapper, useForm } from './ui/index.js'
 export type {
   Settings,
   Styles,
