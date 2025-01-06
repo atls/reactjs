@@ -28,6 +28,7 @@ export const Widget: FC<PropsWithChildren<WidgetProps>> = ({
   receipt,
   additionalFields,
   styles,
+  children,
   disabled,
 }) => {
   const childrenArray = Children.toArray(children)
