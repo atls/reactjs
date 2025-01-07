@@ -14,11 +14,11 @@
     "csstype": "3.1.2"
   },
   "devDependencies": {
-    "@atls/code-runtime": "2.0.5",
+    "@atls/code-runtime": "2.1.2",
     "@types/node": "22.10.1",
     "@types/testing-library__jest-dom": "5.14.2",
     "eslint": "9.16.0",
     "typescript": "5.4.2"
   },
-  "packageManager": "yarn@4.5.3"
+  "packageManager": "yarn@4.6.0"
 }
