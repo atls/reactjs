@@ -254,6 +254,21 @@ __metadata:
   languageName: unknown
   linkType: soft
 
+"@atls/react-kratos@workspace:packages/react-kratos":
+  version: 0.0.0-use.local
+  resolution: "@atls/react-kratos@workspace:packages/react-kratos"
+  dependencies:
+    "@ory/client": "npm:^1.4.7"
+    "@types/react": "npm:^18.2.45"
+    "@types/react-dom": "npm:^18.2.18"
+    axios: "npm:^1.6.3"
+    react: "npm:^18.2.0"
+    react-dom: "npm:^18.2.0"
+  peerDependencies:
+    react: ^18.0.0
+  languageName: unknown
+  linkType: soft
+
 "@atls/react-upload@workspace:packages/upload":
   version: 0.0.0-use.local
   resolution: "@atls/react-upload@workspace:packages/upload"
@@ -1050,6 +1065,15 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@ory/client@npm:^1.4.7":
+  version: 1.16.2
+  resolution: "@ory/client@npm:1.16.2"
+  dependencies:
+    axios: "npm:^1.6.1"
+  checksum: 10/c91ef46b45adf27adfbe46e0c30b79c1b74342a866075bd877e3b5c4266bfacf4da58648d5eacd28d3ffbebb8e71702145a8b20c253cbee43b05f165d7bfe187
+  languageName: node
+  linkType: hard
+
 "@ory/kratos-client@npm:^0.8.2-alpha.1":
   version: 0.8.2-alpha.1
   resolution: "@ory/kratos-client@npm:0.8.2-alpha.1"
@@ -1606,6 +1630,15 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@types/react-dom@npm:^18.2.18":
+  version: 18.3.5
+  resolution: "@types/react-dom@npm:18.3.5"
+  peerDependencies:
+    "@types/react": ^18.0.0
+  checksum: 10/02095b326f373867498e0eb2b5ebb60f9bd9535db0d757ea13504c4b7d75e16605cf1d43ce7a2e67893d177b51db4357cabb2842fb4257c49427d02da1a14e09
+  languageName: node
+  linkType: hard
+
 "@types/react-test-renderer@npm:>=16.9.0":
   version: 18.3.0
   resolution: "@types/react-test-renderer@npm:18.3.0"
@@ -1633,6 +1666,16 @@ __metadata:
     "@types/scheduler": "npm:^0.16"
     csstype: "npm:^3.0.2"
   checksum: 10/22febc86e465dab9d71f008e8eb29de2bf8688fda18ddf835604cd52d9f76a67200a510dad9516d2c7299083b07af8397c038bead3ab4045913007032c4a9f2c
+  languageName: node
+  linkType: hard
+
+"@types/react@npm:^18.2.45":
+  version: 18.3.18
+  resolution: "@types/react@npm:18.3.18"
+  dependencies:
+    "@types/prop-types": "npm:*"
+    csstype: "npm:^3.0.2"
+  checksum: 10/7fdd8b853e0d291d4138133f93f8d5c333da918e5804afcea61a923aab4bdfc9bb15eb21a5640959b452972b8715ddf10ffb12b3bd071898b9e37738636463f2
   languageName: node
   linkType: hard
 
@@ -2287,6 +2330,17 @@ __metadata:
   dependencies:
     follow-redirects: "npm:^1.14.0"
   checksum: 10/da644592cb6f8f9f8c64fdabd7e1396d6769d7a4c1ea5f8ae8beb5c2eb90a823e3a574352b0b934ac62edc762c0f52647753dc54f7d07279127a7e5c4cd20272
+  languageName: node
+  linkType: hard
+
+"axios@npm:^1.6.1, axios@npm:^1.6.3":
+  version: 1.7.9
+  resolution: "axios@npm:1.7.9"
+  dependencies:
+    follow-redirects: "npm:^1.15.6"
+    form-data: "npm:^4.0.0"
+    proxy-from-env: "npm:^1.1.0"
+  checksum: 10/b7a5f660ea53ba9c2a745bf5ad77ad8bf4f1338e13ccc3f9f09f810267d6c638c03dac88b55dae8dc98b79c57d2d6835be651d58d2af97c174f43d289a9fd007
   languageName: node
   linkType: hard
 

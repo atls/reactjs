@@ -39,6 +39,10 @@ const RAW_RUNTIME_STATE =
       "reference": "workspace:packages/payment-widget"\
     },\
     {\
+      "name": "@atls/react-kratos",\
+      "reference": "workspace:packages/react-kratos"\
+    },\
+    {\
       "name": "@atls/react-upload",\
       "reference": "workspace:packages/upload"\
     },\
@@ -54,6 +58,7 @@ const RAW_RUNTIME_STATE =
     ["@atls/react-app-links", ["virtual:f42b2d1fb02c9471007010ce5032a9d9bf4a9d4954fafbd9bf7342584f7439488d7209d786d2fde08fa973a76de656e34d46b85e283e9a040cb26c73ec051e33#workspace:packages/app-links", "workspace:packages/app-links"]],\
     ["@atls/react-identity-links", ["workspace:packages/identity-links"]],\
     ["@atls/react-identity-user-provider", ["workspace:packages/identity-user-provider"]],\
+    ["@atls/react-kratos", ["workspace:packages/react-kratos"]],\
     ["@atls/react-kratos-browser-flows", ["workspace:packages/kratos-browser-flows"]],\
     ["@atls/react-upload", ["workspace:packages/upload"]],\
     ["@atls/react-user", ["virtual:3ceedfe52a4367336e64693125ab45dbd4d5297af4b0beb13fa80c755b2a8540885a9beb615a2d0b3306600ad96d118e7015dd0916af8a4f315b5ede18134945#workspace:packages/user", "virtual:61d45502fb00c2d6437c52113377823215b16b8b986286560df00c121869319de13add614725457916f0d2ad27356e803697f8dd95c1f32a16bd0baae84b7e2c#workspace:packages/user", "workspace:packages/user"]],\
@@ -477,6 +482,21 @@ const RAW_RUNTIME_STATE =
           ["@types/tldjs", "npm:2.3.4"],\
           ["react", "npm:18.2.0"],\
           ["tldjs", "npm:2.3.1"]\
+        ],\
+        "linkType": "SOFT"\
+      }]\
+    ]],\
+    ["@atls/react-kratos", [\
+      ["workspace:packages/react-kratos", {\
+        "packageLocation": "./packages/react-kratos/",\
+        "packageDependencies": [\
+          ["@atls/react-kratos", "workspace:packages/react-kratos"],\
+          ["@ory/client", "npm:1.16.2"],\
+          ["@types/react", "npm:18.3.18"],\
+          ["@types/react-dom", "virtual:5ae7006ccced940e0e3491e89bed1b1b138f41689e69aeb4689d23c1668ac1f0cce665adfcc35eb03e7b2b737bff1515a32584a33181bb4e5d038906eb3cbf6f#npm:18.3.5"],\
+          ["axios", "npm:1.7.9"],\
+          ["react", "npm:18.3.1"],\
+          ["react-dom", "virtual:5ae7006ccced940e0e3491e89bed1b1b138f41689e69aeb4689d23c1668ac1f0cce665adfcc35eb03e7b2b737bff1515a32584a33181bb4e5d038906eb3cbf6f#npm:18.3.1"]\
         ],\
         "linkType": "SOFT"\
       }]\
@@ -1495,6 +1515,16 @@ const RAW_RUNTIME_STATE =
         "linkType": "HARD"\
       }]\
     ]],\
+    ["@ory/client", [\
+      ["npm:1.16.2", {\
+        "packageLocation": "../.yarn/berry/cache/@ory-client-npm-1.16.2-119c4f07af-10.zip/node_modules/@ory/client/",\
+        "packageDependencies": [\
+          ["@ory/client", "npm:1.16.2"],\
+          ["axios", "npm:1.7.9"]\
+        ],\
+        "linkType": "HARD"\
+      }]\
+    ]],\
     ["@ory/kratos-client", [\
       ["npm:0.8.2-alpha.1", {\
         "packageLocation": "../.yarn/berry/cache/@ory-kratos-client-npm-0.8.2-alpha.1-8d2a5db47c-10.zip/node_modules/@ory/kratos-client/",\
@@ -2321,6 +2351,15 @@ const RAW_RUNTIME_STATE =
       }]\
     ]],\
     ["@types/react", [\
+      ["npm:18.3.18", {\
+        "packageLocation": "../.yarn/berry/cache/@types-react-npm-18.3.18-2cfc7440b2-10.zip/node_modules/@types/react/",\
+        "packageDependencies": [\
+          ["@types/react", "npm:18.3.18"],\
+          ["@types/prop-types", "npm:15.7.12"],\
+          ["csstype", "npm:3.1.3"]\
+        ],\
+        "linkType": "HARD"\
+      }],\
       ["npm:18.3.6", {\
         "packageLocation": "../.yarn/berry/cache/@types-react-npm-18.3.6-d67dc556d4-10.zip/node_modules/@types/react/",\
         "packageDependencies": [\
@@ -2345,6 +2384,24 @@ const RAW_RUNTIME_STATE =
         "packageDependencies": [\
           ["@types/react-dom", "npm:18.3.0"],\
           ["@types/react", "npm:18.3.6"]\
+        ],\
+        "linkType": "HARD"\
+      }],\
+      ["npm:18.3.5", {\
+        "packageLocation": "../.yarn/berry/cache/@types-react-dom-npm-18.3.5-b1c4b786e6-10.zip/node_modules/@types/react-dom/",\
+        "packageDependencies": [\
+          ["@types/react-dom", "npm:18.3.5"]\
+        ],\
+        "linkType": "SOFT"\
+      }],\
+      ["virtual:5ae7006ccced940e0e3491e89bed1b1b138f41689e69aeb4689d23c1668ac1f0cce665adfcc35eb03e7b2b737bff1515a32584a33181bb4e5d038906eb3cbf6f#npm:18.3.5", {\
+        "packageLocation": "./.yarn/__virtual__/@types-react-dom-virtual-d4cad70a15/2/.yarn/berry/cache/@types-react-dom-npm-18.3.5-b1c4b786e6-10.zip/node_modules/@types/react-dom/",\
+        "packageDependencies": [\
+          ["@types/react-dom", "virtual:5ae7006ccced940e0e3491e89bed1b1b138f41689e69aeb4689d23c1668ac1f0cce665adfcc35eb03e7b2b737bff1515a32584a33181bb4e5d038906eb3cbf6f#npm:18.3.5"],\
+          ["@types/react", "npm:18.3.18"]\
+        ],\
+        "packagePeers": [\
+          "@types/react"\
         ],\
         "linkType": "HARD"\
       }]\
@@ -3159,6 +3216,16 @@ const RAW_RUNTIME_STATE =
         "packageLocation": "../.yarn/berry/cache/axios-npm-1.7.7-cfbedc233d-10.zip/node_modules/axios/",\
         "packageDependencies": [\
           ["axios", "npm:1.7.7"],\
+          ["follow-redirects", "virtual:e278873748b4e9d158db595d2f6cb0351c74052f52b53924aec4d9299e7b6babfb62aead374cf2f6e453bc8bea3b052380dc6b1137a162bbfc102bbb1c8cac42#npm:1.15.9"],\
+          ["form-data", "npm:4.0.1"],\
+          ["proxy-from-env", "npm:1.1.0"]\
+        ],\
+        "linkType": "HARD"\
+      }],\
+      ["npm:1.7.9", {\
+        "packageLocation": "../.yarn/berry/cache/axios-npm-1.7.9-3c98466f87-10.zip/node_modules/axios/",\
+        "packageDependencies": [\
+          ["axios", "npm:1.7.9"],\
           ["follow-redirects", "virtual:e278873748b4e9d158db595d2f6cb0351c74052f52b53924aec4d9299e7b6babfb62aead374cf2f6e453bc8bea3b052380dc6b1137a162bbfc102bbb1c8cac42#npm:1.15.9"],\
           ["form-data", "npm:4.0.1"],\
           ["proxy-from-env", "npm:1.1.0"]\
@@ -6856,6 +6923,21 @@ const RAW_RUNTIME_STATE =
           ["@types/react", "npm:18.3.6"],\
           ["loose-envify", "npm:1.4.0"],\
           ["react", "npm:18.2.0"],\
+          ["scheduler", "npm:0.23.2"]\
+        ],\
+        "packagePeers": [\
+          "@types/react",\
+          "react"\
+        ],\
+        "linkType": "HARD"\
+      }],\
+      ["virtual:5ae7006ccced940e0e3491e89bed1b1b138f41689e69aeb4689d23c1668ac1f0cce665adfcc35eb03e7b2b737bff1515a32584a33181bb4e5d038906eb3cbf6f#npm:18.3.1", {\
+        "packageLocation": "./.yarn/__virtual__/react-dom-virtual-92fc6d5f4c/2/.yarn/berry/cache/react-dom-npm-18.3.1-a805663f38-10.zip/node_modules/react-dom/",\
+        "packageDependencies": [\
+          ["react-dom", "virtual:5ae7006ccced940e0e3491e89bed1b1b138f41689e69aeb4689d23c1668ac1f0cce665adfcc35eb03e7b2b737bff1515a32584a33181bb4e5d038906eb3cbf6f#npm:18.3.1"],\
+          ["@types/react", "npm:18.3.18"],\
+          ["loose-envify", "npm:1.4.0"],\
+          ["react", "npm:18.3.1"],\
           ["scheduler", "npm:0.23.2"]\
         ],\
         "packagePeers": [\
