@@ -1,5 +1,12 @@
 
 
+## [0.0.2](https://github.com/atls/reactjs/compare/@atls/react-kratos@0.0.0...@atls/react-kratos@0.0.2) (2025-01-22)
+
+
+
+
+
+
 # 0.0.0 (2025-01-22)
 
 

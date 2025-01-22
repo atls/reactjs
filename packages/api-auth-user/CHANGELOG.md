@@ -1,5 +1,12 @@
 
 
+## [0.0.9](https://github.com/atls/reactjs/compare/@atls/react-api-auth-user@0.0.7...@atls/react-api-auth-user@0.0.9) (2025-01-22)
+
+
+
+
+
+
 ## 0.0.7 (2025-01-22)
 
 

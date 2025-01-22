@@ -1,5 +1,12 @@
 
 
+## [0.0.6](https://github.com/atls/reactjs/compare/@atls/react-identity-user-provider@0.0.5...@atls/react-identity-user-provider@0.0.6) (2025-01-22)
+
+
+
+
+
+
 ## 0.0.5 (2025-01-22)
 
 
