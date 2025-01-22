@@ -18,7 +18,8 @@
     "@types/node": "22.10.1",
     "@types/testing-library__jest-dom": "5.14.2",
     "eslint": "9.16.0",
-    "typescript": "5.4.2"
+    "typescript": "5.5.4"
   },
-  "packageManager": "yarn@4.6.0"
+  "packageManager": "yarn@4.6.0",
+  "typecheckSkipLibCheck": true
 }

@@ -1,5 +1,7 @@
 import type { InputProps as BaseInputProps } from '@atls-ui-parts/input'
 import type { ForwardRefRenderFunction }     from 'react'
+import type { MutableRefObject }             from 'react'
+import type { HTMLInputTypeAttribute }       from 'react'
 
 import { Condition }                         from '@atls-ui-parts/condition'
 import { RawInput }                          from '@atls-ui-parts/input'
@@ -20,7 +22,7 @@ import { baseStyles }                        from './input.styles.js'
 import { shapeStyles }                       from './input.styles.js'
 import { transitionStyles }                  from './input.styles.js'
 
-export const InputElement = (styled.default ?? styled).div<any>(
+export const InputElement = (styled.default ?? styled).div(
   // eslint-disable-next-line @typescript-eslint/no-unsafe-argument
   baseStyles,
   shapeStyles,
@@ -29,7 +31,11 @@ export const InputElement = (styled.default ?? styled).div<any>(
   layout
 )
 
-const Container = (styled.default ?? styled).div(({ type }: any) => ({
+const Container = (styled.default ?? styled).div(({
+  type,
+}: {
+  type: HTMLInputTypeAttribute | undefined
+}) => ({
   display: type === 'hidden' ? 'none' : 'flex',
   width: '100%',
   flexDirection: 'column',
@@ -65,21 +71,15 @@ export const InputWithoutRef: ForwardRefRenderFunction<HTMLInputElement, InputPr
   return (
     <Container
       type={type}
-      // eslint-disable-next-line @typescript-eslint/explicit-function-return-type
       onClick={() => {
-        // eslint-disable-next-line @typescript-eslint/no-unsafe-call
-        ;(ref as any).current.focus()
+        ;(ref as MutableRefObject<HTMLInputElement | null>).current?.focus()
       }}
-      // eslint-disable-next-line @typescript-eslint/explicit-function-return-type
       onBlur={() => {
-        // eslint-disable-next-line @typescript-eslint/no-unsafe-call
-        ;(ref as any).current.blur()
+        ;(ref as MutableRefObject<HTMLInputElement | null>).current?.blur()
         setFocus(false)
       }}
-      // eslint-disable-next-line @typescript-eslint/explicit-function-return-type
       onFocus={() => {
-        // eslint-disable-next-line @typescript-eslint/no-unsafe-call
-        ;(ref as any).current.focus()
+        ;(ref as MutableRefObject<HTMLInputElement | null>).current?.focus()
         setFocus(true)
       }}
       {...hoverProps}
@@ -94,7 +94,7 @@ export const InputWithoutRef: ForwardRefRenderFunction<HTMLInputElement, InputPr
           // eslint-disable-next-line react/jsx-sort-props
           onChange={changeValue}
           // eslint-disable-next-line react/jsx-no-leaked-render
-          placeholder={required ? `${placeholder!}*` : placeholder}
+          placeholder={required ? `${placeholder}*` : placeholder}
           {...props}
         />
       </InputElement>

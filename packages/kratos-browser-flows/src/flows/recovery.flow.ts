@@ -39,9 +39,9 @@ export class RecoveryFlow extends AbstractFlow<
     } catch (error) {
       this.setLoading(false)
 
-      // eslint-disable-next-line @typescript-eslint/no-unnecessary-type-assertion
+      // eslint-disable-next-line @typescript-eslint/non-nullable-type-assertion-style
       const { status } = (error as AxiosError<SelfServiceRecoveryFlow>)
-        .response! as AxiosResponse<SelfServiceRecoveryFlow>
+        .response as AxiosResponse<SelfServiceRecoveryFlow>
 
       if (status === 410) {
         this.complete(window.location.pathname)
@@ -76,9 +76,9 @@ export class RecoveryFlow extends AbstractFlow<
       this.setValues(data)
       this.emit('load', data)
     } catch (error) {
-      // eslint-disable-next-line @typescript-eslint/no-unnecessary-type-assertion
+      // eslint-disable-next-line @typescript-eslint/non-nullable-type-assertion-style
       const { data, status } = (error as AxiosError<SelfServiceRecoveryFlow>)
-        .response! as AxiosResponse<SelfServiceRecoveryFlow>
+        .response as AxiosResponse<SelfServiceRecoveryFlow>
 
       if (status === 400) {
         this.setState(data)

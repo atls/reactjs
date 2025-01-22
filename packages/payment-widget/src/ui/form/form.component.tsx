@@ -1,4 +1,5 @@
 import type { FormEventHandler } from 'react'
+import type { JSX }              from 'react'
 
 import type { FormProps }        from '../../interfaces/index.js'
 

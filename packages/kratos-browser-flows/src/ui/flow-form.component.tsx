@@ -13,7 +13,6 @@ export interface FlowFormProps extends HTMLAttributes<HTMLFormElement> {}
 export const FlowForm: FC<PropsWithChildren<FlowFormProps>> = ({ children, ...props }) => {
   const flow = useFlow()
 
-  // eslint-disable-next-line
   const ui = useMemo(() => flow.getState()?.ui, [flow.getState()])
 
   if (!ui) {

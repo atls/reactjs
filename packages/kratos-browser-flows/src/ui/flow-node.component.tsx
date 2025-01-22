@@ -9,19 +9,18 @@ import { useCallback }       from 'react'
 
 import { useFlow }           from '../providers'
 
-// eslint-disable-next-line @typescript-eslint/no-redundant-type-constituents, @typescript-eslint/sort-type-constituents
-type OnChangeCallback = (event: string | FormEvent<HTMLInputElement> | any) => void
+// eslint-disable-next-line @typescript-eslint/sort-type-constituents
+type OnChangeCallback = (event: string | FormEvent<HTMLInputElement>) => void
 
 export interface FlowNodeProps {
   name: string
-  // eslint-disable-next-line @typescript-eslint/no-redundant-type-constituents
-  children: (node: UiNode, value: any | string, callback: OnChangeCallback) => ReactElement
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  children: (node: UiNode, value: any, callback: OnChangeCallback) => ReactElement
 }
 
 export const FlowNode: FC<FlowNodeProps> = ({ name, children }) => {
   const flow = useFlow()
 
-  // eslint-disable-next-line
   const node = useMemo(() => flow.getNode(name), [name, flow, flow.getState()])
 
   // eslint-disable-next-line react/hook-use-state
@@ -29,11 +28,8 @@ export const FlowNode: FC<FlowNodeProps> = ({ name, children }) => {
 
   const onChange = useCallback(
     (event: FormEvent<HTMLInputElement> | string) => {
-      // @ts-expect-error
-      if (event?.target?.value) {
-        // @ts-expect-error
+      if (typeof event === 'object' && 'value' in event.target && event.target.value) {
         setValue(event.target.value as string)
-        // @ts-expect-error
         flow.setValue(name, event.target.value as string)
       } else {
         setValue(event)

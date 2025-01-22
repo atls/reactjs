@@ -3,7 +3,7 @@ import type { HTMLInputTypeAttribute } from 'react'
 
 import type { AdditionalFieldsType }   from '../enums/index.js'
 import type { RequiredFieldsType }     from '../enums/index.js'
-import type { DirectionFields }        from './styles.interfaces.js'
+import type { DirectionFields }        from './styles.enum.js'
 
 export type FieldsNames = AdditionalFieldsType | RequiredFieldsType
 export type FieldState = Record<FieldsNames, string>
@@ -26,9 +26,7 @@ export interface RequiredField extends Field {
   name: RequiredFieldsType
 }
 
-export type FieldsErrors = {
-  [key in FieldsNames]: string
-}
+export type FieldsErrors = Record<FieldsNames, string>
 
 export interface FieldsProps {
   amount?: number

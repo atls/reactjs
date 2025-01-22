@@ -19,15 +19,15 @@ export const useFlow = (): Flow => {
   useEffect(() => {
     flow.load()
 
-    // @ts-expect-error
-    const callback = (flowState): void => {
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    const callback = (flowState: any): void => {
       // eslint-disable-next-line @typescript-eslint/no-unsafe-argument
       setState(flowState)
     }
 
     flow.on('load', callback)
 
-    return () => {
+    return (): void => {
       flow.off('load', callback)
     }
   }, [flow])

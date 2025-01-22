@@ -13,7 +13,7 @@ export const useAppUrl = ({ subdomain, pathname = '/' }: UseAppUrlProps = {}): s
 
     const domain = getDomain(hostname)
 
-    const origin = subdomain ? `${protocol}//${subdomain}.${domain!}` : `${protocol}//${domain!}`
+    const origin = subdomain ? `${protocol}//${subdomain}.${domain}` : `${protocol}//${domain}`
 
     setUrl(`${origin}${pathname}`)
   }, [subdomain, pathname])

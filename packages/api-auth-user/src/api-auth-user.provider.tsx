@@ -7,6 +7,7 @@ import React              from 'react'
 
 import { UserProvider }   from '@atls/react-user'
 
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
 type Session = any
 
 interface ApiAuthUserProviderProps {
@@ -18,7 +19,6 @@ const fetchSession = async (url: string): Promise<Session> => {
   const response = await fetch(url)
   const text = await response.text()
 
-  // eslint-disable-next-line @typescript-eslint/no-unsafe-return
   return text ? JSON.parse(text) : null
 }
 

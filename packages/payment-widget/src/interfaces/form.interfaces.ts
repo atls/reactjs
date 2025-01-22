@@ -1,6 +1,6 @@
 import type { ReactNode }       from 'react'
 
-import type { NameField }       from './custom-fields.iterfaces.js'
+import type { NameField }       from './custom-fields.interfaces.js'
 import type { Field }           from './fields.interfaces.js'
 import type { FieldsState }     from './fields.interfaces.js'
 import type { FieldsValidator } from './fields.interfaces.js'

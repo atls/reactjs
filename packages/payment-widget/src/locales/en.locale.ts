@@ -1,4 +1,4 @@
-import type { Locale } from './locale.interaces.js'
+import type { Locale } from './locale.interfaces.js'
 
 export const EnLocale: Locale = {
   'payment_widget.pay': 'Pay',

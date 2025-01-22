@@ -26,7 +26,7 @@ export const useInit = (): boolean => {
     document.body.appendChild(script)
 
     /* eslint-disable consistent-return */
-    return () => {
+    return (): void => {
       document.body.removeChild(script)
     }
   }, [TINKOFF_SCRIPT_URL])
