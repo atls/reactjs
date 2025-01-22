@@ -78,7 +78,7 @@ const RAW_RUNTIME_STATE =
           ["@types/testing-library__jest-dom", "npm:5.14.2"],\
           ["csstype", "npm:3.1.2"],\
           ["eslint", "virtual:d0462f4d45d190060ad2c218f496eba0b0e39b2c277fb32d8fbec802a5cf5dbeff970e85bef09ed059124f600357227a21741b182c62e69cfc4765edbedae80f#npm:9.16.0"],\
-          ["typescript", "patch:typescript@npm%3A5.4.2#optional!builtin<compat/typescript>::version=5.4.2&hash=5adc0c"]\
+          ["typescript", "patch:typescript@npm%3A5.5.4#optional!builtin<compat/typescript>::version=5.5.4&hash=379a07"]\
         ],\
         "linkType": "SOFT"\
       }]\
@@ -7095,7 +7095,7 @@ const RAW_RUNTIME_STATE =
           ["@types/testing-library__jest-dom", "npm:5.14.2"],\
           ["csstype", "npm:3.1.2"],\
           ["eslint", "virtual:d0462f4d45d190060ad2c218f496eba0b0e39b2c277fb32d8fbec802a5cf5dbeff970e85bef09ed059124f600357227a21741b182c62e69cfc4765edbedae80f#npm:9.16.0"],\
-          ["typescript", "patch:typescript@npm%3A5.4.2#optional!builtin<compat/typescript>::version=5.4.2&hash=5adc0c"]\
+          ["typescript", "patch:typescript@npm%3A5.5.4#optional!builtin<compat/typescript>::version=5.5.4&hash=379a07"]\
         ],\
         "linkType": "SOFT"\
       }]\
@@ -8198,13 +8198,6 @@ const RAW_RUNTIME_STATE =
       }]\
     ]],\
     ["typescript", [\
-      ["patch:typescript@npm%3A5.4.2#optional!builtin<compat/typescript>::version=5.4.2&hash=5adc0c", {\
-        "packageLocation": "../.yarn/berry/cache/typescript-patch-c145cea93e-10.zip/node_modules/typescript/",\
-        "packageDependencies": [\
-          ["typescript", "patch:typescript@npm%3A5.4.2#optional!builtin<compat/typescript>::version=5.4.2&hash=5adc0c"]\
-        ],\
-        "linkType": "HARD"\
-      }],\
       ["patch:typescript@npm%3A5.5.4#optional!builtin<compat/typescript>::version=5.5.4&hash=379a07", {\
         "packageLocation": "../.yarn/berry/cache/typescript-patch-fe43cd9db9-10.zip/node_modules/typescript/",\
         "packageDependencies": [\
