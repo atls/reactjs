@@ -1,9 +1,6 @@
-import type { ButtonProps } from '@atls-ui-parts/button'
+import type { ButtonProps }     from '@atls-ui-parts/button'
 
-export enum DirectionFields {
-  Row = 'row',
-  Column = 'column',
-}
+import type { DirectionFields } from './styles.enum.js'
 
 export interface Styles {
   direction?: DirectionFields

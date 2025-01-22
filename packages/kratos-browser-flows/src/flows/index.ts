@@ -1,4 +1,4 @@
-export * from './flow.interfaces'
+export type * from './flow.interfaces'
 export * from './registration.flow'
 export * from './verification.flow'
 export * from './recovery.flow'

@@ -6,6 +6,7 @@ import { useContext }     from 'react'
 import { Context }        from './user.context'
 
 export interface WithUserProps {
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   children: ReactNode | ((user: any) => ReactNode)
 }
 

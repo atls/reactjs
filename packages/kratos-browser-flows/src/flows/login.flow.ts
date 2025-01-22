@@ -33,10 +33,9 @@ export class LoginFlow extends AbstractFlow<SelfServiceLoginFlow, SubmitSelfServ
       this.emit('load', data)
     } catch (error) {
       this.setLoading(false)
-
-      // eslint-disable-next-line @typescript-eslint/no-unnecessary-type-assertion
+      // eslint-disable-next-line @typescript-eslint/non-nullable-type-assertion-style
       const { status } = (error as AxiosError<SelfServiceLoginFlow>)
-        .response! as AxiosResponse<SelfServiceLoginFlow>
+        .response as AxiosResponse<SelfServiceLoginFlow>
 
       if (status === 400) {
         this.complete()
@@ -62,9 +61,9 @@ export class LoginFlow extends AbstractFlow<SelfServiceLoginFlow, SubmitSelfServ
 
       this.complete()
     } catch (error) {
-      // eslint-disable-next-line @typescript-eslint/no-unnecessary-type-assertion
+      // eslint-disable-next-line @typescript-eslint/non-nullable-type-assertion-style
       const { data, status } = (error as AxiosError<SelfServiceLoginFlow>)
-        .response! as AxiosResponse<SelfServiceLoginFlow>
+        .response as AxiosResponse<SelfServiceLoginFlow>
 
       if (status === 400) {
         this.setState(data)

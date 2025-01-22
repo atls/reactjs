@@ -14,7 +14,7 @@ export class ValuesStore extends EventEmitter {
     this.setMaxListeners(50)
   }
 
-  getValue(name: keyof Body): any {
+  getValue(name: keyof Body): string {
     return this.#values[name]
   }
 

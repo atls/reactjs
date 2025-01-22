@@ -13,10 +13,9 @@ describe('identity-link.component', () => {
   const originalLocation = window.location
 
   const mockWindowLocation = (newLocation: Location | URL | string): void => {
-    // @ts-expect-error
+    // @ts-expect-error location can be optional
     delete window.location
-    // @ts-expect-error
-    window.location = newLocation
+    window.location = newLocation as Location | (Location & string)
   }
 
   afterEach(() => {
@@ -27,7 +26,6 @@ describe('identity-link.component', () => {
     mockWindowLocation(new URL('https://identity.monstrs.dev'))
 
     const { getByText } = render(
-      // eslint-disable-next-line @typescript-eslint/explicit-function-return-type
       <IdentityLink returnTo>{(url) => <a href={url}>Login</a>}</IdentityLink>
     )
 

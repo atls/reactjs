@@ -39,9 +39,9 @@ export class RegistrationFlow extends AbstractFlow<
     } catch (error) {
       this.setLoading(false)
 
-      // eslint-disable-next-line @typescript-eslint/no-unnecessary-type-assertion
+      // eslint-disable-next-line @typescript-eslint/non-nullable-type-assertion-style
       const { status } = (error as AxiosError<SelfServiceRegistrationFlow>)
-        .response! as AxiosResponse<SelfServiceRegistrationFlow>
+        .response as AxiosResponse<SelfServiceRegistrationFlow>
 
       if (status === 410) {
         this.complete(window.location.pathname)
@@ -69,9 +69,9 @@ export class RegistrationFlow extends AbstractFlow<
 
       this.complete()
     } catch (error) {
-      // eslint-disable-next-line @typescript-eslint/no-unnecessary-type-assertion
+      // eslint-disable-next-line @typescript-eslint/non-nullable-type-assertion-style
       const { data, status } = (error as AxiosError<SelfServiceRegistrationFlow>)
-        .response! as AxiosResponse<SelfServiceRegistrationFlow>
+        .response as AxiosResponse<SelfServiceRegistrationFlow>
 
       if (status === 400) {
         this.setState(data)

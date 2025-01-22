@@ -82,7 +82,7 @@ export const LoginNativeFlow = ({
 
       try {
         const { data } = await sdk.updateLoginFlow({
-          flow: flow!.id,
+          flow: String(flow?.id),
           updateLoginFlowBody: body,
           xSessionToken: sessionToken,
         })

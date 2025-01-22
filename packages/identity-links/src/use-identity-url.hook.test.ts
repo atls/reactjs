@@ -10,10 +10,9 @@ describe('use-identity-url', () => {
   const originalLocation = window.location
 
   const mockWindowLocation = (newLocation: Location | URL | string): void => {
-    // @ts-expect-error
+    // @ts-expect-error location can be optional
     delete window.location
-    // @ts-expect-error
-    window.location = newLocation
+    window.location = newLocation as Location | (Location & string)
   }
 
   afterEach(() => {

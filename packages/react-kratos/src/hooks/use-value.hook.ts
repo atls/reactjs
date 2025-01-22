@@ -11,7 +11,7 @@ export const useValue = (
 ): [string, (value: Date | boolean | number | string) => void] => {
   const values = useValues()
 
-  const [value, setValue] = useState<string>(values.getValue(name as keyof Body) as string)
+  const [value, setValue] = useState<string>(values.getValue(name as keyof Body))
 
   useEffect(() => {
     values.on(name, setValue)

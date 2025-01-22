@@ -1,5 +1,8 @@
-import { AbstractFlow } from './abstract.flow'
+import type { SelfServiceFlow } from './flow.interfaces'
 
+import { AbstractFlow }         from './abstract.flow'
+
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
 export class ErrorsFlow extends AbstractFlow<any, any> {
   async load(): Promise<void> {
     if (typeof window === 'undefined') {
@@ -21,12 +24,12 @@ export class ErrorsFlow extends AbstractFlow<any, any> {
         const { data } = await this.client.getSelfServiceError(flowId, { withCredentials: true })
 
         this.setLoading(false)
-        this.setState(data)
+        this.setState(data as SelfServiceFlow)
         this.setValues(data)
 
         this.emit('load', data)
       }
-    } catch (error) {
+    } catch {
       this.setLoading(false)
 
       this.complete()

@@ -12,6 +12,7 @@ export type BasePathFn = () => string
 
 export type BasePath = BasePathFn | string
 
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
 export type Session = Record<string, any>
 
 export type IdentityBrowserUserProviderProps = {
@@ -28,7 +29,7 @@ const locationExtractedBasePath: BasePathFn = () => {
 
   const domain = getDomain(hostname)
 
-  return `${protocol}//identity.${domain!}`
+  return `${protocol}//identity.${domain}`
 }
 
 export class IdentitySessionsWhoamiUrl {
@@ -63,10 +64,9 @@ export const IdentityBrowserUserProvider: FC<IdentityBrowserUserProviderProps> =
   basePath = locationExtractedBasePath,
   children,
 }) => {
-  const [session, setSession] = useState(undefined)
+  const [session, setSession] = useState<Session | null>(null)
 
   useBrowserEffect(() => {
-    // @ts-expect-error
     fetchSession(IdentitySessionsWhoamiUrl.fromBasePath(basePath)).then(setSession)
   }, [locationExtractedBasePath])
 

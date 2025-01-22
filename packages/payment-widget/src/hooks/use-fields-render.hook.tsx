@@ -29,25 +29,21 @@ export const useFieldsRenderer = (
   return (
     <ThemeProvider>
       {fields.map((field, index, currentFields) => {
-        const translatePlaceholder = translate(
-          intl,
-          // @ts-expect-error
-          field.placeholder as string,
-          // @ts-expect-error
-          field.placeholder as string
-        )
+        const translatePlaceholder =
+          'placeholder' in field && field.placeholder
+            ? translate(intl, field.placeholder, field.placeholder)
+            : ''
         const translateError = translate(intl, errors[field.name], errors[field.name])
         const isNotLastField = index !== currentFields.length - 1
 
         return (
           <React.Fragment key={field.name}>
             <MemoizedInput
-              // @ts-expect-error
-              type={field.type ?? 'text'}
+              type={'type' in field ? field.type : 'text'}
               name={field.name}
               placeholder={translatePlaceholder}
-              // @ts-expect-error
-              required={field.required ?? false}
+              // eslint-disable-next-line react/jsx-no-leaked-render
+              required={'required' in field ? field.required : false}
               value={fieldsState[field.name]}
               errorText={translateError}
               onChangeNative={handleChange}

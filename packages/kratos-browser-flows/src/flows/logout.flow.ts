@@ -1,5 +1,6 @@
 import { AbstractFlow } from './abstract.flow'
 
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
 export class LogoutFlow extends AbstractFlow<any, any> {
   async load(): Promise<void> {
     if (typeof window === 'undefined') {

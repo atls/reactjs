@@ -73,7 +73,7 @@ export const RegistrationNativeFlow = ({
 
       try {
         const { data } = await sdk.updateRegistrationFlow({
-          flow: flow!.id,
+          flow: String(flow?.id),
           updateRegistrationFlowBody: body,
         })
 

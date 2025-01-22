@@ -1,4 +1,4 @@
-import { Locale } from './locale.interaces.js'
+import type { Locale } from './locale.interfaces.js'
 
 export const RuLocale: Locale = {
   'payment_widget.pay': 'Оплатить',

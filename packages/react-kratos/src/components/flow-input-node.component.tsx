@@ -33,7 +33,7 @@ export const FlowInputNode = ({
     if (!value && defaultValue) {
       setValue(defaultValue)
     }
-  }, [defaultValue]) // eslint-disable-line react-hooks/exhaustive-deps
+  }, [defaultValue])
 
   const onChange = useCallback(
     (event: Date | boolean | number | string) => {

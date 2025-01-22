@@ -53,6 +53,7 @@ export interface Flow extends EventEmitter {
 
   getNodesGroup: (group: string) => Array<UiNode>
 
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   getValue: (name: string) => any
 
   setValue: (name: string, value: string) => void

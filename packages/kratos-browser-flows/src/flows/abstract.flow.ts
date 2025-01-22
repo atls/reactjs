@@ -36,9 +36,8 @@ export abstract class AbstractFlow<
     return this.#loading
   }
 
-  // @ts-expect-error
-  setState(state: State): void {
-    this.#state = state
+  setState(state: SelfServiceFlow): void {
+    this.#state = state as State
   }
 
   hasState(): boolean {
@@ -71,9 +70,8 @@ export abstract class AbstractFlow<
     return this.#state?.ui?.nodes?.filter((node) => node.group === group) || []
   }
 
-  getValue(name: string): any {
-    // @ts-expect-error
-    return this.#values[name] as string
+  getValue(name: string): string {
+    return this.#values[name as keyof Body] as string
   }
 
   getValues(): Body {
@@ -81,16 +79,13 @@ export abstract class AbstractFlow<
   }
 
   setValue(name: string, value: string): void {
-    // @ts-expect-error
-    this.#values[name] = value
+    this.#values[name as keyof Body] = value as Body[keyof Body]
   }
 
   protected setValues(state: State): void {
     state?.ui?.nodes?.forEach(({ attributes }) => {
-      // @ts-expect-error
-      if (!this.#values[(attributes as UiNodeInputAttributes).name]) {
-        // @ts-expect-error
-        this.#values[(attributes as UiNodeInputAttributes).name] =
+      if (!this.#values[(attributes as UiNodeInputAttributes).name as keyof Body]) {
+        this.#values[(attributes as UiNodeInputAttributes).name as keyof Body] =
           (attributes as UiNodeInputAttributes).value || ''
       }
     })
