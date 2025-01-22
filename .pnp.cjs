@@ -492,6 +492,7 @@ const RAW_RUNTIME_STATE =
         "packageDependencies": [\
           ["@atls/react-kratos", "workspace:packages/react-kratos"],\
           ["@ory/client", "npm:1.16.2"],\
+          ["@types/node", "npm:22.10.1"],\
           ["@types/react", "npm:18.3.18"],\
           ["@types/react-dom", "virtual:5ae7006ccced940e0e3491e89bed1b1b138f41689e69aeb4689d23c1668ac1f0cce665adfcc35eb03e7b2b737bff1515a32584a33181bb4e5d038906eb3cbf6f#npm:18.3.5"],\
           ["axios", "npm:1.7.9"],\
