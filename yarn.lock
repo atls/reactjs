@@ -258,8 +258,8 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@atls/react-kratos@workspace:packages/react-kratos"
   dependencies:
-    "@ory/client": "npm:^1.4.7"
-    "@types/node": "npm:22.10.1"
+    "@ory/client": "npm:^1.16.2"
+    "@types/node": "npm:^22.10.1"
     "@types/react": "npm:^18.2.45"
     "@types/react-dom": "npm:^18.2.18"
     axios: "npm:^1.6.3"
@@ -1066,7 +1066,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@ory/client@npm:^1.4.7":
+"@ory/client@npm:^1.16.2":
   version: 1.16.2
   resolution: "@ory/client@npm:1.16.2"
   dependencies:
@@ -1587,6 +1587,15 @@ __metadata:
   dependencies:
     undici-types: "npm:~6.20.0"
   checksum: 10/c802a526da2f3fa3ccefd00a71244e7cb825329951719e79e8fec62b1dbc2855388c830489770611584665ce10be23c05ed585982038b24924e1ba2c2cce03fd
+  languageName: node
+  linkType: hard
+
+"@types/node@npm:^22.10.1":
+  version: 22.10.7
+  resolution: "@types/node@npm:22.10.7"
+  dependencies:
+    undici-types: "npm:~6.20.0"
+  checksum: 10/64cde1c2f5e5f7d597d3bd462f52c3c2d688a66623eb75d25e1d1d63d384ef553a27100635ad0dbb7d74da517048aa636947863eb624cf85f25d2f22370ce474
   languageName: node
   linkType: hard
 
