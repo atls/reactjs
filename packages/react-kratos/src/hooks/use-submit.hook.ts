@@ -1,16 +1,12 @@
-import type { ContextSubmit } from '../providers'
-import type { Body }          from '../providers'
+import type { ContextSubmit } from '../providers/index.js'
+import type { Body }          from '../providers/index.js'
 
 import { useContext }         from 'react'
 
-import { SubmitContext }      from '../providers'
+import { SubmitContext }      from '../providers/index.js'
 
 export const useSubmit = <T extends Body>(): ContextSubmit<T> => {
   const submit = useContext(SubmitContext)
-
-  if (!submit) {
-    throw new Error('Missing <SubmitProvider>')
-  }
 
   return submit
 }

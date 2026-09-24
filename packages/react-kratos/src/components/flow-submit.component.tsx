@@ -1,8 +1,8 @@
 import type { ReactElement } from 'react'
 
-import type { Body }         from '../providers'
+import type { Body }         from '../providers/index.js'
 
-import { useSubmit }         from '../hooks'
+import { useSubmit }         from '../hooks/index.js'
 
 export interface FlowSubmitProps<T> {
   children: (submit: {
@@ -10,7 +10,7 @@ export interface FlowSubmitProps<T> {
       override?: Partial<T>,
       onSubmitConfirm?: () => void,
       onSubmitError?: (error: unknown) => void
-    ) => void
+    ) => Promise<void>
     submitting: boolean
   }) => ReactElement
 }
@@ -23,13 +23,7 @@ export const FlowSubmit = <T extends Body>({
   if (typeof children === 'function') {
     return children({
       submitting,
-      onSubmit: (
-        override?: Partial<T>,
-        onSubmitConfirm?: () => void,
-        onSubmitError?: (error: unknown) => void
-      ) => {
-        onSubmit(override, onSubmitConfirm, onSubmitError)
-      },
+      onSubmit,
     })
   }
 

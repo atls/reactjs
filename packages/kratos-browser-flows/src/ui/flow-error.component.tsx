@@ -18,7 +18,7 @@ export interface FlowErrorProps {
 export const FlowError: FC<FlowErrorProps> = ({ children }) => {
   const flow = useFlow()
 
-  const state = flow.getState() as SelfServiceError
+  const state = flow.getState() as SelfServiceError | undefined
 
   if (typeof children === 'function' && state?.error) {
     return children(state.error)

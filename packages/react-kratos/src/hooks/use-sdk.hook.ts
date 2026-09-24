@@ -1,26 +1,15 @@
-import { FrontendApi }   from '@ory/client'
-import { Configuration } from '@ory/client'
-import { useContext }    from 'react'
-import { useMemo }       from 'react'
+import type { FrontendApi } from '@ory/kratos-client-fetch'
 
-import { SdkContext }    from '../providers'
+import { useContext }       from 'react'
+
+import { SdkContext }       from '../providers/index.js'
 
 export const useSdk = (): FrontendApi => {
   const sdk = useContext(SdkContext)
 
-  return useMemo(() => {
-    if (sdk) {
-      return sdk
-    }
+  if (!sdk) {
+    throw new Error('Missing <SdkProvider>')
+  }
 
-    return new FrontendApi(
-      new Configuration({
-        basePath: 'http://localhost:4433',
-        baseOptions: {
-          withCredentials: false,
-          timeout: 10000,
-        },
-      })
-    )
-  }, [sdk])
+  return sdk
 }

@@ -25,7 +25,6 @@ const buttonDisabledStyles = createAppearanceStyles({
   borderColor: theme.colors.button.disabled.border,
 })
 
-// eslint-disable-next-line @typescript-eslint/explicit-function-return-type
 const createTransitionStyles = () => () => ({
   transition: '.25s',
 })

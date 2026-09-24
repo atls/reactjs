@@ -1,6 +1,4 @@
-export * from '@ory/client'
-
-export * from './components'
-export * from './providers'
-export * from './flows'
-export * from './hooks'
+export * from './components/index.js'
+export * from './providers/index.js'
+export * from './flows/index.js'
+export * from './hooks/index.js'

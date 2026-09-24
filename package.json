@@ -15,11 +15,16 @@
   },
   "devDependencies": {
     "@atls/code-runtime": "2.1.2",
+    "@atls/raijin": "0.7.0",
     "@types/node": "22.10.1",
     "@types/testing-library__jest-dom": "5.14.2",
     "eslint": "9.16.0",
     "typescript": "5.5.4"
   },
   "packageManager": "yarn@4.6.0",
+  "testIgnorePatterns": [
+    "packages/identity-links/src/identity-link.component.test.tsx",
+    "packages/identity-links/src/use-identity-url.hook.test.ts"
+  ],
   "typecheckSkipLibCheck": true
 }

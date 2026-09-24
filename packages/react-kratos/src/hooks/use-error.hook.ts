@@ -1,15 +1,11 @@
-import type { ContextError } from '../providers'
+import type { ContextError } from '../providers/index.js'
 
 import { useContext }        from 'react'
 
-import { ErrorContext }      from '../providers'
+import { ErrorContext }      from '../providers/index.js'
 
 export const useError = (): ContextError => {
   const error = useContext(ErrorContext)
-
-  if (!error) {
-    throw new Error('Missing <ErrorProvider>')
-  }
 
   return error
 }

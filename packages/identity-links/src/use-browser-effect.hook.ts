@@ -5,7 +5,6 @@ import type { DependencyList } from 'react'
 
 import { useEffect }           from 'react'
 
-// eslint-disable-next-line @typescript-eslint/explicit-module-boundary-types, @typescript-eslint/explicit-function-return-type
 export const useBrowserEffect = (effect: EffectCallback, deps?: DependencyList) => {
   if (typeof window === 'undefined') {
     return undefined

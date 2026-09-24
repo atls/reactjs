@@ -7,6 +7,7 @@ import type { SelfServiceFlow }           from './flow.interfaces'
 import type { Flow }                      from './flow.interfaces'
 import type { KratosClient }              from './kratos.client'
 
+// eslint-disable-next-line n/prefer-node-protocol -- `events` is the browser polyfill package.
 import { EventEmitter }                   from 'events'
 
 export abstract class AbstractFlow<
@@ -18,7 +19,7 @@ export abstract class AbstractFlow<
 {
   #values: Body = {} as Body
 
-  #state: State
+  #state?: State
 
   #loading = false
 
@@ -44,30 +45,30 @@ export abstract class AbstractFlow<
     return Boolean(this.#state)
   }
 
-  getState(): State {
+  getState(): State | undefined {
     return this.#state
   }
 
   getMessages(): Array<UiText> {
-    return this.#state?.ui?.messages || []
+    return this.#state?.ui.messages || []
   }
 
   getNode(name: string): UiNode | undefined {
-    return this.#state?.ui?.nodes?.find(
+    return this.#state?.ui.nodes.find(
       (node) => (node.attributes as UiNodeInputAttributes).name === name
     )
   }
 
   getNodes(name: string): Array<UiNode> {
     return (
-      this.#state?.ui?.nodes?.filter(
+      this.#state?.ui.nodes.filter(
         (node) => (node.attributes as UiNodeInputAttributes).name === name
       ) || []
     )
   }
 
   getNodesGroup(group: string): Array<UiNode> {
-    return this.#state?.ui?.nodes?.filter((node) => node.group === group) || []
+    return this.#state?.ui.nodes.filter((node) => node.group === group) || []
   }
 
   getValue(name: string): string {
@@ -83,12 +84,22 @@ export abstract class AbstractFlow<
   }
 
   protected setValues(state: State): void {
-    state?.ui?.nodes?.forEach(({ attributes }) => {
+    state.ui.nodes.forEach(({ attributes }) => {
       if (!this.#values[(attributes as UiNodeInputAttributes).name as keyof Body]) {
         this.#values[(attributes as UiNodeInputAttributes).name as keyof Body] =
           (attributes as UiNodeInputAttributes).value || ''
       }
     })
+  }
+
+  protected requireState(): State {
+    const state = this.getState()
+
+    if (!state) {
+      throw new Error('Flow state is not loaded')
+    }
+
+    return state
   }
 
   protected complete(href = '/'): void {

@@ -10,11 +10,13 @@ import type { SubmitSelfServiceSettingsFlowBody }     from '@ory/kratos-client'
 import type { SubmitSelfServiceLoginFlowBody }        from '@ory/kratos-client'
 import type { UiText }                                from '@ory/kratos-client'
 import type { UiNode }                                from '@ory/kratos-client'
+// eslint-disable-next-line n/prefer-node-protocol -- `events` is the browser polyfill package.
 import type { EventEmitter }                          from 'events'
 
 export type FlowName =
   | 'errors'
   | 'login'
+  | 'logout'
   | 'recovery'
   | 'registration'
   | 'settings'
@@ -43,7 +45,7 @@ export interface Flow extends EventEmitter {
 
   hasState: () => boolean
 
-  getState: () => SelfServiceFlow
+  getState: () => SelfServiceFlow | undefined
 
   getMessages: () => Array<UiText>
 

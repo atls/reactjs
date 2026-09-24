@@ -25,8 +25,8 @@ export const makePaymentWithCheck = (
 ): void => {
   const form = event.target as HTMLFormElement
   const receiptElement = form.elements.namedItem('receipt') as HTMLInputElement
-  const email = form.elements.namedItem('email') as HTMLInputElement
-  const phone = form.elements.namedItem('phone') as HTMLInputElement
+  const email = form.elements.namedItem('email') as HTMLInputElement | null
+  const phone = form.elements.namedItem('phone') as HTMLInputElement | null
 
   const receipt: Receipt = {
     Taxation: receiptSettings.Taxation,

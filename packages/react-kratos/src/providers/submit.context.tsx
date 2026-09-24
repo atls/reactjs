@@ -1,8 +1,8 @@
-import type { UpdateRegistrationFlowBody } from '@ory/client'
-import type { UpdateVerificationFlowBody } from '@ory/client'
-import type { UpdateRecoveryFlowBody }     from '@ory/client'
-import type { UpdateSettingsFlowBody }     from '@ory/client'
-import type { UpdateLoginFlowBody }        from '@ory/client'
+import type { UpdateRegistrationFlowBody } from '@ory/kratos-client-fetch'
+import type { UpdateVerificationFlowBody } from '@ory/kratos-client-fetch'
+import type { UpdateRecoveryFlowBody }     from '@ory/kratos-client-fetch'
+import type { UpdateSettingsFlowBody }     from '@ory/kratos-client-fetch'
+import type { UpdateLoginFlowBody }        from '@ory/kratos-client-fetch'
 import type { PropsWithChildren }          from 'react'
 import type { ReactElement }               from 'react'
 

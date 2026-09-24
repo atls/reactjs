@@ -11,6 +11,7 @@ import { contentStyles }    from './button.styles.js'
 import { baseStyles }       from './button.styles.js'
 import { shapeStyles }      from './button.styles.js'
 
+// eslint-disable-next-line @typescript-eslint/no-unnecessary-condition -- Emotion browser entries can be default-wrapped.
 const ButtonElement = (styled.default ?? styled)('button')<ButtonProps & { hover: boolean }>(
   baseStyles as styleFn,
   // eslint-disable-next-line @typescript-eslint/no-unsafe-argument

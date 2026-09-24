@@ -1,11 +1,11 @@
-import type { UiNodeInputAttributes } from '@ory/client'
+import type { UiNodeInputAttributes } from '@ory/kratos-client-fetch'
 import type { ReactElement }          from 'react'
 
-import type { FlowUiInputNode }       from './flow-input-node.component'
+import type { FlowUiInputNode }       from './flow-input-node.component.js'
 
 import { useMemo }                    from 'react'
 
-import { useFlow }                    from '../hooks'
+import { useFlow }                    from '../hooks/index.js'
 
 export interface FlowTotpUnlinkNodesProps {
   children: (nodes: Array<FlowUiInputNode>) => ReactElement
@@ -18,7 +18,7 @@ export const FlowTotpUnlinkNodes = ({
 
   const nodes = useMemo(
     () =>
-      flow?.ui?.nodes?.filter(
+      flow?.ui.nodes.filter(
         (node) =>
           node.group === 'totp' && (node.attributes as UiNodeInputAttributes).name === 'unlink'
       ),

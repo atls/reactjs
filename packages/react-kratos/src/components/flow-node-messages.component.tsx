@@ -1,7 +1,7 @@
-import type { UiText }       from '@ory/client'
+import type { UiText }       from '@ory/kratos-client-fetch'
 import type { ReactElement } from 'react'
 
-import { useFlowNode }       from '../hooks'
+import { useFlowNode }       from '../hooks/index.js'
 
 export interface FlowNodeMessagesProps {
   name: string

@@ -1,17 +1,17 @@
-import type { UiNodeInputAttributes } from '@ory/client'
-import type { UiNodeImageAttributes } from '@ory/client'
-import type { UiNode }                from '@ory/client'
+import type { UiNodeInputAttributes } from '@ory/kratos-client-fetch'
+import type { UiNodeImageAttributes } from '@ory/kratos-client-fetch'
+import type { UiNode }                from '@ory/kratos-client-fetch'
 
 import { useMemo }                    from 'react'
 
-import { useFlow }                    from './use-flow.hook'
+import { useFlow }                    from './use-flow.hook.js'
 
 export const useFlowNode = (nameOrId: string): UiNode | undefined => {
   const { flow } = useFlow()
 
   const node = useMemo(
     () =>
-      flow?.ui?.nodes?.find(({ attributes }) => {
+      flow?.ui.nodes.find(({ attributes }) => {
         if ((attributes as UiNodeInputAttributes).name) {
           return (attributes as UiNodeInputAttributes).name === nameOrId
         }

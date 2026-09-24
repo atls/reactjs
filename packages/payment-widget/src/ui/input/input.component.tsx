@@ -22,6 +22,7 @@ import { baseStyles }                        from './input.styles.js'
 import { shapeStyles }                       from './input.styles.js'
 import { transitionStyles }                  from './input.styles.js'
 
+// eslint-disable-next-line @typescript-eslint/no-unnecessary-condition -- Emotion browser entries can be default-wrapped.
 export const InputElement = (styled.default ?? styled).div(
   // eslint-disable-next-line @typescript-eslint/no-unsafe-argument
   baseStyles,
@@ -31,6 +32,7 @@ export const InputElement = (styled.default ?? styled).div(
   layout
 )
 
+// eslint-disable-next-line @typescript-eslint/no-unnecessary-condition -- Emotion browser entries can be default-wrapped.
 const Container = (styled.default ?? styled).div(({
   type,
 }: {
@@ -93,7 +95,6 @@ export const InputWithoutRef: ForwardRefRenderFunction<HTMLInputElement, InputPr
           value={value}
           // eslint-disable-next-line react/jsx-sort-props
           onChange={changeValue}
-          // eslint-disable-next-line react/jsx-no-leaked-render
           placeholder={required ? `${placeholder}*` : placeholder}
           {...props}
         />

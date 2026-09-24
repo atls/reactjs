@@ -56,6 +56,7 @@ export class VerificationFlow extends AbstractFlow<
   }
 
   async submit(method?: string): Promise<void> {
+    const state = this.requireState()
     const body = this.getValues()
 
     if (method) {
@@ -64,7 +65,7 @@ export class VerificationFlow extends AbstractFlow<
 
     try {
       const { data } = await this.client.submitSelfServiceVerificationFlow(
-        this.getState().id,
+        state.id,
         undefined,
         body,
         {

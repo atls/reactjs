@@ -5,11 +5,11 @@ export class KratosClient extends V0alpha2Api {
   constructor(basePath?: string) {
     if (!basePath && typeof window !== 'undefined') {
       if (window.location.hostname === 'localhost') {
-        basePath = 'http://localhost:4433' // eslint-disable-line no-param-reassign
+        basePath = 'http://localhost:4433'
       } else if (window.location.hostname === '127.0.0.1') {
-        basePath = 'http://127.0.0.1:4433' // eslint-disable-line no-param-reassign
+        basePath = 'http://127.0.0.1:4433'
       } else if (window.location.hostname.startsWith('accounts.')) {
-        basePath = window.location.origin.replace('accounts.', 'identity.') // eslint-disable-line no-param-reassign
+        basePath = window.location.origin.replace('accounts.', 'identity.')
       }
     }
 

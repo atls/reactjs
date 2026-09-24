@@ -42,7 +42,6 @@ export const useFieldsRenderer = (
               type={'type' in field ? field.type : 'text'}
               name={field.name}
               placeholder={translatePlaceholder}
-              // eslint-disable-next-line react/jsx-no-leaked-render
               required={'required' in field ? field.required : false}
               value={fieldsState[field.name]}
               errorText={translateError}

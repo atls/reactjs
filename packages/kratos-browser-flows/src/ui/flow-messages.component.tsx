@@ -13,7 +13,7 @@ export const FlowMessages: FC<FlowMessagesProps> = ({ children }) => {
 
   const messages = flow.getMessages()
 
-  if (typeof children === 'function' && messages) {
+  if (typeof children === 'function') {
     return children(messages)
   }
 

@@ -49,7 +49,7 @@ export const Widget: FC<PropsWithChildren<WidgetProps>> = ({
 
   return (
     <IntlProvider
-      locale={locale ?? navigator.language}
+      locale={locale}
       // @ts-expect-error types mismatch
       messages={messages[locale]}
       defaultLocale={LanguagesType.RUSSIAN}

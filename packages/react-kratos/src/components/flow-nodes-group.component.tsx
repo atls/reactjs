@@ -1,9 +1,9 @@
-import type { UiNode }       from '@ory/client'
+import type { UiNode }       from '@ory/kratos-client-fetch'
 import type { ReactElement } from 'react'
 
 import { useMemo }           from 'react'
 
-import { useFlow }           from '../hooks'
+import { useFlow }           from '../hooks/index.js'
 
 export type FlowNodesGroupChildren = (node: Array<UiNode>) => ReactElement
 
@@ -15,7 +15,7 @@ export interface FlowNodesGroupProps {
 export const FlowNodesGroup = ({ name, children }: FlowNodesGroupProps): ReactElement | null => {
   const { flow } = useFlow()
 
-  const nodes = useMemo(() => flow?.ui?.nodes?.filter((node) => node.group === name), [flow, name])
+  const nodes = useMemo(() => flow?.ui.nodes.filter((node) => node.group === name), [flow, name])
 
   if (!(nodes && nodes.length > 0)) {
     return null
