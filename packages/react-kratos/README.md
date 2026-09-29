@@ -1,10 +1,10 @@
 # @atls/react-kratos
 
-React-компоненты, hooks и providers для native self-service flows self-hosted Ory Kratos.
+React components, hooks, and providers for native self-service flows backed by self-hosted Ory Kratos.
 
-## Использование
+## Usage
 
-Установите `@ory/kratos-client-fetch` версии `26.2.0` или совместимую с диапазоном `^26.2.0` и передайте `FrontendApi` через `SdkProvider`:
+Install `@ory/kratos-client-fetch` version `26.2.0` or a compatible `^26.2.0` release and provide its `FrontendApi` through `SdkProvider`:
 
 ```tsx
 import { Configuration }    from '@ory/kratos-client-fetch'
@@ -32,13 +32,13 @@ export const Login = () => (
 )
 ```
 
-В браузере redirect обрабатывается через `window.location.assign`. На native-платформе передайте `onRedirect`, связанный с платформенным router или `expo-auth-session`.
+In a browser, redirects use `window.location.assign`. On native platforms, provide an `onRedirect` callback backed by the platform router or `expo-auth-session`.
 
-`SdkProvider` обязателен. Пакет не создаёт скрытый client для `http://localhost:4433`, поэтому URL, credentials, timeout и другие transport-настройки принадлежат переданному `FrontendApi`.
+`SdkProvider` is required. The package does not create an implicit client for `http://localhost:4433`; the supplied `FrontendApi` owns its URL, credentials, timeout, and other transport settings.
 
-## Ошибки submit
+## Submit errors
 
-Callback `onSubmit` компонента `FlowSubmit` возвращает `Promise<void>`. Validation, restart и redirect обрабатываются flow-компонентом. Неизвестный `ResponseError`, а также `FetchError` и `RequiredError` отклоняют promise после сброса `submitting`; consumer должен использовать `await` или `catch`:
+The `FlowSubmit` component exposes an `onSubmit` callback that returns `Promise<void>`. The flow component handles validation, restart, and redirect outcomes. Unknown `ResponseError` instances, together with `FetchError` and `RequiredError`, reject the promise after `submitting` is reset; consumers should use `await` or `catch`:
 
 ```tsx
 <FlowSubmit>
@@ -50,7 +50,7 @@ Callback `onSubmit` компонента `FlowSubmit` возвращает `Prom
 
 ## Breaking change
 
-Пакет больше не выполняет `export * from '@ory/client'`. Импортируйте `FrontendApi`, `Configuration`, модели и типы напрямую из `@ory/kratos-client-fetch`:
+The package no longer uses `export * from '@ory/client'`. Import `FrontendApi`, `Configuration`, models, and types directly from `@ory/kratos-client-fetch`:
 
 ```tsx
 import { Configuration } from '@ory/kratos-client-fetch'
@@ -60,6 +60,6 @@ import { LoginFlow }     from '@ory/kratos-client-fetch'
 import { SdkProvider }   from '@atls/react-kratos'
 ```
 
-Admin API и другие vendor SDK через `@atls/react-kratos` не экспортируются.
+Admin APIs and other vendor SDK surfaces are not exported from `@atls/react-kratos`.
 
-`SdkProvider` теперь обязателен: прежний localhost fallback удалён вместе с Axios transport-настройками.
+`SdkProvider` is now required: the previous localhost fallback and Axios transport settings have been removed.
