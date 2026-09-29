@@ -60,6 +60,10 @@ export const RegistrationNativeFlow = ({
         if (onError) {
           onError(error)
         }
+
+        if (useFlowId) {
+          throw error
+        }
       } finally {
         setLoading(false)
       }

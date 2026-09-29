@@ -69,6 +69,10 @@ export const LoginNativeFlow = ({
         if (onError) {
           onError(error)
         }
+
+        if (useFlowId) {
+          throw error
+        }
       } finally {
         setLoading(false)
       }

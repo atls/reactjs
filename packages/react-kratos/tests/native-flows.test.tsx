@@ -313,6 +313,130 @@ test('registration expiration loads the replacement flow before the next submit'
   assert.deepEqual(submittedFlowIds, ['registration-initial', 'registration-replacement'])
 })
 
+test('login expiration rejects when loading the replacement flow fails', async () => {
+  const initial = createFlow<LoginFlow>('login-initial', 'login initial', 'identifier')
+  const replacementId = 'login-replacement'
+  const restartError = new Error('login replacement failed')
+  const requestedFlowIds: Array<string> = []
+  const reportedErrors: Array<unknown> = []
+  const sdk = {
+    createNativeLoginFlow: async () => initial,
+    getLoginFlow: async ({ id }: Parameters<FrontendApi['getLoginFlow']>[0]) => {
+      requestedFlowIds.push(id)
+
+      throw restartError
+    },
+    updateLoginFlow: async () => {
+      throw new ResponseError(
+        Response.json(
+          {
+            error: { id: 'self_service_flow_expired' },
+            use_flow_id: replacementId,
+          },
+          { status: 410 }
+        )
+      )
+    },
+  } as unknown as FrontendApi
+  let submit: Submit<UpdateLoginFlowBody> | undefined
+
+  render(
+    <SdkProvider value={sdk}>
+      <LoginNativeFlow
+        onError={(error) => {
+          reportedErrors.push(error)
+        }}
+      >
+        <FlowProbe<UpdateLoginFlowBody>
+          nodeName='identifier'
+          onSubmitReady={(ready) => {
+            submit = ready
+          }}
+        />
+      </LoginNativeFlow>
+    </SdkProvider>
+  )
+
+  await screen.findByText('login initial')
+  const onSubmit = requireValue(submit, 'login submit callback')
+
+  await act(async () => {
+    await assert.rejects(onSubmit(), (error: Error) => {
+      assert.equal(error, restartError)
+
+      return true
+    })
+  })
+
+  assert.deepEqual(requestedFlowIds, [replacementId])
+  assert.deepEqual(reportedErrors, [restartError])
+  assert.equal(screen.getByTestId('submitting').textContent, 'idle')
+})
+
+test('registration expiration rejects when loading the replacement flow fails', async () => {
+  const initial = createFlow<RegistrationFlow>(
+    'registration-initial',
+    'registration initial',
+    'traits.email'
+  )
+  const replacementId = 'registration-replacement'
+  const restartError = new Error('registration replacement failed')
+  const requestedFlowIds: Array<string> = []
+  const reportedErrors: Array<unknown> = []
+  const sdk = {
+    createNativeRegistrationFlow: async () => initial,
+    getRegistrationFlow: async ({ id }: Parameters<FrontendApi['getRegistrationFlow']>[0]) => {
+      requestedFlowIds.push(id)
+
+      throw restartError
+    },
+    updateRegistrationFlow: async () => {
+      throw new ResponseError(
+        Response.json(
+          {
+            error: { id: 'self_service_flow_expired' },
+            use_flow_id: replacementId,
+          },
+          { status: 410 }
+        )
+      )
+    },
+  } as unknown as FrontendApi
+  let submit: Submit<UpdateRegistrationFlowBody> | undefined
+
+  render(
+    <SdkProvider value={sdk}>
+      <RegistrationNativeFlow
+        onError={(error) => {
+          reportedErrors.push(error)
+        }}
+      >
+        <FlowProbe<UpdateRegistrationFlowBody>
+          nodeName='traits.email'
+          onSubmitReady={(ready) => {
+            submit = ready
+          }}
+        />
+      </RegistrationNativeFlow>
+    </SdkProvider>
+  )
+
+  await screen.findByText('registration initial')
+  const onSubmit = requireValue(submit, 'registration submit callback')
+
+  await act(async () => {
+    await assert.rejects(onSubmit(), (error: Error) => {
+      assert.equal(error, restartError)
+
+      return true
+    })
+  })
+
+  assert.deepEqual(requestedFlowIds, [replacementId])
+  assert.deepEqual(reportedErrors, [restartError])
+  assert.equal(screen.getByTestId('submitting').textContent, 'idle')
+})
+
 test('unknown login failures reject the public submit promise and reset submitting', async () => {
   const initial = createFlow<LoginFlow>('login-initial', 'login initial', 'identifier')
   const response = Response.json({ error: { id: 'unknown' } }, { status: 500 })
