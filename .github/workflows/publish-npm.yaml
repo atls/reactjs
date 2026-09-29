@@ -8,10 +8,11 @@ on:
       - master
     paths-ignore:
       - '.github/**'
+  workflow_dispatch:
 
 jobs:
   publish:
-    if: github.event.pull_request.merged == true
+    if: github.event_name == 'pull_request' && github.event.pull_request.merged == true
     uses: atls/shared/.github/workflows/publish.yaml@master
     permissions: write-all
     with:
@@ -19,3 +20,36 @@ jobs:
     secrets:
       appPrivateKey: ${{ secrets.ATLANTIS_SUPER_BOT_PRIVATE_KEY }}
       npmAuthToken: ${{ secrets.NPM_TOKEN }}
+
+  publish-react-kratos-existing-version:
+    if: github.event_name == 'workflow_dispatch'
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+    steps:
+      - name: Checkout versioned source
+        uses: actions/checkout@v7
+        with:
+          ref: 9bc23729472414c56d1a0a2d67f423dec0f05cfc
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v7
+        with:
+          node-version: '24'
+
+      - name: Verify exact unpublished version
+        run: |
+          test "$(git rev-parse HEAD)" = '9bc23729472414c56d1a0a2d67f423dec0f05cfc'
+          test "$(node -p "require('./packages/react-kratos/package.json').version")" = '0.1.0'
+          npm view @atls/react-kratos versions --json --registry=https://registry.npmjs.org |
+            node -e 'const fs = require("node:fs"); const versions = JSON.parse(fs.readFileSync(0, "utf8")); if ([versions].flat().includes("0.1.0")) { console.error("@atls/react-kratos@0.1.0 already exists in npm"); process.exit(1) }'
+
+      - name: Install
+        run: yarn install --immutable
+
+      - name: Publish existing version to npm
+        run: yarn workspace @atls/react-kratos npm publish --access public
+        env:
+          YARN_NPM_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
+          YARN_NPM_REGISTRY_SERVER: https://registry.npmjs.org
+          YARN_NPM_PUBLISH_REGISTRY: https://registry.npmjs.org
