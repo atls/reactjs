@@ -1,6 +1,7 @@
 import type { OnRedirectHandler } from '@ory/client-fetch'
 import type { GenericError }      from '@ory/kratos-client-fetch'
 
+import { ResponseError }          from '@ory/kratos-client-fetch'
 import { handleFlowError }        from '@ory/client-fetch'
 import { isGenericErrorResponse } from '@ory/client-fetch'
 
@@ -37,6 +38,9 @@ export const createFlowErrorHandler = <T>({
     await restart
   }
 }
+
+export const cloneResponseError = (error: unknown): unknown =>
+  error instanceof ResponseError ? new ResponseError(error.response.clone(), error.message) : error
 
 export const redirectInBrowser: OnRedirectHandler = (url) => {
   if (typeof window === 'undefined') {

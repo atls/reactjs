@@ -17,6 +17,7 @@ import { ValuesProvider }           from '../providers/index.js'
 import { ValuesStore }              from '../providers/index.js'
 import { SubmitProvider }           from '../providers/index.js'
 import { useSdk }                   from '../hooks/index.js'
+import { cloneResponseError }       from './flow-error.handler.js'
 import { createFlowErrorHandler }   from './flow-error.handler.js'
 import { redirectInBrowser }        from './flow-error.handler.js'
 
@@ -110,7 +111,7 @@ export const LoginNativeFlow = ({
         }
       } catch (error) {
         if (onSubmitError) {
-          onSubmitError(error)
+          onSubmitError(cloneResponseError(error))
         }
 
         await createFlowErrorHandler<LoginFlow>({
