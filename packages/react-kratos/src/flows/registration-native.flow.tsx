@@ -61,9 +61,7 @@ export const RegistrationNativeFlow = ({
           onError(error)
         }
 
-        if (useFlowId) {
-          throw error
-        }
+        throw error
       } finally {
         setLoading(false)
       }
@@ -119,7 +117,7 @@ export const RegistrationNativeFlow = ({
   )
 
   useEffect(() => {
-    onCreate()
+    onCreate().catch(() => undefined)
   }, [onCreate])
 
   return (

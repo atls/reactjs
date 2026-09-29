@@ -107,6 +107,110 @@ afterEach(() => {
   cleanup()
 })
 
+test('login missing-flow restart rejects when creating the fresh flow fails', async () => {
+  const initial = createFlow<LoginFlow>('login-initial', 'login initial', 'identifier')
+  const restartError = new Error('fresh login flow failed')
+  const reportedErrors: Array<unknown> = []
+  let createCalls = 0
+  const sdk = {
+    createNativeLoginFlow: async () => {
+      createCalls += 1
+
+      if (createCalls > 1) {
+        throw restartError
+      }
+
+      return initial
+    },
+    updateLoginFlow: async () => {
+      throw new ResponseError(new Response(undefined, { status: 404 }))
+    },
+  } as unknown as FrontendApi
+  let submit: Submit<UpdateLoginFlowBody> | undefined
+
+  render(
+    <SdkProvider value={sdk}>
+      <LoginNativeFlow
+        onError={(error) => {
+          reportedErrors.push(error)
+        }}
+      >
+        <FlowProbe<UpdateLoginFlowBody>
+          nodeName='identifier'
+          onSubmitReady={(ready) => {
+            submit = ready
+          }}
+        />
+      </LoginNativeFlow>
+    </SdkProvider>
+  )
+
+  await screen.findByText('login initial')
+  const onSubmit = requireValue(submit, 'login submit callback')
+
+  await act(async () => {
+    await assert.rejects(onSubmit(), (error) => error === restartError)
+  })
+
+  assert.equal(createCalls, 2)
+  assert.deepEqual(reportedErrors, [restartError])
+  assert.equal(screen.getByTestId('submitting').textContent, 'idle')
+})
+
+test('registration missing-flow restart rejects when creating the fresh flow fails', async () => {
+  const initial = createFlow<RegistrationFlow>(
+    'registration-initial',
+    'registration initial',
+    'traits.email'
+  )
+  const restartError = new Error('fresh registration flow failed')
+  const reportedErrors: Array<unknown> = []
+  let createCalls = 0
+  const sdk = {
+    createNativeRegistrationFlow: async () => {
+      createCalls += 1
+
+      if (createCalls > 1) {
+        throw restartError
+      }
+
+      return initial
+    },
+    updateRegistrationFlow: async () => {
+      throw new ResponseError(new Response(undefined, { status: 404 }))
+    },
+  } as unknown as FrontendApi
+  let submit: Submit<UpdateRegistrationFlowBody> | undefined
+
+  render(
+    <SdkProvider value={sdk}>
+      <RegistrationNativeFlow
+        onError={(error) => {
+          reportedErrors.push(error)
+        }}
+      >
+        <FlowProbe<UpdateRegistrationFlowBody>
+          nodeName='traits.email'
+          onSubmitReady={(ready) => {
+            submit = ready
+          }}
+        />
+      </RegistrationNativeFlow>
+    </SdkProvider>
+  )
+
+  await screen.findByText('registration initial')
+  const onSubmit = requireValue(submit, 'registration submit callback')
+
+  await act(async () => {
+    await assert.rejects(onSubmit(), (error) => error === restartError)
+  })
+
+  assert.equal(createCalls, 2)
+  assert.deepEqual(reportedErrors, [restartError])
+  assert.equal(screen.getByTestId('submitting').textContent, 'idle')
+})
+
 test('login expiration rejects when loading the replacement flow fails', async () => {
   const initial = createFlow<LoginFlow>('login-initial', 'login initial', 'identifier')
   const replacementId = 'login-replacement'
