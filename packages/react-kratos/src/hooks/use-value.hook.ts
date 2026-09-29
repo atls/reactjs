@@ -1,10 +1,10 @@
-import type { Body }   from '../providers'
+import type { Body }   from '../providers/index.js'
 
 import { useState }    from 'react'
 import { useEffect }   from 'react'
 import { useCallback } from 'react'
 
-import { useValues }   from './use-values.hook'
+import { useValues }   from './use-values.hook.js'
 
 export const useValue = (
   name: string

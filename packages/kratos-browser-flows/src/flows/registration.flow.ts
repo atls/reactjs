@@ -56,6 +56,7 @@ export class RegistrationFlow extends AbstractFlow<
   }
 
   async submit(method?: string): Promise<void> {
+    const state = this.requireState()
     const body = this.getValues()
 
     if (method) {
@@ -63,7 +64,7 @@ export class RegistrationFlow extends AbstractFlow<
     }
 
     try {
-      await this.client.submitSelfServiceRegistrationFlow(this.getState().id, body, {
+      await this.client.submitSelfServiceRegistrationFlow(state.id, body, {
         withCredentials: true,
       })
 

@@ -1,22 +1,25 @@
-import type { UpdateLoginFlowBody } from '@ory/client'
-import type { GenericError }        from '@ory/client'
-import type { Session }             from '@ory/client'
-import type { LoginFlow }           from '@ory/client'
+import type { OnRedirectHandler }   from '@ory/client-fetch'
+import type { UpdateLoginFlowBody } from '@ory/kratos-client-fetch'
+import type { GenericError }        from '@ory/kratos-client-fetch'
+import type { Session }             from '@ory/kratos-client-fetch'
+import type { LoginFlow }           from '@ory/kratos-client-fetch'
 import type { ReactNode }           from 'react'
 import type { ReactElement }        from 'react'
 
-import { AxiosError }               from 'axios'
 import { useEffect }                from 'react'
 import { useState }                 from 'react'
 import { useMemo }                  from 'react'
 import { useCallback }              from 'react'
 import React                        from 'react'
 
-import { FlowProvider }             from '../providers'
-import { ValuesProvider }           from '../providers'
-import { ValuesStore }              from '../providers'
-import { SubmitProvider }           from '../providers'
-import { useSdk }                   from '../hooks'
+import { FlowProvider }             from '../providers/index.js'
+import { ValuesProvider }           from '../providers/index.js'
+import { ValuesStore }              from '../providers/index.js'
+import { SubmitProvider }           from '../providers/index.js'
+import { useSdk }                   from '../hooks/index.js'
+import { cloneResponseError }       from './flow-error.handler.js'
+import { createFlowErrorHandler }   from './flow-error.handler.js'
+import { redirectInBrowser }        from './flow-error.handler.js'
 
 export interface LoginNativeFlowProps {
   children: ReactNode
@@ -27,6 +30,7 @@ export interface LoginNativeFlowProps {
   onError?: (error: unknown) => void
   onSession?: (session: { session: Session; sessionToken?: string }) => Promise<void>
   onGenericError?: (error: GenericError) => void
+  onRedirect?: OnRedirectHandler
 }
 
 export const LoginNativeFlow = ({
@@ -38,6 +42,7 @@ export const LoginNativeFlow = ({
   onError,
   onSession,
   onGenericError,
+  onRedirect = redirectInBrowser,
 }: LoginNativeFlowProps): ReactElement => {
   const sdk = useSdk()
   const [flow, setFlow] = useState<LoginFlow>()
@@ -45,27 +50,34 @@ export const LoginNativeFlow = ({
   const [loading, setLoading] = useState<boolean>(true)
   const values = useMemo(() => new ValuesStore(), [])
 
-  const onCreate = useCallback(async () => {
-    setLoading(true)
+  const onCreate = useCallback(
+    async (useFlowId?: string) => {
+      setLoading(true)
 
-    try {
-      const { data } = await sdk.createNativeLoginFlow({
-        aal,
-        refresh,
-        returnTo,
-        xSessionToken: sessionToken,
-        returnSessionTokenExchangeCode: true,
-      })
+      try {
+        const data = useFlowId
+          ? await sdk.getLoginFlow({ id: useFlowId })
+          : await sdk.createNativeLoginFlow({
+              aal,
+              refresh,
+              returnTo,
+              xSessionToken: sessionToken,
+              returnSessionTokenExchangeCode: true,
+            })
 
-      setFlow(data)
-    } catch (error) {
-      if (onError) {
-        onError(error)
+        setFlow(data)
+      } catch (error) {
+        if (onError) {
+          onError(error)
+        }
+
+        throw error
+      } finally {
+        setLoading(false)
       }
-    } finally {
-      setLoading(false)
-    }
-  }, [sdk, aal, refresh, returnTo, sessionToken, setFlow, onError])
+    },
+    [sdk, aal, refresh, returnTo, sessionToken, setFlow, onError]
+  )
 
   const onSubmit = useCallback(
     async (
@@ -81,7 +93,7 @@ export const LoginNativeFlow = ({
       }
 
       try {
-        const { data } = await sdk.updateLoginFlow({
+        const data = await sdk.updateLoginFlow({
           flow: String(flow?.id),
           updateLoginFlowBody: body,
           xSessionToken: sessionToken,
@@ -91,7 +103,7 @@ export const LoginNativeFlow = ({
           onSubmitConfirm()
         }
 
-        if (data.session && onSession) {
+        if (onSession) {
           await onSession({
             session: data.session,
             sessionToken: data.session_token,
@@ -99,31 +111,24 @@ export const LoginNativeFlow = ({
         }
       } catch (error) {
         if (onSubmitError) {
-          onSubmitError(error)
+          onSubmitError(cloneResponseError(error))
         }
 
-        if (error instanceof AxiosError) {
-          if (error.response?.status === 400) {
-            if (error.response.data.error) {
-              if (onGenericError) {
-                onGenericError(error.response.data.error as GenericError)
-              }
-            } else {
-              setFlow(error.response.data as LoginFlow)
-            }
-          } else if (error.response?.status === 404 || error.response?.status === 410) {
-            onCreate()
-          }
-        }
+        await createFlowErrorHandler<LoginFlow>({
+          onRestartFlow: onCreate,
+          onValidationError: setFlow,
+          onGenericError,
+          onRedirect,
+        })(error)
       } finally {
         setSubmitting(false)
       }
     },
-    [sdk, flow, sessionToken, values, onCreate, onSession, onGenericError]
+    [sdk, flow, sessionToken, values, onCreate, onSession, onGenericError, onRedirect]
   )
 
   useEffect(() => {
-    onCreate()
+    onCreate().catch(() => undefined)
   }, [onCreate])
 
   return (

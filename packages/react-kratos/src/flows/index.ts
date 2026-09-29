@@ -1,2 +1,2 @@
-export * from './registration-native.flow'
-export * from './login-native.flow'
+export * from './registration-native.flow.js'
+export * from './login-native.flow.js'

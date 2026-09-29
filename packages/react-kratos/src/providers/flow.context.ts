@@ -1,8 +1,8 @@
-import type { RegistrationFlow } from '@ory/client'
-import type { VerificationFlow } from '@ory/client'
-import type { RecoveryFlow }     from '@ory/client'
-import type { SettingsFlow }     from '@ory/client'
-import type { LoginFlow }        from '@ory/client'
+import type { RegistrationFlow } from '@ory/kratos-client-fetch'
+import type { VerificationFlow } from '@ory/kratos-client-fetch'
+import type { RecoveryFlow }     from '@ory/kratos-client-fetch'
+import type { SettingsFlow }     from '@ory/kratos-client-fetch'
+import type { LoginFlow }        from '@ory/kratos-client-fetch'
 
 import { createContext }         from 'react'
 

@@ -31,35 +31,24 @@ export const KratosFlowProvider: FC<KratosFlowProviderProps> = ({
   const client = useMemo(() => new KratosClient(basePath), [basePath])
 
   const flow = useMemo(() => {
-    if (name === 'login') {
-      return new LoginFlow(client)
+    switch (name) {
+      case 'login':
+        return new LoginFlow(client)
+      case 'registration':
+        return new RegistrationFlow(client)
+      case 'verification':
+        return new VerificationFlow(client)
+      case 'recovery':
+        return new RecoveryFlow(client)
+      case 'settings':
+        return new SettingsFlow(client)
+      case 'errors':
+        return new ErrorsFlow(client)
+      case 'logout':
+        return new LogoutFlow(client)
+      default:
+        throw new Error(`Unkown flow: ${name as string}`)
     }
-
-    if (name === 'registration') {
-      return new RegistrationFlow(client)
-    }
-
-    if (name === 'verification') {
-      return new VerificationFlow(client)
-    }
-
-    if (name === 'recovery') {
-      return new RecoveryFlow(client)
-    }
-
-    if (name === 'settings') {
-      return new SettingsFlow(client)
-    }
-
-    if (name === 'errors') {
-      return new ErrorsFlow(client)
-    }
-
-    if (name === 'logout') {
-      return new LogoutFlow(client)
-    }
-
-    throw new Error(`Unkown flow: ${name as string}`)
   }, [name, client])
 
   return <Provider value={flow as Flow}>{children}</Provider>

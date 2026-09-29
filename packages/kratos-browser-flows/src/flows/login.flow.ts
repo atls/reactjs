@@ -48,6 +48,7 @@ export class LoginFlow extends AbstractFlow<SelfServiceLoginFlow, SubmitSelfServ
   }
 
   async submit(method?: string): Promise<void> {
+    const state = this.requireState()
     const body = this.getValues()
 
     if (method) {
@@ -55,7 +56,7 @@ export class LoginFlow extends AbstractFlow<SelfServiceLoginFlow, SubmitSelfServ
     }
 
     try {
-      await this.client.submitSelfServiceLoginFlow(this.getState().id, undefined, body, {
+      await this.client.submitSelfServiceLoginFlow(state.id, undefined, body, {
         withCredentials: true,
       })
 

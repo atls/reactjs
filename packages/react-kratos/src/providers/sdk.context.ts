@@ -1,4 +1,4 @@
-import type { FrontendApi } from '@ory/client'
+import type { FrontendApi } from '@ory/kratos-client-fetch'
 
 import { createContext }    from 'react'
 

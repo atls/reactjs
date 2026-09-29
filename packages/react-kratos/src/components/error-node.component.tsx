@@ -1,7 +1,7 @@
-import type { FlowError }    from '@ory/client'
+import type { FlowError }    from '@ory/kratos-client-fetch'
 import type { ReactElement } from 'react'
 
-import { useError }          from '../hooks'
+import { useError }          from '../hooks/index.js'
 
 export interface ErrorNodeProps {
   children: (node: FlowError) => ReactElement

@@ -56,6 +56,7 @@ export class SettingsFlow extends AbstractFlow<
   }
 
   async submit(method?: string): Promise<void> {
+    const state = this.requireState()
     const body = this.getValues()
 
     if (method) {
@@ -63,14 +64,9 @@ export class SettingsFlow extends AbstractFlow<
     }
 
     try {
-      const { data } = await this.client.submitSelfServiceSettingsFlow(
-        this.getState().id,
-        undefined,
-        body,
-        {
-          withCredentials: true,
-        }
-      )
+      const { data } = await this.client.submitSelfServiceSettingsFlow(state.id, undefined, body, {
+        withCredentials: true,
+      })
 
       this.setState(data)
       this.setValues(data)

@@ -1,13 +1,13 @@
-import type { UiNodeInputAttributes } from '@ory/client'
-import type { UiNode }                from '@ory/client'
+import type { UiNodeInputAttributes } from '@ory/kratos-client-fetch'
+import type { UiNode }                from '@ory/kratos-client-fetch'
 import type { ReactElement }          from 'react'
 
-import { UiNodeTypeEnum }             from '@ory/client'
+import { UiNodeTypeEnum }             from '@ory/kratos-client-fetch'
 import { useEffect }                  from 'react'
 import { useCallback }                from 'react'
 
-import { useFlowNode }                from '../hooks'
-import { useValue }                   from '../hooks'
+import { useFlowNode }                from '../hooks/index.js'
+import { useValue }                   from '../hooks/index.js'
 
 type OnChangeCallback = (event: Date | boolean | number | string) => void
 

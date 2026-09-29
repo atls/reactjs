@@ -1,9 +1,9 @@
-import type { UiNode }       from '@ory/client'
+import type { UiNode }       from '@ory/kratos-client-fetch'
 import type { ReactElement } from 'react'
 
 import { useMemo }           from 'react'
 
-import { useFlow }           from '../hooks'
+import { useFlow }           from '../hooks/index.js'
 
 export type FlowNodesFilterChildren = (node: Array<UiNode>) => ReactElement
 
@@ -18,7 +18,7 @@ export const FlowNodesFilter = ({
 }: FlowNodesFilterProps): ReactElement | null => {
   const { flow } = useFlow()
 
-  const nodes = useMemo(() => flow?.ui?.nodes?.filter(predicate), [flow, predicate])
+  const nodes = useMemo(() => flow?.ui.nodes.filter(predicate), [flow, predicate])
 
   if (!(nodes && nodes.length > 0)) {
     return null

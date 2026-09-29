@@ -1,10 +1,10 @@
-import type { UiNodeImageAttributes } from '@ory/client'
-import type { UiNode }                from '@ory/client'
+import type { UiNodeImageAttributes } from '@ory/kratos-client-fetch'
+import type { UiNode }                from '@ory/kratos-client-fetch'
 import type { ReactElement }          from 'react'
 
-import { UiNodeTypeEnum }             from '@ory/client'
+import { UiNodeTypeEnum }             from '@ory/kratos-client-fetch'
 
-import { useFlowNode }                from '../hooks'
+import { useFlowNode }                from '../hooks/index.js'
 
 export interface FlowUiImageNode extends Omit<UiNode, 'attributes'> {
   attributes: UiNodeImageAttributes
