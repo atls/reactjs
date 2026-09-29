@@ -8,23 +8,10 @@ on:
       - master
     paths-ignore:
       - '.github/**'
-  workflow_dispatch:
-    inputs:
-      package:
-        description: Already versioned workspace from the failed release batch
-        required: true
-        type: choice
-        options:
-          - '@atls/react-app-links'
-          - '@atls/react-identity-links'
-          - '@atls/react-identity-user-provider'
-          - '@atls/react-kratos'
-          - '@atls/react-kratos-browser-flows'
-          - '@atls/tinkoff-payment-widget'
 
 jobs:
   publish:
-    if: github.event_name == 'pull_request' && github.event.pull_request.merged == true
+    if: github.event.pull_request.merged == true
     uses: atls/shared/.github/workflows/publish.yaml@master
     permissions: write-all
     with:
@@ -32,49 +19,3 @@ jobs:
     secrets:
       appPrivateKey: ${{ secrets.ATLANTIS_SUPER_BOT_PRIVATE_KEY }}
       npmAuthToken: ${{ secrets.NPM_TOKEN }}
-
-  publish-existing-version:
-    if: github.event_name == 'workflow_dispatch'
-    runs-on: ubuntu-latest
-    permissions:
-      contents: read
-    env:
-      TARGET_PACKAGE: ${{ inputs.package }}
-    steps:
-      - name: Checkout versioned source
-        uses: actions/checkout@v7
-        with:
-          ref: 9bc23729472414c56d1a0a2d67f423dec0f05cfc
-
-      - name: Setup Node.js
-        uses: actions/setup-node@v7
-        with:
-          node-version: '24'
-
-      - name: Verify exact unpublished version
-        run: |
-          set -euo pipefail
-          test "$(git rev-parse HEAD)" = '9bc23729472414c56d1a0a2d67f423dec0f05cfc'
-          case "$TARGET_PACKAGE" in
-            '@atls/react-app-links') package_path='packages/app-links'; expected_version='0.1.0' ;;
-            '@atls/react-identity-links') package_path='packages/identity-links'; expected_version='0.1.0' ;;
-            '@atls/react-identity-user-provider') package_path='packages/identity-user-provider'; expected_version='0.1.0' ;;
-            '@atls/react-kratos') package_path='packages/react-kratos'; expected_version='0.1.0' ;;
-            '@atls/react-kratos-browser-flows') package_path='packages/kratos-browser-flows'; expected_version='0.1.0' ;;
-            '@atls/tinkoff-payment-widget') package_path='packages/payment-widget'; expected_version='0.2.0' ;;
-            *) exit 1 ;;
-          esac
-          test "$(node -p "require('./$package_path/package.json').name")" = "$TARGET_PACKAGE"
-          test "$(node -p "require('./$package_path/package.json').version")" = "$expected_version"
-          npm view "$TARGET_PACKAGE" versions --json --registry=https://registry.npmjs.org |
-            TARGET_VERSION="$expected_version" node -e 'const fs = require("node:fs"); const versions = JSON.parse(fs.readFileSync(0, "utf8")); if ([versions].flat().includes(process.env.TARGET_VERSION)) { console.error("Package version already exists in npm"); process.exit(1) }'
-
-      - name: Install
-        run: yarn install --immutable
-
-      - name: Publish existing version to npm
-        run: yarn workspace "$TARGET_PACKAGE" npm publish --access public
-        env:
-          YARN_NPM_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
-          YARN_NPM_REGISTRY_SERVER: https://registry.npmjs.org
-          YARN_NPM_PUBLISH_REGISTRY: https://registry.npmjs.org
