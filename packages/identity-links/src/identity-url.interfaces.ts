@@ -1,12 +1,7 @@
 import type { JSX } from 'react'
 
 export type IdentityUrlType =
-  | 'login'
-  | 'logout'
-  | 'recovery'
-  | 'registration'
-  | 'settings'
-  | 'verification'
+  'login' | 'logout' | 'recovery' | 'registration' | 'settings' | 'verification'
 
 export interface UseIdentityUrlReturnToProps {
   subdomain?: string

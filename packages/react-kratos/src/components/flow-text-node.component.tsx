@@ -18,7 +18,7 @@ export interface FlowTextNodeProps {
 export const FlowTextNode = ({ name, children }: FlowTextNodeProps): ReactElement | null => {
   const node = useFlowNode(name)
 
-  if (node && node.type === UiNodeTypeEnum.Text && typeof children === 'function') {
+  if (node?.type === UiNodeTypeEnum.Text && typeof children === 'function') {
     return children(node as FlowUiTextNode)
   }
 

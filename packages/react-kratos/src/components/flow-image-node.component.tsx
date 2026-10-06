@@ -18,7 +18,7 @@ export interface FlowImageNodeProps {
 export const FlowImageNode = ({ name, children }: FlowImageNodeProps): ReactElement | null => {
   const node = useFlowNode(name)
 
-  if (node && node.type === UiNodeTypeEnum.Img && typeof children === 'function') {
+  if (node?.type === UiNodeTypeEnum.Img && typeof children === 'function') {
     return children(node as FlowUiImageNode)
   }
 

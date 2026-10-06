@@ -11,9 +11,9 @@ import type { KratosClient }              from './kratos.client'
 import { EventEmitter }                   from 'events'
 
 export abstract class AbstractFlow<
-    State extends SelfServiceFlow,
-    Body extends SubmitSelfServiceFlowBody,
-  >
+  State extends SelfServiceFlow,
+  Body extends SubmitSelfServiceFlowBody,
+>
   extends EventEmitter
   implements Flow
 {

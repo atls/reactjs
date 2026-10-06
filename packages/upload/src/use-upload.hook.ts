@@ -4,7 +4,7 @@ import { useMemo }       from 'react'
 
 import { useGatewayUrl } from './use-gateway-url.hook.js'
 
-const uploadMutation = gql/* Graphql */ `
+const uploadMutation = gql /* Graphql */ `
   mutation CreateUpload($input: CreateUploadInput!) {
     createUpload(input: $input) {
       id
@@ -12,7 +12,7 @@ const uploadMutation = gql/* Graphql */ `
     }
   }
 `
-const confirmMutation = gql/* Graphql */ `
+const confirmMutation = gql /* Graphql */ `
   mutation ConfirmUpload($input: ConfirmUploadInput!) {
     confirmUpload(input: $input) {
       id

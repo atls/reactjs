@@ -14,27 +14,23 @@ import type { UiNode }                                from '@ory/kratos-client'
 import type { EventEmitter }                          from 'events'
 
 export type FlowName =
-  | 'errors'
-  | 'login'
-  | 'logout'
-  | 'recovery'
-  | 'registration'
-  | 'settings'
-  | 'verification'
+  'errors' | 'login' | 'logout' | 'recovery' | 'registration' | 'settings' | 'verification'
 
 export type SelfServiceFlow =
-  | SelfServiceLoginFlow
-  | SelfServiceRecoveryFlow
-  | SelfServiceRegistrationFlow
-  | SelfServiceSettingsFlow
-  | SelfServiceVerificationFlow
+
+    | SelfServiceLoginFlow
+    | SelfServiceRecoveryFlow
+    | SelfServiceRegistrationFlow
+    | SelfServiceSettingsFlow
+    | SelfServiceVerificationFlow
 
 export type SubmitSelfServiceFlowBody =
-  | SubmitSelfServiceLoginFlowBody
-  | SubmitSelfServiceRecoveryFlowBody
-  | SubmitSelfServiceRegistrationFlowBody
-  | SubmitSelfServiceSettingsFlowBody
-  | SubmitSelfServiceVerificationFlowBody
+
+    | SubmitSelfServiceLoginFlowBody
+    | SubmitSelfServiceRecoveryFlowBody
+    | SubmitSelfServiceRegistrationFlowBody
+    | SubmitSelfServiceSettingsFlowBody
+    | SubmitSelfServiceVerificationFlowBody
 
 export interface Flow extends EventEmitter {
   setLoading: (loading: boolean) => void

@@ -10,11 +10,12 @@ import { createContext }                   from 'react'
 import React                               from 'react'
 
 export type Body =
-  | UpdateLoginFlowBody
-  | UpdateRecoveryFlowBody
-  | UpdateRegistrationFlowBody
-  | UpdateSettingsFlowBody
-  | UpdateVerificationFlowBody
+
+    | UpdateLoginFlowBody
+    | UpdateRecoveryFlowBody
+    | UpdateRegistrationFlowBody
+    | UpdateSettingsFlowBody
+    | UpdateVerificationFlowBody
 
 export interface ContextSubmit<T extends Body> {
   onSubmit: (

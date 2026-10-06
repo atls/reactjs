@@ -29,7 +29,7 @@ export const FlowNode: FC<FlowNodeProps> = ({ name, children }) => {
   const onChange = useCallback(
     (event: FormEvent<HTMLInputElement> | string) => {
       if (typeof event === 'object' && 'value' in event.target && event.target.value) {
-        setValue(event.target.value as string)
+        setValue(event.target.value)
         flow.setValue(name, event.target.value as string)
       } else {
         setValue(event)
