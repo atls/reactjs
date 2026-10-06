@@ -1,7 +1,6 @@
 import type { ReactNode }   from 'react'
 import type { FC }          from 'react'
 
-import type { Flow }        from '../flows/flow.interfaces'
 import type { FlowName }    from '../flows/flow.interfaces'
 
 import { useMemo }          from 'react'
@@ -51,5 +50,5 @@ export const KratosFlowProvider: FC<KratosFlowProviderProps> = ({
     }
   }, [name, client])
 
-  return <Provider value={flow as Flow}>{children}</Provider>
+  return <Provider value={flow}>{children}</Provider>
 }

@@ -15,8 +15,7 @@ export const identityUrlTypes = {
 }
 
 export const useIdentityUrl = ({ type = 'login', returnTo = false }: UseIdentityUrlProps = {}):
-  | string
-  | null => {
+  string | null => {
   const [url, setUrl] = useState<string | null>(null)
 
   useBrowserEffect(() => {

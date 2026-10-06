@@ -42,7 +42,7 @@ export const FlowInputNode = ({
     [setValue]
   )
 
-  if (node && node.type === UiNodeTypeEnum.Input && typeof children === 'function') {
+  if (node?.type === UiNodeTypeEnum.Input && typeof children === 'function') {
     return children(node as FlowUiInputNode, value, onChange)
   }
 

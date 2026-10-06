@@ -7,4 +7,4 @@ export type {
   ReceiptItem,
   DirectionFields,
 } from './interfaces/index.js'
-export * from './enums/index.js'
+export *                                                from './enums/index.js'
