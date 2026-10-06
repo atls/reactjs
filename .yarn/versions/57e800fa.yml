@@ -1,0 +1,10 @@
+declined:
+  - "@atls/react-api-auth-user"
+  - "@atls/react-app-links"
+  - "@atls/react-identity-links"
+  - "@atls/react-identity-user-provider"
+  - "@atls/react-kratos-browser-flows"
+  - "@atls/tinkoff-payment-widget"
+  - "@atls/react-kratos"
+  - "@atls/react-upload"
+  - "@atls/react-user"
