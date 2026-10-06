@@ -148,9 +148,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@atls/raijin@npm:1.1.0":
-  version: 1.1.0
-  resolution: "@atls/raijin@npm:1.1.0"
+"@atls/raijin@npm:1.1.1":
+  version: 1.1.1
+  resolution: "@atls/raijin@npm:1.1.1"
   dependencies:
     "@angular-devkit/core": "npm:22.1.8"
     "@angular-devkit/schematics": "npm:22.1.8"
@@ -183,7 +183,7 @@ __metadata:
   bin:
     raijin: bin/raijin.js
     raijin-hooks: bin/raijin-hooks.js
-  checksum: 10/8f9359d816ed4effe167bc1a29aaeba4385319836a56776b4c56f6a1c99c9b27152766fba9383f8e6c2d4b5c67f1ca816ce857064bf86323a17fb3fee0aa6a4e
+  checksum: 10/280c04bc1eb4ba68d075bd31d4e1743666f588169fb6a649cd45bf60b0ada198ba266bc86198f9b6d37ce5ff9c5892394e863834405887b2710a47e3f16d5a40
   languageName: node
   linkType: hard
 
@@ -6713,7 +6713,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "reactjs@workspace:."
   dependencies:
-    "@atls/raijin": "npm:1.1.0"
+    "@atls/raijin": "npm:1.1.1"
     "@emotion/react": "npm:11.9.3"
     "@types/node": "npm:22.10.1"
     "@types/testing-library__jest-dom": "npm:5.14.2"
