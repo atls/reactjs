@@ -1,9 +1,9 @@
-import type { UseIdentityUrlProps } from './identity-url.interfaces'
+import type { UseIdentityUrlProps } from './identity-url.interfaces.js'
 
 import { useState }                 from 'react'
-import { getDomain }                from 'tldjs'
+import tldjs                        from 'tldjs'
 
-import { useBrowserEffect }         from './use-browser-effect.hook'
+import { useBrowserEffect }         from './use-browser-effect.hook.js'
 
 export const identityUrlTypes = {
   login: '/auth/login',
@@ -25,7 +25,7 @@ export const useIdentityUrl = ({ type = 'login', returnTo = false }: UseIdentity
     if (hostname === 'localhost') {
       setUrl(`${protocol}//localhost:3000${path}`)
     } else {
-      const domain = getDomain(hostname)
+      const domain = tldjs.getDomain(hostname)
 
       if (returnTo === false) {
         setUrl(`${protocol}//accounts.${domain}${path}`)

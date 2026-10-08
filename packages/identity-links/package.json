@@ -2,9 +2,11 @@
   "name": "@atls/react-identity-links",
   "version": "0.1.1",
   "license": "MIT",
+  "type": "module",
   "main": "src/index.ts",
   "files": [
-    "dist"
+    "dist",
+    "!dist/*.test.*"
   ],
   "scripts": {
     "build": "yarn library build",
@@ -15,13 +17,13 @@
     "tldjs": "^2.3.1"
   },
   "devDependencies": {
-    "@testing-library/jest-dom": "^5.16.2",
-    "@testing-library/react": "^12.1.3",
-    "@testing-library/react-hooks": "^7.0.2",
+    "@testing-library/react": "16.1.0",
+    "@types/node": "22.10.1",
     "@types/react": "18.3.6",
     "@types/react-dom": "^18.2.7",
-    "@types/testing-library__jest-dom": "^5.14.1",
     "@types/tldjs": "2.3.4",
+    "global-jsdom": "25.0.0",
+    "jsdom": "25.0.1",
     "react": "^18.2.0",
     "react-dom": "^18.2.0"
   },

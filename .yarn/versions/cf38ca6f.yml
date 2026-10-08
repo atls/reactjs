@@ -1,0 +1,3 @@
+releases:
+  "@atls/react-identity-links": major
+  "@atls/react-kratos": patch

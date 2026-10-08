@@ -23,7 +23,7 @@
     "@ory/kratos-client-fetch": "26.2.0",
     "@testing-library/react": "16.1.0",
     "@types/node": "^22.10.1",
-    "@types/react": "^18.2.45",
+    "@types/react": "18.3.6",
     "@types/react-dom": "^18.2.18",
     "global-jsdom": "25.0.0",
     "jsdom": "25.0.1",

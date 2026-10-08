@@ -1,37 +1,34 @@
-// /**
-//  * @jest-environment jsdom
-//  */
+import 'global-jsdom/register'
 
-// import '@testing-library/jest-dom/extend-expect'
+import assert           from 'node:assert/strict'
+import { afterEach }    from 'node:test'
+import { test }         from 'node:test'
 
-// import { render }       from '@testing-library/react'
-// import React            from 'react'
+import { cleanup }      from '@testing-library/react'
+import { render }       from '@testing-library/react'
+import React            from 'react'
 
-// import { IdentityLink } from './identity-link.component'
+import { IdentityLink } from './identity-link.component.js'
 
-// describe('identity-link.component', () => {
-//   const originalLocation = window.location
+const dom = globalThis as typeof globalThis & {
+  $jsdom: { reconfigure: (options: { url: string }) => void }
+}
 
-//   const mockWindowLocation = (newLocation: Location | URL | string): void => {
-//     // @ts-expect-error location can be optional
-//     delete window.location
-//     window.location = newLocation as Location | (Location & string)
-//   }
+dom.$jsdom.reconfigure({ url: 'https://identity.atls.tech/' })
 
-//   afterEach(() => {
-//     mockWindowLocation(originalLocation)
-//   })
+afterEach(() => {
+  cleanup()
+})
 
-//   it('without params', async () => {
-//     mockWindowLocation(new URL('https://identity.monstrs.dev'))
+test('renders a login link with the current URL as return target', async () => {
+  const { findByRole } = render(
+    <IdentityLink returnTo>{(url) => <a href={url}>Login</a>}</IdentityLink>
+  )
 
-//     const { getByText } = render(
-//       <IdentityLink returnTo>{(url) => <a href={url}>Login</a>}</IdentityLink>
-//     )
+  const link = await findByRole('link', { name: 'Login' })
 
-//     expect(getByText('Login')).toHaveAttribute(
-//       'href',
-//       'https://accounts.monstrs.dev/auth/login?return_to=https://identity.monstrs.dev/'
-//     )
-//   })
-// })
+  assert.equal(
+    link.getAttribute('href'),
+    'https://accounts.atls.tech/auth/login?return_to=https://identity.atls.tech/'
+  )
+})
