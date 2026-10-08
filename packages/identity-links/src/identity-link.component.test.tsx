@@ -14,7 +14,7 @@ const dom = globalThis as typeof globalThis & {
   $jsdom: { reconfigure: (options: { url: string }) => void }
 }
 
-dom.$jsdom.reconfigure({ url: 'https://identity.monstrs.dev/' })
+dom.$jsdom.reconfigure({ url: 'https://identity.atls.tech/' })
 
 afterEach(() => {
   cleanup()
@@ -29,6 +29,6 @@ test('renders a login link with the current URL as return target', async () => {
 
   assert.equal(
     link.getAttribute('href'),
-    'https://accounts.monstrs.dev/auth/login?return_to=https://identity.monstrs.dev/'
+    'https://accounts.atls.tech/auth/login?return_to=https://identity.atls.tech/'
   )
 })

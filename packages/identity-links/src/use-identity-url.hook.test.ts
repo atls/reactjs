@@ -14,7 +14,7 @@ const dom = globalThis as typeof globalThis & {
   $jsdom: { reconfigure: (options: { url: string }) => void }
 }
 
-dom.$jsdom.reconfigure({ url: 'https://identity.monstrs.dev/' })
+dom.$jsdom.reconfigure({ url: 'https://identity.atls.tech/' })
 
 afterEach(() => {
   cleanup()
@@ -26,7 +26,7 @@ test('uses the current URL as the default return target', async () => {
   await waitFor(() => {
     assert.equal(
       result.current,
-      'https://accounts.monstrs.dev/auth/login?return_to=https://identity.monstrs.dev/'
+      'https://accounts.atls.tech/auth/login?return_to=https://identity.atls.tech/'
     )
   })
 })
@@ -37,7 +37,7 @@ test('uses the requested identity action', async () => {
   await waitFor(() => {
     assert.equal(
       result.current,
-      'https://accounts.monstrs.dev/auth/registration?return_to=https://identity.monstrs.dev/'
+      'https://accounts.atls.tech/auth/registration?return_to=https://identity.atls.tech/'
     )
   })
 })
@@ -48,7 +48,7 @@ test('uses a custom return path', async () => {
   await waitFor(() => {
     assert.equal(
       result.current,
-      'https://accounts.monstrs.dev/auth/login?return_to=https://identity.monstrs.dev/custom'
+      'https://accounts.atls.tech/auth/login?return_to=https://identity.atls.tech/custom'
     )
   })
 })
@@ -59,7 +59,7 @@ test('uses a custom return subdomain', async () => {
   await waitFor(() => {
     assert.equal(
       result.current,
-      'https://accounts.monstrs.dev/auth/login?return_to=https://custom.monstrs.dev/'
+      'https://accounts.atls.tech/auth/login?return_to=https://custom.atls.tech/'
     )
   })
 })
